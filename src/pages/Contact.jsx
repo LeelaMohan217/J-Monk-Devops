@@ -108,7 +108,7 @@ const Contact = () => {
                     </span>
                   </div>
                   <div className="mt-1 ml-6 sm:ml-8 text-neutral-800 text-sm sm:text-base">
-                    +123 456 7890
+                    +91 7330300203
                   </div>
                 </div>
 
@@ -121,7 +121,7 @@ const Contact = () => {
                     </span>
                   </div>
                   <div className="mt-1 ml-6 sm:ml-8 text-neutral-800 text-sm sm:text-base">
-                    jaftdevelopers@gmail.com
+                    jmonkdevops@gmail.com
                   </div>
                 </div>
 
