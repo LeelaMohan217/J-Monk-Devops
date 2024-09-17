@@ -16,10 +16,10 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 gap-4 border-b border-neutral-100 py-10 lg:py-16 xl:py-20">
           <div className="flex flex-col gap-4">
             <h1 className="text-left text-3xl text-white font-bold">
-              J-Monks Devops
+              J-Monk Devops
             </h1>
             <p className=" text-left text-neutral-200 text-base font-extralight leading-6">
-              J-Monks Devops enhances everyday lives by providing software that
+              J-Monk Devops enhances everyday lives by providing software that
               digitalizes to improve business growth with latest tools and
               technologies.
             </p>
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
         <div className="my-6">
           <h6 className="text-neutral-200 text-sm font-normal text-center">
-            Copyright © 2024 J-Monks Devops. All rights reserved.
+            Copyright © 2024 J-Monk Devops. All rights reserved.
           </h6>
         </div>
       </div>
