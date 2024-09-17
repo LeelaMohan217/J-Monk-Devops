@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "../constants";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../assets/Logo.png";
 
 const Navbar = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -41,16 +42,16 @@ const Navbar = () => {
     <>
       <nav
         className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-lg" : "bg-gradient-to-b from-neutral-50 to-neutral-200"
+          scrolled
+            ? "bg-white shadow-lg"
+            : "bg-gradient-to-b from-neutral-50 to-neutral-200"
         }`}
       >
-        <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-6">
+        <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-2">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center flex-shrink-0">
-              <span className="text-2xl font-bold tracking-tight text-red-600">
-                JD
-              </span>
-              <span className="px-4 text-xl hidden sm:block tracking-tight text-black font-semibold">
+              <img className="w-20 h-20" src={Logo} alt="Logo" />
+              <span className="px-3 text-xl hidden sm:block tracking-tight text-black font-semibold">
                 J-Monk Devops
               </span>
             </Link>
