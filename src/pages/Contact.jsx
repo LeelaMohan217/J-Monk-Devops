@@ -35,26 +35,20 @@ const Contact = () => {
     }
 
     setErrorMessage("");
-
-    // EmailJS sending process
     emailjs
       .send(
-        "service_byleokq", // Replace with your service ID
-        "template_156xzue", // Replace with your template ID
+        "service_yo0v2l5", // Updated service ID
+        "template_wupcssg", // Updated template ID
         formData,
-        "QP1sq9F9h7KcNd9rY" // Replace with your user ID
+        "aMTL-Wx9Wf14SxgIv" // Updated user ID
       )
       .then(
         (response) => {
           console.log("Email sent successfully:", response);
           setSuccessMessage("Your message has been sent successfully!");
-
-          // Reload the page after a delay
           setTimeout(() => {
             window.location.reload();
-          }, 500); // 500 milliseconds delay
-
-          // Clear the form
+          }, 500);
           setFormData({
             firstName: "",
             lastName: "",
@@ -75,7 +69,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="flex flex-col gap-2 py-14">
             <h2 className="text-2xl font-medium text-red-600">Contact</h2>
-            <h1 className="text-6xl font-bold text-neutral-800">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-800">
               Get In Touch Today
             </h1>
           </div>
@@ -87,7 +81,7 @@ const Contact = () => {
           <div className="flex-3 w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]">
             <iframe
               title="Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.046499755729!2d83.68208387592397!3d18.418528387437985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3b0ae0d9b8a6ad%3A0x38bcbd7b3a44f770!2sNarasapuram%20Village%2C%20Ponduru%2C%20Andhra%20Pradesh%20532168!5e0!3m2!1sen!2sin!4v1694363005556!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.040106778158!2d80.54094357591748!3d16.44158738862414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a1faeedf0e067%3A0xc9d63f32cbb27ec1!2sDoor%20No.5-69%2C%20Pedaparimi%20Village%2C%20Thullur%20Mandal%2C%20Guntur%20District%2C%20522236%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1694372345678!5m2!1sen!2sin"
               width="100%"
               height="100%"
               allowFullScreen=""
@@ -140,7 +134,8 @@ const Contact = () => {
                     </span>
                   </div>
                   <div className="mt-1 ml-6 sm:ml-8 text-neutral-800 text-sm sm:text-base">
-                    1-112c, Narasapuram, Andhra Pradesh, India, 532168
+                    Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur
+                    District, 522236, Andhra Pradesh
                   </div>
                 </div>
               </div>
@@ -172,7 +167,7 @@ const Contact = () => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 md:py-3 border border-gray-300 rounded-full focus:outline-none focus:border-red-500"
+                className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-full focus:outline-none focus:border-red-500"
                 placeholder="John"
               />
             </div>
@@ -189,7 +184,7 @@ const Contact = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 md:py-3 border border-gray-300 rounded-full focus:outline-none focus:border-red-500"
+                className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-full focus:outline-none focus:border-red-500"
                 placeholder="Doe"
               />
             </div>
@@ -207,7 +202,7 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 md:py-3 border border-gray-300 rounded-full focus:outline-none focus:border-red-500"
+              className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-full focus:outline-none focus:border-red-500"
               placeholder="example@example.com"
             />
           </div>
@@ -223,33 +218,28 @@ const Contact = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              rows="4"
-              className="w-full px-3 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500"
-              placeholder="Your message..."
+              className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-3xl focus:outline-none focus:border-red-500 h-28 md:h-36 resize-none"
+              placeholder="Write your message here"
             />
           </div>
-          <div className="flex items-center gap-4 mb-2">
+
+          {errorMessage && (
+            <p className="text-red-600 text-sm sm:text-base">{errorMessage}</p>
+          )}
+          {successMessage && (
+            <p className="text-green-600 text-sm sm:text-base">
+              {successMessage}
+            </p>
+          )}
+
+          <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-red-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-red-700 transition"
+              className="bg-red-700 text-white px-8 py-3 rounded-full hover:bg-red-800 transition-colors"
             >
-              Send Message
+              Submit
             </button>
           </div>
-          {successMessage && (
-            <div
-              className="text-green-600 font-semibold"
-              style={{
-                opacity: successMessage ? 1 : 0,
-                transition: "opacity 0.5s",
-              }}
-            >
-              {successMessage}
-            </div>
-          )}
-          {errorMessage && (
-            <div className="text-red-600 font-semibold">{errorMessage}</div>
-          )}
         </form>
       </div>
     </>

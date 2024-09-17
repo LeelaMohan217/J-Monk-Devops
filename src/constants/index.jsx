@@ -79,7 +79,6 @@ export const studentData = [
 ];
 
 export const dataSB = [
-  
   {
     id: "01.",
     icon: <PanelsTopLeft />,
@@ -126,22 +125,22 @@ export const boxData = [
   {
     icon: <Check />,
     title: "Intuitive User Interface",
-    text: "This is a flexible section where you can share anything you want. It could be details or some information about feature one.",
+    text: "An intuitive user interface is designed for ease of use, allowing users to navigate effortlessly. It minimizes the learning curve, making interactions simple and efficient.",
   },
   {
     icon: <Check />,
     title: "Seamless Integration",
-    text: "This is a flexible section where you can share anything you want. It could be details or some information about feature one.",
+    text: "Seamless integration ensures that different systems work together flawlessly, providing a unified experience. It eliminates disruptions, enhancing efficiency and workflow continuity.",
   },
   {
     icon: <Check />,
     title: "Advanced Automation",
-    text: "This is a flexible section where you can share anything you want. It could be details or some information about feature one.",
+    text: "Advanced automation streamlines complex tasks, reducing manual effort and errors. It enhances productivity by enabling faster and more accurate processes.",
   },
   {
     icon: <Check />,
     title: "Customizable Workflows",
-    text: "This is a flexible section where you can share anything you want. It could be details or some information about feature one.",
+    text: "Customizable workflows allow users to tailor processes to their specific needs, improving efficiency. They offer flexibility, adapting to diverse tasks and preferences.",
   },
 ];
 

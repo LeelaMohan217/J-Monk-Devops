@@ -15,9 +15,11 @@ const Footer = () => {
       <div className="relative max-w-7xl mx-auto py-4 px-8 xl:px-0">
         <div className="grid sm:grid-cols-2 gap-4 border-b border-neutral-100 py-6">
           <div className="flex flex-col gap-4">
-            <h1 className="text-left text-3xl text-white font-bold">J-Monks Devops</h1>
+            <h1 className="text-left text-3xl text-white font-bold">
+              J-Monks Devops
+            </h1>
             <p className=" text-left text-neutral-200 text-sm font-extralight leading-6">
-            J-Monks Devops enhances everyday lives by providing software that
+              J-Monks Devops enhances everyday lives by providing software that
               digitalizes to improve business growth with latest tools and
               technologies.
             </p>
@@ -36,7 +38,9 @@ const Footer = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <h3 className="text-white text-2xl font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-white text-2xl font-semibold mb-4">
+                Quick Links
+              </h3>
               <ul className="space-y-2">
                 {communityLinks.map((link, index) => (
                   <li key={index}>
@@ -50,23 +54,20 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            <div>
-              <h3 className="text-white text-2xl font-semibold mb-4">Contact Info</h3>
-              <p className="text-neutral-200 text-sm font-extralight py-1">
-                Plot# __, Phase-3, Kavuri Hills, Guntur, Andhra Pradesh, India
+            <div className="space-y-4">
+              <h3 className="text-white text-2xl font-semibold mb-4">
+                Contact Info
+              </h3>
+              <p className="text-neutral-200 text-sm font-extralight">
+                Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur
+                District, 522236, Andhra Pradesh
               </p>
-              <p className="text-neutral-200 text-sm font-extralight py-1">
-                +91 xxx xxx xxxx
+              <p className="text-neutral-200 text-sm font-extralight">
+                +91 7330300203
               </p>
-              <p className="text-neutral-200 text-sm font-extralight py-1">
-                jaftdevelopers@gmail.com
+              <p className="text-neutral-200 text-sm font-extralight">
+                jmonkdevops@gmail.com
               </p>
-              <a
-                href="http://jaftdevelopers.in"
-                className="text-neutral-200 text-sm font-extralight py-1"
-              >
-                https://jaftdevelopers.in
-              </a>
             </div>
           </div>
         </div>

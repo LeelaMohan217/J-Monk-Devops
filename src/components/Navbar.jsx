@@ -51,7 +51,7 @@ const Navbar = () => {
                 JD
               </span>
               <span className="px-4 text-xl hidden sm:block tracking-tight text-black font-semibold">
-                J-Monks Devops
+                J-Monk Devops
               </span>
             </Link>
           </div>

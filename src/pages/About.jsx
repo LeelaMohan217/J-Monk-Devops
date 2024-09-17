@@ -41,9 +41,9 @@ const About = () => {
               Our Story
             </h1>
             <p className="text-base text-neutral-800 text-justify">
-              J-Monks is a premier software development company based in Silicon
-              Valley, California, specializing in custom software solutions for
-              businesses of all sizes. Our cutting-edge applications are
+              J-Monk Devops is a premier software development company based in
+              Guntur, Andhra Pradesh, specializing in custom software solutions
+              for businesses of all sizes. Our cutting-edge applications are
               tailored to meet each client’s unique needs, driving digital
               transformation globally.
             </p>
