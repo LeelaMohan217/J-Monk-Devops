@@ -5,6 +5,7 @@ import image4 from "../assets/image4.jpg";
 import oImage1 from "../assets/oImage1.jpg";
 import oImage2 from "../assets/oImage2.jpg";
 import oImage3 from "../assets/oImage3.jpg";
+import Logo from "../assets/Logo.png";
 import {
   Facebook,
   Instagram,
@@ -105,8 +106,11 @@ export const dataSB = [
 
 export const platformLinks = [
   { href: "#", icon: <Facebook /> },
-  { href: "#", icon: <Instagram /> },
-  { href: "#", icon: <Linkedin /> },
+  { href: "https://www.instagram.com/j_monk_devops/", icon: <Instagram /> },
+  {
+    href: "https://www.linkedin.com/company/j-monk-devops",
+    icon: <Linkedin />,
+  },
   { href: "#", icon: <Twitter /> },
 ];
 
