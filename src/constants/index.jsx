@@ -115,9 +115,6 @@ export const communityLinks = [
   { href: "/contact", text: "Contact Us" },
   { href: "/businessman", text: "Businessman" },
   { href: "/student", text: "Student" },
-  { href: "#", text: "Data Policy" },
-  { href: "#", text: "Privacy Policy" },
-  { href: "#", text: "Terms and Conditions" },
 ];
 export const blogLinks = [{ href: "/blog", text: "Blogs" }];
 

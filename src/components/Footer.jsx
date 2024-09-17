@@ -13,12 +13,12 @@ const Footer = () => {
         </svg>
       </div>
       <div className="relative max-w-7xl mx-auto py-4 px-8 xl:px-0">
-        <div className="grid sm:grid-cols-2 gap-4 border-b border-neutral-100 py-6">
+        <div className="grid sm:grid-cols-2 gap-4 border-b border-neutral-100 py-10 lg:py-16 xl:py-20">
           <div className="flex flex-col gap-4">
             <h1 className="text-left text-3xl text-white font-bold">
               J-Monks Devops
             </h1>
-            <p className=" text-left text-neutral-200 text-sm font-extralight leading-6">
+            <p className=" text-left text-neutral-200 text-base font-extralight leading-6">
               J-Monks Devops enhances everyday lives by providing software that
               digitalizes to improve business growth with latest tools and
               technologies.
@@ -45,7 +45,7 @@ const Footer = () => {
                 {communityLinks.map((link, index) => (
                   <li key={index}>
                     <a
-                      className="text-neutral-200 text-sm hover:text-white font-extralight"
+                      className="text-neutral-200 text-base hover:text-white font-extralight"
                       href={link.href}
                     >
                       {link.text}
@@ -58,14 +58,14 @@ const Footer = () => {
               <h3 className="text-white text-2xl font-semibold mb-4">
                 Contact Info
               </h3>
-              <p className="text-neutral-200 text-sm font-extralight">
+              <p className="text-neutral-200 text-base font-extralight">
                 Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur
                 District, 522236, Andhra Pradesh
               </p>
-              <p className="text-neutral-200 text-sm font-extralight">
+              <p className="text-neutral-200 text-base font-extralight">
                 +91 7330300203
               </p>
-              <p className="text-neutral-200 text-sm font-extralight">
+              <p className="text-neutral-200 text-base font-extralight">
                 jmonkdevops@gmail.com
               </p>
             </div>
