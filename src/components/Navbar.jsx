@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { navItems } from "../constants";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/Logo.png";
@@ -50,7 +52,12 @@ const Navbar = () => {
         <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-2">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center flex-shrink-0">
-              <img className="w-20 h-20" src={Logo} alt="Logo" />
+              <LazyLoadImage
+                className="w-20 h-20"
+                alt="Logo"
+                src={Logo}
+                effect="blur"
+              />
               <span className="px-3 text-xl hidden sm:block tracking-tight text-black font-semibold">
                 J-Monk Devops
               </span>
