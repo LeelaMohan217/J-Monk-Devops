@@ -27,7 +27,7 @@ const Home = () => {
               >
                 Digitalizing Local{" "}
                 <span className="bg-gradient-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
-                  Bharath
+                  Bharat
                 </span>
               </motion.h1>
               <motion.p

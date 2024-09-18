@@ -5,7 +5,7 @@ import image4 from "../assets/image4.jpg";
 import oImage1 from "../assets/oImage1.jpg";
 import oImage2 from "../assets/oImage2.jpg";
 import oImage3 from "../assets/oImage3.jpg";
-import Logo from "../assets/Logo.png";
+
 import {
   Facebook,
   Instagram,
