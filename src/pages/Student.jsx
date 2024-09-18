@@ -3,6 +3,8 @@ import { studentPageData } from "../constants";
 import { dataSBe } from "../constants";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants.js";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css'; // Optional: for blur effect
 
 import { Link } from "react-router-dom";
 
@@ -34,9 +36,10 @@ const Student = () => {
                 viewport={{ once: true, amount: 0.7 }}
                 className="md:w-1/3"
               >
-                <img
+                <LazyLoadImage
                   src={data.image}
                   alt={data.title}
+                  effect="blur" // Optional blur effect while image is loading
                   className="w-full h-auto object-cover"
                 />
               </motion.div>

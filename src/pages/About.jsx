@@ -4,6 +4,8 @@ import { boxData } from "../constants";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants.js";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const About = () => {
   return (
@@ -28,7 +30,13 @@ const About = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="md:m-10"
           >
-            <img src={home} alt="Our Story" className="rounded-lg" />
+            {/* Lazy load the image */}
+            <LazyLoadImage
+              src={home}
+              alt="Our Story"
+              effect="blur"
+              className="rounded-lg"
+            />
           </motion.div>
           <motion.div
             variants={fadeIn("left", 0.2)}
@@ -37,7 +45,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="flex flex-col gap-4"
           >
-            <h1 className=" text-xl lg:tezt-2xl xl:text-3xl font-bold text-just">
+            <h1 className=" text-xl lg:text-2xl xl:text-3xl font-bold">
               Our Story
             </h1>
             <p className="text-base text-neutral-800 text-justify">
@@ -59,6 +67,7 @@ const About = () => {
         </div>
       </div>
 
+      {/* Other sections unchanged */}
       <div className="bg-gradient-to-l from-neutral-50 to-neutral-100">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center my-10">

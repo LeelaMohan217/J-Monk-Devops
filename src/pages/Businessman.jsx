@@ -2,6 +2,8 @@ import React from "react";
 import { offeringPageData } from "../constants";
 import fadeIn from "../variants";
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Businessman = () => {
   return (
@@ -42,9 +44,11 @@ const Businessman = () => {
                 viewport={{ once: true, amount: 0.7 }}
                 className="w-full md:w-1/3"
               >
-                <img
+                {/* Lazy load the image */}
+                <LazyLoadImage
                   src={data.image}
                   alt={data.title}
+                  effect="blur"
                   className="object-cover rounded"
                 />
               </motion.div>
