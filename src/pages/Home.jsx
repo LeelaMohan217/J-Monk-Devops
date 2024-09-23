@@ -72,7 +72,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 lg:gap-24 xl:gap-44 mt-1 md:mt-10">
             <motion.h1
-              variants={fadeIn("right", 0.2)}
+              variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
@@ -81,7 +81,7 @@ const Home = () => {
               Our Tailored Software Solutions
             </motion.h1>
             <motion.p
-              variants={fadeIn("left", 0.2)}
+              variants={fadeIn("up", 0.6)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
@@ -164,7 +164,7 @@ const Home = () => {
       <div className="max-w-7xl mx-auto py-20 md:py-0 px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-10 items-center">
           <motion.div
-            variants={fadeIn("right", 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
@@ -188,7 +188,7 @@ const Home = () => {
             </p>
           </motion.div>
           <motion.div
-            variants={fadeIn("left", 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
@@ -205,7 +205,7 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-10 items-center">
           <motion.div
-            variants={fadeIn("right", 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
@@ -218,7 +218,7 @@ const Home = () => {
             />
           </motion.div>
           <motion.div
-            variants={fadeIn("left", 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}

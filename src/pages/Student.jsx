@@ -30,7 +30,7 @@ const Student = () => {
               className="flex flex-col md:flex-row items-start md:space-x-8 transform transition-transform duration-500 my-10"
             >
               <motion.div
-                variants={fadeIn("right", 0.2)}
+                variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.7 }}
@@ -45,7 +45,7 @@ const Student = () => {
               </motion.div>
 
               <motion.div
-                variants={fadeIn("left", 0.2)}
+                variants={fadeIn("up", 0.6)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.7 }}
@@ -95,7 +95,7 @@ const Student = () => {
               </motion.p>
             </div>
             <motion.div
-              variants={fadeIn("left", 0.2)}
+              variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
@@ -121,7 +121,7 @@ const Student = () => {
       <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 my-10 lg:my-16 xl:my-20 md:space-x-6">
           <motion.div
-            variants={fadeIn("right", 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.7 }}
@@ -136,7 +136,7 @@ const Student = () => {
             </h1>
           </motion.div>
           <motion.div
-            variants={fadeIn("left", 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.7 }}

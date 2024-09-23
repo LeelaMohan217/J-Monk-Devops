@@ -24,7 +24,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center items-center">
           <motion.div
-            variants={fadeIn("right", 0.2)}
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.7 }}
@@ -39,7 +39,7 @@ const About = () => {
             />
           </motion.div>
           <motion.div
-            variants={fadeIn("left", 0.2)}
+            variants={fadeIn("up", 0.6)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.7 }}
@@ -121,7 +121,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center my-10">
           <div className="flex flex-col space-y-4 col-span-1">
             <motion.h1
-              variants={fadeIn("right", 0.2)}
+              variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
@@ -130,7 +130,7 @@ const About = () => {
               UNLEASH THE POWER
             </motion.h1>
             <motion.h1
-              variants={fadeIn("right", 0.6)}
+              variants={fadeIn("up", 0.6)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
@@ -142,7 +142,7 @@ const About = () => {
 
           <div>
             <motion.div
-              variants={fadeIn("left", 0.2)}
+              variants={fadeIn("up", 0.2)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}

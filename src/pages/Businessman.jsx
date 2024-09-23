@@ -38,7 +38,7 @@ const Businessman = () => {
               className="flex flex-col md:flex-row items-start md:space-x-6 transform transition-transform duration-500 my-10"
             >
               <motion.div
-                variants={fadeIn("right", 0.2)}
+                variants={fadeIn("up", 0.2)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.7 }}
@@ -55,7 +55,7 @@ const Businessman = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 space-y-4 md:space-y-0 space-x-0 md:space-x-6 md:w-2/3 my-10 md:my-0">
                 <motion.div
-                  variants={fadeIn("left", 0.2)}
+                  variants={fadeIn("up", 0.2)}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.7 }}
@@ -69,7 +69,7 @@ const Businessman = () => {
                   </p>
                 </motion.div>
                 <motion.div
-                  variants={fadeIn("left", 0.4)}
+                  variants={fadeIn("up", 0.4)}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.7 }}
