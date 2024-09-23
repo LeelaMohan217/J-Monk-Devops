@@ -31,7 +31,7 @@ function Layout() {
       </Routes>
       {location.pathname !== "/contact" && <ContactCmp />}
       <Footer />
-      <ScrollToTopButton /> {/* Add the scroll to top button */}
+      {/* <ScrollToTopButton />  */}
     </>
   );
 }
