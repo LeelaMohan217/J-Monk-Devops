@@ -1,67 +1,19 @@
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useContactForm } from "../../../shared/hooks/useContactForm";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    message: "",
-  });
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
+  const { formData, errorMessage, successMessage, handleChange, handleSubmit } =
+    useContactForm({
+      serviceId: "service_yo0v2l5",
+      templateId: "template_wupcssg",
+      publicKey: "aMTL-Wx9Wf14SxgIv",
+      initialFields: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      },
     });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Basic validation
-    if (
-      !formData.firstName ||
-      !formData.lastName ||
-      !formData.email ||
-      !formData.message
-    ) {
-      setErrorMessage("Please fill in all fields.");
-      return;
-    }
-
-    setErrorMessage("");
-    emailjs
-      .send(
-        "service_yo0v2l5", // Updated service ID
-        "template_wupcssg", // Updated template ID
-        formData,
-        "aMTL-Wx9Wf14SxgIv" // Updated user ID
-      )
-      .then(
-        (response) => {
-          console.log("Email sent successfully:", response);
-          setSuccessMessage("Your message has been sent successfully!");
-          setTimeout(() => {
-            window.location.reload();
-          }, 500);
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          console.error("Email sending error:", error);
-          setErrorMessage("There was an error sending your message.");
-        }
-      );
-  };
 
   return (
     <>

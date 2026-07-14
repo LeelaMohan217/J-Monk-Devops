@@ -1,6 +1,6 @@
 import React from "react";
 import { offeringPageData } from "../constants";
-import fadeIn from "../variants";
+import fadeIn from "../../../shared/variants";
 import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";

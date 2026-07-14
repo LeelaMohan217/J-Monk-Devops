@@ -1,4 +1,3 @@
-import { title } from "framer-motion/client";
 import image1 from "../assets/image1.jpg";
 import image2 from "../assets/image2.jpg";
 import image4 from "../assets/image4.jpg";
@@ -7,27 +6,14 @@ import oImage2 from "../assets/oImage2.jpg";
 import oImage3 from "../assets/oImage3.jpg";
 
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
   TabletSmartphone,
   Laptop,
   BadgeIndianRupee,
   Shapes,
-  TicketXIcon,
   Check,
 } from "lucide-react";
 import { ShieldEllipsis } from "lucide-react";
 import { PanelsTopLeft } from "lucide-react";
-
-export const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Student", href: "/student" },
-  { label: "Offerings", href: "/businessman" },
-  { label: "Contact", href: "/contact" },
-];
 
 export const businessData = [
   {
@@ -104,22 +90,6 @@ export const dataSB = [
   },
 ];
 
-export const platformLinks = [
-  { href: "#", icon: <Facebook /> },
-  { href: "https://www.instagram.com/j_monk_devops/", icon: <Instagram /> },
-  {
-    href: "https://www.linkedin.com/company/j-monk-devops",
-    icon: <Linkedin />,
-  },
-  { href: "#", icon: <Twitter /> },
-];
-
-export const communityLinks = [
-  { href: "/about", text: "About" },
-  { href: "/contact", text: "Contact Us" },
-  { href: "/businessman", text: "Businessman" },
-  { href: "/student", text: "Student" },
-];
 export const blogLinks = [{ href: "/blog", text: "Blogs" }];
 
 export const boxData = [

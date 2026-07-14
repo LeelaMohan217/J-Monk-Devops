@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
-import { navItems } from "../constants";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../assets/Logo.png";
 
-const Navbar = () => {
+const Navbar = ({ siteName, navItems, ctaLabel, ctaHref }) => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -49,19 +45,11 @@ const Navbar = () => {
             : "bg-gradient-to-b from-neutral-50 to-neutral-200"
         }`}
       >
-        <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-2">
+        <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center flex-shrink-0">
-              <LazyLoadImage
-                className="w-20 h-20"
-                alt="Logo"
-                src={Logo}
-                effect="blur"
-              />
-              <span className="px-3 text-xl hidden sm:block tracking-tight text-black font-semibold">
-                J-Monk Devops
-              </span>
-            </Link>
+            <span className="text-lg sm:text-xl tracking-tight text-black font-bold flex-shrink-0">
+              {siteName}
+            </span>
           </div>
 
           <ul className="hidden lg:flex ml-12 space-x-10">
@@ -89,10 +77,10 @@ const Navbar = () => {
 
           <div>
             <Link
-              to="/contact"
+              to={ctaHref}
               className="hidden lg:block bg-red-600 text-white font-normal text-base lg:text-base px-4 md:px-6 py-3 hover:bg-red-700 transition-all duration-500"
             >
-              <span>Get started</span>
+              <span>{ctaLabel}</span>
             </Link>
           </div>
 

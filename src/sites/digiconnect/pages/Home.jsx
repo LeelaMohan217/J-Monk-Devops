@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { dataSB } from "../constants";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants.js";
+import { fadeIn } from "../../../shared/variants.js";
 import { stagger } from "framer-motion";
 import fit from "../assets/fit.png";
 import why from "../assets/why.png";

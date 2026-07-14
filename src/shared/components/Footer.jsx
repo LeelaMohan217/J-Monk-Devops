@@ -1,6 +1,12 @@
-import { platformLinks, communityLinks } from "../constants";
-
-const Footer = () => {
+const Footer = ({
+  siteName,
+  description,
+  platformLinks,
+  communityLinks,
+  address,
+  phone,
+  email,
+}) => {
   return (
     <footer className="relative bg-red-700">
       <div className="absolute inset-0 overflow-hidden hidden sm:block">
@@ -16,12 +22,10 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 gap-4 border-b border-neutral-100 py-10 lg:py-16 xl:py-20">
           <div className="flex flex-col gap-4">
             <h1 className="text-left text-3xl text-white font-bold">
-              J-Monk Devops
+              {siteName}
             </h1>
             <p className=" text-left text-neutral-200 text-base font-extralight leading-6">
-              J-Monk Devops enhances everyday lives by providing software that
-              digitalizes to improve business growth with latest tools and
-              technologies.
+              {description}
             </p>
             <ul className="flex justify-evenly md:justify-normal gap-4 mt-6">
               {platformLinks.map((link, index) => (
@@ -59,21 +63,20 @@ const Footer = () => {
                 Contact Info
               </h3>
               <p className="text-neutral-200 text-base font-extralight">
-                Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur
-                District, 522236, Andhra Pradesh
+                {address}
               </p>
               <p className="text-neutral-200 text-base font-extralight">
-                +91 7330300203
+                {phone}
               </p>
               <p className="text-neutral-200 text-base font-extralight">
-                jmonkdevops@gmail.com
+                {email}
               </p>
             </div>
           </div>
         </div>
         <div className="my-6">
           <h6 className="text-neutral-200 text-sm font-normal text-center">
-            Copyright © 2024 J-Monk Devops. All rights reserved.
+            Copyright © 2024 {siteName}. All rights reserved.
           </h6>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { studentPageData } from "../constants";
 import { dataSBe } from "../constants";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants.js";
+import { fadeIn } from "../../../shared/variants.js";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import 'react-lazy-load-image-component/src/effects/blur.css'; // Optional: for blur effect
 

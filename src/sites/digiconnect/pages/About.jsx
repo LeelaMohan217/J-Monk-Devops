@@ -2,7 +2,7 @@ import React from "react";
 import home from "../assets/home.png";
 import { boxData } from "../constants";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants.js";
+import { fadeIn } from "../../../shared/variants.js";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
