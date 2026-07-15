@@ -17,6 +17,7 @@ function DigiConnectApp() {
     <>
       <Navbar
         siteName={digiConnectConfig.siteName}
+        homeHref={digiConnectConfig.homeHref}
         navItems={digiConnectConfig.navItems}
         ctaLabel={digiConnectConfig.navCtaLabel}
         ctaHref={digiConnectConfig.navCtaHref}

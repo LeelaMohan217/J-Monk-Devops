@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import useHideOnScroll from "../hooks/useHideOnScroll";
 
-const Navbar = ({ siteName, navItems, ctaLabel, ctaHref }) => {
+const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const hidden = useHideOnScroll();
   const location = useLocation();
 
   const toggleNavbar = () => {
@@ -39,17 +41,22 @@ const Navbar = ({ siteName, navItems, ctaLabel, ctaHref }) => {
   return (
     <>
       <nav
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky z-50 transition-all duration-300 ${
+          hidden ? "top-0" : "top-16"
+        } ${
           scrolled
             ? "bg-white shadow-lg"
             : "bg-gradient-to-b from-neutral-50 to-neutral-200"
         }`}
       >
-        <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-4">
+        <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-2">
           <div className="flex justify-between items-center">
-            <span className="text-lg sm:text-xl tracking-tight text-black font-bold flex-shrink-0">
+            <Link
+              to={homeHref}
+              className="text-lg sm:text-xl tracking-tight text-black font-bold flex-shrink-0"
+            >
               {siteName}
-            </span>
+            </Link>
           </div>
 
           <ul className="hidden lg:flex ml-12 space-x-10">

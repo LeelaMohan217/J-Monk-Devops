@@ -2,6 +2,7 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export const digiConnectConfig = {
   siteName: "DigiConnect",
+  homeHref: "/digiconnect",
   navItems: [
     { label: "Home", href: "/digiconnect" },
     { label: "About", href: "/digiconnect/about" },

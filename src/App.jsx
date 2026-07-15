@@ -7,6 +7,12 @@ import GlobalNav from "./shared/components/GlobalNav";
 const DigiConnectApp = lazy(() =>
   import("./sites/digiconnect/DigiConnectApp")
 );
+const SkillConnectApp = lazy(() =>
+  import("./sites/skillconnect/SkillConnectApp")
+);
+const EduConnectApp = lazy(() =>
+  import("./sites/educonnect/EduConnectApp")
+);
 
 function ScrollToTop() {
   const location = useLocation();
@@ -27,6 +33,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/digiconnect/*" element={<DigiConnectApp />} />
+          <Route path="/skillconnect/*" element={<SkillConnectApp />} />
+          <Route path="/educonnect/*" element={<EduConnectApp />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
