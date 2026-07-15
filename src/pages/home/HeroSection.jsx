@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, GraduationCap, Network } from "lucide-react";
+import { Code2, GraduationCap, Network } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
 import ImageVisual from "./components/ImageVisual";
 import AnimatedCounter from "./components/AnimatedCounter";
@@ -79,16 +78,9 @@ const HeroSection = () => {
             variants={fadeIn("up", 0.5)}
             className="flex flex-wrap gap-4 mt-2"
           >
-            <Link
-              to="/digiconnect"
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 rounded-full shadow-lg shadow-red-900/30 hover:shadow-red-700/40 hover:-translate-y-0.5"
-            >
-              Visit DigiConnect
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
             <a
               href="#platforms"
-              className="px-6 py-3 border border-white/20 text-white hover:border-red-500 hover:text-red-400 font-medium transition-all duration-300 rounded-full hover:-translate-y-0.5"
+              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 rounded-full shadow-lg shadow-red-900/30 hover:shadow-red-700/40 hover:-translate-y-0.5"
             >
               Explore Platforms
             </a>
