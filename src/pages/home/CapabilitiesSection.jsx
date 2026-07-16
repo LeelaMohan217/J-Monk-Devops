@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { fadeIn } from "../../shared/variants";
 import { capabilities } from "./data";
 import SectionHeading from "./SectionHeading";
 
@@ -41,10 +43,10 @@ const Tile = ({
     // back layer is absolutely positioned to match whatever size that
     // produces, rather than the other way around.
     return (
-      <div className={`relative ${place}`}>
+      <div className={`relative h-52 ${place}`}>
         <div aria-hidden="true" className="absolute inset-0 bg-red-600" />
         <div
-          className="relative z-10 bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:-translate-x-[50px]"
+          className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:-translate-x-[50px]"
         >
           <TileContent capability={capability} dark={dark} titleSize={titleSize} />
         </div>
@@ -54,7 +56,7 @@ const Tile = ({
 
   return (
     <div
-      className={`bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] ${place}`}
+      className={`h-52 bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 ${place}`}
     >
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
@@ -62,45 +64,45 @@ const Tile = ({
 };
 
 const TileV2 = ({ capability, dark, place, titleSize = "text-base" }) => (
-  <div className={`relative ${place}`}>
+  <div className={`relative h-52 ${place}`}>
     <div aria-hidden="true" className="absolute inset-0 bg-red-700" />
-    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:-translate-x-[50px]">
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:-translate-x-[50px]">
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
   </div>
 );
 
 const TileV3 = ({ capability, dark, place, titleSize = "text-base" }) => (
-  <div className={`relative ${place}`}>
+  <div className={`relative h-52 ${place}`}>
     <div aria-hidden="true" className="absolute inset-0 bg-red-600" />
-    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:translate-x-[50px]">
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:translate-x-[50px]">
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
   </div>
 );
 
 const TileV4 = ({ capability, dark, place, titleSize = "text-base" }) => (
-  <div className={`relative ${place}`}>
+  <div className={`relative h-52 ${place}`}>
     <div aria-hidden="true" className="absolute inset-0 bg-neutral-200" />
-    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:translate-x-[75px]">
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:translate-x-[75px]">
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
   </div>
 );
 
 const TileV5 = ({ capability, dark, place, titleSize = "text-base" }) => (
-  <div className={`relative ${place}`}>
+  <div className={`relative h-52 ${place}`}>
     <div aria-hidden="true" className="absolute inset-0 bg-red-600" />
-    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:translate-x-[75px]">
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:translate-x-[75px]">
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
   </div>
 );
 
 const TileV6 = ({ capability, dark, place, titleSize = "text-base" }) => (
-  <div className={`relative ${place}`}>
+  <div className={`relative h-52 ${place}`}>
     <div aria-hidden="true" className="absolute inset-0 border" />
-    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] origin-center transition-transform duration-300 ease-in-out hover:-rotate-[25deg]">
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 origin-center transition-transform duration-300 ease-in-out hover:-rotate-[25deg]">
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
   </div>
@@ -109,7 +111,7 @@ const TileV6 = ({ capability, dark, place, titleSize = "text-base" }) => (
 const Filler = ({ place, dot = false }) => (
   <div
     aria-hidden="true"
-    className={`hidden lg:block relative bg-neutral-200 border border-neutral-200 min-h-[7rem] ${place}`}
+    className={`hidden lg:block relative bg-neutral-200 border border-neutral-200 h-52 ${place}`}
   >
     {dot && (
       <span className="absolute top-0 left-0 w-1.5 h-1.5 -translate-x-1/2 -translate-y-1/2 bg-neutral-900" />
@@ -120,7 +122,7 @@ const Filler = ({ place, dot = false }) => (
 const SplitCell = ({ place }) => (
   <div
     aria-hidden="true"
-    className={`hidden lg:flex flex-col min-h-[7rem] ${place}`}
+    className={`hidden lg:flex flex-col h-52 ${place}`}
   >
     <div className="flex-[5]" />
     <div className="flex-[4] bg-neutral-200 border-t border-l border-r border-neutral-200" />
@@ -130,7 +132,7 @@ const SplitCell = ({ place }) => (
 const SplitCellV2 = ({ place, dot = false }) => (
   <div
     aria-hidden="true"
-    className={`hidden lg:flex flex-col relative min-h-[7rem] ${place}`}
+    className={`hidden lg:flex flex-col relative h-52 ${place}`}
   >
     {dot && (
       <span className="absolute top-0 right-0 w-1.5 h-1.5 translate-x-1/2 -translate-y-1/2 bg-neutral-900" />
@@ -150,17 +152,23 @@ const CapabilitiesSection = () => {
           align="left"
         />
 
-        <div className="relative max-w-4xl mx-auto">
+        <motion.div
+          variants={fadeIn("up", 0)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="relative max-w-6xl mx-auto"
+        >
           <div
             aria-hidden="true"
             className="hidden lg:block absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 border border-neutral-300 bg-neutral-50 rotate-45 z-10"
-            style={{ top: "19%", left: "24%" }}
+            style={{ top: "26%", left: "25%" }}
           />
-          <div
+          {/* <div
             aria-hidden="true"
             className="hidden lg:block absolute w-16 h-16 translate-x-1/2 translate-y-1/2 border border-neutral-300 bg-neutral-50 rotate-45 z-10"
             style={{ bottom: "8%", right: "-5%" }}
-          />
+          /> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr_2fr_5fr_5fr_2fr_5fr]">
             <Tile
@@ -202,7 +210,7 @@ const CapabilitiesSection = () => {
             <SplitCellV2 dot place="lg:col-start-6 lg:col-end-7 lg:row-start-3 lg:row-end-4" />
             <Filler place="lg:col-start-7 lg:col-end-8 lg:row-start-3 lg:row-end-4" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

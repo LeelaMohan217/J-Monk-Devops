@@ -46,7 +46,7 @@ const HeroSection = () => {
         >
           <motion.span
             variants={fadeIn("up", 0.1)}
-            className="uppercase tracking-[0.3em] text-red-500 text-xs md:text-sm font-semibold"
+            className="uppercase tracking-[0.25em] text-red-400 text-xs md:text-sm font-semibold"
           >
             One Ecosystem. Three Platforms.
           </motion.span>

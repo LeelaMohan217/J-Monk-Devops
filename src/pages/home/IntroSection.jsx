@@ -33,7 +33,7 @@ const IntroSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="hidden sm:flex absolute -bottom-8 -right-4 md:-right-10 bg-white shadow-2xl shadow-neutral-900/10 border border-neutral-100 px-6 py-5 max-w-[15rem]"
+            className="hidden sm:flex absolute -bottom-8 -right-4 md:-right-10 bg-white shadow-2xl shadow-neutral-900/10 border border-neutral-200 px-6 py-5 max-w-[15rem]"
           >
             <p className="text-sm text-neutral-600 leading-relaxed">
               <span className="block text-2xl font-bold text-neutral-900">

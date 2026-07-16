@@ -30,7 +30,7 @@ const ProcessSection = () => {
                 <step.icon className="w-7 h-7 text-neutral-800 transition-colors duration-300 group-hover:text-red-600" />
 
                 <div className="flex flex-col">
-                  <h3 className="font-semibold text-lg text-neutral-900">
+                  <h3 className="font-display font-bold text-lg text-neutral-900">
                     {step.title}
                   </h3>
                   <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-hover:mt-2 transition-[grid-template-rows] duration-300 ease-in-out">
