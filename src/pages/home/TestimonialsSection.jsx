@@ -34,14 +34,14 @@ const TestimonialsSection = () => {
             <motion.div
               key={testimonial.role}
               variants={fadeIn("up", 0.1)}
-              className="flex flex-col gap-5 p-7 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/30 hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col gap-5 p-7 bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/30 hover:-translate-y-1 transition-all duration-300"
             >
               <Quote className="w-8 h-8 text-red-500/70" />
               <p className="text-neutral-300 text-sm md:text-base leading-relaxed flex-grow">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-500 to-red-700 text-white text-xs font-semibold flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 bg-gradient-to-br from-red-500 to-red-700 text-white text-xs font-semibold flex items-center justify-center flex-shrink-0">
                   {initialsOf(testimonial.role)}
                 </div>
                 <div className="flex-grow">

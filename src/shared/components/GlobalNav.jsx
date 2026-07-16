@@ -40,9 +40,10 @@ const GlobalNav = () => {
               <li key={connect.name}>
                 <Link
                   to={connect.href}
-                  className="text-sm font-medium text-neutral-700 hover:text-red-600 transition-colors"
+                  className="group relative inline-block py-1 text-sm font-medium text-neutral-700 hover:text-red-600 transition-colors"
                 >
                   {connect.name}
+                  <span className="absolute left-0 -bottom-0.5 h-[2px] w-full origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
                 </Link>
               </li>
             ) : (

@@ -69,15 +69,15 @@ const PlatformsSection = () => {
                   whileInView="show"
                   viewport={{ once: true, amount: 0.3 }}
                   className={`flex flex-col gap-4 ${
-                    reversed ? "lg:order-1" : "lg:order-2"
-                  }`}
+reversed ? "lg:order-1" : "lg:order-2"
+}`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-sm font-mono text-neutral-300">
                       {platform.id}
                     </span>
                     {!platform.available && (
-                      <span className="text-[10px] uppercase tracking-wide font-semibold text-neutral-500 border border-neutral-300 rounded-full px-3 py-1">
+                      <span className="text-[10px] uppercase tracking-wide font-semibold text-neutral-500 border border-neutral-300 px-3 py-1">
                         Coming Soon
                       </span>
                     )}
@@ -109,7 +109,7 @@ const PlatformsSection = () => {
                     {platform.available ? (
                       <Link
                         to={platform.href}
-                        className="group inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 rounded-full shadow-lg shadow-red-900/10 hover:-translate-y-0.5 w-fit"
+                        className="group inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/10 hover:-translate-y-0.5 w-fit"
                       >
                         Visit {platform.name}
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

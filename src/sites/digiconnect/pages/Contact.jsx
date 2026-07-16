@@ -39,13 +39,13 @@ const Contact = () => {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg shadow-lg"
+              className="shadow-lg"
             ></iframe>
           </div>
 
           {/* Contact Information */}
           <div className="flex-1">
-            <div className="bg-white text-black rounded-lg shadow-lg px-6 sm:px-8 md:px-10 lg:px-14 py-6 sm:py-8 md:py-10 lg:py-12 border h-full flex flex-col">
+            <div className="bg-white text-black shadow-lg px-6 sm:px-8 md:px-10 lg:px-14 py-6 sm:py-8 md:py-10 lg:py-12 border h-full flex flex-col">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-medium text-red-700 mb-4 text-center relative">
                 Keep in Touch
               </h2>
@@ -119,7 +119,7 @@ const Contact = () => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-full focus:outline-none focus:border-red-500"
+                className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500"
                 placeholder="John"
               />
             </div>
@@ -136,7 +136,7 @@ const Contact = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-full focus:outline-none focus:border-red-500"
+                className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500"
                 placeholder="Doe"
               />
             </div>
@@ -154,7 +154,7 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-full focus:outline-none focus:border-red-500"
+              className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500"
               placeholder="example@example.com"
             />
           </div>
@@ -170,7 +170,7 @@ const Contact = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-3 py-2 md:py-3 border border-gray-400 rounded-3xl focus:outline-none focus:border-red-500 h-28 md:h-36 resize-none"
+              className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500 h-28 md:h-36 resize-none"
               placeholder="Write your message here"
             />
           </div>
@@ -187,7 +187,7 @@ const Contact = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-red-700 text-white px-8 py-3 rounded-full hover:bg-red-800 transition-colors"
+              className="bg-red-700 text-white px-8 py-3 hover:bg-red-800 transition-colors"
             >
               Submit
             </button>

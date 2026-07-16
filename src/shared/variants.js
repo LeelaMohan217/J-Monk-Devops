@@ -12,9 +12,9 @@ export const fadeIn = (direction, delay) => {
       opacity: 1,
       transition: {
         type: "tween",
-        duration: 1.2, // Increased duration for smoothness
+        duration: 0.7,
         delay: delay,
-        ease: [0.25, 0.46, 0.45, 0.94], // Custom easing function for a smooth and natural feel
+        ease: [0.16, 1, 0.3, 1], // sharp deceleration, confident rather than floaty
       },
     },
   };
@@ -25,7 +25,7 @@ export const stagger = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Increased stagger timing for better flow
+      staggerChildren: 0.12,
     },
   },
 };

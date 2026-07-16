@@ -80,7 +80,7 @@ const HeroSection = () => {
           >
             <a
               href="#platforms"
-              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 rounded-full shadow-lg shadow-red-900/30 hover:shadow-red-700/40 hover:-translate-y-0.5"
+              className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/30 hover:shadow-red-700/40 hover:-translate-y-0.5"
             >
               Explore Platforms
             </a>

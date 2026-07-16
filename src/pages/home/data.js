@@ -108,38 +108,32 @@ export const capabilities = [
   {
     icon: Code2,
     title: "Custom Software Development",
-    description:
-      "Scalable web, mobile, and enterprise platforms built around how your business actually operates.",
+    description: "Scalable platforms built around how your business operates.",
   },
   {
     icon: Boxes,
     title: "SaaS Product Development",
-    description:
-      "Secure architecture, modern UI/UX, and cloud-native infrastructure for subscription products.",
+    description: "Modern UI/UX and cloud-native infrastructure for subscriptions.",
   },
   {
     icon: Cloud,
     title: "Cloud & Infrastructure Solutions",
-    description:
-      "Optimized, secure cloud environments with scalability and performance monitoring built in.",
+    description: "Secure cloud environments with scalability and monitoring.",
   },
   {
     icon: Workflow,
     title: "DevOps & Automation Services",
-    description:
-      "CI/CD pipelines, infrastructure automation, and deployment strategies that keep releases fast and safe.",
+    description: "CI/CD pipelines and automation for fast, safe releases.",
   },
   {
     icon: Plug,
     title: "API Development & Integration",
-    description:
-      "Connecting payment gateways, CRMs, ERPs, and communication tools into one seamless system.",
+    description: "Connecting gateways, CRMs, and tools into one system.",
   },
   {
     icon: Compass,
     title: "Technical Consulting",
-    description:
-      "Guidance on architecture, product strategy, and technology choices before you commit to a direction.",
+    description: "Guidance on architecture and technology before you commit.",
   },
 ];
 

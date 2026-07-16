@@ -1,87 +1,208 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { fadeIn, stagger } from "../../shared/variants";
 import { capabilities } from "./data";
-import { homeImages } from "./images";
 import SectionHeading from "./SectionHeading";
 
-const [featured, ...rest] = capabilities;
+const [custom, saas, cloud, devops, api, consulting] = capabilities;
+
+// Shared 7-column grid (widths 2:3:2:5:5:2:5) x 3-row grid. Every tile is
+// placed with explicit grid lines; cells nobody claims stay empty and show
+// the white page background, which is what creates the "gap" look.
+const TileContent = ({ capability, dark, titleSize }) => (
+  <>
+    <div
+      className={`w-7 h-7 flex items-center justify-center text-white flex-shrink-0 ${
+        dark ? "bg-neutral-900" : "bg-red-600"
+      }`}
+    >
+      <capability.icon className="w-3.5 h-3.5" />
+    </div>
+    <div className="flex flex-col gap-1">
+      <h3 className={`font-display font-bold text-neutral-900 ${titleSize}`}>
+        {capability.title}
+      </h3>
+      <p className="text-xs text-neutral-600 leading-relaxed">
+        {capability.description}
+      </p>
+    </div>
+  </>
+);
+
+const Tile = ({
+  capability,
+  dark,
+  place,
+  titleSize = "text-base",
+  heroHover = false,
+}) => {
+  if (heroHover) {
+    // Two stacked layers: a fixed colored back card, and a white front card
+    // that slides on hover to reveal it. The front layer stays in normal
+    // flow (identical box model to a plain Tile) so it sizes itself the
+    // same way every other tile does; only its transform animates. The
+    // back layer is absolutely positioned to match whatever size that
+    // produces, rather than the other way around.
+    return (
+      <div className={`relative ${place}`}>
+        <div aria-hidden="true" className="absolute inset-0 bg-red-600" />
+        <div
+          className="relative z-10 bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:-translate-x-[50px]"
+        >
+          <TileContent capability={capability} dark={dark} titleSize={titleSize} />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] ${place}`}
+    >
+      <TileContent capability={capability} dark={dark} titleSize={titleSize} />
+    </div>
+  );
+};
+
+const TileV2 = ({ capability, dark, place, titleSize = "text-base" }) => (
+  <div className={`relative ${place}`}>
+    <div aria-hidden="true" className="absolute inset-0 bg-red-700" />
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:-translate-x-[50px]">
+      <TileContent capability={capability} dark={dark} titleSize={titleSize} />
+    </div>
+  </div>
+);
+
+const TileV3 = ({ capability, dark, place, titleSize = "text-base" }) => (
+  <div className={`relative ${place}`}>
+    <div aria-hidden="true" className="absolute inset-0 bg-red-600" />
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:translate-x-[50px]">
+      <TileContent capability={capability} dark={dark} titleSize={titleSize} />
+    </div>
+  </div>
+);
+
+const TileV4 = ({ capability, dark, place, titleSize = "text-base" }) => (
+  <div className={`relative ${place}`}>
+    <div aria-hidden="true" className="absolute inset-0 bg-neutral-200" />
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:translate-x-[75px]">
+      <TileContent capability={capability} dark={dark} titleSize={titleSize} />
+    </div>
+  </div>
+);
+
+const TileV5 = ({ capability, dark, place, titleSize = "text-base" }) => (
+  <div className={`relative ${place}`}>
+    <div aria-hidden="true" className="absolute inset-0 bg-red-600" />
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] transition-transform duration-300 ease-in-out hover:translate-x-[75px]">
+      <TileContent capability={capability} dark={dark} titleSize={titleSize} />
+    </div>
+  </div>
+);
+
+const TileV6 = ({ capability, dark, place, titleSize = "text-base" }) => (
+  <div className={`relative ${place}`}>
+    <div aria-hidden="true" className="absolute inset-0 border" />
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 min-h-[7rem] origin-center transition-transform duration-300 ease-in-out hover:-rotate-[25deg]">
+      <TileContent capability={capability} dark={dark} titleSize={titleSize} />
+    </div>
+  </div>
+);
+
+const Filler = ({ place, dot = false }) => (
+  <div
+    aria-hidden="true"
+    className={`hidden lg:block relative bg-neutral-200 border border-neutral-200 min-h-[7rem] ${place}`}
+  >
+    {dot && (
+      <span className="absolute top-0 left-0 w-1.5 h-1.5 -translate-x-1/2 -translate-y-1/2 bg-neutral-900" />
+    )}
+  </div>
+);
+
+const SplitCell = ({ place }) => (
+  <div
+    aria-hidden="true"
+    className={`hidden lg:flex flex-col min-h-[7rem] ${place}`}
+  >
+    <div className="flex-[5]" />
+    <div className="flex-[4] bg-neutral-200 border-t border-l border-r border-neutral-200" />
+  </div>
+);
+
+const SplitCellV2 = ({ place, dot = false }) => (
+  <div
+    aria-hidden="true"
+    className={`hidden lg:flex flex-col relative min-h-[7rem] ${place}`}
+  >
+    {dot && (
+      <span className="absolute top-0 right-0 w-1.5 h-1.5 translate-x-1/2 -translate-y-1/2 bg-neutral-900" />
+    )}
+    <div className="flex-[5]" />
+    <div className="flex-[4] bg-neutral-100 border-2 border-neutral-200" />
+  </div>
+);
 
 const CapabilitiesSection = () => {
   return (
     <section className="bg-neutral-50 py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-14">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <SectionHeading
-            eyebrow="Capabilities"
-            title="What we build"
-            align="left"
+        <SectionHeading
+          eyebrow="Capabilities"
+          title="What we build"
+          align="left"
+        />
+
+        <div className="relative max-w-4xl mx-auto">
+          <div
+            aria-hidden="true"
+            className="hidden lg:block absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 border border-neutral-300 bg-neutral-50 rotate-45 z-10"
+            style={{ top: "19%", left: "24%" }}
           />
-          <Link
-            to="/digiconnect"
-            className="inline-flex items-center gap-2 text-red-600 font-medium hover:gap-3 transition-all w-fit"
-          >
-            Live today through DigiConnect <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+          <div
+            aria-hidden="true"
+            className="hidden lg:block absolute w-16 h-16 translate-x-1/2 translate-y-1/2 border border-neutral-300 bg-neutral-50 rotate-45 z-10"
+            style={{ bottom: "8%", right: "-5%" }}
+          />
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <motion.div
-            variants={fadeIn("up", 0.1)}
-            className="relative lg:col-span-2 rounded-2xl overflow-hidden min-h-[16rem] group"
-          >
-            <img
-              src={homeImages.capabilitiesFeature}
-              alt="A developer working across multiple monitors, representing custom software development"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr_2fr_5fr_5fr_2fr_5fr]">
+            <Tile
+              capability={custom}
+              titleSize="text-lg"
+              heroHover
+              place="lg:col-start-4 lg:col-end-6 lg:row-start-1 lg:row-end-2"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <featured.icon
-                className="w-28 h-28 md:w-32 md:h-32 text-white/10"
-                strokeWidth={1}
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/50 to-neutral-950/10" />
-            <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-white/30 rounded-tl-md" />
-            <div className="relative h-full flex flex-col justify-end gap-3 p-8">
-              <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center">
-                <featured.icon className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-xl md:text-2xl text-white">
-                {featured.title}
-              </h3>
-              <p className="text-sm md:text-base text-neutral-300 leading-relaxed max-w-md">
-                {featured.description}
-              </p>
-            </div>
-          </motion.div>
 
-          {rest.map((capability) => (
-            <motion.div
-              key={capability.title}
-              variants={fadeIn("up", 0.1)}
-              className="flex flex-col gap-3 p-7 rounded-2xl bg-white border border-neutral-200 hover:shadow-xl hover:shadow-neutral-900/5 hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-md shadow-red-900/20">
-                <capability.icon className="w-5 h-5" />
-              </div>
-              <h3 className="font-semibold text-lg text-neutral-900">
-                {capability.title}
-              </h3>
-              <p className="text-sm text-neutral-600 leading-relaxed">
-                {capability.description}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+            <Filler
+              dot
+              place="lg:col-start-2 lg:col-end-4 lg:row-start-2 lg:row-end-3"
+            />
+            <TileV2
+              capability={saas}
+              dark
+              place="lg:col-start-4 lg:col-end-5 lg:row-start-2 lg:row-end-3"
+            />
+            <TileV3
+              capability={cloud}
+              place="lg:col-start-5 lg:col-end-6 lg:row-start-2 lg:row-end-3"
+            />
+            <TileV6
+              capability={consulting}
+              dark
+              place="lg:col-start-7 lg:col-end-8 lg:row-start-2 lg:row-end-3"
+            />
+
+            <TileV4
+              capability={api}
+              place="lg:col-start-1 lg:col-end-3 lg:row-start-3 lg:row-end-4"
+            />
+            <SplitCell place="lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4" />
+            <TileV5
+              capability={devops}
+              dark
+              place="lg:col-start-4 lg:col-end-6 lg:row-start-3 lg:row-end-4"
+            />
+            <SplitCellV2 dot place="lg:col-start-6 lg:col-end-7 lg:row-start-3 lg:row-end-4" />
+            <Filler place="lg:col-start-7 lg:col-end-8 lg:row-start-3 lg:row-end-4" />
+          </div>
+        </div>
       </div>
     </section>
   );

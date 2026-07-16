@@ -33,7 +33,7 @@ const IntroSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="hidden sm:flex absolute -bottom-8 -right-4 md:-right-10 bg-white shadow-2xl shadow-neutral-900/10 border border-neutral-100 rounded-2xl px-6 py-5 max-w-[15rem]"
+            className="hidden sm:flex absolute -bottom-8 -right-4 md:-right-10 bg-white shadow-2xl shadow-neutral-900/10 border border-neutral-100 px-6 py-5 max-w-[15rem]"
           >
             <p className="text-sm text-neutral-600 leading-relaxed">
               <span className="block text-2xl font-bold text-neutral-900">
@@ -88,9 +88,9 @@ const IntroSection = () => {
             {pillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="flex items-center gap-2 bg-neutral-50 border border-neutral-200 rounded-full pl-2 pr-4 py-2 hover:border-red-200 hover:bg-red-50/50 transition-colors"
+                className="flex items-center gap-2 bg-neutral-50 border border-neutral-200 pl-2 pr-4 py-2 hover:border-red-200 hover:bg-red-50/50 transition-colors"
               >
-                <div className="w-7 h-7 rounded-full bg-red-600 text-white flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 bg-red-600 text-white flex items-center justify-center flex-shrink-0">
                   <pillar.icon className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm font-medium text-neutral-800">

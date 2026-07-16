@@ -49,7 +49,7 @@ const Businessman = () => {
                   src={data.image}
                   alt={data.title}
                   effect="blur"
-                  className="object-cover rounded"
+                  className="object-cover"
                 />
               </motion.div>
 

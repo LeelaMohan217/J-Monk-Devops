@@ -18,28 +18,28 @@ const ProcessSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12"
+          className="grid sm:grid-cols-2 lg:grid-cols-4"
         >
           {processSteps.map((step) => (
-            <motion.div
-              key={step.title}
-              variants={fadeIn("up", 0.1)}
-              className="group flex flex-col gap-4"
-            >
-              <div className="relative w-12 h-12">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-neutral-800 to-neutral-950 text-white flex items-center justify-center relative z-10 shadow-lg shadow-neutral-900/20 transition-transform duration-300 group-hover:scale-110 group-hover:from-red-600 group-hover:to-red-800">
-                  <step.icon className="w-5 h-5" />
+            <motion.div key={step.title} variants={fadeIn("up", 0.1)}>
+              {/* Hover scale lives on this plain div, separate from the motion.div
+                  above — framer-motion drives that element's `transform` via inline
+                  style for the entrance animation, which would permanently override
+                  any CSS `hover:scale` class placed on the same node. */}
+              <div className="group relative flex flex-col justify-between h-64 p-6 border border-neutral-200 bg-neutral-50 origin-bottom-left transition-transform duration-300 ease-in-out hover:scale-105 hover:z-10 hover:bg-white">
+                <step.icon className="w-7 h-7 text-neutral-800 transition-colors duration-300 group-hover:text-red-600" />
+
+                <div className="flex flex-col">
+                  <h3 className="font-semibold text-lg text-neutral-900">
+                    {step.title}
+                  </h3>
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-hover:mt-2 transition-[grid-template-rows] duration-300 ease-in-out">
+                    <p className="overflow-hidden text-sm text-neutral-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-red-600 text-white text-[10px] font-semibold flex items-center justify-center border-2 border-white z-20">
-                  {step.step}
-                </span>
               </div>
-              <h3 className="font-semibold text-lg text-neutral-900">
-                {step.title}
-              </h3>
-              <p className="text-sm text-neutral-600 leading-relaxed">
-                {step.description}
-              </p>
             </motion.div>
           ))}
         </motion.div>

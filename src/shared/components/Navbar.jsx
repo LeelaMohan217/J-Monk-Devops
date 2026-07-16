@@ -60,26 +60,33 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
           </div>
 
           <ul className="hidden lg:flex ml-12 space-x-10">
-            {navItems.map((item, index) => (
-              <li
-                key={index}
-                className={`relative group mx-0 text-base hover:text-red-600 ease-in-out duration-500 ${
-                  location.pathname === item.href
-                    ? "text-red-600"
-                    : "text-black"
-                }`}
-              >
-                <Link
-                  to={item.href}
-                  onClick={() => {
-                    closeNavbar();
-                    scrollToTop();
-                  }}
+            {navItems.map((item, index) => {
+              const active = location.pathname === item.href;
+
+              return (
+                <li
+                  key={index}
+                  className={`group relative mx-0 text-base transition-colors duration-300 ${
+                    active ? "text-red-600" : "text-black hover:text-red-600"
+                  }`}
                 >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+                  <Link
+                    to={item.href}
+                    onClick={() => {
+                      closeNavbar();
+                      scrollToTop();
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                  <span
+                    className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left bg-red-600 transition-transform duration-300 ${
+                      active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </li>
+              );
+            })}
           </ul>
 
           <div>

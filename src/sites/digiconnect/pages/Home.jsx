@@ -106,7 +106,7 @@ const Home = () => {
                 initial="hidden"
                 whileInView={"show"}
                 variants={fadeIn("up", index * 0.14)} // Adjust delay for each card
-                className="w-full bg-white rounded-md p-8 flex flex-col shadow-lg hover:shadow-2xl transform transition-transform duration-300 hover:scale-105"
+                className="w-full bg-white p-8 flex flex-col shadow-lg hover:shadow-2xl transform transition-transform duration-300 hover:scale-105"
               >
                 <div className="text-left font-extrabold text-2xl opacity-20 text-gray-800">
                   {data.id}
@@ -197,7 +197,7 @@ const Home = () => {
             <LazyLoadImage
               alt="Why Image"
               effect="blur"
-              className="rounded-lg w-full"
+              className="w-full"
               src={why}
             />
           </motion.div>
@@ -213,7 +213,7 @@ const Home = () => {
             <LazyLoadImage
               alt="Fit Image"
               effect="blur"
-              className="rounded-lg w-full"
+              className="w-full"
               src={fit}
             />
           </motion.div>

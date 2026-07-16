@@ -109,13 +109,13 @@ const Home = () => {
             >
               <Link
                 to="/digiconnect/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 rounded-full shadow-lg shadow-red-900/20 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/20 hover:-translate-y-0.5"
               >
                 Get in Touch <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="#offerings"
-                className="px-6 py-3 border border-neutral-300 text-neutral-800 hover:border-red-600 hover:text-red-700 font-medium transition-all duration-300 rounded-full hover:-translate-y-0.5"
+                className="px-6 py-3 border border-neutral-300 text-neutral-800 hover:border-red-600 hover:text-red-700 font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
                 What We Offer
               </a>
@@ -152,9 +152,9 @@ const Home = () => {
               <motion.div
                 key={offering.title}
                 variants={fadeIn("up", 0.1)}
-                className="flex flex-col gap-3 p-7 rounded-2xl bg-neutral-50 border border-neutral-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="flex flex-col gap-3 p-7 bg-neutral-50 border border-neutral-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-md shadow-red-900/20">
+                <div className="w-11 h-11 bg-gradient-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-md shadow-red-900/20">
                   <offering.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-semibold text-lg text-neutral-900">
@@ -202,7 +202,7 @@ const Home = () => {
               <motion.li
                 key={point}
                 variants={fadeIn("left", 0.1)}
-                className="flex items-start gap-3 bg-white border border-neutral-200 rounded-xl p-4"
+                className="flex items-start gap-3 bg-white border border-neutral-200 p-4"
               >
                 <Check className="w-4 h-4 text-red-600 flex-shrink-0 mt-1" />
                 <span className="text-sm text-neutral-700">{point}</span>
@@ -227,7 +227,7 @@ const Home = () => {
             {audience.map((item) => (
               <span
                 key={item}
-                className="text-sm font-medium text-neutral-700 border border-neutral-200 rounded-full px-5 py-2 hover:border-red-300 hover:text-red-700 transition-colors"
+                className="text-sm font-medium text-neutral-700 border border-neutral-200 px-5 py-2 hover:border-red-300 hover:text-red-700 transition-colors"
               >
                 {item}
               </span>

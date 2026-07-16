@@ -12,7 +12,6 @@ import introGrowth from "./assets/intro-collaboration.jpg";
 import platformDigiConnect from "./assets/platform-digiconnect.jpg";
 import platformSkillConnect from "./assets/platform-skillconnect.jpg";
 import platformEduConnect from "./assets/platform-educonnect.jpg";
-import capabilitiesFeature from "./assets/capabilities-team.jpg";
 
 export const homeImages = {
   heroBackdrop,
@@ -21,5 +20,4 @@ export const homeImages = {
   platformDigiConnect,
   platformSkillConnect,
   platformEduConnect,
-  capabilitiesFeature,
 };

@@ -46,7 +46,7 @@ const ScrollToTopButton = () => {
         >
           <button
             onClick={scrollToTop}
-            className="bg-red-600 text-white p-2 sm:p-3 rounded-full shadow-lg hover:bg-red-800 transition-all focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="bg-red-600 text-white p-2 sm:p-3 shadow-lg hover:bg-red-800 transition-all focus:outline-none focus:ring-2 focus:ring-red-500"
             aria-label="Scroll to top"
           >
             <ArrowUp size={16} sm:size={20} color="white" />

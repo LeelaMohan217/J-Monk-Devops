@@ -10,7 +10,7 @@ const MarqueeStrip = ({ items }) => {
         {doubled.map((item, index) => (
           <span
             key={`${item}-${index}`}
-            className="flex-shrink-0 text-sm font-medium text-neutral-300 border border-white/10 rounded-full px-5 py-2 whitespace-nowrap"
+            className="flex-shrink-0 text-sm font-medium text-neutral-300 border border-white/10 px-5 py-2 whitespace-nowrap"
           >
             {item}
           </span>

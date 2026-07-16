@@ -24,14 +24,14 @@ const Footer = ({
             <h1 className="text-left text-3xl text-white font-bold">
               {siteName}
             </h1>
-            <p className=" text-left text-neutral-200 text-base font-extralight leading-6">
+            <p className="text-left text-neutral-200 text-base font-extralight leading-6">
               {description}
             </p>
             <ul className="flex justify-evenly md:justify-normal gap-4 mt-6">
               {platformLinks.map((link, index) => (
                 <li key={index} className="flex">
                   <a
-                    className="text-neutral-200 border border-white rounded-full p-2 transition duration-1000 ease-in-out hover:bg-neutral-200 hover:text-red-600"
+                    className="text-neutral-200 border border-white p-2 transition duration-1000 ease-in-out hover:bg-neutral-200 hover:text-red-600"
                     href={link.href}
                   >
                     {link.icon}

@@ -35,7 +35,7 @@ const About = () => {
               src={home}
               alt="Our Story"
               effect="blur"
-              className="rounded-lg"
+              className=""
             />
           </motion.div>
           <motion.div
@@ -45,7 +45,7 @@ const About = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="flex flex-col gap-4"
           >
-            <h1 className=" text-xl lg:text-2xl xl:text-3xl font-bold">
+            <h1 className="text-xl lg:text-2xl xl:text-3xl font-bold">
               Our Story
             </h1>
             <p className="text-base text-neutral-800 text-justify">
@@ -58,7 +58,7 @@ const About = () => {
             <div className="my-4">
               <Link
                 to=""
-                className="bg-red-600 text-white font-normal text-base lg:text-base px-4 md:px-6 py-3 hover:bg-red-700 transition-all duration-500 "
+                className="bg-red-600 text-white font-normal text-base lg:text-base px-4 md:px-6 py-3 hover:bg-red-700 transition-all duration-500"
               >
                 Read More
               </Link>
@@ -146,18 +146,18 @@ const About = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 "
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10"
             >
               {boxData.map((data, index) => (
                 <div
                   key={index}
-                  className="w-100 rounded-md p-8 flex flex-col border border-neutral-300 transform transition-transform duration-500 "
+                  className="w-100 p-8 flex flex-col border border-neutral-300 transform transition-transform duration-500"
                 >
                   <div className="text-left font-extrabold text-2xl opacity-20">
                     {data.icon}
                   </div>
                   <div className="flex flex-col items-start">
-                    <h6 className="mt-2 text-lg md:text-2xl font-medium ">
+                    <h6 className="mt-2 text-lg md:text-2xl font-medium">
                       {data.title}
                     </h6>
                     <p className="mt-2 md:mt-4 font-extralight text-sm leading-6">

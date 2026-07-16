@@ -32,7 +32,7 @@ const LandingFooter = () => {
               <li key={index}>
                 <a
                   href={link.href}
-                  className="text-neutral-200 border border-white/40 rounded-full p-2 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 hover:-translate-y-0.5 [&_svg]:w-4 [&_svg]:h-4"
+                  className="text-neutral-200 border border-white/40 p-2 flex items-center justify-center hover:bg-white hover:text-red-600 transition-all duration-300 hover:-translate-y-0.5 [&_svg]:w-4 [&_svg]:h-4"
                 >
                   {link.icon}
                 </a>
