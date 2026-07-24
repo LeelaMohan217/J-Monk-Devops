@@ -22,7 +22,7 @@ const SectionHeading = ({
     >
       {eyebrow && (
         <span
-          className={`uppercase tracking-[0.25em] text-xs md:text-sm font-semibold ${
+          className={`font-mono uppercase tracking-[0.15em] text-xs font-medium ${
             light ? "text-red-400" : "text-red-600"
           }`}
         >
@@ -30,7 +30,7 @@ const SectionHeading = ({
         </span>
       )}
       <h2
-        className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight ${
+        className={`text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight ${
           light ? "text-white" : "text-neutral-900"
         }`}
       >
@@ -38,7 +38,7 @@ const SectionHeading = ({
       </h2>
       {description && (
         <p
-          className={`text-base md:text-lg ${
+          className={`text-sm md:text-base leading-relaxed ${
             light ? "text-neutral-400" : "text-neutral-600"
           }`}
         >

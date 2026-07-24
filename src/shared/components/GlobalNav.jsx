@@ -1,10 +1,9 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Logo from "../assets/Logo.png";
-import useHideOnScroll from "../hooks/useHideOnScroll";
 
 const connects = [
   { name: "DigiConnect", href: "/digiconnect", available: true },
@@ -13,23 +12,32 @@ const connects = [
 ];
 
 const GlobalNav = () => {
-  const hidden = useHideOnScroll();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 1);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
-      className={`sticky top-0 z-[60] bg-white border-b border-neutral-200 shadow-sm transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
+      className={`sticky top-0 z-60 border-b transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-md border-neutral-200"
+          : "bg-white border-transparent"
       }`}
     >
       <div className="px-8 lg:px-8 xl:px-20 grid grid-cols-3 items-center h-16">
-        <Link to="/" className="flex items-center gap-3 flex-shrink-0 justify-self-start">
+        <Link to="/" className="flex items-center gap-3 shrink-0 justify-self-start">
           <LazyLoadImage
             className="w-8 h-8"
             alt="JMonkDevOps"
             src={Logo}
             effect="blur"
           />
-          <span className="font-display text-base font-bold tracking-tight text-black">
+          <span className="text-base font-semibold tracking-tight text-black">
             JMonkDevOps
           </span>
         </Link>
@@ -40,15 +48,14 @@ const GlobalNav = () => {
               <li key={connect.name}>
                 <Link
                   to={connect.href}
-                  className="group relative inline-block py-1 text-sm font-medium text-neutral-700 hover:text-red-600 transition-colors"
+                  className="inline-block py-1 text-sm font-medium text-neutral-500 hover:text-black transition-colors"
                 >
                   {connect.name}
-                  <span className="absolute left-0 -bottom-0.5 h-[2px] w-full origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
                 </Link>
               </li>
             ) : (
               <li key={connect.name}>
-                <span className="text-sm font-medium text-neutral-400 cursor-default">
+                <span className="text-xs font-medium text-neutral-400 cursor-default">
                   {connect.name}
                 </span>
               </li>
@@ -59,7 +66,7 @@ const GlobalNav = () => {
         <button
           type="button"
           aria-label="Search"
-          className="text-neutral-700 hover:text-red-600 transition-colors justify-self-end"
+          className="text-neutral-500 hover:text-black transition-colors justify-self-end"
         >
           <Search className="w-4 h-4" />
         </button>

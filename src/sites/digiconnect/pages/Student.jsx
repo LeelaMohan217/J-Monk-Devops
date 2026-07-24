@@ -1,4 +1,3 @@
-import React from "react";
 import { studentPageData } from "../constants";
 import { dataSBe } from "../constants";
 import { motion } from "framer-motion";
@@ -11,7 +10,7 @@ import { Link } from "react-router-dom";
 const Student = () => {
   return (
     <>
-      <div className="bg-gradient-to-t from-neutral-50 to-neutral-200">
+      <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="flex flex-col gap-2 py-14">
             <h2 className="text-2xl font-medium text-red-600">Student</h2>
@@ -69,7 +68,7 @@ const Student = () => {
         </div>
       </div>
 
-      <div className="bg-gradient-to-l from-neutral-50 to-neutral-100">
+      <div className="bg-linear-to-l from-neutral-50 to-neutral-100">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center my-10">
             <div className="space-y-4">

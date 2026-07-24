@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { dataSB } from "../constants";
 import { motion } from "framer-motion";
@@ -12,7 +11,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 const Home = () => {
   return (
     <>
-      <div className="bg-gradient-to-t from-neutral-50 to-neutral-200">
+      <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <motion.div
             variants={stagger}
@@ -26,7 +25,7 @@ const Home = () => {
                 className="text-5xl sm:text-6xl md:text-7xl font-bold md:font-semibold md:leading-none md:text-center"
               >
                 Digitalizing Local{" "}
-                <span className="bg-gradient-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
+                <span className="bg-linear-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
                   Bharat
                 </span>
               </motion.h1>
@@ -52,7 +51,7 @@ const Home = () => {
             >
               <Link
                 to="/contact"
-                className="w-full sm:w-auto px-4 md:px-6 py-3 font-normal text-sm md:text-base text-white text-center transition duration-500 ease-in-out bg-red-600 hover:bg-red-700 active:bg-red-700 focus:outline-none focus:ring focus:ring-red-300"
+                className="w-full sm:w-auto px-4 md:px-6 py-3 font-normal text-sm md:text-base text-white text-center transition duration-500 ease-in-out bg-red-600 hover:bg-red-700 active:bg-red-700 focus:outline-hidden focus:ring-3 focus:ring-red-300"
               >
                 Get Started
               </Link>

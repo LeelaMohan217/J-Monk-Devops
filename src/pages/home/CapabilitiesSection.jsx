@@ -11,7 +11,7 @@ const [custom, saas, cloud, devops, api, consulting] = capabilities;
 const TileContent = ({ capability, dark, titleSize }) => (
   <>
     <div
-      className={`w-7 h-7 flex items-center justify-center text-white flex-shrink-0 ${
+      className={`w-7 h-7 flex items-center justify-center text-white shrink-0 ${
         dark ? "bg-neutral-900" : "bg-red-600"
       }`}
     >
@@ -46,7 +46,7 @@ const Tile = ({
       <div className={`relative h-52 ${place}`}>
         <div aria-hidden="true" className="absolute inset-0 bg-red-600" />
         <div
-          className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:-translate-x-[50px]"
+          className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:translate-x-[-50px]"
         >
           <TileContent capability={capability} dark={dark} titleSize={titleSize} />
         </div>
@@ -66,7 +66,7 @@ const Tile = ({
 const TileV2 = ({ capability, dark, place, titleSize = "text-base" }) => (
   <div className={`relative h-52 ${place}`}>
     <div aria-hidden="true" className="absolute inset-0 bg-red-700" />
-    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:-translate-x-[50px]">
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 transition-transform duration-300 ease-in-out hover:translate-x-[-50px]">
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
   </div>
@@ -102,7 +102,7 @@ const TileV5 = ({ capability, dark, place, titleSize = "text-base" }) => (
 const TileV6 = ({ capability, dark, place, titleSize = "text-base" }) => (
   <div className={`relative h-52 ${place}`}>
     <div aria-hidden="true" className="absolute inset-0 border" />
-    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 origin-center transition-transform duration-300 ease-in-out hover:-rotate-[25deg]">
+    <div className="relative z-10 h-full bg-white border border-neutral-200 p-4 flex flex-col justify-between gap-3 origin-center transition-transform duration-300 ease-in-out hover:rotate-[-25deg]">
       <TileContent capability={capability} dark={dark} titleSize={titleSize} />
     </div>
   </div>
@@ -124,8 +124,8 @@ const SplitCell = ({ place }) => (
     aria-hidden="true"
     className={`hidden lg:flex flex-col h-52 ${place}`}
   >
-    <div className="flex-[5]" />
-    <div className="flex-[4] bg-neutral-200 border-t border-l border-r border-neutral-200" />
+    <div className="flex-5" />
+    <div className="flex-4 bg-neutral-200 border-t border-l border-r border-neutral-200" />
   </div>
 );
 
@@ -137,8 +137,8 @@ const SplitCellV2 = ({ place, dot = false }) => (
     {dot && (
       <span className="absolute top-0 right-0 w-1.5 h-1.5 translate-x-1/2 -translate-y-1/2 bg-neutral-900" />
     )}
-    <div className="flex-[5]" />
-    <div className="flex-[4] bg-neutral-100 border-2 border-neutral-200" />
+    <div className="flex-5" />
+    <div className="flex-4 bg-neutral-100 border-2 border-neutral-200" />
   </div>
 );
 

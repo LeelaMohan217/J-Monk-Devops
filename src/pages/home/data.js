@@ -5,12 +5,6 @@ import {
   Plug,
   Boxes,
   Compass,
-  Route,
-  ShieldCheck,
-  Building2,
-  Zap,
-  Cog,
-  Handshake,
   GraduationCap,
   Globe2,
   Search,
@@ -62,45 +56,6 @@ export const platforms = [
       "Application & Visa Assistance",
       "Pre-Departure & Student Support",
     ],
-  },
-];
-
-export const strengths = [
-  {
-    icon: Route,
-    title: "End-to-End Support",
-    description:
-      "From the first idea to long-term growth, we stay involved across every stage of the journey.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Scalable & Secure by Design",
-    description:
-      "Engineering practices built to grow with you, without compromising on reliability.",
-  },
-  {
-    icon: Building2,
-    title: "Startup to Enterprise Ready",
-    description:
-      "Solutions and guidance flexible enough for a first-time founder or an established organization.",
-  },
-  {
-    icon: Zap,
-    title: "Agile, Fast-Moving Delivery",
-    description:
-      "Shorter feedback loops and faster delivery cycles, without cutting corners.",
-  },
-  {
-    icon: Cog,
-    title: "Automation-Driven Approach",
-    description:
-      "We reduce manual work wherever it slows you down, from infrastructure to everyday operations.",
-  },
-  {
-    icon: Handshake,
-    title: "A Long-Term Partnership Mindset",
-    description:
-      "We measure success by your outcomes, not just by a project handoff.",
   },
 ];
 

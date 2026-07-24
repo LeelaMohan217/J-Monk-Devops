@@ -12,7 +12,7 @@ const pillars = [
 
 const IntroSection = () => {
   return (
-    <section className="relative bg-white py-20 md:py-28 overflow-hidden">
+    <section id="who-we-are" className="relative bg-white py-20 md:py-28 overflow-hidden scroll-mt-36">
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
         <motion.div
           initial="hidden"
@@ -25,7 +25,7 @@ const IntroSection = () => {
             src={homeImages.introGrowth}
             alt="Two professionals shaking hands, representing the JMonkDevOps partnership approach"
             icon={Sparkles}
-            aspect="aspect-[4/3]"
+            aspect="aspect-4/3"
             className="max-w-lg"
           />
           <motion.div
@@ -33,7 +33,7 @@ const IntroSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="hidden sm:flex absolute -bottom-8 -right-4 md:-right-10 bg-white shadow-2xl shadow-neutral-900/10 border border-neutral-200 px-6 py-5 max-w-[15rem]"
+            className="hidden sm:flex absolute -bottom-8 -right-4 md:-right-10 bg-white shadow-2xl shadow-neutral-900/10 border border-neutral-200 px-6 py-5 max-w-60"
           >
             <p className="text-sm text-neutral-600 leading-relaxed">
               <span className="block text-2xl font-bold text-neutral-900">
@@ -90,7 +90,7 @@ const IntroSection = () => {
                 key={pillar.title}
                 className="flex items-center gap-2 bg-neutral-50 border border-neutral-200 pl-2 pr-4 py-2 hover:border-red-200 hover:bg-red-50/50 transition-colors"
               >
-                <div className="w-7 h-7 bg-red-600 text-white flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 bg-red-600 text-white flex items-center justify-center shrink-0">
                   <pillar.icon className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm font-medium text-neutral-800">

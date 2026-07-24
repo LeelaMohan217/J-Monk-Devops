@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import useHideOnScroll from "../hooks/useHideOnScroll";
@@ -46,14 +46,14 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
         } ${
           scrolled
             ? "bg-white shadow-lg"
-            : "bg-gradient-to-b from-neutral-50 to-neutral-200"
+            : "bg-linear-to-b from-neutral-50 to-neutral-200"
         }`}
       >
         <div className="flex justify-between items-center px-8 lg:px-8 xl:px-20 py-2">
           <div className="flex justify-between items-center">
             <Link
               to={homeHref}
-              className="text-lg sm:text-xl tracking-tight text-black font-bold flex-shrink-0"
+              className="text-lg sm:text-xl tracking-tight text-black font-bold shrink-0"
             >
               {siteName}
             </Link>

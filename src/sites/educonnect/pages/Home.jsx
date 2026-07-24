@@ -74,7 +74,7 @@ const destinations = [
 const Home = () => {
   return (
     <>
-      <div className="bg-gradient-to-t from-neutral-50 to-neutral-200">
+      <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <motion.div
             variants={stagger}
@@ -93,7 +93,7 @@ const Home = () => {
               className="text-5xl sm:text-6xl md:text-7xl font-bold md:font-semibold leading-tight"
             >
               Dream. Move.{" "}
-              <span className="bg-gradient-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
+              <span className="bg-linear-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
                 Become.
               </span>
             </motion.h1>
@@ -156,7 +156,7 @@ const Home = () => {
                 variants={fadeIn("up", 0.1)}
                 className="flex flex-col gap-3 p-7 bg-neutral-50 border border-neutral-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-11 h-11 bg-gradient-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-md shadow-red-900/20">
+                <div className="w-11 h-11 bg-linear-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-md shadow-red-900/20">
                   <service.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-semibold text-lg text-neutral-900">
@@ -206,7 +206,7 @@ const Home = () => {
                 variants={fadeIn("left", 0.1)}
                 className="flex items-start gap-3 bg-white border border-neutral-200 p-4"
               >
-                <Check className="w-4 h-4 text-red-600 flex-shrink-0 mt-1" />
+                <Check className="w-4 h-4 text-red-600 shrink-0 mt-1" />
                 <span className="text-sm text-neutral-700">{point}</span>
               </motion.li>
             ))}

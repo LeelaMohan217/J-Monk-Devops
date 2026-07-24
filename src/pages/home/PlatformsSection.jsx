@@ -3,21 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { fadeIn } from "../../shared/variants";
 import { platforms } from "./data";
-import { homeImages } from "./images";
 import SectionHeading from "./SectionHeading";
-import ImageVisual from "./components/ImageVisual";
-
-const imageByPlatform = {
-  DigiConnect: homeImages.platformDigiConnect,
-  SkillConnect: homeImages.platformSkillConnect,
-  EduConnect: homeImages.platformEduConnect,
-};
-
-const altByPlatform = {
-  DigiConnect: "A team reviewing a software product dashboard on screen, representing DigiConnect",
-  SkillConnect: "A group of people collaborating together on laptops, representing SkillConnect",
-  EduConnect: "A person planning their next step on a laptop, representing EduConnect",
-};
+import { MagicCard } from "../../components/ui/magic-card";
 
 const PlatformsSection = () => {
   return (
@@ -45,22 +32,33 @@ const PlatformsSection = () => {
                   viewport={{ once: true, amount: 0.3 }}
                   className={reversed ? "lg:order-2" : "lg:order-1"}
                 >
-                  <ImageVisual
-                    src={imageByPlatform[platform.name]}
-                    alt={altByPlatform[platform.name]}
-                    icon={platform.icon}
-                    aspect="aspect-[4/3]"
-                    badges={[
-                      {
-                        icon: platform.icon,
-                        label: platform.name,
-                        sublabel: platform.tagline,
-                        position: reversed
-                          ? "-bottom-6 -right-4 sm:-right-8"
-                          : "-bottom-6 -left-4 sm:-left-8",
-                      },
-                    ]}
-                  />
+                  <MagicCard
+                    className="aspect-4/3 rounded-2xl border border-neutral-200"
+                    gradientFrom="#dc2626"
+                    gradientTo="#171717"
+                    gradientColor="#fef2f2"
+                    gradientOpacity={0.25}
+                    gradientSize={260}
+                  >
+                    <div className="h-full flex flex-col justify-between p-8 md:p-10">
+                      <div className="flex items-start justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-neutral-900 text-white flex items-center justify-center">
+                          <platform.icon className="w-6 h-6" />
+                        </div>
+                        <span className="font-mono text-sm text-neutral-300">
+                          {platform.id}
+                        </span>
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <h4 className="text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900">
+                          {platform.name}
+                        </h4>
+                        <p className="text-red-600 text-sm font-medium">
+                          {platform.tagline}
+                        </p>
+                      </div>
+                    </div>
+                  </MagicCard>
                 </motion.div>
 
                 <motion.div
@@ -69,27 +67,27 @@ const PlatformsSection = () => {
                   whileInView="show"
                   viewport={{ once: true, amount: 0.3 }}
                   className={`flex flex-col gap-4 ${
-reversed ? "lg:order-1" : "lg:order-2"
-}`}
+                    reversed ? "lg:order-1" : "lg:order-2"
+                  }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-sm font-mono text-neutral-300">
+                    <span className="font-mono text-sm text-neutral-300">
                       {platform.id}
                     </span>
                     {!platform.available && (
-                      <span className="text-[10px] uppercase tracking-wide font-semibold text-neutral-500 border border-neutral-300 px-3 py-1">
+                      <span className="rounded-full text-[10px] uppercase tracking-wide font-semibold text-neutral-500 border border-neutral-300 px-3 py-1">
                         Coming Soon
                       </span>
                     )}
                   </div>
 
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-neutral-900">
+                  <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-neutral-900">
                     {platform.name}
                   </h3>
-                  <p className="text-red-600 text-sm italic font-medium">
+                  <p className="text-red-600 text-sm font-medium">
                     {platform.tagline}
                   </p>
-                  <p className="text-neutral-600 text-base leading-relaxed">
+                  <p className="text-neutral-600 text-sm md:text-base leading-relaxed">
                     {platform.description}
                   </p>
 
@@ -99,7 +97,7 @@ reversed ? "lg:order-1" : "lg:order-2"
                         key={offering}
                         className="flex items-start gap-2 text-sm text-neutral-600"
                       >
-                        <Check className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                         {offering}
                       </li>
                     ))}
@@ -109,7 +107,7 @@ reversed ? "lg:order-1" : "lg:order-2"
                     {platform.available ? (
                       <Link
                         to={platform.href}
-                        className="group inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/10 hover:-translate-y-0.5 w-fit"
+                        className="group inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-neutral-800 hover:shadow-md hover:-translate-y-0.5 w-fit"
                       >
                         Visit {platform.name}
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

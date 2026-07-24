@@ -17,7 +17,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-t from-neutral-50 to-neutral-200">
+      <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="flex flex-col gap-2 py-14">
             <h2 className="text-2xl font-medium text-red-600">Contact</h2>
@@ -50,7 +50,7 @@ const Contact = () => {
                 Keep in Touch
               </h2>
               <div className="border-t border-red-700 mb-4 sm:mb-6"></div>
-              <div className="space-y-4 sm:space-y-5 md:space-y-6 flex-grow">
+              <div className="space-y-4 sm:space-y-5 md:space-y-6 grow">
                 {/* Mobile */}
                 <div className="relative">
                   <div className="flex items-center space-x-2">
@@ -119,7 +119,7 @@ const Contact = () => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500"
+                className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-hidden focus:border-red-500"
                 placeholder="John"
               />
             </div>
@@ -136,7 +136,7 @@ const Contact = () => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500"
+                className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-hidden focus:border-red-500"
                 placeholder="Doe"
               />
             </div>
@@ -154,7 +154,7 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500"
+              className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-hidden focus:border-red-500"
               placeholder="example@example.com"
             />
           </div>
@@ -170,7 +170,7 @@ const Contact = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-none focus:border-red-500 h-28 md:h-36 resize-none"
+              className="w-full px-3 py-2 md:py-3 border border-gray-400 focus:outline-hidden focus:border-red-500 h-28 md:h-36 resize-none"
               placeholder="Write your message here"
             />
           </div>

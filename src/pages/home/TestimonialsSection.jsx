@@ -15,13 +15,9 @@ const initialsOf = (role) =>
 
 const TestimonialsSection = () => {
   return (
-    <section className="bg-neutral-950 py-20 md:py-28">
+    <section className="bg-neutral-50 py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-14">
-        <SectionHeading
-          eyebrow="Client Feedback"
-          title="What partners are saying"
-          light
-        />
+        <SectionHeading eyebrow="Client Feedback" title="What partners are saying" />
 
         <motion.div
           variants={stagger}
@@ -34,18 +30,18 @@ const TestimonialsSection = () => {
             <motion.div
               key={testimonial.role}
               variants={fadeIn("up", 0.1)}
-              className="flex flex-col gap-5 p-7 bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/30 hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col gap-5 rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <Quote className="w-8 h-8 text-red-500/70" />
-              <p className="text-neutral-300 text-sm md:text-base leading-relaxed flex-grow">
+              <Quote className="w-7 h-7 text-neutral-300" />
+              <p className="text-neutral-600 text-sm md:text-base leading-relaxed grow">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                <div className="w-9 h-9 bg-gradient-to-br from-red-500 to-red-700 text-white text-xs font-semibold flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-3 pt-4 border-t border-neutral-200">
+                <div className="w-9 h-9 rounded-full bg-neutral-900 text-white text-xs font-semibold flex items-center justify-center shrink-0">
                   {initialsOf(testimonial.role)}
                 </div>
-                <div className="flex-grow">
-                  <span className="text-sm text-neutral-300 block leading-tight">
+                <div className="grow">
+                  <span className="text-sm text-neutral-700 block leading-tight">
                     {testimonial.role}
                   </span>
                   <div className="flex gap-0.5 mt-1">
