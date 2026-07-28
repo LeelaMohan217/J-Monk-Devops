@@ -125,8 +125,12 @@ const ProcessSection = () => {
                 key={step.title}
                 variants={fadeIn("up", 0.1)}
                 className={`flex flex-col items-center gap-4 p-8 text-center border-neutral-200 ${
-                  i % 2 === 1 ? "sm:border-l" : ""
-                } ${i >= 2 ? "sm:border-t lg:border-t-0" : ""} ${i !== 0 ? "lg:border-l" : ""}`}
+                  i === 0
+                    ? ""
+                    : `border-t ${i % 2 === 1 ? "sm:border-l" : ""} ${
+                        i === 1 ? "sm:border-t-0" : "lg:border-t-0 lg:border-l"
+                      }`
+                }`}
               >
                 <div className="h-40 w-full rounded-2xl bg-white/60">
                   <Illustration />
