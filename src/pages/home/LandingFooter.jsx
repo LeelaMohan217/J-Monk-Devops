@@ -19,7 +19,7 @@ const LandingFooter = () => {
 
   return (
     <footer className="bg-neutral-50 border-t border-neutral-200">
-      <div className="px-8 lg:px-8 xl:px-20 py-16 md:py-20 flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20 flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
         <div className="flex flex-col gap-4 max-w-sm">
           <Link to="/" className="w-fit">
             <span className="text-base font-semibold tracking-tight text-neutral-900">
@@ -54,7 +54,7 @@ const LandingFooter = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="inline-block text-neutral-500 text-sm hover:text-black transition-colors duration-300"
+                      className="inline-block text-neutral-500 text-sm font-medium hover:text-black transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
@@ -119,7 +119,7 @@ const LandingFooter = () => {
       </div>
 
       <div className="border-t border-neutral-200">
-        <div className="px-8 lg:px-8 xl:px-20 py-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 py-6">
           <p className="text-neutral-500 text-xs text-center">
             © {new Date().getFullYear()} JMonkDevOps. All rights reserved.
           </p>

@@ -48,7 +48,7 @@ const HeroSection = () => {
             <BorderBeam
               size={40}
               duration={6}
-              colorFrom="#dc2626"
+              colorFrom="#525252"
               colorTo="#171717"
             />
           </motion.span>
@@ -64,7 +64,7 @@ const HeroSection = () => {
           >
             <DiaTextReveal
               text="Digitalizing Local Bharath"
-              colors={["#dc2626", "#991b1b", "#171717"]}
+              colors={["#737373", "#404040", "#000000"]}
               textColor="#171717"
               duration={1.4}
               delay={0.6}
@@ -116,9 +116,16 @@ const HeroSection = () => {
               {items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full bg-white border border-neutral-200 px-5 py-3 text-sm text-neutral-700 whitespace-nowrap transition-colors duration-300 hover:border-red-200 hover:text-red-600"
+                  className="group relative rounded-full bg-white border border-neutral-200 px-5 py-2 text-sm text-neutral-700 whitespace-nowrap transition-colors duration-300 hover:border-neutral-300 hover:text-neutral-900"
                 >
                   {item}
+                  <BorderBeam
+                    size={40}
+                    duration={6}
+                    colorFrom="#525252"
+                    colorTo="#171717"
+                    className="opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
                 </span>
               ))}
             </div>

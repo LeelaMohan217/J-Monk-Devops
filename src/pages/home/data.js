@@ -3,7 +3,6 @@ import {
   Cloud,
   Workflow,
   Plug,
-  Boxes,
   Compass,
   GraduationCap,
   Globe2,
@@ -62,13 +61,9 @@ export const platforms = [
 export const capabilities = [
   {
     icon: Code2,
-    title: "Custom Software Development",
-    description: "Scalable platforms built around how your business operates.",
-  },
-  {
-    icon: Boxes,
-    title: "SaaS Product Development",
-    description: "Modern UI/UX and cloud-native infrastructure for subscriptions.",
+    title: "Custom Software & SaaS Development",
+    description:
+      "Scalable platforms with modern UI/UX and cloud-native infrastructure, built around how your business operates.",
   },
   {
     icon: Cloud,
@@ -118,8 +113,7 @@ export const processSteps = [
     icon: TrendingUp,
     step: "04",
     title: "Support & Scale",
-    description:
-      "We stay on as a technical partner as your needs grow.",
+    description: "We stay on as a technical partner as your needs grow.",
   },
 ];
 
@@ -127,16 +121,37 @@ export const testimonials = [
   {
     quote:
       "DigiConnect took the time to understand how we actually work before writing a single line of code. The end result felt custom-built, not off-the-shelf.",
+    name: "Aditya Rao",
     role: "Founder, Early-Stage Startup",
   },
   {
     quote:
       "What stood out was the follow-through — automation and deployment pipelines that just kept working long after launch.",
+    name: "Sneha Kulkarni",
     role: "Operations Lead, Growing Business",
   },
   {
     quote:
       "Clear communication from day one, and they were upfront whenever a simpler approach made more sense than the fancier one.",
+    name: "Rahul Menon",
+    role: "Product Owner, Digital Services Firm",
+  },
+  {
+    quote:
+      "DigiConnect took the time to understand how we actually work before writing a single line of code. The end result felt custom-built, not off-the-shelf.",
+    name: "Aditya Rao",
+    role: "Founder, Early-Stage Startup",
+  },
+  {
+    quote:
+      "What stood out was the follow-through — automation and deployment pipelines that just kept working long after launch.",
+    name: "Sneha Kulkarni",
+    role: "Operations Lead, Growing Business",
+  },
+  {
+    quote:
+      "Clear communication from day one, and they were upfront whenever a simpler approach made more sense than the fancier one.",
+    name: "Rahul Menon",
     role: "Product Owner, Digital Services Firm",
   },
 ];

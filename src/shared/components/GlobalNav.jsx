@@ -29,7 +29,7 @@ const GlobalNav = () => {
           : "bg-white border-transparent"
       }`}
     >
-      <div className="px-8 lg:px-8 xl:px-20 grid grid-cols-3 items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-3 items-center h-16">
         <Link to="/" className="flex items-center gap-3 shrink-0 justify-self-start">
           <LazyLoadImage
             className="w-8 h-8"

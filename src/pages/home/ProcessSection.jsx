@@ -27,7 +27,7 @@ const ProcessSection = () => {
                   style for the entrance animation, which would permanently override
                   any CSS `hover:scale` class placed on the same node. */}
               <div className="group relative flex flex-col justify-between h-64 p-6 border border-neutral-200 bg-neutral-50 origin-bottom-left transition-transform duration-300 ease-in-out hover:scale-105 hover:z-10 hover:bg-white">
-                <step.icon className="w-7 h-7 text-neutral-800 transition-colors duration-300 group-hover:text-red-600" />
+                <step.icon className="w-7 h-7 text-neutral-800 transition-colors duration-300 group-hover:text-neutral-900" />
 
                 <div className="flex flex-col">
                   <h3 className="font-display font-bold text-lg text-neutral-900">
