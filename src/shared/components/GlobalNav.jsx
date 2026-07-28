@@ -34,14 +34,14 @@ const GlobalNav = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-3 items-center h-16">
-        <Link to="/" className="flex items-center gap-3 shrink-0 justify-self-start">
+        <Link to="/" className="col-start-1 flex items-center gap-3 shrink-0 justify-self-start">
           <img className="w-8 h-8" alt="JMonkDevOps" src={Logo} />
           <span className="text-base font-semibold tracking-tight text-black">
             JMonkDevOps
           </span>
         </Link>
 
-        <ul className="hidden md:flex items-center gap-8 justify-self-center">
+        <ul className="col-start-2 hidden md:flex items-center gap-8 justify-self-center">
           {connects.map((connect) =>
             connect.available ? (
               <li key={connect.name}>
@@ -62,7 +62,7 @@ const GlobalNav = () => {
           )}
         </ul>
 
-        <div className="justify-self-end">
+        <div className="col-start-3 justify-self-end">
           <button
             type="button"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
