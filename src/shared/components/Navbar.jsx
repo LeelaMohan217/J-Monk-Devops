@@ -59,7 +59,7 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
             </Link>
           </div>
 
-          <ul className="hidden lg:flex ml-12 space-x-10">
+          <ul className="hidden lg:flex ml-12 gap-10">
             {navItems.map((item, index) => {
               const active = location.pathname === item.href;
 

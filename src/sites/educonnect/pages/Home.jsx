@@ -80,7 +80,7 @@ const Home = () => {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="flex flex-col items-center text-center space-y-4 md:space-y-6 py-24 sm:py-28"
+            className="flex flex-col items-center text-center gap-4 md:gap-6 py-24 sm:py-28"
           >
             <motion.span
               variants={fadeIn("up", 0.1)}

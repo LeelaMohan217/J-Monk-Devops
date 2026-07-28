@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Search } from "lucide-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Logo from "../assets/Logo.png";
@@ -63,13 +62,12 @@ const GlobalNav = () => {
           )}
         </ul>
 
-        <button
-          type="button"
-          aria-label="Search"
-          className="text-neutral-500 hover:text-black transition-colors justify-self-end"
+        <Link
+          to="/#who-we-are"
+          className="justify-self-end rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          <Search className="w-4 h-4" />
-        </button>
+          Get Started
+        </Link>
       </div>
     </header>
   );

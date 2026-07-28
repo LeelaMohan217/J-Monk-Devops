@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
 import { DotPattern } from "../../components/ui/dot-pattern";
-import { DiaTextReveal } from "../../components/ui/dia-text-reveal";
 import { BorderBeam } from "../../components/ui/border-beam";
 
 const items = [
@@ -60,15 +59,9 @@ const HeroSection = () => {
           </motion.h1>
           <motion.p
             variants={fadeIn("up", 0.3)}
-            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight"
+            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-900"
           >
-            <DiaTextReveal
-              text="Digitalizing Local Bharath"
-              colors={["#737373", "#404040", "#000000"]}
-              textColor="#171717"
-              duration={1.4}
-              delay={0.6}
-            />
+            Digitalizing Local Bharath
           </motion.p>
           <motion.p
             variants={fadeIn("up", 0.4)}
@@ -116,16 +109,9 @@ const HeroSection = () => {
               {items.map((item) => (
                 <span
                   key={item}
-                  className="group relative rounded-full bg-white border border-neutral-200 px-5 py-2 text-sm text-neutral-700 whitespace-nowrap transition-colors duration-300 hover:border-neutral-300 hover:text-neutral-900"
+                  className="rounded-full bg-white border border-neutral-200 px-5 py-2 text-sm text-neutral-700 whitespace-nowrap transition-colors duration-300 hover:border-neutral-300 hover:text-neutral-900"
                 >
                   {item}
-                  <BorderBeam
-                    size={40}
-                    duration={6}
-                    colorFrom="#525252"
-                    colorTo="#171717"
-                    className="opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  />
                 </span>
               ))}
             </div>

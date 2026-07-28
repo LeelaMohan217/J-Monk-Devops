@@ -14,7 +14,7 @@ const initialsOf = (role) =>
 
 const TestimonialsSection = () => {
   return (
-    <section className="bg-neutral-50 py-20 md:py-28">
+    <section className="bg-neutral-50 py-10 md:py-14">
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-14">
         <SectionHeading
           eyebrow="Our Customers"

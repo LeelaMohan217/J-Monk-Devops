@@ -70,7 +70,7 @@ const PlatformPanel = ({ platform, index, isLast, tint }) => {
   return (
     <div
       ref={ref}
-      className="sticky pb-16 md:pb-24"
+      className={`sticky ${isLast ? "" : "pb-16 md:pb-24"}`}
       style={{ top: 112 }}
     >
       <motion.div
@@ -137,7 +137,7 @@ const PlatformsSection = () => {
   const trackRef = useRef(null);
 
   return (
-    <section id="platforms" className="bg-white py-20 md:py-28 scroll-mt-36">
+    <section id="platforms" className="bg-white py-10 md:py-14">
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-14">
         <SectionHeading
           eyebrow="Our Platforms"

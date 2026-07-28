@@ -22,7 +22,7 @@ const SectionHeading = ({
     >
       {eyebrow && (
         <span
-          className={`font-mono uppercase tracking-[0.15em] text-xs font-medium ${
+          className={`font-cursive text-2xl md:text-3xl font-semibold normal-case tracking-normal ${
             light ? "text-neutral-400" : "text-neutral-900"
           }`}
         >

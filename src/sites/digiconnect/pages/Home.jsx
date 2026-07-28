@@ -17,9 +17,9 @@ const Home = () => {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="flex flex-col items-start md:items-center space-y-4 md:space-y-6 py-24 sm:py-28"
+            className="flex flex-col items-start md:items-center gap-4 md:gap-6 py-24 sm:py-28"
           >
-            <div className="flex flex-col items-center space-y-4 md:space-y-6 md:my-10">
+            <div className="flex flex-col items-center gap-4 md:gap-6 md:my-10">
               <motion.h1
                 variants={fadeIn("up", 0.2)}
                 className="text-5xl sm:text-6xl md:text-7xl font-bold md:font-semibold md:leading-none md:text-center"

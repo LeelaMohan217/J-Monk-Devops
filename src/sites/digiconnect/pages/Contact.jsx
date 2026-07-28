@@ -50,10 +50,10 @@ const Contact = () => {
                 Keep in Touch
               </h2>
               <div className="border-t border-red-700 mb-4 sm:mb-6"></div>
-              <div className="space-y-4 sm:space-y-5 md:space-y-6 grow">
+              <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 grow">
                 {/* Mobile */}
                 <div className="relative">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Phone className="text-red-700 w-5 h-5 sm:w-6 sm:h-6" />
                     <span className="text-red-700 font-semibold text-sm sm:text-base">
                       Mobile:
@@ -66,7 +66,7 @@ const Contact = () => {
 
                 {/* Email */}
                 <div className="relative">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Mail className="text-red-700 w-5 h-5 sm:w-6 sm:h-6" />
                     <span className="text-red-700 font-semibold text-sm sm:text-base">
                       Email:
@@ -79,7 +79,7 @@ const Contact = () => {
 
                 {/* Address */}
                 <div className="relative">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <MapPin className="text-red-700 w-5 h-5 sm:w-6 sm:h-6" />
                     <span className="text-red-700 font-semibold text-sm sm:text-base">
                       Address:
@@ -102,7 +102,7 @@ const Contact = () => {
         </h2>
         <div className="w-full border-t border-gray-300 mb-4 px-8"></div>
         <form
-          className="w-full max-w-4xl mx-auto my-6 md:my-10 lg:my-12 space-y-4 px-8"
+          className="flex flex-col w-full max-w-4xl mx-auto my-6 md:my-10 lg:my-12 gap-4 px-8"
           onSubmit={handleSubmit}
         >
           <div className="grid md:grid-cols-2 gap-4 mb-2">

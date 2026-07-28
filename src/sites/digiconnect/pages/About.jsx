@@ -70,7 +70,7 @@ const About = () => {
       <div className="bg-linear-to-l from-neutral-50 to-neutral-100">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center my-10">
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4">
               <motion.h1
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
@@ -97,7 +97,7 @@ const About = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
-              className="flex justify-center items-center space-x-4"
+              className="flex justify-center items-center gap-4"
             >
               <Link
                 to="/about"
@@ -118,7 +118,7 @@ const About = () => {
 
       <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center my-10">
-          <div className="flex flex-col space-y-4 col-span-1">
+          <div className="flex flex-col gap-4 col-span-1">
             <motion.h1
               variants={fadeIn("up", 0.2)}
               initial="hidden"

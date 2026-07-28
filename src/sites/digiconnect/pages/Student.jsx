@@ -26,7 +26,7 @@ const Student = () => {
           {studentPageData.map((data, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-row items-start md:space-x-8 transform transition-transform duration-500 my-10"
+              className="flex flex-col md:flex-row items-start md:gap-8 transform transition-transform duration-500 my-10"
             >
               <motion.div
                 variants={fadeIn("up", 0.2)}
@@ -48,7 +48,7 @@ const Student = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.7 }}
-                className="flex flex-col space-y-4 md:w-2/3 px-8 md:px-0"
+                className="flex flex-col gap-4 md:w-2/3 px-8 md:px-0"
               >
                 <h6 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-neutral-800">
                   {data.title}
@@ -71,7 +71,7 @@ const Student = () => {
       <div className="bg-linear-to-l from-neutral-50 to-neutral-100">
         <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center my-10">
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4">
               <motion.h1
                 variants={fadeIn("up", 0.2)}
                 initial="hidden"
@@ -98,7 +98,7 @@ const Student = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true, amount: 0.7 }}
-              className="flex justify-center items-center space-x-4"
+              className="flex justify-center items-center gap-4"
             >
               <Link
                 to="/about"
@@ -118,13 +118,13 @@ const Student = () => {
       </div>
 
       <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 my-10 lg:my-16 xl:my-20 md:space-x-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 my-10 lg:my-16 xl:my-20 md:gap-6">
           <motion.div
             variants={fadeIn("up", 0.2)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.7 }}
-            className="flex flex-col space-y-4"
+            className="flex flex-col gap-4"
           >
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
               Core Values
@@ -139,11 +139,11 @@ const Student = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.7 }}
-            className="grid grid-cols-1 space-y-4 mt-10 md:mt-0"
+            className="grid grid-cols-1 gap-4 mt-10 md:mt-0"
           >
             {dataSBe.map((data, index) => (
-              <div key={index} className="flex flex-col space-y-10">
-                <div className="flex flex-col space-y-4">
+              <div key={index} className="flex flex-col gap-10">
+                <div className="flex flex-col gap-4">
                   <h6 className="text-lg md:text-2xl font-semibold tracking-wide">
                     {data.title}
                   </h6>

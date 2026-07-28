@@ -45,7 +45,7 @@ const Footer = ({
               <h3 className="text-white text-2xl font-semibold mb-4">
                 Quick Links
               </h3>
-              <ul className="space-y-2">
+              <ul className="flex flex-col gap-2">
                 {communityLinks.map((link, index) => (
                   <li key={index}>
                     <a
@@ -58,7 +58,7 @@ const Footer = ({
                 ))}
               </ul>
             </div>
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4">
               <h3 className="text-white text-2xl font-semibold mb-4">
                 Contact Info
               </h3>
