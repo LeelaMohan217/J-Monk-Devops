@@ -1,17 +1,45 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronDown } from "lucide-react";
+import { digiConnectConfig } from "../../sites/digiconnect/config";
+import { skillConnectConfig } from "../../sites/skillconnect/config";
+import { eduConnectConfig } from "../../sites/educonnect/config";
 import Logo from "../assets/Logo.png";
 
-const connects = [
-  { name: "DigiConnect", href: "/digiconnect", available: true },
-  { name: "SkillConnect", href: "/skillconnect", available: true },
-  { name: "EduConnect", href: "/educonnect", available: true },
+const brandGroups = [
+  { name: "DigiConnect", homeHref: digiConnectConfig.homeHref, navItems: digiConnectConfig.navItems, available: true },
+  { name: "SkillConnect", homeHref: skillConnectConfig.homeHref, navItems: skillConnectConfig.navItems, available: true },
+  { name: "EduConnect", homeHref: eduConnectConfig.homeHref, navItems: eduConnectConfig.navItems, available: true },
 ];
+
+const MenuToggleIcon = ({ open }) => (
+  <div className="relative w-5 h-5">
+    <motion.span
+      className="absolute left-0 top-1/2 h-[1.5px] w-5 -translate-y-1/2 rounded-full bg-current"
+      initial={false}
+      animate={open ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
+      transition={{ duration: 0.25, ease: "easeInOut" }}
+    />
+    <motion.span
+      className="absolute left-0 top-1/2 h-[1.5px] w-5 -translate-y-1/2 rounded-full bg-current"
+      initial={false}
+      animate={open ? { opacity: 0, x: -6 } : { opacity: 1, x: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+    />
+    <motion.span
+      className="absolute left-0 top-1/2 h-[1.5px] w-5 -translate-y-1/2 rounded-full bg-current"
+      initial={false}
+      animate={open ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
+      transition={{ duration: 0.25, ease: "easeInOut" }}
+    />
+  </div>
+);
 
 const GlobalNav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openBrand, setOpenBrand] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -23,12 +51,15 @@ const GlobalNav = () => {
 
   useEffect(() => {
     setMobileOpen(false);
+    setOpenBrand(null);
   }, [location]);
+
+  const closeMenu = () => setMobileOpen(false);
 
   return (
     <header
       className={`sticky top-0 z-60 border-b transition-all duration-300 ${
-        scrolled || mobileOpen
+        scrolled
           ? "bg-white/80 backdrop-blur-md border-neutral-200"
           : "bg-white border-transparent"
       }`}
@@ -41,21 +72,21 @@ const GlobalNav = () => {
           </span>
         </Link>
 
-        <ul className="col-start-2 hidden md:flex items-center gap-8 justify-self-center">
-          {connects.map((connect) =>
-            connect.available ? (
-              <li key={connect.name}>
+        <ul className="col-start-2 hidden lg:flex items-center gap-8 justify-self-center">
+          {brandGroups.map((brand) =>
+            brand.available ? (
+              <li key={brand.name}>
                 <Link
-                  to={connect.href}
+                  to={brand.homeHref}
                   className="inline-block py-1 text-sm font-medium text-neutral-500 hover:text-black transition-colors"
                 >
-                  {connect.name}
+                  {brand.name}
                 </Link>
               </li>
             ) : (
-              <li key={connect.name}>
+              <li key={brand.name}>
                 <span className="text-xs font-medium text-neutral-400 cursor-default">
-                  {connect.name}
+                  {brand.name}
                 </span>
               </li>
             )
@@ -67,14 +98,14 @@ const GlobalNav = () => {
             type="button"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((open) => !open)}
-            className="md:hidden text-neutral-700 hover:text-black transition-colors"
+            className="relative z-50 lg:hidden text-neutral-700 hover:text-black transition-colors"
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <MenuToggleIcon open={mobileOpen} />
           </button>
 
           <Link
             to="/#who-we-are"
-            className="hidden md:inline-block rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
+            className="hidden lg:inline-block rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
             Get Started
           </Link>
@@ -82,33 +113,74 @@ const GlobalNav = () => {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-neutral-200 bg-white px-6 py-3 flex flex-col gap-1">
-          <ul className="flex flex-col gap-1">
-            {connects.map((connect) =>
-              connect.available ? (
-                <li key={connect.name}>
-                  <Link
-                    to={connect.href}
-                    className="block py-2 text-sm font-medium text-neutral-600 hover:text-black transition-colors"
+        <div className="fixed top-0 left-0 z-40 h-screen p-6 bg-white w-[75%] max-w-xs lg:hidden border-r border-neutral-200 overflow-y-auto transition-all ease-in-out duration-500">
+          <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
+            <h5 className="text-base font-semibold text-black uppercase">Menu</h5>
+            <button type="button" aria-label="Close menu" onClick={closeMenu}>
+              <X className="w-5 h-5 text-black" />
+            </button>
+          </div>
+
+          <div className="mt-4 flex flex-col">
+            {brandGroups.map((brand) => {
+              const isOpen = openBrand === brand.name;
+              return (
+                <div key={brand.name} className="border-b border-neutral-100">
+                  <button
+                    type="button"
+                    onClick={() => setOpenBrand(isOpen ? null : brand.name)}
+                    className="flex w-full items-center justify-between py-3 text-sm font-semibold uppercase tracking-wide text-neutral-900"
                   >
-                    {connect.name}
-                  </Link>
-                </li>
-              ) : (
-                <li key={connect.name}>
-                  <span className="block py-2 text-sm font-medium text-neutral-400 cursor-default">
-                    {connect.name}
-                  </span>
-                </li>
-              )
-            )}
-          </ul>
-          <Link
-            to="/#who-we-are"
-            className="mt-2 rounded-lg bg-neutral-900 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-neutral-800"
-          >
-            Get Started
-          </Link>
+                    {brand.name}
+                    <motion.span
+                      initial={false}
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                    >
+                      <ChevronDown className="w-4 h-4 text-neutral-500" />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="sublist"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <ul className="flex flex-col pb-2">
+                          {brand.navItems.map((item) => (
+                            <li key={item.href}>
+                              <Link
+                                to={item.href}
+                                onClick={closeMenu}
+                                className="block py-2 pl-3 text-sm text-neutral-600 hover:text-black transition-colors"
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-6">
+            <Link
+              to="/#who-we-are"
+              onClick={closeMenu}
+              className="block w-full rounded-lg bg-neutral-900 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-neutral-800"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       )}
     </header>
