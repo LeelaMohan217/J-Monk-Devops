@@ -78,7 +78,7 @@ const PlatformPanel = ({ platform, index, isLast, tint }) => {
         className={`rounded-3xl ${tint} p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 md:gap-16`}
       >
         <div className="flex-1 flex flex-col gap-4 order-2 md:order-1">
-          <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.15em] text-neutral-900">
+          <span className="inline-flex items-center gap-2 text-lg font-cursive font-semibold text-neutral-900">
             <platform.icon className="w-4 h-4" />
             Platform {platform.id}
           </span>

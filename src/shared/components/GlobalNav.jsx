@@ -113,7 +113,14 @@ const GlobalNav = () => {
       </div>
 
       {mobileOpen && (
-        <div className="fixed top-0 left-0 z-40 h-screen p-6 bg-white w-[75%] max-w-xs lg:hidden border-r border-neutral-200 overflow-y-auto transition-all ease-in-out duration-500">
+        <>
+          <div
+            aria-hidden="true"
+            onClick={closeMenu}
+            className="fixed inset-0 z-30 lg:hidden bg-black/40"
+          />
+
+          <div className="fixed top-0 left-0 z-40 h-screen p-6 bg-white w-[75%] max-w-xs lg:hidden border-r border-neutral-200 overflow-y-auto transition-all ease-in-out duration-500">
           <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
             <h5 className="text-base font-semibold text-black uppercase">Menu</h5>
             <button type="button" aria-label="Close menu" onClick={closeMenu}>
@@ -171,17 +178,8 @@ const GlobalNav = () => {
               );
             })}
           </div>
-
-          <div className="mt-6">
-            <Link
-              to="/#who-we-are"
-              onClick={closeMenu}
-              className="block w-full rounded-lg bg-neutral-900 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-neutral-800"
-            >
-              Get Started
-            </Link>
           </div>
-        </div>
+        </>
       )}
     </header>
   );
