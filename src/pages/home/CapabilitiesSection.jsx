@@ -5,12 +5,8 @@ import { capabilities } from "./data";
 import SectionHeading from "./SectionHeading";
 import { DotPattern } from "../../components/ui/dot-pattern";
 
-const IllustrationFrame = ({ children, large }) => (
-  <div
-    className={`relative rounded-xl border border-neutral-100 bg-neutral-50 overflow-hidden ${
-      large ? "h-64" : "h-44"
-    }`}
-  >
+const IllustrationFrame = ({ children }) => (
+  <div className="relative flex-1 rounded-xl border border-neutral-100 bg-neutral-50 overflow-hidden">
     <DotPattern
       width={18}
       height={18}
@@ -140,12 +136,12 @@ const RoadmapIllustration = ({ Icon }) => {
   );
 };
 
-const BentoCard = ({ capability, children, large }) => (
+const BentoCard = ({ capability, children, large, span }) => (
   <motion.div
     variants={fadeIn("up", 0.1)}
-    className={`flex flex-col gap-5 rounded-2xl border border-neutral-200 bg-white ${
+    className={`flex h-[414px] flex-col gap-5 rounded-2xl border border-neutral-200 bg-white ${
       large ? "p-7" : "p-6"
-    }`}
+    } ${span || ""}`}
   >
     <div className="flex flex-col gap-1.5">
       <h3 className={`font-semibold text-neutral-900 ${large ? "text-lg" : "text-base"}`}>
@@ -153,7 +149,7 @@ const BentoCard = ({ capability, children, large }) => (
       </h3>
       <p className="text-sm text-neutral-600 leading-relaxed">{capability.description}</p>
     </div>
-    <IllustrationFrame large={large}>{children}</IllustrationFrame>
+    <IllustrationFrame>{children}</IllustrationFrame>
   </motion.div>
 );
 
@@ -169,18 +165,18 @@ const CapabilitiesSection = () => {
           description="The core services behind every engagement — from first prototype to long-term operational support."
         />
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-2">
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid md:grid-cols-2 gap-6"
+            className="grid lg:grid-cols-9 gap-2"
           >
-            <BentoCard capability={saas} large>
+            <BentoCard capability={saas} large span="lg:col-span-6">
               <PipelineIllustration />
             </BentoCard>
-            <BentoCard capability={cloud} large>
+            <BentoCard capability={cloud} large span="lg:col-span-3">
               <PulseRingsIllustration Icon={cloud.icon} />
             </BentoCard>
           </motion.div>
@@ -190,7 +186,7 @@ const CapabilitiesSection = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2"
           >
             <BentoCard capability={devops}>
               <AutomationListIllustration />
