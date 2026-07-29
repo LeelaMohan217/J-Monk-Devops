@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
 import { DotPattern } from "../../components/ui/dot-pattern";
-import { BorderBeam } from "../../components/ui/border-beam";
+import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
 
 const items = [
   "Custom Software & SaaS Development",
@@ -39,18 +39,27 @@ const HeroSection = () => {
           animate="show"
           className="flex flex-col items-center gap-5"
         >
-          <motion.span
+          <motion.div
             variants={fadeIn("up", 0.1)}
-            className="relative inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-[12px] font-medium text-neutral-700"
+            className="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]"
           >
-            One Ecosystem. Three Platforms.
-            <BorderBeam
-              size={40}
-              duration={6}
-              colorFrom="#525252"
-              colorTo="#171717"
+            <span
+              className="animate-gradient absolute inset-0 block h-full w-full rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]"
+              style={{
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "destination-out",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "subtract",
+                WebkitClipPath: "padding-box",
+              }}
             />
-          </motion.span>
+            🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+            <AnimatedGradientText className="text-xs font-medium">
+              One Ecosystem. Three Platforms.
+            </AnimatedGradientText>
+            <ChevronRight className="ml-1 size-4 stroke-neutral-500 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          </motion.div>
           <motion.h1
             variants={fadeIn("up", 0.2)}
             className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-black leading-[1.1]"

@@ -65,10 +65,10 @@ const IntroSection = () => {
               className="text-sm leading-relaxed text-neutral-600 md:text-base"
             >
               From DigiConnect&apos;s software and cloud expertise to
-              SkillConnect&apos;s hands-on learning and EduConnect&apos;s
-              global guidance, every platform is held to the same standard —
-              thoughtful execution, transparent communication, and outcomes
-              that actually move the needle.
+              SkillConnect&apos;s hands-on learning and EduConnect&apos;s global
+              guidance, every platform is held to the same standard — thoughtful
+              execution, transparent communication, and outcomes that actually
+              move the needle.
             </motion.p>
 
             <motion.p
@@ -76,19 +76,9 @@ const IntroSection = () => {
               className="text-sm leading-relaxed text-neutral-600 md:text-base"
             >
               We stay rooted in the communities we build for — working closely
-              with the businesses, learners, and institutions on the other
-              side of every platform, rather than designing in isolation and
-              hoping it fits.
-            </motion.p>
-
-            <motion.p
-              variants={fadeIn("up", 0.5)}
-              className="text-sm leading-relaxed text-neutral-600 md:text-base"
-            >
-              Small, focused teams and direct communication keep us close to
-              the people actually using what we build, so every release is
-              shaped by real feedback instead of assumptions made behind
-              closed doors.
+              with the businesses, learners, and institutions on the other side
+              of every platform, rather than designing in isolation and hoping
+              it fits.
             </motion.p>
           </motion.div>
         </div>

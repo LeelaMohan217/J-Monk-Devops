@@ -45,9 +45,7 @@ const LandingFooter = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 lg:gap-14">
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-black">
-              Platforms
-            </h3>
+            <h3 className="text-sm font-medium text-black">Platforms</h3>
             <ul className="flex flex-col gap-3">
               {platformLinks.map((link) =>
                 link.available ? (
@@ -63,15 +61,13 @@ const LandingFooter = () => {
                   <li key={link.name} className="text-neutral-400 text-sm">
                     {link.name} (Coming Soon)
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-black">
-              Company
-            </h3>
+            <h3 className="text-sm font-medium text-black">Company</h3>
             <ul className="flex flex-col gap-3">
               {companyLinks.map((link) => (
                 <li key={link.text}>
@@ -87,9 +83,7 @@ const LandingFooter = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-black">
-              Contact
-            </h3>
+            <h3 className="text-sm font-medium text-black">Contact</h3>
             <ul className="flex flex-col gap-3">
               <li className="text-neutral-500 text-sm font-medium leading-relaxed">
                 {footer.address}
@@ -104,9 +98,7 @@ const LandingFooter = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-black">
-              Legal
-            </h3>
+            <h3 className="text-sm font-medium text-black">Legal</h3>
             <ul className="flex flex-col gap-3">
               {legalLinks.map((text) => (
                 <li key={text} className="text-neutral-400 text-sm">
@@ -124,6 +116,12 @@ const LandingFooter = () => {
             © {new Date().getFullYear()} JMonkDevOps. All rights reserved.
           </p>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-2 lg:py-6">
+        <p className="text-neutral-200 text-5xl md:text-6xl lg:text-9xl font-bold text-center">
+          JMonkDevOps
+        </p>
       </div>
     </footer>
   );
