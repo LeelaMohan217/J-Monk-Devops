@@ -20,17 +20,17 @@ const PlatformsSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid gap-6 md:grid-cols-3"
+          className="flex flex-col gap-6"
         >
           {platforms.map((platform) => (
             <motion.div
               key={platform.id}
               variants={fadeIn("up", 0.1)}
-              className="flex flex-col gap-5 rounded-2xl border border-neutral-200 bg-white p-6"
+              className="flex flex-col sm:flex-row gap-5 sm:gap-8 rounded-2xl border border-neutral-200 bg-white p-6"
             >
-              <div className="aspect-video w-full rounded-xl bg-neutral-100" />
+              <div className="aspect-video sm:aspect-square w-full sm:w-56 md:w-64 shrink-0 rounded-xl bg-neutral-100" />
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-1 flex-col justify-center gap-2">
                 <span className="text-xs font-semibold text-neutral-400">
                   Platform {platform.id}
                 </span>
@@ -43,15 +43,15 @@ const PlatformsSection = () => {
                 <p className="text-sm leading-relaxed text-neutral-600">
                   {platform.description}
                 </p>
-              </div>
 
-              <Link
-                to={platform.href}
-                className="group mt-auto inline-flex items-center gap-2 text-sm font-medium text-neutral-900"
-              >
-                Visit {platform.name}
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+                <Link
+                  to={platform.href}
+                  className="group mt-3 inline-flex items-center gap-2 text-sm font-medium text-neutral-900"
+                >
+                  Visit {platform.name}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </motion.div>
