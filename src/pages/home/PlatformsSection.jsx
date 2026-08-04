@@ -26,7 +26,7 @@ const PlatformsSection = () => {
             <motion.div
               key={platform.id}
               variants={fadeIn("up", 0.1)}
-              className="flex flex-col sm:flex-row gap-5 sm:gap-8 rounded-2xl bg-white p-6"
+              className="flex flex-col sm:flex-row gap-5 sm:gap-8 rounded-2xl p-6"
             >
               <div className="aspect-video sm:aspect-square w-full sm:w-56 md:w-64 shrink-0 rounded-xl bg-neutral-100" />
 
