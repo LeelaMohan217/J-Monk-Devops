@@ -3,26 +3,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
 import { faqs } from "./data";
-import SectionHeading from "./SectionHeading";
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <section className="bg-white py-10 md:py-14">
-      <div className="max-w-4xl mx-auto px-6 md:px-8 flex flex-col gap-14">
-        <SectionHeading
-          eyebrow="FAQs"
-          title="Frequently asked questions"
-          description="Answers to the questions we hear most about JMonkDevOps and its platforms."
-        />
+      <div className="max-w-3xl mx-auto px-6 md:px-8 flex flex-col gap-12">
+        <motion.div
+          variants={fadeIn("up", 0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          className="flex flex-col items-center text-center gap-3"
+        >
+          <span className="text-sm font-semibold text-red-600">FAQs</span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900">
+            Looking for answers?
+          </h2>
+          <p className="max-w-xl text-sm md:text-base text-neutral-500 leading-relaxed">
+            Answers to the questions we hear most about JMonkDevOps and its
+            platforms.
+          </p>
+        </motion.div>
 
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col divide-y divide-neutral-200 rounded-2xl border border-neutral-200"
+          className="flex flex-col divide-y divide-neutral-200 border-t border-neutral-200"
         >
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -32,9 +42,9 @@ const FAQSection = () => {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
                 >
-                  <span className="text-sm md:text-base font-medium text-neutral-900">
+                  <span className="text-base md:text-lg font-semibold text-neutral-900">
                     {faq.question}
                   </span>
                   <motion.span
@@ -43,7 +53,7 @@ const FAQSection = () => {
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                     className="shrink-0"
                   >
-                    <ChevronDown className="w-4 h-4 text-neutral-500" />
+                    <ChevronDown className="w-5 h-5 text-neutral-500" />
                   </motion.span>
                 </button>
 
@@ -56,7 +66,7 @@ const FAQSection = () => {
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-5 text-sm md:text-base leading-relaxed text-neutral-600">
+                      <p className="pb-5 text-sm md:text-base leading-relaxed text-neutral-600">
                         {faq.answer}
                       </p>
                     </motion.div>
