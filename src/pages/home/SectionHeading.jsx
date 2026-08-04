@@ -16,26 +16,26 @@ const SectionHeading = ({
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.5 }}
-      className={`flex flex-col ${alignClass} gap-4 max-w-2xl ${
+      className={`flex flex-col ${alignClass} gap-2 max-w-2xl ${
         align === "left" ? "" : "mx-auto"
       }`}
     >
-      {eyebrow && (
-        <span
-          className={`font-cursive text-2xl md:text-3xl font-semibold normal-case tracking-normal ${
-            light ? "text-neutral-400" : "text-neutral-900"
+      <div className={`flex flex-col ${alignClass} gap-1`}>
+        {eyebrow && (
+          <span
+            className="text-sm font-semibold text-red-600"
+          >
+            {eyebrow}
+          </span>
+        )}
+        <h2
+          className={`text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight ${
+            light ? "text-white" : "text-neutral-900"
           }`}
         >
-          {eyebrow}
-        </span>
-      )}
-      <h2
-        className={`text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight ${
-          light ? "text-white" : "text-neutral-900"
-        }`}
-      >
-        {title}
-      </h2>
+          {title}
+        </h2>
+      </div>
       {description && (
         <p
           className={`text-sm md:text-base leading-relaxed ${
