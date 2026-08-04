@@ -34,7 +34,7 @@ const FAQSection = () => {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-4 py-5 text-left"
                 >
-                  <span className="text-xm md:text-lg font-semibold text-neutral-900">
+                  <span className="text-sm md:text-base font-semibold text-neutral-900">
                     {faq.question}
                   </span>
                   <motion.span

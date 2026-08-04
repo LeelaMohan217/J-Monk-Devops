@@ -1,3 +1,30 @@
+export const platforms = [
+  {
+    id: "01",
+    name: "DigiConnect",
+    tagline: "Connect. Automate. Scale.",
+    href: "/digiconnect",
+    description:
+      "Custom software, cloud infrastructure, and automation that turn ideas into reliable, scalable digital products.",
+  },
+  {
+    id: "02",
+    name: "SkillConnect",
+    tagline: "Learn. Build. Grow.",
+    href: "/skillconnect",
+    description:
+      "A hands-on learning ecosystem where students and career-switchers gain real industry experience through live projects and mentorship.",
+  },
+  {
+    id: "03",
+    name: "EduConnect",
+    tagline: "Dream. Move. Become.",
+    href: "/educonnect",
+    description:
+      "End-to-end guidance for students pursuing international education, from university selection to visa support.",
+  },
+];
+
 export const faqs = [
   {
     question: "What is JMonkDevOps?",

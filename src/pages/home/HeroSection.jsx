@@ -68,7 +68,7 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-4 mt-1"
           >
             <a
-              href="#who-we-are"
+              href="#platforms"
               className="group inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-neutral-800 hover:shadow-md hover:-translate-y-0.5"
             >
               Explore Platforms
