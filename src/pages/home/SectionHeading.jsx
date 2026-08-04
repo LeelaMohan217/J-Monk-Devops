@@ -20,10 +20,10 @@ const SectionHeading = ({
         align === "left" ? "" : "mx-auto"
       }`}
     >
-      <div className={`flex flex-col ${alignClass} gap-1`}>
+      <div className={`flex flex-col ${alignClass} gap-0`}>
         {eyebrow && (
           <span
-            className="text-sm font-semibold text-red-600"
+            className="text-sm font-semibold leading-none text-red-600"
           >
             {eyebrow}
           </span>
