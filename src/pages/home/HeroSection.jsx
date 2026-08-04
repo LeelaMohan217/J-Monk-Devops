@@ -4,25 +4,6 @@ import { fadeIn, stagger } from "../../shared/variants";
 import { DotPattern } from "../../components/ui/dot-pattern";
 import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
 
-const items = [
-  "Custom Software & SaaS Development",
-  "Cloud Infrastructure",
-  "DevOps & CI/CD Pipelines",
-  "API Development & Integration",
-  "Technical Consulting",
-  "Real-World Project Experience",
-  "Internship Programs",
-  "Mentorship & Career Guidance",
-  "University Selection",
-  "Visa & Application Assistance",
-  "Pre-Departure Support",
-  "Startup to Enterprise Ready",
-  "Long-Term Partnership",
-  "Agile Delivery",
-  "Automation-Driven Engineering",
-  "Secure & Scalable Systems",
-];
-
 const HeroSection = () => {
   return (
     <section className="relative bg-white">
@@ -87,7 +68,7 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-4 mt-1"
           >
             <a
-              href="#platforms"
+              href="#who-we-are"
               className="group inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-neutral-800 hover:shadow-md hover:-translate-y-0.5"
             >
               Explore Platforms
@@ -99,31 +80,6 @@ const HeroSection = () => {
             >
               Know More About Us
             </a>
-          </motion.div>
-          <motion.div
-            variants={fadeIn("up", 0.6)}
-            className="w-full mt-8 md:mt-12 rounded-3xl bg-neutral-50 px-4 py-12 md:px-10 md:py-16 flex flex-col items-center gap-10"
-          >
-            <div className="flex flex-col items-center gap-3 text-center max-w-2xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900">
-                Everything under one ecosystem
-              </h2>
-              <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                From custom software to global education guidance — three
-                connected platforms, one consistent standard of quality.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl">
-              {items.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full bg-white border border-neutral-200 px-5 py-2 text-sm text-neutral-700 whitespace-nowrap transition-colors duration-300 hover:border-neutral-300 hover:text-neutral-900"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
           </motion.div>
         </motion.div>
       </div>
