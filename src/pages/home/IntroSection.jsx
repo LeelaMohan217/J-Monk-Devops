@@ -14,7 +14,6 @@ const IntroSection = () => {
         <SectionHeading
           eyebrow="Who We Are"
           title="Building the ecosystem behind digital growth"
-          description="We create connected platforms that help businesses, professionals, and students grow through technology, innovation, and practical solutions."
           align="split"
         />
 
