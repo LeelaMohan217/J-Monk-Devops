@@ -7,12 +7,14 @@ import { homeImages } from "./images";
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden bg-black">
-      <img
-        src={homeImages.heroRed}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <img
+          src={homeImages.heroRed}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-auto max-w-none object-contain"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black" />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-20 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
