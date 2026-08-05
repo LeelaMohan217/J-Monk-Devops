@@ -6,7 +6,7 @@ import { AnimatedGradientText } from "../../components/ui/animated-gradient-text
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-black">
       <DotPattern
         width={24}
         height={24}
@@ -43,19 +43,19 @@ const HeroSection = () => {
           </motion.div>
           <motion.h1
             variants={fadeIn("up", 0.2)}
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-black leading-[1.1]"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white leading-[1.1]"
           >
             JMonkDevOps
           </motion.h1>
           <motion.p
             variants={fadeIn("up", 0.3)}
-            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-900"
+            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white"
           >
             Digitalizing Local Bharath
           </motion.p>
           <motion.p
             variants={fadeIn("up", 0.4)}
-            className="max-w-3xl text-black/60 text-sm md:text-base leading-relaxed"
+            className="max-w-3xl text-white/60 text-sm md:text-base leading-relaxed"
           >
             We build focused platforms that help businesses grow digitally, give
             students practical skills through real world learning, and support
@@ -76,7 +76,7 @@ const HeroSection = () => {
             </a>
             <a
               href="#who-we-are"
-              className="rounded-lg bg-white border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50 hover:-translate-y-0.5"
+              className="rounded-lg bg-transparent border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 hover:-translate-y-0.5"
             >
               Know More About Us
             </a>
