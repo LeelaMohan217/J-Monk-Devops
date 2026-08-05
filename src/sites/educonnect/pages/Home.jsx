@@ -75,7 +75,7 @@ const Home = () => {
   return (
     <>
       <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
-        <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+        <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -127,7 +127,7 @@ const Home = () => {
       </div>
 
       <section id="services" className="bg-white py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-8 flex flex-col gap-12">
+        <div className="max-w-6xl mx-auto px-8 flex flex-col gap-12">
           <motion.div
             variants={fadeIn("up", 0.1)}
             initial="hidden"
@@ -172,7 +172,7 @@ const Home = () => {
       </section>
 
       <section className="bg-neutral-50 py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-14 items-start">
+        <div className="max-w-6xl mx-auto px-8 grid lg:grid-cols-2 gap-14 items-start">
           <motion.div
             variants={fadeIn("right", 0.1)}
             initial="hidden"
@@ -220,7 +220,7 @@ const Home = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          className="max-w-7xl mx-auto px-8 flex flex-col items-center gap-6 text-center"
+          className="max-w-6xl mx-auto px-8 flex flex-col items-center gap-6 text-center"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
             Study Destinations We Support

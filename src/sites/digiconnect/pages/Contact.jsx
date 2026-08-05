@@ -18,7 +18,7 @@ const Contact = () => {
   return (
     <>
       <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
-        <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+        <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
           <div className="flex flex-col gap-2 py-14">
             <h2 className="text-2xl font-medium text-red-600">Contact</h2>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-800">
@@ -27,7 +27,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto pt-6 md:pt-8 lg:pt-10 px-8">
+      <div className="max-w-6xl mx-auto pt-6 md:pt-8 lg:pt-10 px-8">
         <div className="flex flex-col md:flex-row gap-6 py-6 md:py-10">
           {/* Google Maps Embed */}
           <div className="flex-3 w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]">

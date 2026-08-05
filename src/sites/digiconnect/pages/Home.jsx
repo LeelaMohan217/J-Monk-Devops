@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
-        <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+        <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -68,7 +68,7 @@ const Home = () => {
       </div>
 
       <div className="bg-white xl:py-10">
-        <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+        <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 lg:gap-24 xl:gap-44 mt-1 md:mt-10">
             <motion.h1
               variants={fadeIn("up", 0.2)}
@@ -160,7 +160,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto py-20 md:py-0 px-8">
+      <div className="max-w-6xl mx-auto py-20 md:py-0 px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-10 items-center">
           <motion.div
             variants={fadeIn("up", 0.2)}

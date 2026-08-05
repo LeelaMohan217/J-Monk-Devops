@@ -34,7 +34,7 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
           : "bg-linear-to-b from-neutral-50 to-neutral-200"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-2">
+      <div className="max-w-6xl mx-auto flex justify-between items-center px-6 md:px-8 py-2">
         <div className="flex justify-between items-center">
           <Link
             to={homeHref}

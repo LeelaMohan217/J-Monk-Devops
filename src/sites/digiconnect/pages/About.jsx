@@ -10,7 +10,7 @@ const About = () => {
   return (
     <>
       <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
-        <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+        <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
           <div className="flex flex-col gap-2 py-14">
             <h2 className="text-2xl font-medium text-red-600">About</h2>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-800">
@@ -20,7 +20,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+      <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center items-center">
           <motion.div
             variants={fadeIn("up", 0.2)}
@@ -68,7 +68,7 @@ const About = () => {
 
       {/* Other sections unchanged */}
       <div className="bg-linear-to-l from-neutral-50 to-neutral-100">
-        <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+        <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center my-10">
             <div className="flex flex-col gap-4">
               <motion.h1
@@ -116,7 +116,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto py-2 md:py-4 px-8">
+      <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center my-10">
           <div className="flex flex-col gap-4 col-span-1">
             <motion.h1

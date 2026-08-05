@@ -18,7 +18,7 @@ const Footer = ({
           ></path>
         </svg>
       </div>
-      <div className="relative max-w-7xl mx-auto py-4 px-6 md:px-8">
+      <div className="relative max-w-6xl mx-auto py-4 px-6 md:px-8">
         <div className="grid sm:grid-cols-2 gap-4 border-b border-neutral-100 py-10 lg:py-16 xl:py-20">
           <div className="flex flex-col gap-4">
             <h1 className="text-left text-3xl text-white font-bold">
