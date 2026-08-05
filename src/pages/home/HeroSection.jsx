@@ -1,25 +1,19 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
-import { DotPattern } from "../../components/ui/dot-pattern";
 import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
+import { homeImages } from "./images";
 
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden bg-black">
-      {/* Aurora glow layer */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-[-10%] h-[520px] w-[720px] -translate-x-1/2 rounded-full bg-red-600/30 blur-[120px]" />
-        <div className="absolute left-[8%] top-[20%] h-[360px] w-[360px] rounded-full bg-[#ffaa40]/20 blur-[110px]" />
-        <div className="absolute right-[8%] top-[10%] h-[420px] w-[420px] rounded-full bg-[#9c40ff]/20 blur-[120px]" />
-      </div>
-
-      <DotPattern
-        width={24}
-        height={24}
-        cr={1}
-        className="text-white/10 [mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
+      <img
+        src={homeImages.heroRed}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black" />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-20 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
         <motion.div

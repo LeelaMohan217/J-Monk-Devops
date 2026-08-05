@@ -7,7 +7,9 @@
  * that uses `homeImages.<name>` updates automatically.
  */
 import introGrowth from "./assets/intro-collaboration.jpg";
+import heroRed from "./assets/hero-red.jpg";
 
 export const homeImages = {
   introGrowth,
+  heroRed,
 };
