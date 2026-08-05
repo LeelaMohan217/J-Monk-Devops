@@ -15,7 +15,7 @@ const ImageVisual = ({
   return (
     <div className={`relative ${className}`}>
       <div
-        className={`relative ${aspect} overflow-hidden rounded-2xl border border-neutral-200 shadow-sm group`}
+        className={`relative ${aspect} overflow-hidden border border-neutral-200 shadow-sm group`}
       >
         <img
           src={src}
