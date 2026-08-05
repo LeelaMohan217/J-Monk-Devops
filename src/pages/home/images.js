@@ -8,8 +8,10 @@
  */
 import introGrowth from "./assets/intro-collaboration.jpg";
 import heroGlobe from "./assets/hero-globe.jpg";
+import heroHands from "./assets/hero-hands.jpg";
 
 export const homeImages = {
   introGrowth,
   heroGlobe,
+  heroHands,
 };

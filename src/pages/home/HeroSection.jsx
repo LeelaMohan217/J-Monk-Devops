@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <section className="relative overflow-hidden bg-black">
       <img
-        src={homeImages.heroGlobe}
+        src={homeImages.heroHands}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-70"
