@@ -7,13 +7,21 @@ import { Globe } from "../../components/ui/globe";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-black">
+    <section className="relative overflow-hidden bg-black">
       <DotPattern
         width={24}
         height={24}
         cr={1}
         className="[mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
       />
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative h-[500px] w-full max-w-2xl md:h-[700px]">
+          <Globe />
+        </div>
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/70 to-black" />
+
       <div className="relative max-w-6xl mx-auto px-6 md:px-8 pt-20 md:pt-24 pb-10 md:pb-14 flex flex-col items-center text-center">
         <motion.div
           variants={stagger}
@@ -81,13 +89,6 @@ const HeroSection = () => {
             >
               Know More About Us
             </a>
-          </motion.div>
-
-          <motion.div
-            variants={fadeIn("up", 0.6)}
-            className="relative mx-auto mt-6 h-[260px] w-full max-w-xl md:h-[360px]"
-          >
-            <Globe />
           </motion.div>
         </motion.div>
       </div>
