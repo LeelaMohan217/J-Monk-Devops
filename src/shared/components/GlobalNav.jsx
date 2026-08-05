@@ -56,26 +56,18 @@ const GlobalNav = () => {
 
   const closeMenu = () => setMobileOpen(false);
 
-  const onDarkHero = location.pathname === "/" && !scrolled;
-
   return (
     <header
       className={`sticky top-0 z-60 border-b transition-all duration-300 ${
         scrolled
           ? "bg-white/80 backdrop-blur-md border-neutral-200"
-          : onDarkHero
-            ? "bg-transparent border-transparent"
-            : "bg-white border-transparent"
+          : "bg-white border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-3 items-center h-16">
         <Link to="/" className="col-start-1 flex items-center gap-3 shrink-0 justify-self-start">
           <img className="w-8 h-8" alt="JMonkDevOps" src={Logo} />
-          <span
-            className={`text-base font-semibold tracking-tight transition-colors duration-300 ${
-              onDarkHero ? "text-white" : "text-black"
-            }`}
-          >
+          <span className="text-base font-semibold tracking-tight text-black">
             JMonkDevOps
           </span>
         </Link>
@@ -86,11 +78,7 @@ const GlobalNav = () => {
               <li key={brand.name}>
                 <Link
                   to={brand.homeHref}
-                  className={`inline-block py-1 text-sm font-medium transition-colors ${
-                    onDarkHero
-                      ? "text-white/70 hover:text-white"
-                      : "text-neutral-500 hover:text-black"
-                  }`}
+                  className="inline-block py-1 text-sm font-medium text-neutral-500 hover:text-black transition-colors"
                 >
                   {brand.name}
                 </Link>
@@ -110,11 +98,7 @@ const GlobalNav = () => {
             type="button"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((open) => !open)}
-            className={`relative z-50 lg:hidden transition-colors ${
-              onDarkHero
-                ? "text-white/80 hover:text-white"
-                : "text-neutral-700 hover:text-black"
-            }`}
+            className="relative z-50 lg:hidden text-neutral-700 hover:text-black transition-colors"
           >
             <MenuToggleIcon open={mobileOpen} />
           </button>
