@@ -1,30 +1,28 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
+import { DotPattern } from "../../components/ui/dot-pattern";
 import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
-import { homeImages } from "./images";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-black">
-      <img
-        src={homeImages.heroHands}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
+    <section className="relative bg-white">
+      <DotPattern
+        width={24}
+        height={24}
+        cr={1}
+        className="[mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black" />
-
-      <div className="relative max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-20 min-h-[calc(100vh-4rem)] flex flex-col items-start justify-center text-left">
+      <div className="relative max-w-6xl mx-auto px-6 md:px-8 pt-20 md:pt-24 pb-10 md:pb-14 flex flex-col items-center text-center">
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="flex flex-col items-start gap-5 md:max-w-2xl"
+          className="flex flex-col items-center gap-5"
         >
           <motion.div
             variants={fadeIn("up", 0.1)}
-            className="group relative mx-0 flex items-center justify-center rounded-full px-4 py-1 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]"
+            className="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]"
           >
             <span
               className="animate-gradient absolute inset-0 block h-full w-full rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]"
@@ -45,19 +43,19 @@ const HeroSection = () => {
           </motion.div>
           <motion.h1
             variants={fadeIn("up", 0.2)}
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white leading-[1.1]"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-black leading-[1.1]"
           >
             JMonkDevOps
           </motion.h1>
           <motion.p
             variants={fadeIn("up", 0.3)}
-            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white"
+            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-900"
           >
             Digitalizing Local Bharath
           </motion.p>
           <motion.p
             variants={fadeIn("up", 0.4)}
-            className="max-w-3xl text-white/60 text-sm md:text-base leading-relaxed"
+            className="max-w-3xl text-black/60 text-sm md:text-base leading-relaxed"
           >
             We build focused platforms that help businesses grow digitally, give
             students practical skills through real world learning, and support
@@ -67,7 +65,7 @@ const HeroSection = () => {
           </motion.p>
           <motion.div
             variants={fadeIn("up", 0.5)}
-            className="flex flex-wrap justify-start gap-4 mt-1"
+            className="flex flex-wrap justify-center gap-4 mt-1"
           >
             <a
               href="#platforms"
@@ -78,7 +76,7 @@ const HeroSection = () => {
             </a>
             <a
               href="#who-we-are"
-              className="rounded-lg bg-transparent border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 hover:-translate-y-0.5"
+              className="rounded-lg bg-white border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50 hover:-translate-y-0.5"
             >
               Know More About Us
             </a>
