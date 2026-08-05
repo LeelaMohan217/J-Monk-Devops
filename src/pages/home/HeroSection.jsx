@@ -11,10 +11,10 @@ const HeroSection = () => {
         src={homeImages.heroRed}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-bottom [transform:scaleX(-1)]"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[center_80%] [transform:scaleX(-1)]"
       />
       <div className="absolute inset-0 bg-white/80" />
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8 py-24 md:py-32 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8 py-24 md:py-32 min-h-[500px] md:min-h-[600px] flex flex-col items-center justify-center text-center">
         <motion.div
           variants={stagger}
           initial="hidden"
