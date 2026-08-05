@@ -1,20 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
-import { DotPattern } from "../../components/ui/dot-pattern";
 import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
 import { Globe } from "../../components/ui/globe";
 
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden bg-black">
-      <DotPattern
-        width={24}
-        height={24}
-        cr={1}
-        className="[mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
-      />
-
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative h-[500px] w-full max-w-2xl md:h-[700px]">
           <Globe />
