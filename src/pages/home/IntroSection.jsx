@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { fadeIn, stagger } from "../../shared/variants";
 import ImageVisual from "./components/ImageVisual";
 import { homeImages } from "./images";
+import SectionHeading from "./SectionHeading";
 
 const IntroSection = () => {
   return (
@@ -9,7 +10,13 @@ const IntroSection = () => {
       id="who-we-are"
       className="relative overflow-hidden bg-white py-10 md:py-14 scroll-mt-36"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col gap-8">
+        <SectionHeading
+          eyebrow="Who We Are"
+          title="Building the ecosystem behind digital growth"
+          align="split"
+        />
+
         <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
           {/* Image */}
           <motion.div
@@ -34,18 +41,6 @@ const IntroSection = () => {
             viewport={{ once: true, amount: 0.4 }}
             className="order-2 flex flex-col gap-4"
           >
-            <motion.div
-              variants={fadeIn("up", 0.05)}
-              className="flex flex-col gap-1"
-            >
-              <span className="text-sm font-semibold leading-none text-red-600">
-                Who We Are
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-neutral-900">
-                Building the ecosystem behind digital growth
-              </h2>
-            </motion.div>
-
             <motion.p
               variants={fadeIn("up", 0.1)}
               className="text-sm leading-relaxed text-neutral-600 md:text-base"
@@ -63,6 +58,27 @@ const IntroSection = () => {
               We&apos;re building toward a future-ready ecosystem where
               technology, practical skills, and global opportunities empower
               individuals and businesses to grow without limitations.
+            </motion.p>
+
+            <motion.p
+              variants={fadeIn("up", 0.3)}
+              className="text-sm leading-relaxed text-neutral-600 md:text-base"
+            >
+              From DigiConnect&apos;s software and cloud expertise to
+              SkillConnect&apos;s hands-on learning and EduConnect&apos;s global
+              guidance, every platform is held to the same standard — thoughtful
+              execution, transparent communication, and outcomes that actually
+              move the needle.
+            </motion.p>
+
+            <motion.p
+              variants={fadeIn("up", 0.4)}
+              className="text-sm leading-relaxed text-neutral-600 md:text-base"
+            >
+              We stay rooted in the communities we build for — working closely
+              with the businesses, learners, and institutions on the other side
+              of every platform, rather than designing in isolation and hoping
+              it fits.
             </motion.p>
           </motion.div>
         </div>
