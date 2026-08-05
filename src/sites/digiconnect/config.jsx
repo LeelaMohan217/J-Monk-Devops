@@ -14,7 +14,7 @@ export const digiConnectConfig = {
   navCtaHref: "/digiconnect/contact",
   footer: {
     description:
-      "J-Monk Devops enhances everyday lives by providing software that digitalizes to improve business growth with latest tools and technologies.",
+      "JMonkDevops enhances everyday lives by providing software that digitalizes to improve business growth with latest tools and technologies.",
     platformLinks: [
       { href: "#", icon: <Facebook /> },
       {
