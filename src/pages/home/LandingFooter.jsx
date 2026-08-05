@@ -34,7 +34,7 @@ const LandingFooter = () => {
               <li key={index}>
                 <a
                   href={link.href}
-                  className="rounded-lg text-neutral-500 border border-neutral-200 p-2 flex items-center justify-center hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 hover:-translate-y-0.5 [&_svg]:w-4 [&_svg]:h-4"
+                  className="rounded-lg text-neutral-500 border border-neutral-200 p-2 flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300 hover:-translate-y-0.5 [&_svg]:w-4 [&_svg]:h-4"
                 >
                   {link.icon}
                 </a>

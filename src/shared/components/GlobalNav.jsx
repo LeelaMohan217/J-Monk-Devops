@@ -105,7 +105,7 @@ const GlobalNav = () => {
 
           <Link
             to="/#who-we-are"
-            className="hidden lg:inline-block rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
+            className="hidden lg:inline-block rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
           >
             Get Started
           </Link>

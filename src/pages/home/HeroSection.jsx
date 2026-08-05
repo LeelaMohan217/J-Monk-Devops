@@ -69,7 +69,7 @@ const HeroSection = () => {
           >
             <a
               href="#platforms"
-              className="group inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-neutral-800 hover:shadow-md hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-700 hover:shadow-md hover:-translate-y-0.5"
             >
               Explore Platforms
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
