@@ -29,7 +29,7 @@ const IntroSection = () => {
             <ImageVisual
               src={homeImages.introGrowth}
               alt="Professionals collaborating to represent digital growth"
-              aspect="aspect-3/4"
+              aspect="aspect-square"
             />
           </motion.div>
 
