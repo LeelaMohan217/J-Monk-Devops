@@ -3,6 +3,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
 import { DotPattern } from "../../components/ui/dot-pattern";
 import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
+import { Globe } from "../../components/ui/globe";
 
 const HeroSection = () => {
   return (
@@ -80,6 +81,13 @@ const HeroSection = () => {
             >
               Know More About Us
             </a>
+          </motion.div>
+
+          <motion.div
+            variants={fadeIn("up", 0.6)}
+            className="relative mx-auto mt-6 h-[260px] w-full max-w-xl md:h-[360px]"
+          >
+            <Globe />
           </motion.div>
         </motion.div>
       </div>
