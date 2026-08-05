@@ -1,19 +1,20 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
-import { DotPattern } from "../../components/ui/dot-pattern";
 import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
+import { homeImages } from "./images";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-white">
-      <DotPattern
-        width={24}
-        height={24}
-        cr={1}
-        className="[mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
+    <section className="relative overflow-hidden bg-white">
+      <img
+        src={homeImages.heroRed}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover [transform:scaleX(-1)]"
       />
-      <div className="relative max-w-6xl mx-auto px-6 md:px-8 py-24 md:py-32 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
+      <div className="absolute inset-0 bg-white/80" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8 py-24 md:py-32 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
         <motion.div
           variants={stagger}
           initial="hidden"
