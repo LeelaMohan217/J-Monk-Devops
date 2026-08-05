@@ -2,10 +2,19 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
 import { AnimatedGradientText } from "../../components/ui/animated-gradient-text";
+import { homeImages } from "./images";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-black">
+    <section className="relative overflow-hidden bg-black">
+      <img
+        src={homeImages.heroGlobe}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover opacity-70"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black" />
+
       <div className="relative max-w-6xl mx-auto px-6 md:px-8 pt-20 md:pt-24 pb-10 md:pb-14 flex flex-col items-center text-center">
         <motion.div
           variants={stagger}
