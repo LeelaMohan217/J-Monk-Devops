@@ -13,7 +13,7 @@ const HeroSection = () => {
         cr={1}
         className="[mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
       />
-      <div className="relative max-w-6xl mx-auto px-6 md:px-8 pt-20 md:pt-24 pb-10 md:pb-14 flex flex-col items-center text-center">
+      <div className="relative max-w-6xl mx-auto px-6 md:px-8 py-24 md:py-32 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
         <motion.div
           variants={stagger}
           initial="hidden"
