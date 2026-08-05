@@ -6,14 +6,22 @@ import { AnimatedGradientText } from "../../components/ui/animated-gradient-text
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-white">
+    <section className="relative overflow-hidden bg-black">
+      {/* Aurora glow layer */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-[-10%] h-[520px] w-[720px] -translate-x-1/2 rounded-full bg-red-600/30 blur-[120px]" />
+        <div className="absolute left-[8%] top-[20%] h-[360px] w-[360px] rounded-full bg-[#ffaa40]/20 blur-[110px]" />
+        <div className="absolute right-[8%] top-[10%] h-[420px] w-[420px] rounded-full bg-[#9c40ff]/20 blur-[120px]" />
+      </div>
+
       <DotPattern
         width={24}
         height={24}
         cr={1}
-        className="[mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
+        className="text-white/10 [mask-image:radial-gradient(560px_circle_at_center,white,transparent)]"
       />
-      <div className="relative max-w-6xl mx-auto px-6 md:px-8 pt-20 md:pt-24 pb-10 md:pb-14 flex flex-col items-center text-center">
+
+      <div className="relative max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-20 min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -43,19 +51,19 @@ const HeroSection = () => {
           </motion.div>
           <motion.h1
             variants={fadeIn("up", 0.2)}
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-black leading-[1.1]"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white leading-[1.1]"
           >
             JMonkDevOps
           </motion.h1>
           <motion.p
             variants={fadeIn("up", 0.3)}
-            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-900"
+            className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white"
           >
             Digitalizing Local Bharath
           </motion.p>
           <motion.p
             variants={fadeIn("up", 0.4)}
-            className="max-w-3xl text-black/60 text-sm md:text-base leading-relaxed"
+            className="max-w-3xl text-white/60 text-sm md:text-base leading-relaxed"
           >
             We build focused platforms that help businesses grow digitally, give
             students practical skills through real world learning, and support
@@ -69,14 +77,14 @@ const HeroSection = () => {
           >
             <a
               href="#platforms"
-              className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-700 hover:shadow-md hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white shadow-[0_0_30px_-5px_rgba(220,38,38,0.6)] transition-all duration-300 hover:bg-red-700 hover:shadow-[0_0_40px_-5px_rgba(220,38,38,0.8)] hover:-translate-y-0.5"
             >
               Explore Platforms
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="#who-we-are"
-              className="rounded-lg bg-white border border-neutral-300 px-5 py-2.5 text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50 hover:-translate-y-0.5"
+              className="rounded-lg bg-transparent border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5 hover:-translate-y-0.5"
             >
               Know More About Us
             </a>
