@@ -26,7 +26,7 @@ const SectionHeading = ({
             </span>
           )}
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight ${
+            className={`max-w-xl text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight ${
               light ? "text-white" : "text-neutral-900"
             }`}
           >
