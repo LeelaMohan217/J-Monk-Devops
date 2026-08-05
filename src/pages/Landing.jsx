@@ -1,4 +1,5 @@
 import HeroSection from "./home/HeroSection";
+import CollaborationSection from "./home/CollaborationSection";
 import IntroSection from "./home/IntroSection";
 import PlatformsSection from "./home/PlatformsSection";
 import TestimonialsSection from "./home/TestimonialsSection";
@@ -9,6 +10,7 @@ const Landing = () => {
   return (
     <div>
       <HeroSection />
+      <CollaborationSection />
       <IntroSection />
       <PlatformsSection />
       <TestimonialsSection />
