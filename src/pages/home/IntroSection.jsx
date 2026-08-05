@@ -17,7 +17,7 @@ const IntroSection = () => {
           description="We create connected platforms that help businesses, professionals, and students grow through technology, innovation, and practical solutions."
         />
 
-        <div className="grid items-center gap-8 lg:grid-cols-2">
+        <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr]">
           {/* Image */}
           <motion.div
             initial="hidden"
