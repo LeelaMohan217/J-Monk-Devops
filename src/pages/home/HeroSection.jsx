@@ -15,7 +15,7 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black" />
 
-      <div className="relative max-w-6xl mx-auto px-6 md:px-8 pt-20 md:pt-24 pb-10 md:pb-14 flex flex-col items-center text-center">
+      <div className="relative max-w-6xl mx-auto px-6 md:px-8 py-28 md:py-40 flex flex-col items-center text-center">
         <motion.div
           variants={stagger}
           initial="hidden"
