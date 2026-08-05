@@ -21,7 +21,7 @@ const ImageVisual = ({
           src={src}
           alt={alt}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="w-full h-full object-cover object-bottom transition-transform duration-700 ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-linear-to-t from-neutral-950/40 via-transparent to-transparent" />
       </div>
