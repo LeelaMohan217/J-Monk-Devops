@@ -1,63 +1,140 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, MousePointerClick } from "lucide-react";
 import { fadeIn, stagger } from "../../shared/variants";
 import { platforms } from "./data";
-import SectionHeading from "./SectionHeading";
 
 const PlatformsSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const activePlatform = platforms[activeIndex];
+
+  const goPrev = () => {
+    setDirection(-1);
+    setActiveIndex((i) => (i === 0 ? platforms.length - 1 : i - 1));
+  };
+  const goNext = () => {
+    setDirection(1);
+    setActiveIndex((i) => (i === platforms.length - 1 ? 0 : i + 1));
+  };
+
   return (
     <section
       id="platforms"
-      className="bg-neutral-50 py-10 md:py-14 scroll-mt-36"
+      className="bg-black py-12 md:py-16 scroll-mt-36"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col gap-14">
-        <SectionHeading
-          eyebrow="Platforms"
-          title="Three platforms. One ecosystem."
-          description="Each platform has its own identity and focus, built on the same commitment to quality and long-term partnership."
-        />
-
+      <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col gap-8">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col gap-6"
+          viewport={{ once: true, amount: 0.5 }}
+          className="flex flex-col items-center gap-4 text-center max-w-2xl mx-auto"
         >
-          {platforms.map((platform) => (
-            <motion.div
-              key={platform.id}
-              variants={fadeIn("up", 0.1)}
-              className="flex flex-col sm:flex-row gap-5 sm:gap-10 rounded-2xl p-6"
-            >
-              <div className="aspect-video sm:aspect-square w-full sm:w-80 md:w-96 shrink-0 rounded-xl bg-neutral-100" />
+          <motion.div variants={fadeIn("up", 0.1)}>
+            <div className="inline-flex items-center rounded-full bg-white/5 backdrop-blur-md px-4 py-1.5 text-neutral-300">
+              <span className="font-raleway text-xs font-light uppercase tracking-[0.2em]">
+                Platforms
+              </span>
+            </div>
+          </motion.div>
 
-              <div className="flex flex-1 flex-col justify-center gap-2">
-                {/* <span className="text-xs font-semibold text-neutral-400">
-                  Platform {platform.id}
-                </span> */}
-                <h3 className="text-4xl font-bold text-neutral-900">
-                  {platform.name}
-                </h3>
-                <p className="text-xl font-medium text-neutral-500">
-                  {platform.tagline}
-                </p>
-                <p className="text-base leading-relaxed text-neutral-600">
-                  {platform.description}
-                </p>
+          <motion.h2
+            variants={fadeIn("up", 0.15)}
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-white"
+          >
+            Different <span className="text-orange-400">journeys</span>. One
+            shared <span className="text-red-500">ecosystem</span>.
+          </motion.h2>
 
-                <Link
-                  to={platform.href}
-                  className="group mt-3 inline-flex w-fit items-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700"
-                >
-                  Visit {platform.name}
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+          <motion.p
+            variants={fadeIn("up", 0.2)}
+            className="text-sm sm:text-base leading-relaxed text-white/60"
+          >
+            Each platform has its own identity and focus, built on the same
+            commitment to quality and long-term partnership.
+          </motion.p>
         </motion.div>
+
+        <div className="flex flex-col gap-4">
+          <div className="relative overflow-hidden rounded-2xl">
+            <AnimatePresence mode="wait" custom={direction} initial={false}>
+              <motion.div
+                key={activePlatform.id}
+                custom={direction}
+                initial={(dir) => ({ opacity: 0, x: dir > 0 ? 60 : -60 })}
+                animate={{ opacity: 1, x: 0 }}
+                exit={(dir) => ({ opacity: 0, x: dir > 0 ? -60 : 60 })}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+              >
+                <Link
+                  to={activePlatform.href}
+                  className="group relative block aspect-16/7 w-full overflow-hidden rounded-2xl border border-white/10"
+                >
+                  <img
+                    src={activePlatform.image}
+                    alt={activePlatform.name}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 backdrop-blur-0 transition-all duration-500 group-hover:bg-black/50 group-hover:backdrop-blur-md" />
+
+                  {/* Hint that the card is interactive; hidden while hovering, visible otherwise */}
+                  <div className="absolute top-5 right-6 flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md px-3 py-1.5 opacity-100 animate-pulse group-hover:opacity-0 group-hover:animate-none">
+                    <MousePointerClick className="w-3 h-3 text-white/70" />
+                    <span className="font-raleway text-[10px] font-light uppercase tracking-[0.15em] text-white/70">
+                      Hover to explore
+                    </span>
+                  </div>
+
+                  {/* Description, revealed as the name splits apart */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-10 text-center opacity-0 transition-opacity duration-500 delay-150 group-hover:opacity-100">
+                    <span className="font-raleway text-xs font-light uppercase tracking-[0.2em] text-neutral-300">
+                      {activePlatform.tagline}
+                    </span>
+                    <p className="max-w-md text-sm sm:text-base leading-relaxed text-white/80">
+                      {activePlatform.description}
+                    </p>
+                  </div>
+
+                  {/* Big name, cut in half and pulled apart on hover */}
+                  <span
+                    aria-hidden="true"
+                    className="font-raleway pointer-events-none absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-neutral-300 transition-transform duration-500 ease-in-out [clip-path:inset(0_0_48%_0)] group-hover:translate-y-[-60%]"
+                  >
+                    {activePlatform.name}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="font-raleway pointer-events-none absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-neutral-300 transition-transform duration-500 ease-in-out [clip-path:inset(48%_0_0_0)] group-hover:translate-y-[60%]"
+                  >
+                    {activePlatform.name}
+                  </span>
+                  <span className="sr-only">{activePlatform.name}</span>
+                </Link>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="flex items-center justify-end gap-3">
+            <button
+              type="button"
+              aria-label="Previous platform"
+              onClick={goPrev}
+              className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white/60 transition-colors duration-300 hover:border-white/30 hover:text-white"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next platform"
+              onClick={goNext}
+              className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white/60 transition-colors duration-300 hover:border-white/30 hover:text-white"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -11,11 +11,14 @@ const ImageVisual = ({
   badges = [],
   aspect = "aspect-4/3",
   className = "",
+  dark = false,
 }) => {
   return (
     <div className={`relative ${className}`}>
       <div
-        className={`relative ${aspect} overflow-hidden border border-neutral-200 shadow-sm group`}
+        className={`relative ${aspect} overflow-hidden border shadow-sm group ${
+          dark ? "border-white/10" : "border-neutral-200"
+        }`}
       >
         <img
           src={src}

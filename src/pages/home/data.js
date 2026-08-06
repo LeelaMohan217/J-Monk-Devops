@@ -1,3 +1,5 @@
+import { homeImages } from "./images";
+
 export const platforms = [
   {
     id: "01",
@@ -6,6 +8,7 @@ export const platforms = [
     href: "/digiconnect",
     description:
       "Custom software, cloud infrastructure, and automation that turn ideas into reliable, scalable digital products.",
+    image: homeImages.platformDigiConnect,
   },
   {
     id: "02",
@@ -14,6 +17,7 @@ export const platforms = [
     href: "/skillconnect",
     description:
       "A hands-on learning ecosystem where students and career-switchers gain real industry experience through live projects and mentorship.",
+    image: homeImages.platformSkillConnect,
   },
   {
     id: "03",
@@ -22,6 +26,7 @@ export const platforms = [
     href: "/educonnect",
     description:
       "End-to-end guidance for students pursuing international education, from university selection to visa support.",
+    image: homeImages.platformEduConnect,
   },
 ];
 
@@ -59,24 +64,6 @@ export const faqs = [
 ];
 
 export const testimonials = [
-  {
-    quote:
-      "DigiConnect took the time to understand how we actually work before writing a single line of code. The end result felt custom-built, not off-the-shelf.",
-    name: "Aditya Rao",
-    role: "Founder, Early-Stage Startup",
-  },
-  {
-    quote:
-      "What stood out was the follow-through — automation and deployment pipelines that just kept working long after launch.",
-    name: "Sneha Kulkarni",
-    role: "Operations Lead, Growing Business",
-  },
-  {
-    quote:
-      "Clear communication from day one, and they were upfront whenever a simpler approach made more sense than the fancier one.",
-    name: "Rahul Menon",
-    role: "Product Owner, Digital Services Firm",
-  },
   {
     quote:
       "DigiConnect took the time to understand how we actually work before writing a single line of code. The end result felt custom-built, not off-the-shelf.",

@@ -6,10 +6,20 @@
  * or brand artwork later, swap the imported file below — every component
  * that uses `homeImages.<name>` updates automatically.
  */
-import introGrowth from "./assets/intro-collaboration.jpg";
+import introGrowth from "./assets/intro.jpg";
 import heroRed from "./assets/hero-red.jpg";
+import heroPortrait from "./assets/hero.jpg";
+import heroBackground from "./assets/hero-background.png";
+import platformDigiConnect from "./assets/platform-digiconnect.jpg";
+import platformSkillConnect from "./assets/platform-skillconnect.jpg";
+import platformEduConnect from "./assets/platform-educonnect.jpg";
 
 export const homeImages = {
   introGrowth,
   heroRed,
+  heroPortrait,
+  heroBackground,
+  platformDigiConnect,
+  platformSkillConnect,
+  platformEduConnect,
 };

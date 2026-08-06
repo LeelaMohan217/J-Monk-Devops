@@ -17,6 +17,8 @@
     Fraunces, ui-serif, Georgia, 'Times New Roman', serif;
   --font-cursive:
     'Caveat', cursive;
+  --font-raleway:
+    'Raleway', ui-sans-serif, system-ui, sans-serif;
 }
 
 /*
@@ -43,6 +45,7 @@
   }
   html {
     @apply font-sans;
+    overscroll-behavior-y: none;
   }
 }
 /*
