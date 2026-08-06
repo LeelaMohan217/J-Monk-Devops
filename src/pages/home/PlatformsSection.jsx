@@ -77,18 +77,18 @@ const PlatformsSection = () => {
                     alt={activePlatform.name}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/40 backdrop-blur-0 transition-all duration-500 group-hover:bg-black/50 group-hover:backdrop-blur-md" />
+                  <div className="absolute inset-0 bg-black/50 backdrop-blur-md transition-all duration-500 lg:bg-black/40 lg:backdrop-blur-0 lg:group-hover:bg-black/50 lg:group-hover:backdrop-blur-md" />
 
-                  {/* Hint that the card is interactive; hidden while hovering, visible otherwise */}
-                  <div className="absolute top-5 right-6 flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md px-3 py-1.5 opacity-100 animate-pulse group-hover:opacity-0 group-hover:animate-none">
+                  {/* Hint that the card is interactive; only relevant on devices with hover, hidden while hovering */}
+                  <div className="hidden absolute top-5 right-6 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md px-3 py-1.5 lg:flex lg:opacity-100 lg:animate-pulse lg:group-hover:opacity-0 lg:group-hover:animate-none">
                     <MousePointerClick className="w-3 h-3 text-white/70" />
                     <span className="font-raleway text-[10px] font-light uppercase tracking-[0.15em] text-white/70">
                       Hover to explore
                     </span>
                   </div>
 
-                  {/* Description, revealed as the name splits apart */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-10 text-center opacity-0 transition-opacity duration-500 delay-150 group-hover:opacity-100">
+                  {/* Description, always visible on mobile/tablet; revealed on hover as the name splits apart on desktop */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-10 text-center opacity-100 transition-opacity duration-500 delay-150 lg:opacity-0 lg:group-hover:opacity-100">
                     <span className="font-raleway text-xs font-light uppercase tracking-[0.2em] text-neutral-300">
                       {activePlatform.tagline}
                     </span>
@@ -97,16 +97,16 @@ const PlatformsSection = () => {
                     </p>
                   </div>
 
-                  {/* Big name, cut in half and pulled apart on hover */}
+                  {/* Big name, cut in half and pulled apart; always apart on mobile/tablet, only on hover on desktop */}
                   <span
                     aria-hidden="true"
-                    className="font-raleway pointer-events-none absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-neutral-300 transition-transform duration-500 ease-in-out [clip-path:inset(0_0_48%_0)] group-hover:translate-y-[-60%]"
+                    className="font-raleway pointer-events-none absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-neutral-300 transition-transform duration-500 ease-in-out [clip-path:inset(0_0_48%_0)] -translate-y-[60%] lg:translate-y-0 lg:group-hover:translate-y-[-60%]"
                   >
                     {activePlatform.name}
                   </span>
                   <span
                     aria-hidden="true"
-                    className="font-raleway pointer-events-none absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-neutral-300 transition-transform duration-500 ease-in-out [clip-path:inset(48%_0_0_0)] group-hover:translate-y-[60%]"
+                    className="font-raleway pointer-events-none absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-neutral-300 transition-transform duration-500 ease-in-out [clip-path:inset(48%_0_0_0)] translate-y-[60%] lg:translate-y-0 lg:group-hover:translate-y-[60%]"
                   >
                     {activePlatform.name}
                   </span>
