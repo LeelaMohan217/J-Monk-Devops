@@ -62,13 +62,13 @@ const Footer = ({
               <h3 className="text-white text-2xl font-semibold mb-4">
                 Contact Info
               </h3>
-              <p className="text-neutral-200 text-base font-extralight">
+              <p className="text-neutral-200 text-base font-extralight break-words">
                 {address}
               </p>
-              <p className="text-neutral-200 text-base font-extralight">
+              <p className="text-neutral-200 text-base font-extralight break-words">
                 {phone}
               </p>
-              <p className="text-neutral-200 text-base font-extralight">
+              <p className="text-neutral-200 text-base font-extralight break-words">
                 {email}
               </p>
             </div>
