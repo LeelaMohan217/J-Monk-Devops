@@ -12,7 +12,7 @@ const platforms = [
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen -mt-20 overflow-hidden bg-black">
+    <section className="relative w-full min-h-screen -mt-20 overflow-hidden bg-black flex flex-col">
       <motion.img
         src={homeImages.heroBackground}
         alt=""
@@ -54,12 +54,12 @@ const HeroSection = () => {
         ))}
       </motion.div>
 
-      <div className="relative z-10 h-full w-full px-6 md:px-8 flex items-center justify-center">
+      <div className="relative z-10 w-full flex-1 px-6 md:px-8 py-8 flex items-center justify-center">
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="flex flex-col items-center gap-6 text-center"
+          className="flex flex-col items-center gap-4 sm:gap-6 text-center"
         >
           <motion.div
             variants={fadeIn("up", 0.1)}
@@ -124,7 +124,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-16 z-10 px-6 md:px-8 flex items-end justify-between gap-6 [@media(max-height:700px)]:hidden">
+      <div className="relative z-10 shrink-0 w-full px-6 md:px-8 pb-3 flex items-end justify-between gap-6">
         <motion.p
           variants={fadeIn("up", 0.3)}
           initial="hidden"
@@ -152,12 +152,14 @@ const HeroSection = () => {
         type="button"
         aria-label="Scroll to next section"
         onClick={() =>
-          window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
+          document
+            .getElementById("platforms")
+            ?.scrollIntoView({ behavior: "smooth" })
         }
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.6 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/40 transition-colors duration-300 hover:text-white/70 [@media(max-height:700px)]:hidden"
+        className="relative z-10 shrink-0 mx-auto pb-4 sm:pb-6 flex flex-col items-center gap-1 text-white/40 transition-colors duration-300 hover:text-white/70"
       >
         <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
           Scroll
