@@ -1,4 +1,42 @@
-import { homeImages } from "./images";
+export const visionMission = {
+  vision:
+    "To build a future-ready ecosystem where technology, practical skills, and global opportunities empower individuals and businesses to grow without limitations.",
+  mission:
+    "To create impactful and accessible platforms that help businesses scale digitally, students gain real-world skills, and aspiring individuals access global education and career opportunities.",
+};
+
+export const services = [
+  {
+    name: "Custom Software Development",
+    description:
+      "We design and develop scalable web applications, mobile applications, enterprise platforms, and business management systems tailored to your operational needs.",
+  },
+  {
+    name: "SaaS Product Development",
+    description:
+      "Build powerful SaaS products with secure architecture, modern UI/UX, scalable backend systems, subscription models, and cloud-native infrastructure.",
+  },
+  {
+    name: "Cloud & Infrastructure Solutions",
+    description:
+      "Deploy and manage secure cloud environments with optimized infrastructure, server management, scalability planning, and performance monitoring.",
+  },
+  {
+    name: "DevOps & Automation Services",
+    description:
+      "Streamline development workflows using CI/CD pipelines, infrastructure automation, deployment strategies, monitoring systems, and operational optimization.",
+  },
+  {
+    name: "API Development & System Integration",
+    description:
+      "Integrate third-party platforms, payment gateways, CRMs, ERPs, communication tools, and automation systems for seamless business operations.",
+  },
+  {
+    name: "Technical Consulting",
+    description:
+      "Get expert guidance on digital transformation, software architecture, product strategy, technology stack selection, and scalability planning.",
+  },
+];
 
 export const platforms = [
   {
@@ -8,7 +46,6 @@ export const platforms = [
     href: "/digiconnect",
     description:
       "Custom software, cloud infrastructure, and automation that turn ideas into reliable, scalable digital products.",
-    image: homeImages.platformDigiConnect,
   },
   {
     id: "02",
@@ -17,7 +54,6 @@ export const platforms = [
     href: "/skillconnect",
     description:
       "A hands-on learning ecosystem where students and career-switchers gain real industry experience through live projects and mentorship.",
-    image: homeImages.platformSkillConnect,
   },
   {
     id: "03",
@@ -26,7 +62,6 @@ export const platforms = [
     href: "/educonnect",
     description:
       "End-to-end guidance for students pursuing international education, from university selection to visa support.",
-    image: homeImages.platformEduConnect,
   },
 ];
 

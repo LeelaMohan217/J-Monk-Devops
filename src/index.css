@@ -138,13 +138,6 @@
     var(--bg-size, 300%) 0;
     }
   }
-  --animate-marquee:
-    marquee 30s linear infinite;
-  @keyframes marquee {
-  to {
-    transform: translateX(-50%);
-    }
-  }
 }
 /*
   ---break---

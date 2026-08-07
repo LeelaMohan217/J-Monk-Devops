@@ -26,13 +26,9 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
 
   return (
     <nav
-      className={`sticky z-50 hidden lg:block transition-all duration-300 ${
+      className={`sticky z-50 hidden lg:block bg-white border-b transition-shadow duration-300 ${
         hidden ? "top-0" : "top-16"
-      } ${
-        scrolled
-          ? "bg-white shadow-lg"
-          : "bg-linear-to-b from-neutral-50 to-neutral-200"
-      }`}
+      } ${scrolled ? "border-neutral-200 shadow-lg" : "border-transparent"}`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 md:px-8 py-2">
         <div className="flex justify-between items-center">

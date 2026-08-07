@@ -59,15 +59,15 @@ const GlobalNav = () => {
   return (
     <header className="sticky top-0 z-60">
       <div
-        className={`w-full grid grid-cols-3 items-center h-16 px-6 md:px-8 border-b transition-[border-color,box-shadow] duration-300 ${
+        className={`w-full grid grid-cols-3 items-center h-16 px-6 md:px-8 bg-white border-b transition-shadow duration-300 ${
           scrolled
-            ? "bg-black/40 backdrop-blur-xl backdrop-saturate-150 border-white/10 shadow-md shadow-black/20"
-            : "bg-transparent border-transparent"
+            ? "border-neutral-200 shadow-md shadow-black/5"
+            : "border-transparent"
         }`}
       >
         <Link to="/" className="col-start-1 flex items-center gap-3 shrink-0 justify-self-start">
           <img className="w-10 h-10" alt="JMonkDevOps" src={Logo} />
-          <span className="text-base font-semibold tracking-tight text-white">
+          <span className="text-base font-semibold tracking-tight text-black">
             JMonkDevOps
           </span>
         </Link>
@@ -78,14 +78,14 @@ const GlobalNav = () => {
               <li key={brand.name}>
                 <Link
                   to={brand.homeHref}
-                  className="inline-block py-1 text-sm font-medium text-neutral-300 hover:text-white transition-colors"
+                  className="inline-block py-1 text-sm font-medium text-neutral-600 hover:text-black transition-colors"
                 >
                   {brand.name}
                 </Link>
               </li>
             ) : (
               <li key={brand.name}>
-                <span className="text-xs font-medium text-neutral-600 cursor-default">
+                <span className="text-xs font-medium text-neutral-400 cursor-default">
                   {brand.name}
                 </span>
               </li>
@@ -98,7 +98,7 @@ const GlobalNav = () => {
             type="button"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((open) => !open)}
-            className="relative z-50 lg:hidden text-neutral-300 hover:text-white transition-colors"
+            className="relative z-50 lg:hidden text-neutral-700 hover:text-black transition-colors"
           >
             <MenuToggleIcon open={mobileOpen} />
           </button>
