@@ -91,13 +91,13 @@ const LandingFooter = () => {
               Contact
             </h3>
             <ul className="flex flex-col gap-3">
-              <li className="text-neutral-400 text-sm font-medium leading-relaxed">
+              <li className="text-neutral-400 text-sm font-medium leading-relaxed break-words">
                 {footer.address}
               </li>
-              <li className="text-neutral-400 text-sm font-medium">
+              <li className="text-neutral-400 text-sm font-medium break-words">
                 {footer.phone}
               </li>
-              <li className="text-neutral-400 text-sm font-medium">
+              <li className="text-neutral-400 text-sm font-medium break-words">
                 {footer.email}
               </li>
             </ul>
@@ -126,8 +126,8 @@ const LandingFooter = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-2 lg:py-6">
-        <p className="text-white/5 text-5xl md:text-6xl lg:text-9xl font-bold text-center leading-none tracking-tight ">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 py-2 lg:py-6 overflow-hidden">
+        <p className="text-white/5 text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold text-center leading-none tracking-tight">
           JMonkDevOps
         </p>
       </div>

@@ -150,7 +150,7 @@ const About = () => {
               {boxData.map((data, index) => (
                 <div
                   key={index}
-                  className="w-100 p-8 flex flex-col border border-neutral-300 transform transition-transform duration-500"
+                  className="w-full p-8 flex flex-col border border-neutral-300 transform transition-transform duration-500"
                 >
                   <div className="text-left font-extrabold text-2xl opacity-20">
                     {data.icon}
