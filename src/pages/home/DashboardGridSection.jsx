@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { platforms } from "./data";
+import { fadeIn } from "../../shared/variants";
 
 const DashboardGridSection = () => {
   return (
-    <section className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-0 rounded-2xl border border-neutral-200 overflow-hidden sm:divide-x sm:divide-neutral-200">
+    <motion.section
+      className="max-w-7xl mx-auto mb-16 md:mb-24 grid grid-cols-1 sm:grid-cols-3 gap-0 rounded-2xl border border-neutral-200 overflow-hidden sm:divide-x sm:divide-neutral-200"
+      variants={fadeIn("up", 2.05)}
+      initial="hidden"
+      animate="show"
+    >
       {platforms.map((platform) => (
         <Link
           key={platform.id}
@@ -24,7 +31,7 @@ const DashboardGridSection = () => {
           </div>
         </Link>
       ))}
-    </section>
+    </motion.section>
   );
 };
 

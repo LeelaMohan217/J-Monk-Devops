@@ -19,6 +19,8 @@
     'Caveat', cursive;
   --font-raleway:
     'Raleway', ui-sans-serif, system-ui, sans-serif;
+  --font-playfair:
+    'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;
 }
 
 /*
@@ -137,6 +139,25 @@
   to {
     background-position:
     var(--bg-size, 300%) 0;
+    }
+  }
+  --animate-aurora:
+    aurora 8s ease-in-out infinite;
+  @keyframes aurora {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 50% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 }
