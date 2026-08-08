@@ -1,32 +1,16 @@
-import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import useHideOnScroll from "../hooks/useHideOnScroll";
+import useScrollPosition from "../hooks/useScrollPosition";
 
 const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
-  const [scrolled, setScrolled] = useState(false);
+  const scrollY = useScrollPosition();
+  const scrolled = scrollY > 1;
   const hidden = useHideOnScroll();
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 1) {
-        // Change the navbar as soon as you start scrolling
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <nav
-      className={`sticky z-50 hidden lg:block bg-white border-b transition-shadow duration-300 ${
+      className={`fixed z-50 hidden lg:block w-full bg-white border-b transition-shadow duration-300 ${
         hidden ? "top-0" : "top-16"
       } ${scrolled ? "border-neutral-200 shadow-lg" : "border-transparent"}`}
     >
@@ -51,9 +35,7 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
                   active ? "text-red-600" : "text-black hover:text-red-600"
                 }`}
               >
-                <Link to={item.href} onClick={() => window.scrollTo(0, 0)}>
-                  {item.label}
-                </Link>
+                <Link to={item.href}>{item.label}</Link>
                 <span
                   className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left bg-red-600 transition-transform duration-300 ${
                     active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"

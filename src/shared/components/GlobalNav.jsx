@@ -5,6 +5,7 @@ import { X, ChevronDown } from "lucide-react";
 import { digiConnectConfig } from "../../sites/digiconnect/config";
 import { skillConnectConfig } from "../../sites/skillconnect/config";
 import { eduConnectConfig } from "../../sites/educonnect/config";
+import useScrollPosition from "../hooks/useScrollPosition";
 import Logo from "../assets/Logo.png";
 
 const brandGroups = [
@@ -37,17 +38,11 @@ const MenuToggleIcon = ({ open }) => (
 );
 
 const GlobalNav = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const scrollY = useScrollPosition();
+  const scrolled = scrollY > 1;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openBrand, setOpenBrand] = useState(null);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 1);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -57,7 +52,7 @@ const GlobalNav = () => {
   const closeMenu = () => setMobileOpen(false);
 
   return (
-    <header className="sticky top-0 z-60">
+    <header className="fixed inset-x-0 top-0 z-60">
       <div
         className={`w-full grid grid-cols-3 items-center h-16 px-6 md:px-8 bg-white border-b transition-shadow duration-300 ${
           scrolled

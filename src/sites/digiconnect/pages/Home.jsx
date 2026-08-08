@@ -17,7 +17,7 @@ const Home = () => {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="flex flex-col items-start md:items-center gap-4 md:gap-6 py-24 sm:py-28"
+            className="flex flex-col items-start md:items-center gap-4 md:gap-6 pt-32 sm:pt-40 pb-24 sm:pb-28"
           >
             <div className="flex flex-col items-center gap-4 md:gap-6 md:my-10">
               <motion.h1
