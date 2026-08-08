@@ -4,7 +4,7 @@ const HeroSection = () => {
       <div className="relative z-10 w-full px-6 md:px-8 flex items-center justify-start">
         <div className="flex flex-col items-start gap-6 text-left">
           <h1 className="text-6xl sm:text-6xl lg:text-7xl font-extrabold italic tracking-tight text-neutral-900 leading-[1.1] sm:leading-[1.05] lg:whitespace-nowrap">
-            <span className="block sm:inline">Digitalizing</span>{' '}
+            <span className="block sm:inline font-playfair italic">Digitalizing</span>{' '}
             <span className="block sm:inline">Local</span>{' '}
             <span className="block sm:inline">Bharath</span>
           </h1>

@@ -19,6 +19,8 @@
     'Caveat', cursive;
   --font-raleway:
     'Raleway', ui-sans-serif, system-ui, sans-serif;
+  --font-playfair:
+    'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;
 }
 
 /*
