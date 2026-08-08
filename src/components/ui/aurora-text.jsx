@@ -1,20 +1,21 @@
+import { cn } from "@/lib/utils"
 import { memo } from "react"
 
 export const AuroraText = memo(function AuroraText({
   children,
   className,
-  colors = ["#dc2626", "#f97316", "#b91c1c", "#dc2626"],
+  colors = ["#FF0080", "#7928CA", "#0070F3", "#38bdf8"],
   speed = 1,
   ...props
 }) {
   const gradientStyle = {
-    backgroundImage: `linear-gradient(135deg, ${colors.join(", ")})`,
-    backgroundSize: "300% 300%",
+    backgroundImage: `linear-gradient(135deg, ${colors.join(", ")}, ${colors[0]})`,
+    backgroundSize: "200% 200%",
     animationDuration: `${10 / speed}s`,
   }
 
   return (
-    <span className={`relative inline-block ${className ?? ""}`} {...props}>
+    <span className={cn("relative inline-block", className)} {...props}>
       <span className="sr-only">{children}</span>
       <span
         className="bg-clip-text text-transparent animate-aurora"
