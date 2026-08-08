@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../../shared/variants";
+import { AuroraText } from "@/components/ui/aurora-text";
 
 const wordReveal = (delay) => ({
   hidden: { y: "100%", opacity: 0 },
@@ -47,7 +48,7 @@ const HeroSection = () => {
                 initial="hidden"
                 animate="show"
               >
-                Bharath
+                <AuroraText>Bharath</AuroraText>
               </motion.span>
             </span>
           </h1>
