@@ -9,7 +9,7 @@ const HeroSection = () => {
             <span className="block sm:inline">Bharath</span>
           </h1>
 
-          <p className="max-w-md sm:max-w-lg text-sm sm:text-base text-neutral-600 leading-relaxed">
+          <p className="max-w-md sm:max-w-lg text-base text-neutral-600 leading-relaxed">
             We build focused platforms that help businesses grow digitally, give
             students practical skills, and support individuals reaching global
             opportunities.
