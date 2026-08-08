@@ -3,7 +3,7 @@ import { platforms } from "./data";
 
 const DashboardGridSection = () => {
   return (
-    <section className="max-w-7xl mx-auto mb-16 md:mb-24 grid grid-cols-1 sm:grid-cols-3 gap-0 rounded-2xl border border-neutral-200 overflow-hidden sm:divide-x sm:divide-neutral-200">
+    <section className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-0 rounded-2xl border border-neutral-200 overflow-hidden sm:divide-x sm:divide-neutral-200">
       {platforms.map((platform) => (
         <Link
           key={platform.id}

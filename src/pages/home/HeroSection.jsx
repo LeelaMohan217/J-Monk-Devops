@@ -1,6 +1,8 @@
+import DashboardGridSection from "./DashboardGridSection";
+
 const HeroSection = () => {
   return (
-    <section className="relative w-full bg-white pt-32 pb-16 md:pt-40 md:pb-20">
+    <section className="relative w-full overflow-hidden bg-white pt-32 md:pt-40">
       <div className="relative z-10 w-full px-6 md:px-8 flex items-center justify-center">
         <div className="flex flex-col items-center gap-6 text-center">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-900 leading-[1.05] lg:whitespace-nowrap">
@@ -13,6 +15,10 @@ const HeroSection = () => {
             opportunities.
           </p>
         </div>
+      </div>
+
+      <div className="relative z-10 mt-12 px-6 md:mt-16 md:px-8">
+        <DashboardGridSection />
       </div>
     </section>
   );

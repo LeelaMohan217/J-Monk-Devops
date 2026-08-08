@@ -1,34 +1,80 @@
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
+
 const companies = [
-  "Nexora",
-  "Bluepeak",
-  "Vantix",
-  "Corewave",
-  "Skyline Labs",
-  "Northbridge",
-  "Anchorpoint",
-  "Fieldstone",
+  "Amazon",
+  "Flipkart",
+  "Stripe",
+  "Google",
+  "Microsoft",
+  "PayPal",
+  "Swiggy",
+  "Zomato",
 ];
 
 const CollaborationSection = () => {
+  const trackRef = useRef(null);
+  const tweenRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        tweenRef.current = gsap.to(track, {
+          xPercent: -50,
+          duration: 28,
+          ease: "none",
+          repeat: -1,
+        });
+
+        return () => {
+          tweenRef.current = null;
+        };
+      });
+
+      return () => mm.revert();
+    },
+    { scope: trackRef },
+  );
+
+  const pause = () => tweenRef.current?.pause();
+  const resume = () => tweenRef.current?.play();
+
   return (
-    <section className="max-w-7xl mx-auto mb-16 md:mb-24 rounded-2xl border border-neutral-200 px-6 py-10 md:px-10 md:py-14">
-      <div className="flex justify-center mb-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-1.5 text-neutral-600">
+    <section className="w-full mb-10 py-10 md:py-14">
+      <div className="flex justify-center mb-8 px-6 md:px-10">
+        <div className="inline-flex items-center gap-2 text-neutral-600">
           <span className="text-xs font-medium uppercase tracking-[0.2em]">
             Collaboration
           </span>
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        {companies.map((name) => (
-          <span
-            key={name}
-            className="shrink-0 whitespace-nowrap rounded-full border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-500 md:text-base"
-          >
-            {name}
-          </span>
-        ))}
+      <div
+        className="relative w-full overflow-hidden"
+        onMouseEnter={pause}
+        onMouseLeave={resume}
+      >
+        <div
+          ref={trackRef}
+          className="flex w-max items-center gap-x-16 md:gap-x-24"
+        >
+          {[...companies, ...companies].map((name, i) => (
+            <span
+              key={`${name}-${i}`}
+              className="shrink-0 whitespace-nowrap text-3xl font-semibold tracking-tight text-neutral-400 transition-colors duration-200 hover:text-neutral-900 md:text-4xl"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
