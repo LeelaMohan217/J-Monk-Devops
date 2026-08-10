@@ -98,23 +98,23 @@ export const faqs = [
   },
 ];
 
-export const testimonials = [
+export const commitments = [
   {
-    quote:
-      "DigiConnect took the time to understand how we actually work before writing a single line of code. The end result felt custom-built, not off-the-shelf.",
-    name: "Aditya Rao",
-    role: "Founder, Early-Stage Startup",
+    icon: "MessageCircle",
+    title: "Clear Communication",
+    description:
+      "You'll know what's happening and why, every step of the way — no jargon, no radio silence.",
   },
   {
-    quote:
-      "What stood out was the follow-through — automation and deployment pipelines that just kept working long after launch.",
-    name: "Sneha Kulkarni",
-    role: "Operations Lead, Growing Business",
+    icon: "ShieldCheck",
+    title: "Built to Last",
+    description:
+      "We design for maintainability from day one, not just to hit a launch deadline.",
   },
   {
-    quote:
-      "Clear communication from day one, and they were upfront whenever a simpler approach made more sense than the fancier one.",
-    name: "Rahul Menon",
-    role: "Product Owner, Digital Services Firm",
+    icon: "Scale",
+    title: "Honest Scoping",
+    description:
+      "If a simpler approach solves your problem, we'll say so — even when the complex one pays more.",
   },
 ];

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../shared/variants";
 import { AuroraText } from "@/components/ui/aurora-text";
+import DashboardGridSection from "./DashboardGridSection";
 
 const wordReveal = (delay) => ({
   hidden: { y: "100%", opacity: 0 },
@@ -9,7 +10,7 @@ const wordReveal = (delay) => ({
     y: "0%",
     opacity: 1,
     transition: {
-      duration: 0.45,
+      duration: 0.9,
       delay,
       ease: [0.16, 1, 0.3, 1],
     },
@@ -18,11 +19,35 @@ const wordReveal = (delay) => ({
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full bg-white pt-32 pb-16 md:pt-40 md:pb-20">
-      <div className="relative z-10 w-full px-6 md:px-8 flex items-center justify-start md:justify-center">
+    <section className="relative w-full overflow-hidden bg-white pt-32 md:pt-40">
+      <div
+        className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
+        aria-hidden="true"
+      >
+        <svg className="absolute inset-0 h-full w-full opacity-[0.14]">
+          <defs>
+            <pattern
+              id="hero-grid"
+              width="56"
+              height="56"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 56 0 L 0 0 0 56"
+                fill="none"
+                className="stroke-neutral-400"
+                strokeWidth="1"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-0 flex items-center justify-start md:justify-center">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
-          <h1 className="text-6xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.1] sm:leading-[1.05] lg:whitespace-nowrap">
-            <span className="block sm:inline-block overflow-hidden align-bottom">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.1] sm:leading-[1.05] lg:whitespace-nowrap">
+            <span className="block sm:inline-block overflow-hidden pb-2 align-bottom">
               <motion.span
                 className="block"
                 variants={wordReveal(0)}
@@ -32,31 +57,33 @@ const HeroSection = () => {
                 Digitalizing
               </motion.span>
             </span>{' '}
-            <span className="block sm:inline-block overflow-hidden align-bottom">
+            <span className="block sm:inline-block overflow-hidden pb-2 align-bottom">
               <motion.span
                 className="block"
-                variants={wordReveal(0.45)}
+                variants={wordReveal(0.5)}
                 initial="hidden"
                 animate="show"
               >
                 Local
               </motion.span>
             </span>{' '}
-            <span className="block sm:inline-block overflow-hidden align-bottom">
+            <span className="block sm:inline-block overflow-hidden pb-2 align-bottom">
               <motion.span
-                className="block font-playfair italic"
-                variants={wordReveal(0.9)}
+                className="block"
+                variants={wordReveal(1)}
                 initial="hidden"
                 animate="show"
               >
-                <AuroraText>Bharath</AuroraText>
+                <AuroraText colors={["#dc2626", "#171717", "#b91c1c", "#404040"]}>
+                  Bharath
+                </AuroraText>
               </motion.span>
             </span>
           </h1>
 
           <motion.p
             className="max-w-xl sm:max-w-2xl text-base text-neutral-600 leading-relaxed"
-            variants={fadeIn("up", 1.35)}
+            variants={fadeIn("up", 1.9)}
             initial="hidden"
             animate="show"
           >
@@ -66,18 +93,22 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            variants={fadeIn("up", 1.6)}
+            variants={fadeIn("up", 2.15)}
             initial="hidden"
             animate="show"
           >
             <Link
               to="/#who-we-are"
-              className="inline-block rounded-full border px-20 py-3 text-sm font-medium text-black transition-colors"
+              className="inline-block rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700"
             >
               Get Started
             </Link>
           </motion.div>
         </div>
+      </div>
+
+      <div className="relative z-10 mt-12 px-6 md:mt-16 md:px-0">
+        <DashboardGridSection />
       </div>
     </section>
   );

@@ -58,11 +58,16 @@ function ScrollToTop() {
   return null;
 }
 
+function LandingOnlyGlobalNav() {
+  const location = useLocation();
+  return location.pathname === "/" ? <GlobalNav /> : null;
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <GlobalNav />
+      <LandingOnlyGlobalNav />
       <SmoothScroll>
         <Suspense fallback={null}>
           <Routes>

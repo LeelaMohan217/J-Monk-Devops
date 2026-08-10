@@ -54,33 +54,34 @@ const GlobalNav = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-60">
       <div
-        className={`w-full grid grid-cols-3 items-center h-16 px-6 md:px-8 bg-white border-b transition-shadow duration-300 ${
+        className={`w-full border-b transition-colors duration-300 ${
           scrolled
-            ? "border-neutral-200 shadow-md shadow-black/5"
-            : "border-transparent"
+            ? "bg-white border-neutral-200 shadow-md shadow-black/5"
+            : "bg-transparent border-transparent"
         }`}
       >
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center h-20 px-6 md:px-0">
         <Link to="/" className="col-start-1 flex items-center gap-3 shrink-0 justify-self-start">
-          <img className="w-10 h-10" alt="JMonkDevOps" src={Logo} />
-          <span className="text-base font-semibold tracking-tight text-black">
+          <img className="w-12 h-12" alt="JMonkDevOps" src={Logo} />
+          <span className="text-xl font-semibold tracking-tight text-black">
             JMonkDevOps
           </span>
         </Link>
 
-        <ul className="col-start-2 hidden lg:flex items-center gap-8 justify-self-center">
+        <ul className="col-start-2 hidden lg:flex items-center gap-10 justify-self-center">
           {brandGroups.map((brand) =>
             brand.available ? (
               <li key={brand.name}>
                 <Link
                   to={brand.homeHref}
-                  className="inline-block py-1 text-sm font-medium text-neutral-600 hover:text-black transition-colors"
+                  className="inline-block py-1 text-base font-medium text-neutral-600 hover:text-black transition-colors"
                 >
                   {brand.name}
                 </Link>
               </li>
             ) : (
               <li key={brand.name}>
-                <span className="text-xs font-medium text-neutral-400 cursor-default">
+                <span className="text-sm font-medium text-neutral-400 cursor-default">
                   {brand.name}
                 </span>
               </li>
@@ -100,10 +101,11 @@ const GlobalNav = () => {
 
           <Link
             to="/#who-we-are"
-            className="hidden lg:inline-block rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
+            className="hidden lg:inline-block rounded-lg bg-red-600 px-5 py-2.5 text-base font-medium text-white transition-colors hover:bg-red-700"
           >
             Get Started
           </Link>
+        </div>
         </div>
       </div>
 

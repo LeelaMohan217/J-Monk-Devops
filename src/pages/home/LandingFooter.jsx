@@ -18,15 +18,15 @@ const LandingFooter = () => {
   const { footer } = digiConnectConfig;
 
   return (
-    <footer className="bg-white border-t border-neutral-200">
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-20 flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
+    <footer className="bg-neutral-900 border-t border-neutral-800">
+      <div className="max-w-7xl mx-auto px-6 md:px-0 py-16 md:py-20 flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
         <div className="flex flex-col gap-4 max-w-sm">
           <Link to="/" className="w-fit">
-            <span className="text-base font-semibold tracking-tight text-neutral-900">
+            <span className="text-base font-semibold tracking-tight text-white">
               JMonkDevOps
             </span>
           </Link>
-          <p className="text-neutral-600 text-sm leading-relaxed">
+          <p className="text-neutral-400 text-sm leading-relaxed">
             {footer.description}
           </p>
           <ul className="flex gap-3 mt-2">
@@ -34,7 +34,7 @@ const LandingFooter = () => {
               <li key={index}>
                 <a
                   href={link.href}
-                  className="rounded-lg text-neutral-500 border border-neutral-200 p-2 flex items-center justify-center hover:text-neutral-900 hover:border-neutral-400 transition-colors duration-300 [&_svg]:w-4 [&_svg]:h-4"
+                  className="rounded-lg text-neutral-400 border border-neutral-800 p-2 flex items-center justify-center hover:text-white hover:border-neutral-600 transition-colors duration-300 [&_svg]:w-4 [&_svg]:h-4"
                 >
                   {link.icon}
                 </a>
@@ -45,7 +45,7 @@ const LandingFooter = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 lg:gap-14">
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-neutral-900">
+            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
               Platforms
             </h3>
             <ul className="flex flex-col gap-3">
@@ -54,13 +54,13 @@ const LandingFooter = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="inline-block text-neutral-500 text-sm font-medium hover:text-neutral-900 transition-colors duration-300"
+                      className="inline-block text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
                   </li>
                 ) : (
-                  <li key={link.name} className="text-neutral-400 text-sm">
+                  <li key={link.name} className="text-neutral-600 text-sm">
                     {link.name} (Coming Soon)
                   </li>
                 ),
@@ -69,7 +69,7 @@ const LandingFooter = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-neutral-900">
+            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
               Company
             </h3>
             <ul className="flex flex-col gap-3">
@@ -77,7 +77,7 @@ const LandingFooter = () => {
                 <li key={link.text}>
                   <Link
                     to={link.href}
-                    className="inline-block text-neutral-500 text-sm font-medium hover:text-neutral-900 transition-colors duration-300"
+                    className="inline-block text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
                   >
                     {link.text}
                   </Link>
@@ -87,24 +87,24 @@ const LandingFooter = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-neutral-900">
+            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
               Contact
             </h3>
             <ul className="flex flex-col gap-3">
-              <li className="text-neutral-500 text-sm font-medium leading-relaxed break-words">
+              <li className="text-neutral-400 text-sm font-medium leading-relaxed break-words">
                 {footer.address}
               </li>
-              <li className="text-neutral-500 text-sm font-medium break-words">
+              <li className="text-neutral-400 text-sm font-medium break-words">
                 {footer.phone}
               </li>
-              <li className="text-neutral-500 text-sm font-medium break-words">
+              <li className="text-neutral-400 text-sm font-medium break-words">
                 {footer.email}
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-neutral-900">
+            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
               Legal
             </h3>
             <ul className="flex flex-col gap-3">
@@ -118,16 +118,16 @@ const LandingFooter = () => {
         </div>
       </div>
 
-      <div className="border-t border-neutral-200">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-6">
-          <p className="text-neutral-400 text-xs text-center">
+      <div className="border-t border-neutral-800">
+        <div className="max-w-7xl mx-auto px-6 md:px-0 py-6">
+          <p className="text-neutral-600 text-xs text-center">
             © {new Date().getFullYear()} JMonkDevOps. All rights reserved.
           </p>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-2 lg:py-6 overflow-hidden">
-        <p className="text-neutral-100 text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold text-center leading-none tracking-tight">
+      <div className="max-w-7xl mx-auto px-6 md:px-0 py-2 lg:py-6 overflow-hidden">
+        <p className="text-neutral-800 text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold text-center leading-none tracking-tight">
           JMonkDevOps
         </p>
       </div>

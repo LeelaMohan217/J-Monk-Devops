@@ -7,7 +7,7 @@ import { BorderBeam } from "@/components/ui/border-beam";
 const DashboardGridSection = () => {
   return (
     <motion.section
-      className="max-w-7xl mx-auto mb-16 md:mb-24 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6"
+      className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6"
       variants={fadeIn("up", 2.05)}
       initial="hidden"
       animate="show"
@@ -16,7 +16,7 @@ const DashboardGridSection = () => {
         <Link
           key={platform.id}
           to={platform.href}
-          className="group relative block h-[60vh] sm:h-[85vh] w-full overflow-hidden rounded-2xl border border-neutral-200 bg-transparent"
+          className="group relative block h-[360px] sm:h-[440px] w-full overflow-hidden rounded-2xl border border-neutral-200 bg-transparent"
         >
           <BorderBeam duration={8} size={120} />
 

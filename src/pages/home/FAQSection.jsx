@@ -6,8 +6,8 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6 md:px-8 grid gap-12 lg:grid-cols-2 lg:items-start">
+    <section className="bg-stone-50 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-0 grid gap-12 lg:grid-cols-2 lg:items-start">
         <div className="flex flex-col items-start gap-4 text-left">
           <div className="inline-flex items-center rounded-full border border-neutral-200 px-4 py-1.5 text-neutral-600">
             <span className="text-xs font-medium uppercase tracking-[0.2em]">
@@ -40,8 +40,8 @@ const FAQSection = () => {
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 shrink-0 text-neutral-400 ${
-                      isOpen ? "rotate-180" : ""
+                    className={`w-5 h-5 shrink-0 transition-colors ${
+                      isOpen ? "rotate-180 text-amber-500" : "text-neutral-400"
                     }`}
                   />
                 </button>

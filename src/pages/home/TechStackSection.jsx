@@ -4,18 +4,18 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-const companies = [
-  "Amazon",
-  "Flipkart",
-  "Stripe",
-  "Google",
-  "Microsoft",
-  "PayPal",
-  "Swiggy",
-  "Zomato",
+const stack = [
+  "React",
+  "Node.js",
+  "AWS",
+  "Docker",
+  "PostgreSQL",
+  "GitHub Actions",
+  "Tailwind CSS",
+  "Kubernetes",
 ];
 
-const CollaborationSection = () => {
+const TechStackSection = () => {
   const trackRef = useRef(null);
   const tweenRef = useRef(null);
 
@@ -48,11 +48,11 @@ const CollaborationSection = () => {
   const resume = () => tweenRef.current?.play();
 
   return (
-    <section className="w-full mb-10 py-10 md:py-14">
+    <section className="w-full mb-10 bg-stone-50 py-10 md:py-14">
       <div className="flex justify-center mb-8 px-6 md:px-10">
         <div className="inline-flex items-center gap-2 text-neutral-600">
           <span className="text-xs font-medium uppercase tracking-[0.2em]">
-            Collaboration
+            Technologies We Work With
           </span>
         </div>
       </div>
@@ -66,7 +66,7 @@ const CollaborationSection = () => {
           ref={trackRef}
           className="flex w-max items-center gap-x-16 md:gap-x-24"
         >
-          {[...companies, ...companies].map((name, i) => (
+          {[...stack, ...stack].map((name, i) => (
             <span
               key={`${name}-${i}`}
               className="shrink-0 whitespace-nowrap text-3xl font-semibold tracking-tight text-neutral-400 transition-colors duration-200 hover:text-neutral-900 md:text-4xl"
@@ -80,4 +80,4 @@ const CollaborationSection = () => {
   );
 };
 
-export default CollaborationSection;
+export default TechStackSection;

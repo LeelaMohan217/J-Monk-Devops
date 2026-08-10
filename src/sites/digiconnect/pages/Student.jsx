@@ -12,7 +12,7 @@ const Student = () => {
     <>
       <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
         <div className="max-w-6xl mx-auto py-2 md:py-4 px-8">
-          <div className="flex flex-col gap-2 pt-32 sm:pt-40 pb-14">
+          <div className="flex flex-col gap-2 pt-24 pb-14">
             <h2 className="text-2xl font-medium text-red-600">Student</h2>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-800">
               Empowering Digital Innovation
