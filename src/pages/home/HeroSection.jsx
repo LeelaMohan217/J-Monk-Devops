@@ -19,7 +19,7 @@ const wordReveal = (delay) => ({
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-white pt-32 md:pt-40">
+    <section className="relative w-full overflow-hidden bg-white pt-32 pb-12 md:pt-40 md:pb-16">
       <div
         className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
         aria-hidden="true"

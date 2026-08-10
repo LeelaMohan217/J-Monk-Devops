@@ -74,7 +74,7 @@ const GlobalNav = () => {
               <li key={brand.name}>
                 <Link
                   to={brand.homeHref}
-                  className="inline-block py-1 text-base font-medium text-neutral-600 hover:text-black transition-colors"
+                  className="inline-block py-1 text-sm font-medium text-neutral-600 hover:text-black transition-colors"
                 >
                   {brand.name}
                 </Link>
@@ -101,7 +101,7 @@ const GlobalNav = () => {
 
           <Link
             to="/#who-we-are"
-            className="hidden lg:inline-block rounded-lg bg-red-600 px-5 py-2.5 text-base font-medium text-white transition-colors hover:bg-red-700"
+            className="hidden lg:inline-block rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
           >
             Get Started
           </Link>
