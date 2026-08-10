@@ -52,7 +52,7 @@ const TechStackSection = () => {
       <div className="flex justify-center mb-8 px-6 md:px-10">
         <div className="inline-flex items-center gap-2 text-neutral-600">
           <span className="text-xs font-medium uppercase tracking-[0.2em]">
-            Technologies We Work With
+            Technologies we work with
           </span>
         </div>
       </div>

@@ -1,8 +1,8 @@
 export const visionMission = {
   vision:
-    "To build a future-ready ecosystem where technology, practical skills, and global opportunities empower individuals and businesses to grow without limitations.",
+    "A Bharath where local businesses run on the same digital infrastructure as global companies, where students graduate with real project experience instead of just theory, and where studying abroad is a plan, not a gamble.",
   mission:
-    "To create impactful and accessible platforms that help businesses scale digitally, students gain real-world skills, and aspiring individuals access global education and career opportunities.",
+    "We get there by working close and staying honest: understanding how a business actually operates before writing a line of code, pairing students with real mentors instead of pre-recorded lectures, and guiding families through international education one decision at a time.",
 };
 
 export const services = [
