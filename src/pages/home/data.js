@@ -1,8 +1,8 @@
 export const visionMission = {
   vision:
-    "A Bharath where local businesses run on the same digital infrastructure as global companies, where students graduate with real project experience instead of just theory, and where studying abroad is a plan, not a gamble.",
+    "In ten years, we want where you're born in Bharath to say less about your future than it does today — because the technology, mentorship, and doors abroad that once belonged to a privileged few became ordinary and expected.",
   mission:
-    "We get there by working close and staying honest: understanding how a business actually operates before writing a line of code, pairing students with real mentors instead of pre-recorded lectures, and guiding families through international education one decision at a time.",
+    "We measure ourselves by what happens after the contract ends, the course finishes, or the visa is stamped — staying in the room long enough to understand the real problem, building relationships that outlast a single project, and choosing depth over volume even when it's slower.",
 };
 
 export const services = [
