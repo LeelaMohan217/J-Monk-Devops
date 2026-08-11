@@ -9,9 +9,24 @@ import useScrollPosition from "../hooks/useScrollPosition";
 import Logo from "../assets/Logo.png";
 
 const brandGroups = [
-  { name: "DigiConnect", homeHref: digiConnectConfig.homeHref, navItems: digiConnectConfig.navItems, available: true },
-  { name: "SkillConnect", homeHref: skillConnectConfig.homeHref, navItems: skillConnectConfig.navItems, available: true },
-  { name: "EduConnect", homeHref: eduConnectConfig.homeHref, navItems: eduConnectConfig.navItems, available: true },
+  {
+    name: "DigiConnect",
+    homeHref: digiConnectConfig.homeHref,
+    navItems: digiConnectConfig.navItems,
+    available: true,
+  },
+  {
+    name: "SkillConnect",
+    homeHref: skillConnectConfig.homeHref,
+    navItems: skillConnectConfig.navItems,
+    available: true,
+  },
+  {
+    name: "EduConnect",
+    homeHref: eduConnectConfig.homeHref,
+    navItems: eduConnectConfig.navItems,
+    available: true,
+  },
 ];
 
 const MenuToggleIcon = ({ open }) => (
@@ -60,52 +75,55 @@ const GlobalNav = () => {
             : "bg-transparent border-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center h-20 px-6 md:px-0">
-        <Link to="/" className="col-start-1 flex items-center gap-3 shrink-0 justify-self-start">
-          <img className="w-12 h-12" alt="JMonkDevOps" src={Logo} />
-          <span className="text-xl font-semibold tracking-tight text-black">
-            JMonkDevOps
-          </span>
-        </Link>
-
-        <ul className="col-start-2 hidden lg:flex items-center gap-10 justify-self-center">
-          {brandGroups.map((brand) =>
-            brand.available ? (
-              <li key={brand.name}>
-                <Link
-                  to={brand.homeHref}
-                  className="inline-block py-1 text-sm font-medium text-neutral-600 hover:text-black transition-colors"
-                >
-                  {brand.name}
-                </Link>
-              </li>
-            ) : (
-              <li key={brand.name}>
-                <span className="text-sm font-medium text-neutral-400 cursor-default">
-                  {brand.name}
-                </span>
-              </li>
-            )
-          )}
-        </ul>
-
-        <div className="col-start-3 justify-self-end">
-          <button
-            type="button"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMobileOpen((open) => !open)}
-            className="relative z-50 lg:hidden text-neutral-700 hover:text-black transition-colors"
-          >
-            <MenuToggleIcon open={mobileOpen} />
-          </button>
-
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center py-2 px-6">
           <Link
-            to="/#who-we-are"
-            className="hidden lg:inline-block rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
+            to="/"
+            className="col-start-1 flex items-center gap-1 shrink-0 justify-self-start"
           >
-            Get Started
+            <img className="w-12 h-12" alt="JMonkDevOps" src={Logo} />
+            <span className="text-lg font-semibold tracking-tight text-black">
+              JMonkDevOps
+            </span>
           </Link>
-        </div>
+
+          <ul className="col-start-2 hidden lg:flex items-center gap-10 justify-self-center">
+            {brandGroups.map((brand) =>
+              brand.available ? (
+                <li key={brand.name}>
+                  <Link
+                    to={brand.homeHref}
+                    className="inline-block py-1 text-sm font-medium text-neutral-600 hover:text-black transition-colors"
+                  >
+                    {brand.name}
+                  </Link>
+                </li>
+              ) : (
+                <li key={brand.name}>
+                  <span className="text-sm font-medium text-neutral-400 cursor-default">
+                    {brand.name}
+                  </span>
+                </li>
+              ),
+            )}
+          </ul>
+
+          <div className="col-start-3 justify-self-end">
+            <button
+              type="button"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMobileOpen((open) => !open)}
+              className="relative z-50 lg:hidden text-neutral-700 hover:text-black transition-colors"
+            >
+              <MenuToggleIcon open={mobileOpen} />
+            </button>
+
+            <Link
+              to="/#who-we-are"
+              className="hidden lg:inline-block rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -118,63 +136,68 @@ const GlobalNav = () => {
           />
 
           <div className="fixed top-0 left-0 z-40 h-screen p-6 bg-white w-[75%] max-w-xs lg:hidden border-r border-neutral-200 overflow-y-auto transition-all ease-in-out duration-500">
-          <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
-            <h5 className="text-base font-semibold text-black uppercase">Menu</h5>
-            <button type="button" aria-label="Close menu" onClick={closeMenu}>
-              <X className="w-5 h-5 text-black" />
-            </button>
-          </div>
+            <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
+              <h5 className="text-base font-semibold text-black uppercase">
+                Menu
+              </h5>
+              <button type="button" aria-label="Close menu" onClick={closeMenu}>
+                <X className="w-5 h-5 text-black" />
+              </button>
+            </div>
 
-          <div className="mt-4 flex flex-col">
-            {brandGroups.map((brand) => {
-              const isOpen = openBrand === brand.name;
-              return (
-                <div key={brand.name} className="border-b border-neutral-100">
-                  <button
-                    type="button"
-                    onClick={() => setOpenBrand(isOpen ? null : brand.name)}
-                    className="flex w-full items-center justify-between py-3 text-sm font-semibold uppercase tracking-wide text-neutral-900"
-                  >
-                    {brand.name}
-                    <motion.span
-                      initial={false}
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
+            <div className="mt-4 flex flex-col">
+              {brandGroups.map((brand) => {
+                const isOpen = openBrand === brand.name;
+                return (
+                  <div key={brand.name} className="border-b border-neutral-100">
+                    <button
+                      type="button"
+                      onClick={() => setOpenBrand(isOpen ? null : brand.name)}
+                      className="flex w-full items-center justify-between py-3 text-sm font-semibold uppercase tracking-wide text-neutral-900"
                     >
-                      <ChevronDown className="w-4 h-4 text-neutral-500" />
-                    </motion.span>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="sublist"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
+                      {brand.name}
+                      <motion.span
+                        initial={false}
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.25, ease: "easeInOut" }}
                       >
-                        <ul className="flex flex-col pb-2">
-                          {brand.navItems.map((item) => (
-                            <li key={item.href}>
-                              <Link
-                                to={item.href}
-                                onClick={closeMenu}
-                                className="block py-2 pl-3 text-sm text-neutral-600 hover:text-black transition-colors"
-                              >
-                                {item.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
+                        <ChevronDown className="w-4 h-4 text-neutral-500" />
+                      </motion.span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="sublist"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.3,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <ul className="flex flex-col pb-2">
+                            {brand.navItems.map((item) => (
+                              <li key={item.href}>
+                                <Link
+                                  to={item.href}
+                                  onClick={closeMenu}
+                                  className="block py-2 pl-3 text-sm text-neutral-600 hover:text-black transition-colors"
+                                >
+                                  {item.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </>
       )}

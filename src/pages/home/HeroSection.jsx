@@ -44,7 +44,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-0 flex items-center justify-start md:justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-start md:justify-center">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.1] sm:leading-[1.05] lg:whitespace-nowrap">
             <span className="block sm:inline-block overflow-hidden pb-2 align-bottom">
@@ -107,7 +107,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="relative z-10 mt-12 px-6 md:mt-16 md:px-0">
+      <div className="relative z-10 mt-12 md:mt-16">
         <DashboardGridSection />
       </div>
     </section>

@@ -1,9 +1,6 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { platforms } from "./data";
 import { fadeIn } from "../../shared/variants";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { platformIllustrations } from "./platformIllustrations";
 import digiConnectCard from "./assets/digiconnect-card.jpg";
 import skillConnectCard from "./assets/skillconnect-card.jpg";
 import eduConnectCard from "./assets/educonnect-card.jpg";
@@ -17,54 +14,44 @@ const platformImages = {
 const DashboardGridSection = () => {
   return (
     <motion.section
-      className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6"
+      className="max-w-7xl mx-auto grid grid-cols-1 gap-4 px-6 md:gap-6 md:px-8 lg:grid-cols-3"
       variants={fadeIn("up", 2.05)}
       initial="hidden"
       animate="show"
     >
-      {platforms.map((platform) => {
-        const Illustration = platformIllustrations[platform.id];
-        const image = platformImages[platform.id];
-        return (
-          <Link
-            key={platform.id}
-            to={platform.href}
-            className="group relative block h-[360px] sm:h-[440px] w-full overflow-hidden rounded-2xl border border-neutral-200 bg-transparent"
-          >
-            <BorderBeam duration={8} size={80} />
+      {platforms.map((platform) => (
+        <div
+          key={platform.id}
+          className="relative flex h-[472px] w-full flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm"
+        >
+          <div className="relative h-[320px] w-full shrink-0 overflow-hidden rounded-xl">
+            <img
+              src={platformImages[platform.id]}
+              alt={platform.name}
+              className="h-full w-full object-cover"
+            />
 
-            {image ? (
-              <>
-                <img
-                  src={image}
-                  alt={platform.name}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white from-0% via-white/60 via-30% to-transparent to-65%" />
-              </>
-            ) : (
-              Illustration && (
-                <div className="absolute inset-x-0 top-20 flex justify-center sm:top-24">
-                  <Illustration className="h-36 w-36 sm:h-44 sm:w-44" />
-                </div>
-              )
-            )}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white via-white/90 via-50% to-transparent" />
 
-            <span className="absolute top-6 left-6 rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-widest text-neutral-600 shadow-sm">
-              {platform.tagline}
-            </span>
-
-            <div className="absolute inset-0 flex flex-col justify-end gap-2 p-6 md:p-8">
-              <span className="text-2xl md:text-3xl font-semibold tracking-tight text-neutral-900">
-                {platform.name}
+            <div className="absolute inset-x-3 top-3 z-10 flex items-center justify-between">
+              <span className="rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-widest text-neutral-600 shadow-sm">
+                {platform.tagline}
               </span>
-              <p className="max-w-xs text-sm leading-relaxed text-neutral-800">
-                {platform.description}
-              </p>
             </div>
-          </Link>
-        );
-      })}
+          </div>
+
+          <div className="pointer-events-none absolute inset-x-4 top-60 z-0 h-28 rounded-full bg-white blur-2xl" />
+
+          <div className="relative z-10 flex flex-1 flex-col gap-2 px-2">
+            <span className="text-lg font-bold tracking-tight text-neutral-900">
+              {platform.name}
+            </span>
+            <p className="text-sm leading-relaxed text-neutral-500">
+              {platform.description}
+            </p>
+          </div>
+        </div>
+      ))}
     </motion.section>
   );
 };

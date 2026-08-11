@@ -53,7 +53,7 @@ export const platforms = [
     tagline: "Learn. Build. Grow.",
     href: "/skillconnect",
     description:
-      "A hands-on learning ecosystem where students and career-switchers gain real industry experience through live projects.",
+      "A hands-on learning ecosystem where students and career-switchers gain real industry experience through live projects and mentorship.",
   },
   {
     id: "03",

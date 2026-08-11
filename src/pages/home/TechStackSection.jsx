@@ -49,7 +49,7 @@ const TechStackSection = () => {
 
   return (
     <section className="w-full mb-10 bg-stone-50 py-10 md:py-14">
-      <div className="flex justify-center mb-8 px-6 md:px-10">
+      <div className="mx-auto flex max-w-7xl justify-center mb-8 px-6 md:px-8">
         <div className="inline-flex items-center gap-2 text-neutral-600">
           <span className="text-xs font-medium uppercase tracking-[0.2em]">
             Technologies we work with

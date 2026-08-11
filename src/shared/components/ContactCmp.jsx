@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ContactCmp = ({ heading, subtext, ctaLabel, ctaHref }) => {
   return (
     <div className="bg-linear-to-l from-neutral-50 to-neutral-100">
-      <div className="max-w-6xl mx-auto py-8 md:py-14 px-8">
+      <div className="max-w-6xl mx-auto py-8 md:py-14 px-6 md:px-8">
         <div className="flex flex-col items-center">
           <h2 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
             {heading}
