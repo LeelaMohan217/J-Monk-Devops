@@ -7,6 +7,8 @@ export const skillConnectConfig = {
   ],
   navCtaLabel: "Get in Touch",
   navCtaHref: "/skillconnect/contact",
+  // Match DigiConnect's wider nav rail instead of the default max-w-6xl.
+  navMaxWidthClass: "max-w-7xl",
   contactCta: {
     heading: "Ready to Build Real-World Skills?",
     subtext:
