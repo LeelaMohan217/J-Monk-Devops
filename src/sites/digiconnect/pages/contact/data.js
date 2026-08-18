@@ -1,6 +1,6 @@
 // Copy and field config for the DigiConnect contact page. Contact info
 // values themselves are not duplicated here — ContactSection reads them
-// straight from digiConnectConfig.footer so there is one source of truth.
+// straight from the shared companyConfig so there is one source of truth.
 export const pageHeader = {
   eyebrow: "Contact",
   heading: "Tell us about the project.",

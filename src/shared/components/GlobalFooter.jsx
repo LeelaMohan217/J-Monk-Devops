@@ -1,24 +1,33 @@
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin } from "lucide-react";
-import { companyConfig } from "../../shared/companyConfig";
-import { platforms } from "./data";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { companyConfig } from "../companyConfig";
+import { digiConnectConfig } from "../../sites/digiconnect/config";
+import { skillConnectConfig } from "../../sites/skillconnect/config";
+import { eduConnectConfig } from "../../sites/educonnect/config";
 
-// Icons live here rather than in the config so companyConfig stays a plain
-// module — same lookup pattern CommitmentsSection uses.
+// Rendered once at the App level, after every route's content, the same way
+// GlobalNav is rendered once above every route. One footer, company-wide,
+// for the landing page and all three brand sites — no per-site copy to keep
+// in sync.
 const socialIcons = {
+  Facebook,
   Instagram,
+  Twitter,
   LinkedIn: Linkedin,
 };
 
-const companyLinks = [
-  { text: "Who we are", href: "/#who-we-are" },
-  { text: "How we work", href: "/#how-we-work" },
-  { text: "FAQ", href: "/#faq" },
+// Each platform's own navItems, straight from its config, so the footer's
+// per-platform link list never drifts out of sync with that platform's own
+// navbar.
+const platformNavGroups = [
+  { name: digiConnectConfig.siteName, items: digiConnectConfig.navItems },
+  { name: skillConnectConfig.siteName, items: skillConnectConfig.navItems },
+  { name: eduConnectConfig.siteName, items: eduConnectConfig.navItems },
 ];
 
 const legalLinks = ["Terms of Service", "Privacy Policy"];
 
-const LandingFooter = () => {
+const GlobalFooter = () => {
   return (
     <footer className="bg-neutral-900 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20 flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
@@ -52,63 +61,29 @@ const LandingFooter = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 lg:gap-14">
-          <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
-              Verticals
-            </h3>
-            <ul className="flex flex-col gap-3">
-              {platforms.map((platform) => (
-                <li key={platform.id}>
-                  <Link
-                    to={platform.href}
-                    className="inline-block text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
-                  >
-                    {platform.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {platformNavGroups.map((group) => (
+            <div key={group.name} className="flex flex-col gap-4">
+              <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
+                {group.name}
+              </h3>
+              <ul className="flex flex-col gap-3">
+                {group.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      to={item.href}
+                      className="inline-block text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           <div className="flex flex-col gap-4">
             <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
-              Company
-            </h3>
-            <ul className="flex flex-col gap-3">
-              {companyLinks.map((link) => (
-                <li key={link.text}>
-                  <Link
-                    to={link.href}
-                    className="inline-block text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
-                  >
-                    {link.text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
-              Enquiries
-            </h3>
-            <ul className="flex flex-col gap-3">
-              {platforms.map((platform) => (
-                <li key={platform.id}>
-                  <Link
-                    to={platform.contactHref}
-                    className="inline-block text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
-                  >
-                    {platform.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
-              Reach us
+              Location
             </h3>
             <ul className="flex flex-col gap-3">
               <li className="text-neutral-400 text-sm font-medium leading-relaxed break-words">
@@ -146,14 +121,8 @@ const LandingFooter = () => {
           </p>
         </div>
       </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-2 lg:py-6 overflow-hidden">
-        <p className="text-neutral-800 text-4xl sm:text-5xl md:text-6xl lg:text-9xl font-bold text-center leading-none tracking-tight">
-          {companyConfig.name}
-        </p>
-      </div>
     </footer>
   );
 };
 
-export default LandingFooter;
+export default GlobalFooter;

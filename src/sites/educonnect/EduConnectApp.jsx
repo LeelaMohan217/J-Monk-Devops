@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Footer from "../../shared/components/Footer";
 import ContactCmp from "../../shared/components/ContactCmp";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -17,7 +16,6 @@ function EduConnectApp() {
       {location.pathname !== "/educonnect/contact" && (
         <ContactCmp {...eduConnectConfig.contactCta} />
       )}
-      <Footer siteName={eduConnectConfig.siteName} {...eduConnectConfig.footer} />
     </>
   );
 }

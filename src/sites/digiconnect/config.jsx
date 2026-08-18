@@ -1,5 +1,3 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-
 export const digiConnectConfig = {
   siteName: "DigiConnect",
   homeHref: "/digiconnect",
@@ -12,35 +10,9 @@ export const digiConnectConfig = {
   ],
   navCtaLabel: "Get started",
   navCtaHref: "/digiconnect/contact",
-  // DigiConnect's home page runs on a max-w-7xl rail; Navbar and Footer opt
-  // into it here so SkillConnect/EduConnect keep their default max-w-6xl.
+  // DigiConnect's own pages run on a max-w-7xl rail; Navbar opts into it here
+  // so SkillConnect/EduConnect keep their default max-w-6xl.
   navMaxWidthClass: "max-w-7xl",
-  footer: {
-    description:
-      "JMonkDevops enhances everyday lives by providing software that digitalizes to improve business growth with latest tools and technologies.",
-    platformLinks: [
-      { href: "#", icon: <Facebook /> },
-      {
-        href: "https://www.instagram.com/j_monk_devops/",
-        icon: <Instagram />,
-      },
-      {
-        href: "https://www.linkedin.com/company/j-monk-devops",
-        icon: <Linkedin />,
-      },
-      { href: "#", icon: <Twitter /> },
-    ],
-    communityLinks: [
-      { href: "/digiconnect/about", text: "About" },
-      { href: "/digiconnect/contact", text: "Contact Us" },
-      { href: "/digiconnect/businessman", text: "Businessman" },
-      { href: "/digiconnect/student", text: "Student" },
-    ],
-    address:
-      "Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur District, 522236, Andhra Pradesh",
-    phone: "+91 7330300203",
-    email: "jmonkdevops@gmail.com",
-  },
   contactCta: {
     heading: "Ready to Elevate Your Business?",
     subtext:

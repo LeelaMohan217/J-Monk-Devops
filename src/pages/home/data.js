@@ -154,6 +154,45 @@ export const faqs = [
   },
 ];
 
+// Real figures, provided directly by the user — a curated subset, not the
+// full list they gave us, to keep the section to a handful of numbers worth
+// reading rather than every metric available.
+export const stats = [
+  { value: "100+", label: "Clients served", platform: "DigiConnect" },
+  {
+    value: "200+",
+    label: "Students trained and mentored",
+    platform: "SkillConnect",
+  },
+  { value: "98%", label: "Visa success rate", platform: "EduConnect" },
+  { value: "3+", label: "Years operating", platform: "Company-wide" },
+];
+
+// Placeholder content only — no real client/student feedback exists yet.
+// TestimonialsSection is built and ready but deliberately not rendered on
+// the live Landing page (see Landing.jsx) until each slot below is replaced
+// with a real quote and real attribution. Do not ship the bracketed text.
+export const testimonials = [
+  {
+    platform: "DigiConnect",
+    role: "Business client",
+    quote: "[Add a real quote from a DigiConnect client about the project delivered together.]",
+    name: "[Client name]",
+  },
+  {
+    platform: "SkillConnect",
+    role: "Student",
+    quote: "[Add a real quote from a SkillConnect student or mentee about their experience.]",
+    name: "[Student name]",
+  },
+  {
+    platform: "EduConnect",
+    role: "Student",
+    quote: "[Add a real quote from an EduConnect student about their study-abroad journey.]",
+    name: "[Student name]",
+  },
+];
+
 export const commitments = [
   {
     icon: "MessageCircle",

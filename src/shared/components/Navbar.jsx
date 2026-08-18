@@ -9,11 +9,8 @@ import MenuToggleIcon from "./MenuToggleIcon";
 // rail (max-w-6xl by default) so it lines up with ContactCmp and Footer. Pass
 // maxWidthClass to widen it for a brand whose own pages run wider.
 //
-// IMPORTANT: this must be rendered outside <SmoothScroll>. ScrollSmoother puts a
-// transform on #smooth-content, which makes it the containing block for
-// position:fixed descendants; a navbar rendered inside it pins to the content
-// block and scrolls out of view. App.jsx renders it at the top level for this
-// reason.
+// Rendered at the top level in App.jsx (outside the routed page content) so
+// it persists across route changes instead of remounting per page.
 const Navbar = ({
   siteName,
   homeHref = "/",

@@ -10,8 +10,11 @@ export const companyConfig = {
   phone: "+91 7330300203",
   email: "jmonkdevops@gmail.com",
   // Icons live in the component, not here, so this stays a plain module.
+  // Facebook/Twitter are placeholders (href "#") until real accounts exist.
   social: [
+    { label: "Facebook", href: "#" },
     { label: "Instagram", href: "https://www.instagram.com/j_monk_devops/" },
+    { label: "Twitter", href: "#" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/j-monk-devops" },
   ],
 };

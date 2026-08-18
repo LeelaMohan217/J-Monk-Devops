@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Tracks the current scroll position via GSAP ScrollTrigger instead of
- * window.scrollY, so it stays correct whether the page scrolls natively
- * or through a GSAP ScrollSmoother instance.
+ * Tracks the current native scroll position, rAF-throttled so it doesn't
+ * fire a state update on every scroll event.
  */
 const useScrollPosition = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const trigger = ScrollTrigger.create({
-      start: 0,
-      end: "max",
-      onUpdate: (self) => setScrollY(self.scroll()),
-    });
+    let frameId = 0;
 
-    return () => trigger.kill();
+    const onScroll = () => {
+      if (frameId) return;
+      frameId = requestAnimationFrame(() => {
+        setScrollY(window.scrollY);
+        frameId = 0;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frameId) cancelAnimationFrame(frameId);
+    };
   }, []);
 
   return scrollY;

@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Footer from "../../shared/components/Footer";
 import ContactCmp from "../../shared/components/ContactCmp";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -23,11 +22,6 @@ function DigiConnectApp() {
       {location.pathname !== "/digiconnect/contact" && (
         <ContactCmp {...digiConnectConfig.contactCta} />
       )}
-      <Footer
-        siteName={digiConnectConfig.siteName}
-        maxWidthClass={digiConnectConfig.navMaxWidthClass}
-        {...digiConnectConfig.footer}
-      />
     </>
   );
 }

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { useContactForm } from "../../../../shared/hooks/useContactForm";
-import { digiConnectConfig } from "../../config";
+import { companyConfig } from "../../../../shared/companyConfig";
 import { formFields } from "./data";
 
 // Same input styling as the shared ContactForm component (SkillConnect/
@@ -13,10 +13,13 @@ import { formFields } from "./data";
 const fieldClass =
   "w-full rounded-lg border border-neutral-200 bg-surface px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 transition-colors duration-200 focus:border-neutral-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/10";
 
+// Sourced from the shared companyConfig (also GlobalFooter's source) rather
+// than a per-site footer config, since contact info is company-wide, not
+// something each brand keeps its own copy of.
 const infoRows = [
-  { icon: Phone, label: "Phone", value: digiConnectConfig.footer.phone },
-  { icon: Mail, label: "Email", value: digiConnectConfig.footer.email },
-  { icon: MapPin, label: "Address", value: digiConnectConfig.footer.address },
+  { icon: Phone, label: "Phone", value: companyConfig.phone },
+  { icon: Mail, label: "Email", value: companyConfig.email },
+  { icon: MapPin, label: "Address", value: companyConfig.address },
 ];
 
 const ContactSection = () => {
