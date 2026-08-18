@@ -7,6 +7,8 @@ export const eduConnectConfig = {
   ],
   navCtaLabel: "Get in Touch",
   navCtaHref: "/educonnect/contact",
+  // Match DigiConnect's wider nav rail instead of the default max-w-6xl.
+  navMaxWidthClass: "max-w-7xl",
   contactCta: {
     heading: "Ready to Start Your Global Journey?",
     subtext:
