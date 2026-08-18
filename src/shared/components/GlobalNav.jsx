@@ -31,7 +31,13 @@ const GlobalNav = () => {
             to="/"
             className="col-start-1 flex items-center gap-1 shrink-0 justify-self-start"
           >
-            <img className="w-12 h-12" alt="JMonkDevOps" src={Logo} />
+            <img
+              className="h-12 w-12 object-contain"
+              alt="JMonkDevOps"
+              src={Logo}
+              width={48}
+              height={48}
+            />
             <span className="text-lg font-semibold tracking-tight text-black">
               JMonkDevOps
             </span>

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import useScrollPosition from "../hooks/useScrollPosition";
+import Logo from "../assets/Logo.png";
 
 // Per-brand sub-bar. Styled to match GlobalNav — transparent until scrolled, then
 // white with a hairline border and a soft shadow — but on the brand shell's own
@@ -12,8 +13,12 @@ import useScrollPosition from "../hooks/useScrollPosition";
 //
 // Rendered at the top level in App.jsx (outside the routed page content) so
 // it persists across route changes instead of remounting per page.
+//
+// logo defaults to the shared JMonkDevOps mark (same one GlobalNav uses) so
+// every platform shows it without needing its own config entry.
 const Navbar = ({
   siteName,
+  logo = Logo,
   homeHref = "/",
   navItems,
   ctaLabel,
@@ -33,11 +38,20 @@ const Navbar = ({
             : "bg-transparent border-transparent"
         }`}
       >
-        <div className={`mx-auto flex h-16 items-center justify-between px-6 md:px-8 ${maxWidthClass}`}>
+        <div className={`mx-auto flex items-center justify-between py-2 px-6 ${maxWidthClass}`}>
           <Link
             to={homeHref}
-            className="shrink-0 text-lg font-semibold tracking-tight text-black"
+            className="flex shrink-0 items-center gap-2 text-lg font-semibold tracking-tight text-black"
           >
+            {logo && (
+              <img
+                src={logo}
+                alt={siteName}
+                className="h-12 w-12 object-contain"
+                width={48}
+                height={48}
+              />
+            )}
             {siteName}
           </Link>
 
