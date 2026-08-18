@@ -35,7 +35,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
           <motion.h1
             variants={fadeIn("up", 0.05)}

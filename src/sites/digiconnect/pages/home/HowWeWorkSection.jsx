@@ -10,7 +10,7 @@ const HowWeWorkSection = () => {
       id="how-we-work"
       className="bg-surface-muted py-20 md:py-28 scroll-mt-24"
     >
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <motion.div
             variants={riseIn()}

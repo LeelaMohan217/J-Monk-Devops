@@ -12,6 +12,9 @@ export const digiConnectConfig = {
   ],
   navCtaLabel: "Get started",
   navCtaHref: "/digiconnect/contact",
+  // DigiConnect's home page runs on a max-w-7xl rail; Navbar and Footer opt
+  // into it here so SkillConnect/EduConnect keep their default max-w-6xl.
+  navMaxWidthClass: "max-w-7xl",
   footer: {
     description:
       "JMonkDevops enhances everyday lives by providing software that digitalizes to improve business growth with latest tools and technologies.",

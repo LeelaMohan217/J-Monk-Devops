@@ -23,7 +23,11 @@ function DigiConnectApp() {
       {location.pathname !== "/digiconnect/contact" && (
         <ContactCmp {...digiConnectConfig.contactCta} />
       )}
-      <Footer siteName={digiConnectConfig.siteName} {...digiConnectConfig.footer} />
+      <Footer
+        siteName={digiConnectConfig.siteName}
+        maxWidthClass={digiConnectConfig.navMaxWidthClass}
+        {...digiConnectConfig.footer}
+      />
     </>
   );
 }

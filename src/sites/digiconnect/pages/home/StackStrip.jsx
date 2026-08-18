@@ -5,7 +5,7 @@ import { stack } from "./data";
 const StackStrip = () => {
   return (
     <section className="bg-surface-sunken py-12 md:py-16">
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* One wrapper reveal, not eight staggered pills — this is decorative
             content and per-item motion reads as noise. */}
         <motion.div

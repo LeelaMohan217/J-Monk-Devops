@@ -6,6 +6,7 @@ const Footer = ({
   address,
   phone,
   email,
+  maxWidthClass = "max-w-6xl",
 }) => {
   return (
     <footer className="relative bg-red-700">
@@ -18,7 +19,7 @@ const Footer = ({
           ></path>
         </svg>
       </div>
-      <div className="relative max-w-6xl mx-auto py-4 px-6 md:px-8">
+      <div className={`relative mx-auto py-4 px-6 md:px-8 ${maxWidthClass}`}>
         <div className="grid sm:grid-cols-2 gap-4 border-b border-neutral-100 py-10 lg:py-16 xl:py-20">
           <div className="flex flex-col gap-4">
             <h1 className="text-left text-3xl text-white font-bold">

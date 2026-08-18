@@ -86,8 +86,14 @@ function SiteNav() {
   );
   if (!brand) return null;
 
-  const { siteName, homeHref, navItems, navCtaLabel, navCtaHref } =
-    brand.config;
+  const {
+    siteName,
+    homeHref,
+    navItems,
+    navCtaLabel,
+    navCtaHref,
+    navMaxWidthClass,
+  } = brand.config;
 
   return (
     <Navbar
@@ -96,6 +102,7 @@ function SiteNav() {
       navItems={navItems}
       ctaLabel={navCtaLabel}
       ctaHref={navCtaHref}
+      {...(navMaxWidthClass ? { maxWidthClass: navMaxWidthClass } : {})}
     />
   );
 }

@@ -6,14 +6,22 @@ import MenuToggleIcon from "./MenuToggleIcon";
 
 // Per-brand sub-bar. Styled to match GlobalNav — transparent until scrolled, then
 // white with a hairline border and a soft shadow — but on the brand shell's own
-// max-w-6xl rail so it lines up with ContactCmp and Footer.
+// rail (max-w-6xl by default) so it lines up with ContactCmp and Footer. Pass
+// maxWidthClass to widen it for a brand whose own pages run wider.
 //
 // IMPORTANT: this must be rendered outside <SmoothScroll>. ScrollSmoother puts a
 // transform on #smooth-content, which makes it the containing block for
 // position:fixed descendants; a navbar rendered inside it pins to the content
 // block and scrolls out of view. App.jsx renders it at the top level for this
 // reason.
-const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
+const Navbar = ({
+  siteName,
+  homeHref = "/",
+  navItems,
+  ctaLabel,
+  ctaHref,
+  maxWidthClass = "max-w-6xl",
+}) => {
   const scrollY = useScrollPosition();
   const scrolled = scrollY > 1;
   const location = useLocation();
@@ -34,7 +42,7 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
             : "bg-transparent border-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-8">
+        <div className={`mx-auto flex h-16 items-center justify-between px-6 md:px-8 ${maxWidthClass}`}>
           <Link
             to={homeHref}
             className="shrink-0 text-lg font-semibold tracking-tight text-black"

@@ -1,16 +1,8 @@
-import image1 from "../assets/image1.jpg";
-import image2 from "../assets/image2.jpg";
-import image4 from "../assets/image4.jpg";
-import oImage1 from "../assets/oImage1.jpg";
-import oImage2 from "../assets/oImage2.jpg";
-import oImage3 from "../assets/oImage3.jpg";
-
 import {
   TabletSmartphone,
   Laptop,
   BadgeIndianRupee,
   Shapes,
-  Check,
 } from "lucide-react";
 import { ShieldEllipsis } from "lucide-react";
 import { PanelsTopLeft } from "lucide-react";
@@ -91,102 +83,3 @@ export const dataSB = [
 ];
 
 export const blogLinks = [{ href: "/blog", text: "Blogs" }];
-
-export const boxData = [
-  {
-    icon: <Check />,
-    title: "Intuitive User Interface",
-    text: "An intuitive user interface is designed for ease of use, allowing users to navigate effortlessly. It minimizes the learning curve, making interactions simple and efficient.",
-  },
-  {
-    icon: <Check />,
-    title: "Seamless Integration",
-    text: "Seamless integration ensures that different systems work together flawlessly, providing a unified experience. It eliminates disruptions, enhancing efficiency and workflow continuity.",
-  },
-  {
-    icon: <Check />,
-    title: "Advanced Automation",
-    text: "Advanced automation streamlines complex tasks, reducing manual effort and errors. It enhances productivity by enabling faster and more accurate processes.",
-  },
-  {
-    icon: <Check />,
-    title: "Customizable Workflows",
-    text: "Customizable workflows allow users to tailor processes to their specific needs, improving efficiency. They offer flexibility, adapting to diverse tasks and preferences.",
-  },
-];
-
-export const studentPageData = [
-  {
-    image: image1,
-    icon: <Check />,
-    title: "Internship",
-    subtitle: "Bridging the Gap Between Learning and Industry",
-    text: "Embark on a journey where theoretical knowledge meets hands-on experience. Our internships provide a launchpad for future leaders, offering invaluable exposure to real-world challenges. In the world of technology, our internships ignite potential, turning beginners into innovators.",
-    quote:
-      "From ground zero, a new path emerges. A two-edged blade, a bright surprise—preparing you for tomorrow.",
-  },
-  {
-    image: image2,
-    icon: <Check />,
-    title: "Freelancing",
-    subtitle: "Freedom to Create, Freedom to Earn",
-    text: "Freelancing offers the flexibility to balance passion and profession. Work on diverse projects at your own pace, setting your terms. Whether you’re an early bird or a night owl, freelancing empowers you to thrive in the digital landscape, with autonomy at its core.",
-    quote:
-      "The art of autonomy—where passion meets paycheck, and opportunity knows no bounds.",
-  },
-  {
-    image: image4,
-    icon: <Check />,
-    title: "Training",
-    subtitle: "Equipping You for Tomorrow’s Tech World",
-    text: "Our training programs turn knowledge into action. From coding bootcamps to advanced tech courses, we equip you with the skills to excel. Whether you're diving into coding or mastering new technologies, we pave the way for a bright and future-proof career.",
-    quote:
-      "From theory to practice, we bridge the gap, empowering you to shape the future with confidence.",
-  },
-];
-
-export const dataSBe = [
-  {
-    title: "Innovation",
-    text: "Constantly pushing boundaries, embracing new technologies to deliver innovative solutions that exceed client expectations.",
-  },
-  {
-    title: "Integrity",
-    text: "Upholding the highest ethical standards, transparency, and honesty in all our dealings and relationships.",
-  },
-  {
-    title: "Collaboration",
-    text: "Fostering strong partnerships, internally and externally, to leverage collective expertise and ensure successful outcomes.",
-  },
-];
-
-export const offeringPageData = [
-  {
-    image: oImage1,
-    icon: <Check />,
-    title: "Custom Apps",
-    subtitle:
-      "Bespoke applications crafted to match your specific requirements",
-    text: "Our custom app development service focuses on creating unique solutions that align with your business goals.",
-    quote:
-      "From concept to deployment, we ensure a seamless development process tailored to your needs.",
-  },
-  {
-    image: oImage2,
-    icon: <Check />,
-    title: "Enterprise Software",
-    subtitle: "Scalable and robust software solutions for large organizations",
-    text: "We specialize in building enterprise-grade software that supports complex business operations efficiently.",
-    quote:
-      "Our solutions are designed to enhance productivity and streamline workflows for maximum efficiency.",
-  },
-  {
-    image: oImage3,
-    icon: <Check />,
-    title: "Mobile Applications",
-    subtitle: "Innovative mobile app development for iOS and Android platforms",
-    text: "Our mobile app development services cater to the growing demand for intuitive and user-friendly applications.",
-    quote:
-      "We utilize the latest technologies to deliver high-quality mobile apps that resonate with your target audience.",
-  },
-];

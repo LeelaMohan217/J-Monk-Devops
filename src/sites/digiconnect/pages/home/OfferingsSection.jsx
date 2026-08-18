@@ -10,7 +10,7 @@ const OfferingsSection = () => {
       id="offerings"
       className="bg-surface py-20 md:py-28 scroll-mt-24"
     >
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
           initial="hidden"

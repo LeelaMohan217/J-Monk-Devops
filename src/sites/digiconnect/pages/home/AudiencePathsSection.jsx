@@ -10,7 +10,7 @@ const AudiencePathsSection = () => {
       id="where-you-fit"
       className="bg-surface py-16 md:py-24 scroll-mt-24"
     >
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
           initial="hidden"
