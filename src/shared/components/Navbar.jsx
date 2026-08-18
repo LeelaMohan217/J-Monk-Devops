@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { X, Menu } from "lucide-react";
+import { X } from "lucide-react";
 import useScrollPosition from "../hooks/useScrollPosition";
+import MenuToggleIcon from "./MenuToggleIcon";
 
+// Per-brand sub-bar. Styled to match GlobalNav — transparent until scrolled, then
+// white with a hairline border and a soft shadow — but on the brand shell's own
+// max-w-6xl rail so it lines up with ContactCmp and Footer.
+//
+// IMPORTANT: this must be rendered outside <SmoothScroll>. ScrollSmoother puts a
+// transform on #smooth-content, which makes it the containing block for
+// position:fixed descendants; a navbar rendered inside it pins to the content
+// block and scrolls out of view. App.jsx renders it at the top level for this
+// reason.
 const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
   const scrollY = useScrollPosition();
   const scrolled = scrollY > 1;
@@ -16,60 +26,69 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
   const closeMenu = () => setMobileOpen(false);
 
   return (
-    <nav
-      className={`fixed inset-x-0 top-0 z-50 w-full bg-white border-b transition-shadow duration-300 ${
-        scrolled ? "border-neutral-200 shadow-lg" : "border-transparent"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto flex h-16 items-center justify-between px-6 md:px-8">
-        <Link
-          to={homeHref}
-          className="text-lg sm:text-xl tracking-tight text-black font-bold shrink-0"
-        >
-          {siteName}
-        </Link>
+    <nav className="fixed inset-x-0 top-0 z-50">
+      <div
+        className={`w-full border-b transition-colors duration-300 ${
+          scrolled
+            ? "bg-white border-neutral-200 shadow-md shadow-black/5"
+            : "bg-transparent border-transparent"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-8">
+          <Link
+            to={homeHref}
+            className="shrink-0 text-lg font-semibold tracking-tight text-black"
+          >
+            {siteName}
+          </Link>
 
-        <ul className="hidden lg:flex ml-12 gap-10">
-          {navItems.map((item, index) => {
-            const active = location.pathname === item.href;
+          <ul className="hidden items-center gap-10 lg:flex">
+            {navItems.map((item) => {
+              const active = location.pathname === item.href;
 
-            return (
-              <li
-                key={index}
-                className={`group relative mx-0 text-base transition-colors duration-300 ${
-                  active ? "text-red-600" : "text-black hover:text-red-600"
-                }`}
-              >
-                <Link to={item.href}>{item.label}</Link>
-                <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-full origin-left bg-red-600 transition-transform duration-300 ${
-                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={item.href} className="group relative">
+                  <Link
+                    to={item.href}
+                    className={`inline-block py-1 text-sm font-medium transition-colors ${
+                      active
+                        ? "text-black"
+                        : "text-neutral-600 hover:text-black"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {/* Red stays an accent mark, not a text colour. */}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-0 -bottom-0.5 h-px w-full origin-left bg-red-600 transition-transform duration-300 ${
+                      active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </li>
+              );
+            })}
+          </ul>
 
-        <Link
-          to={ctaHref}
-          className="hidden lg:inline-block bg-red-600 text-white font-normal text-base px-4 md:px-6 py-3 hover:bg-red-700 transition-all duration-500"
-        >
-          <span>{ctaLabel}</span>
-        </Link>
+          <div className="flex items-center">
+            <button
+              type="button"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((open) => !open)}
+              className="relative z-50 text-neutral-700 transition-colors hover:text-black lg:hidden"
+            >
+              <MenuToggleIcon open={mobileOpen} />
+            </button>
 
-        <button
-          type="button"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMobileOpen((open) => !open)}
-          className="lg:hidden text-neutral-700 hover:text-black transition-colors"
-        >
-          {mobileOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
-          )}
-        </button>
+            <Link
+              to={ctaHref}
+              className="hidden rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700 lg:inline-block"
+            >
+              {ctaLabel}
+            </Link>
+          </div>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -77,32 +96,32 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
           <div
             aria-hidden="true"
             onClick={closeMenu}
-            className="fixed inset-0 z-30 lg:hidden bg-black/40"
+            className="fixed inset-0 z-30 bg-black/40 lg:hidden"
           />
 
           <div className="fixed top-0 left-0 z-40 h-screen w-[75%] max-w-xs overflow-y-auto border-r border-neutral-200 bg-white p-6 lg:hidden">
             <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
-              <span className="text-base font-semibold text-black uppercase">
-                Menu
+              <span className="text-base font-semibold uppercase text-black">
+                {siteName}
               </span>
               <button type="button" aria-label="Close menu" onClick={closeMenu}>
-                <X className="w-5 h-5 text-black" />
+                <X className="h-5 w-5 text-black" />
               </button>
             </div>
 
             <ul className="mt-4 flex flex-col">
-              {navItems.map((item, index) => {
+              {navItems.map((item) => {
                 const active = location.pathname === item.href;
 
                 return (
-                  <li key={index} className="border-b border-neutral-100">
+                  <li key={item.href} className="border-b border-neutral-100">
                     <Link
                       to={item.href}
                       onClick={closeMenu}
-                      className={`block py-3 text-sm font-semibold uppercase tracking-wide transition-colors ${
+                      className={`block py-3 text-sm font-medium transition-colors ${
                         active
-                          ? "text-red-600"
-                          : "text-neutral-900 hover:text-red-600"
+                          ? "text-black"
+                          : "text-neutral-600 hover:text-black"
                       }`}
                     >
                       {item.label}
@@ -115,7 +134,7 @@ const Navbar = ({ siteName, homeHref = "/", navItems, ctaLabel, ctaHref }) => {
             <Link
               to={ctaHref}
               onClick={closeMenu}
-              className="mt-6 block bg-red-600 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-red-700"
+              className="mt-6 block rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-red-700"
             >
               {ctaLabel}
             </Link>

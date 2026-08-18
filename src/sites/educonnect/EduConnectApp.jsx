@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
 import ContactCmp from "../../shared/components/ContactCmp";
 import Home from "./pages/Home";
@@ -11,13 +10,6 @@ function EduConnectApp() {
 
   return (
     <>
-      <Navbar
-        siteName={eduConnectConfig.siteName}
-        homeHref={eduConnectConfig.homeHref}
-        navItems={eduConnectConfig.navItems}
-        ctaLabel={eduConnectConfig.navCtaLabel}
-        ctaHref={eduConnectConfig.navCtaHref}
-      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="contact" element={<Contact />} />

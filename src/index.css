@@ -10,6 +10,28 @@
   --font-sans:
     Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Named section surfaces, so page pacing is a deliberate sequence rather
+     than an ad-hoc choice of white/stone-50 per section. Strictly white →
+     near-white → black; no hue. The red accent deliberately has no token here:
+     shadcn's `@theme inline` below already claims --color-accent, so a token by
+     that name silently loses to it. Red comes from red-600 utilities directly. */
+  --color-surface: #ffffff;
+  --color-surface-muted: #fafafa;
+  --color-surface-sunken: #f5f5f5;
+  --color-surface-invert: #0a0a0a;
+
+  /* Editorial display scale. Tailwind's text-* sizes stop tightening above
+     4xl, which is why every heading previously read at the same weight. */
+  --text-display-sm: 2.5rem;
+  --text-display-sm--line-height: 1.08;
+  --text-display-sm--letter-spacing: -0.02em;
+  --text-display-md: 3.5rem;
+  --text-display-md--line-height: 1.04;
+  --text-display-md--letter-spacing: -0.025em;
+  --text-display-lg: 4.75rem;
+  --text-display-lg--line-height: 1;
+  --text-display-lg--letter-spacing: -0.03em;
 }
 
 /*

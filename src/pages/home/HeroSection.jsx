@@ -19,7 +19,7 @@ const wordReveal = (delay) => ({
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-white pt-32 pb-12 md:pt-40 md:pb-16">
+    <section className="relative w-full overflow-hidden bg-white pt-28 pb-12">
       <div
         className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
         aria-hidden="true"
@@ -46,39 +46,11 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-start md:justify-center">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.1] sm:leading-[1.05] lg:whitespace-nowrap">
-            <span className="block sm:inline-block overflow-hidden pb-2 align-bottom">
-              <motion.span
-                className="block"
-                variants={wordReveal(0)}
-                initial="hidden"
-                animate="show"
-              >
-                Digitalizing
-              </motion.span>
-            </span>{' '}
-            <span className="block sm:inline-block overflow-hidden pb-2 align-bottom">
-              <motion.span
-                className="block"
-                variants={wordReveal(0.5)}
-                initial="hidden"
-                animate="show"
-              >
-                Local
-              </motion.span>
-            </span>{' '}
-            <span className="block sm:inline-block overflow-hidden pb-2 align-bottom">
-              <motion.span
-                className="block"
-                variants={wordReveal(1)}
-                initial="hidden"
-                animate="show"
-              >
-                <AuroraText colors={["#dc2626", "#171717", "#b91c1c", "#404040"]}>
-                  Bharath
-                </AuroraText>
-              </motion.span>
-            </span>
+          <p className="text-xs uppercase border rounded-full py-2 px-3">
+            digitalizing Local Bharath
+          </p>
+          <h1 className="max-w-6xl text-5xl sm:text-6xl font-semibold">
+            Transforming Ideas into Exceptional Digital Experience
           </h1>
 
           <motion.p

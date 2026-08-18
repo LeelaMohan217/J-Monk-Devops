@@ -2,7 +2,6 @@ import HeroSection from "./home/HeroSection";
 import AudienceRouter from "./home/AudienceRouter";
 import IntroSection from "./home/IntroSection";
 import PlatformsSection from "./home/PlatformsSection";
-import WhyOneEcosystem from "./home/WhyOneEcosystem";
 import CommitmentsSection from "./home/CommitmentsSection";
 import TechStackSection from "./home/TechStackSection";
 import FAQSection from "./home/FAQSection";
@@ -21,11 +20,10 @@ const Landing = () => {
       <AudienceRouter />
       <IntroSection />
       <PlatformsSection />
-      <WhyOneEcosystem />
       <CommitmentsSection />
       <TechStackSection />
-      <FAQSection />
       <ContactCTA />
+      <FAQSection />
       <LandingFooter />
     </div>
   );

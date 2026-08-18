@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
 import ContactCmp from "../../shared/components/ContactCmp";
 import Home from "./pages/Home";
@@ -14,13 +13,6 @@ function DigiConnectApp() {
 
   return (
     <>
-      <Navbar
-        siteName={digiConnectConfig.siteName}
-        homeHref={digiConnectConfig.homeHref}
-        navItems={digiConnectConfig.navItems}
-        ctaLabel={digiConnectConfig.navCtaLabel}
-        ctaHref={digiConnectConfig.navCtaHref}
-      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />

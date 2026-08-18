@@ -5,11 +5,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Landing from "./pages/Landing";
 import GlobalNav from "./shared/components/GlobalNav";
+import Navbar from "./shared/components/Navbar";
 import SmoothScroll from "./shared/components/SmoothScroll";
+import { digiConnectConfig } from "./sites/digiconnect/config";
+import { skillConnectConfig } from "./sites/skillconnect/config";
+import { eduConnectConfig } from "./sites/educonnect/config";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const NAV_OFFSET = 96;
+
+const brandNavs = [
+  { prefix: "/digiconnect", config: digiConnectConfig },
+  { prefix: "/skillconnect", config: skillConnectConfig },
+  { prefix: "/educonnect", config: eduConnectConfig },
+];
 
 const DigiConnectApp = lazy(() =>
   import("./sites/digiconnect/DigiConnectApp")
@@ -58,16 +68,43 @@ function ScrollToTop() {
   return null;
 }
 
-function LandingOnlyGlobalNav() {
+// All fixed page chrome is rendered here, OUTSIDE <SmoothScroll>. ScrollSmoother
+// sets a transform on #smooth-content, and a transformed ancestor becomes the
+// containing block for position:fixed descendants — so a bar rendered inside the
+// wrapper pins to the 5000px-tall content block and scrolls out of view instead
+// of staying put. GlobalNav already lived out here; the brand navbars did not,
+// which is why they disappeared on scroll.
+//
+// GlobalNav is landing-only by design: brand pages get their own bar instead.
+function SiteNav() {
   const location = useLocation();
-  return location.pathname === "/" ? <GlobalNav /> : null;
+
+  if (location.pathname === "/") return <GlobalNav />;
+
+  const brand = brandNavs.find((entry) =>
+    location.pathname.startsWith(entry.prefix)
+  );
+  if (!brand) return null;
+
+  const { siteName, homeHref, navItems, navCtaLabel, navCtaHref } =
+    brand.config;
+
+  return (
+    <Navbar
+      siteName={siteName}
+      homeHref={homeHref}
+      navItems={navItems}
+      ctaLabel={navCtaLabel}
+      ctaHref={navCtaHref}
+    />
+  );
 }
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <LandingOnlyGlobalNav />
+      <SiteNav />
       <SmoothScroll>
         <Suspense fallback={null}>
           <Routes>
