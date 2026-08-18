@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./pages/Landing";
 import GlobalNav from "./shared/components/GlobalNav";
 import Navbar from "./shared/components/Navbar";
+import MobileNavMenu from "./shared/components/MobileNavMenu";
 import GlobalFooter from "./shared/components/GlobalFooter";
 import { digiConnectConfig } from "./sites/digiconnect/config";
 import { skillConnectConfig } from "./sites/skillconnect/config";
@@ -91,6 +92,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <SiteNav />
+      <MobileNavMenu />
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Landing />} />
