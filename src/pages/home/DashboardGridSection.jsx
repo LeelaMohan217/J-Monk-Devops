@@ -22,7 +22,7 @@ const DashboardGridSection = () => {
       {platforms.map((platform) => (
         <div
           key={platform.id}
-          className="relative flex h-[472px] w-full flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm"
+          className="relative flex w-full flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm"
         >
           <div className="relative h-[320px] w-full shrink-0 overflow-hidden rounded-xl">
             <img
@@ -42,13 +42,10 @@ const DashboardGridSection = () => {
 
           <div className="pointer-events-none absolute inset-x-4 top-60 z-0 h-28 rounded-full bg-white blur-2xl" />
 
-          <div className="relative z-10 flex flex-1 flex-col gap-2 px-2">
+          <div className="relative z-10 flex flex-1 items-center px-2 pb-1">
             <span className="text-lg font-bold tracking-tight text-neutral-900">
               {platform.name}
             </span>
-            <p className="text-sm leading-relaxed text-neutral-500">
-              {platform.description}
-            </p>
           </div>
         </div>
       ))}

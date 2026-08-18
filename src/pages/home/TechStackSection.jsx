@@ -48,11 +48,11 @@ const TechStackSection = () => {
   const resume = () => tweenRef.current?.play();
 
   return (
-    <section className="w-full mb-10 bg-stone-50 py-10 md:py-14">
+    <section className="w-full bg-white py-12 md:py-16">
       <div className="mx-auto flex max-w-7xl justify-center mb-8 px-6 md:px-8">
         <div className="inline-flex items-center gap-2 text-neutral-600">
           <span className="text-xs font-medium uppercase tracking-[0.2em]">
-            Technologies we work with
+            The stack behind the work
           </span>
         </div>
       </div>

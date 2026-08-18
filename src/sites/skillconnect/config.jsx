@@ -3,9 +3,12 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 export const skillConnectConfig = {
   siteName: "SkillConnect",
   homeHref: "/skillconnect",
-  navItems: [{ label: "Home", href: "/skillconnect" }],
+  navItems: [
+    { label: "Home", href: "/skillconnect" },
+    { label: "Contact", href: "/skillconnect/contact" },
+  ],
   navCtaLabel: "Get in Touch",
-  navCtaHref: "/digiconnect/contact",
+  navCtaHref: "/skillconnect/contact",
   footer: {
     description:
       "SkillConnect is a hands-on learning ecosystem that bridges the gap between education and industry through real-world projects, mentorship, and career-building opportunities.",
@@ -24,7 +27,7 @@ export const skillConnectConfig = {
     communityLinks: [
       { href: "/", text: "JMonkDevOps Home" },
       { href: "/digiconnect", text: "DigiConnect" },
-      { href: "/digiconnect/contact", text: "Contact Us" },
+      { href: "/skillconnect/contact", text: "Contact Us" },
     ],
     address:
       "Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur District, 522236, Andhra Pradesh",
@@ -36,6 +39,6 @@ export const skillConnectConfig = {
     subtext:
       "Get in touch to learn more about upcoming projects, mentorship, and internship opportunities with SkillConnect.",
     ctaLabel: "Get in Touch",
-    ctaHref: "/digiconnect/contact",
+    ctaHref: "/skillconnect/contact",
   },
 };

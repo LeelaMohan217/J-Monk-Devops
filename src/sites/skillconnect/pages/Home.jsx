@@ -108,7 +108,7 @@ const Home = () => {
               className="flex flex-wrap justify-center gap-4 mt-2"
             >
               <Link
-                to="/digiconnect/contact"
+                to="/skillconnect/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/20 hover:-translate-y-0.5"
               >
                 Get in Touch <ArrowRight className="w-4 h-4" />

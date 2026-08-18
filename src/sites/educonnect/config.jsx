@@ -3,9 +3,12 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 export const eduConnectConfig = {
   siteName: "EduConnect",
   homeHref: "/educonnect",
-  navItems: [{ label: "Home", href: "/educonnect" }],
+  navItems: [
+    { label: "Home", href: "/educonnect" },
+    { label: "Contact", href: "/educonnect/contact" },
+  ],
   navCtaLabel: "Get in Touch",
-  navCtaHref: "/digiconnect/contact",
+  navCtaHref: "/educonnect/contact",
   footer: {
     description:
       "EduConnect guides students through every stage of their international education journey — from career counselling to visa assistance and pre-departure support.",
@@ -24,7 +27,7 @@ export const eduConnectConfig = {
     communityLinks: [
       { href: "/", text: "JMonkDevOps Home" },
       { href: "/digiconnect", text: "DigiConnect" },
-      { href: "/digiconnect/contact", text: "Contact Us" },
+      { href: "/educonnect/contact", text: "Contact Us" },
     ],
     address:
       "Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur District, 522236, Andhra Pradesh",
@@ -36,6 +39,6 @@ export const eduConnectConfig = {
     subtext:
       "Get in touch for personalized guidance on universities, applications, and visas for studying abroad.",
     ctaLabel: "Get in Touch",
-    ctaHref: "/digiconnect/contact",
+    ctaHref: "/educonnect/contact",
   },
 };

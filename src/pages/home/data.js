@@ -44,26 +44,82 @@ export const platforms = [
     name: "DigiConnect",
     tagline: "Connect. Automate. Scale.",
     href: "/digiconnect",
+    contactHref: "/digiconnect/contact",
+    audienceLabel: "Business",
+    intent: "Business & Technology",
+    routerLine: "Software, cloud infrastructure and DevOps automation.",
     description:
       "Custom software, cloud infrastructure, and automation that turn ideas into reliable, scalable digital products.",
+    serves:
+      "Founders and business owners, from a first product to infrastructure that has outgrown itself.",
+    problem:
+      "Plans stall in the gap between an idea and something that runs reliably every day.",
   },
   {
     id: "02",
     name: "SkillConnect",
     tagline: "Learn. Build. Grow.",
     href: "/skillconnect",
+    contactHref: "/skillconnect/contact",
+    audienceLabel: "Student / Career",
+    intent: "Skills & Career",
+    routerLine: "Live projects, mentorship and hands-on experience.",
     description:
       "A hands-on learning ecosystem where students and career-switchers gain real industry experience through live projects and mentorship.",
+    serves:
+      "Students and career-switchers who want to be judged on work, not on a certificate.",
+    problem:
+      "Coursework rarely resembles the job, and the first job asks for experience nobody will hand out.",
   },
   {
     id: "03",
     name: "EduConnect",
     tagline: "Dream. Move. Become.",
     href: "/educonnect",
+    contactHref: "/educonnect/contact",
+    audienceLabel: "Study abroad",
+    intent: "Education Abroad",
+    routerLine: "University selection, applications and visa guidance.",
     description:
       "End-to-end guidance for students pursuing international education, from university selection to visa support.",
+    serves:
+      "Students planning to study abroad, and the families weighing that decision with them.",
+    problem:
+      "The route to a foreign university is opaque, and one piece of bad advice costs a year.",
   },
 ];
+
+// The umbrella argument: what actually connects the three verticals.
+// Written to stand on its own — the section's visual treatment is additive.
+export const ecosystem = {
+  heading: "Why one company runs all three.",
+  lead: "Most people arrive needing one of these. The reason they sit under one roof is that the three keep running into each other — the same work, seen from a different point in someone's life.",
+  links: [
+    {
+      from: "SkillConnect",
+      to: "DigiConnect",
+      statement: "Practice only counts if it looks like the real thing.",
+      detail:
+        "The projects learners build against are drawn from the kind of work DigiConnect delivers — client-shaped problems, production constraints, code that has to survive after the demo.",
+    },
+    {
+      from: "DigiConnect",
+      to: "SkillConnect",
+      statement: "The people who learn here are the people who build here.",
+      detail:
+        "Mentorship comes from the same engineers doing delivery work, so what gets taught is what is currently true — not last year's curriculum written by someone who left the industry.",
+    },
+    {
+      from: "SkillConnect",
+      to: "EduConnect",
+      statement: "Ambition rarely stops at the border.",
+      detail:
+        "A student who has built something real is a stronger applicant abroad, and the same person often comes back looking for the work the other two do. It is one path, not three.",
+    },
+  ],
+  closing:
+    "Different doors into the same company. Whichever one you walk through, the standard on the other side is the same.",
+};
 
 export const faqs = [
   {

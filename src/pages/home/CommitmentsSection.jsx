@@ -9,7 +9,7 @@ const icons = {
 
 const CommitmentsSection = () => {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section id="how-we-work" className="bg-stone-50 py-16 md:py-24 scroll-mt-36">
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-14">
         <div className="flex flex-col items-center gap-4 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 text-neutral-600">

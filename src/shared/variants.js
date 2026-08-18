@@ -31,3 +31,19 @@ export const stagger = {
 };
 
 export default fadeIn;
+
+// Restrained in-view reveal for editorial rows — fadeIn's 100px travel is
+// right for hero entrances but too heavy repeated down the page.
+export const riseIn = (delay = 0) => ({
+  hidden: { y: 16, opacity: 0 },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "tween",
+      duration: 0.45,
+      delay,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+});

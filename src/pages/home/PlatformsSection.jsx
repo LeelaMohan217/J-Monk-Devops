@@ -1,73 +1,90 @@
-import { useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { riseIn } from "../../shared/variants";
 import { platforms } from "./data";
 
 const PlatformsSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activePlatform = platforms[activeIndex];
-
-  const goPrev = () => {
-    setActiveIndex((i) => (i === 0 ? platforms.length - 1 : i - 1));
-  };
-  const goNext = () => {
-    setActiveIndex((i) => (i === platforms.length - 1 ? 0 : i + 1));
-  };
-
   return (
-    <section id="platforms" className="bg-white py-12 md:py-16 scroll-mt-36">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col gap-8">
-        <div className="flex flex-col items-center gap-4 text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-neutral-600">
-            <span className="text-xs font-medium uppercase tracking-[0.2em]">
-              Platforms
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900">
-            Different journeys. One shared ecosystem.
+    <section id="platforms" className="bg-stone-50 py-16 md:py-24 scroll-mt-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <motion.div
+          variants={riseIn()}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          className="max-w-3xl"
+        >
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+            The three verticals
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-neutral-900">
+            What each one actually does.
           </h2>
+        </motion.div>
 
-          <p className="text-sm sm:text-base leading-relaxed text-neutral-600">
-            Each platform has its own identity and focus, built on the same
-            commitment to quality and long-term partnership.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <Link
-            to={activePlatform.href}
-            className="relative flex aspect-16/7 w-full flex-col items-center justify-center gap-2 rounded-2xl border border-neutral-200 px-10 text-center"
-          >
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
-              {activePlatform.tagline}
-            </span>
-            <span className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900">
-              {activePlatform.name}
-            </span>
-            <p className="max-w-md text-sm sm:text-base leading-relaxed text-neutral-600">
-              {activePlatform.description}
-            </p>
-          </Link>
-
-          <div className="flex items-center justify-end gap-3">
-            <button
-              type="button"
-              aria-label="Previous platform"
-              onClick={goPrev}
-              className="flex h-10 w-10 items-center justify-center rounded-md border border-neutral-200 text-neutral-500 transition-colors duration-300 hover:border-neutral-400 hover:text-neutral-900"
+        <div className="mt-14 md:mt-20">
+          {platforms.map((platform, index) => (
+            <motion.article
+              key={platform.id}
+              variants={riseIn(index * 0.08)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+              className="border-t border-neutral-200 py-10 last:border-b md:py-14"
             >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              aria-label="Next platform"
-              onClick={goNext}
-              className="flex h-10 w-10 items-center justify-center rounded-md border border-neutral-200 text-neutral-500 transition-colors duration-300 hover:border-neutral-400 hover:text-neutral-900"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+              <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+                <div className="lg:col-span-4">
+                  <div className="flex items-center gap-4">
+                    <span className="text-xs font-medium tabular-nums text-neutral-400">
+                      {platform.id}
+                    </span>
+                    <span className="h-px w-10 bg-amber-500/70" aria-hidden="true" />
+                  </div>
+
+                  <h3 className="mt-5 text-3xl font-semibold tracking-tight text-neutral-900 md:text-4xl">
+                    {platform.name}
+                  </h3>
+                  <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+                    {platform.tagline}
+                  </p>
+                </div>
+
+                <div className="lg:col-span-7 lg:col-start-6">
+                  <p className="text-lg leading-relaxed text-neutral-800 md:text-xl">
+                    {platform.description}
+                  </p>
+
+                  <dl className="mt-8 grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <dt className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-neutral-500">
+                        Who it serves
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-neutral-600">
+                        {platform.serves}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-neutral-500">
+                        The problem
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-neutral-600">
+                        {platform.problem}
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <Link
+                    to={platform.href}
+                    className="group mt-8 inline-flex w-fit items-center gap-2 text-sm font-medium text-neutral-700 transition-colors hover:text-black"
+                  >
+                    Explore {platform.name}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
