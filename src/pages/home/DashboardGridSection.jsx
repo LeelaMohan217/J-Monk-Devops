@@ -38,7 +38,7 @@ const DashboardGridSection = () => {
 
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white via-white/90 via-50% to-transparent" />
 
-            <div className="absolute inset-x-3 top-3 z-10 flex items-center justify-end">
+            <div className="absolute inset-x-3 top-3 z-10 flex items-center justify-start">
               <span className="rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-widest text-neutral-600 shadow-sm">
                 {platform.tagline}
               </span>

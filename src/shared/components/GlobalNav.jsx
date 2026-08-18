@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowRight, Facebook, Instagram, Linkedin, Twitter, X } from "lucide-react";
 import { digiConnectConfig } from "../../sites/digiconnect/config";
 import { skillConnectConfig } from "../../sites/skillconnect/config";
 import { eduConnectConfig } from "../../sites/educonnect/config";
+import { companyConfig } from "../companyConfig";
 import useScrollPosition from "../hooks/useScrollPosition";
 import Logo from "../assets/Logo.png";
 import MenuToggleIcon from "./MenuToggleIcon";
@@ -29,6 +30,14 @@ const brandGroups = [
     available: true,
   },
 ];
+
+// Same icon map used in GlobalFooter, kept in sync with companyConfig.social.
+const socialIcons = {
+  Facebook,
+  Instagram,
+  Twitter,
+  LinkedIn: Linkedin,
+};
 
 const GlobalNav = () => {
   const scrollY = useScrollPosition();
@@ -86,14 +95,19 @@ const GlobalNav = () => {
           </ul>
 
           <div className="col-start-3 justify-self-end">
-            <button
-              type="button"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMobileOpen((open) => !open)}
-              className="relative z-50 lg:hidden text-neutral-700 hover:text-black transition-colors"
-            >
-              <MenuToggleIcon open={mobileOpen} />
-            </button>
+            {/* Only the open trigger lives here — once the panel is open, it
+                has its own close (X) button inline with its logo, so this
+                doesn't need to morph into a second one. */}
+            {!mobileOpen && (
+              <button
+                type="button"
+                aria-label="Open menu"
+                onClick={() => setMobileOpen(true)}
+                className="relative z-50 lg:hidden text-neutral-700 hover:text-black transition-colors"
+              >
+                <MenuToggleIcon open={false} />
+              </button>
+            )}
 
             <Link
               to="/#who-we-are"
@@ -113,68 +127,144 @@ const GlobalNav = () => {
             className="fixed inset-0 z-30 lg:hidden bg-black/40"
           />
 
-          <div className="fixed top-0 left-0 z-40 h-screen p-6 bg-white w-[75%] max-w-xs lg:hidden border-r border-neutral-200 overflow-y-auto transition-all ease-in-out duration-500">
-            <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
-              <h5 className="text-base font-semibold text-black uppercase">
-                Menu
-              </h5>
-              <button type="button" aria-label="Close menu" onClick={closeMenu}>
-                <X className="w-5 h-5 text-black" />
-              </button>
+          <div className="fixed top-0 left-0 z-40 flex h-screen w-full flex-col bg-white lg:hidden transition-all ease-in-out duration-500">
+            {/* Top: logo + close, centered on the same row; a divider; then
+                the description below it. */}
+            <div className="flex shrink-0 flex-col">
+              <div className="flex items-center justify-between px-6 py-5">
+                <Link
+                  to="/"
+                  onClick={closeMenu}
+                  className="flex items-center gap-2"
+                >
+                  <img className="h-9 w-9" alt="JMonkDevOps" src={Logo} />
+                  <span className="text-base font-semibold tracking-tight text-black">
+                    JMonkDevOps
+                  </span>
+                </Link>
+                <button
+                  type="button"
+                  aria-label="Close menu"
+                  onClick={closeMenu}
+                  className="text-black"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <div className="border-b border-neutral-200" />
+              <p className="px-6 py-4 text-xs leading-relaxed text-neutral-500">
+                Tap a platform to see the pages that belong to it.
+              </p>
             </div>
 
-            <div className="mt-4 flex flex-col">
-              {brandGroups.map((brand) => {
-                const isOpen = openBrand === brand.name;
-                return (
-                  <div key={brand.name} className="border-b border-neutral-100">
+            {/* Middle: the platform list, or a platform's own pages once
+                tapped — a drill-down transition between the two "screens",
+                not an inline accordion. */}
+            <div className="flex-1 overflow-hidden px-6 py-2">
+              <AnimatePresence mode="wait" initial={false}>
+                {openBrand ? (
+                  <motion.div
+                    key="detail"
+                    initial={{ x: 48, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 48, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  >
                     <button
                       type="button"
-                      onClick={() => setOpenBrand(isOpen ? null : brand.name)}
-                      className="flex w-full items-center justify-between py-3 text-sm font-semibold uppercase tracking-wide text-neutral-900"
+                      onClick={() => setOpenBrand(null)}
+                      className="flex w-full items-center gap-3 border-b border-neutral-200 py-4 text-xl font-normal text-neutral-900 transition-colors hover:text-red-600"
                     >
-                      {brand.name}
-                      <motion.span
-                        initial={false}
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.25, ease: "easeInOut" }}
-                      >
-                        <ChevronDown className="w-4 h-4 text-neutral-500" />
-                      </motion.span>
+                      <ArrowLeft className="h-5 w-5 shrink-0" aria-hidden="true" />
+                      {openBrand}
                     </button>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          key="sublist"
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{
-                            duration: 0.3,
-                            ease: [0.16, 1, 0.3, 1],
-                          }}
-                          className="overflow-hidden"
+                    <ul className="flex flex-col">
+                      {brandGroups
+                        .find((brand) => brand.name === openBrand)
+                        .navItems.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              to={item.href}
+                              onClick={closeMenu}
+                              className="block py-3 text-base text-neutral-700 transition-colors hover:text-red-600"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                    </ul>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="list"
+                    initial={{ x: -48, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -48, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <ul className="flex flex-col">
+                      {brandGroups.map((brand) => (
+                        <li
+                          key={brand.name}
+                          className="border-b border-neutral-100 last:border-b-0"
                         >
-                          <ul className="flex flex-col pb-2">
-                            {brand.navItems.map((item) => (
-                              <li key={item.href}>
-                                <Link
-                                  to={item.href}
-                                  onClick={closeMenu}
-                                  className="block py-2 pl-3 text-sm text-neutral-600 hover:text-black transition-colors"
-                                >
-                                  {item.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
+                          {brand.available ? (
+                            <button
+                              type="button"
+                              onClick={() => setOpenBrand(brand.name)}
+                              className="flex w-full items-center justify-between py-4 text-xl font-normal text-neutral-900 transition-colors hover:text-red-600"
+                            >
+                              {brand.name}
+                              <ArrowRight
+                                className="h-4 w-4 text-neutral-400"
+                                aria-hidden="true"
+                              />
+                            </button>
+                          ) : (
+                            <span className="flex items-center justify-between py-4 text-xl font-normal text-neutral-400">
+                              {brand.name}
+                            </span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Bottom: social links, a divider, then the CTA — pinned to the
+                panel's bottom edge regardless of which "screen" is showing. */}
+            <div className="shrink-0 p-6">
+              <ul className="flex gap-3">
+                {companyConfig.social.map((link) => {
+                  const Icon = socialIcons[link.label];
+                  return (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={link.label}
+                        className="flex items-center justify-center rounded-lg border border-neutral-200 p-2 text-neutral-600 transition-colors hover:border-red-200 hover:text-red-600"
+                      >
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="my-4 border-b border-neutral-200" />
+
+              <Link
+                to="/#who-we-are"
+                onClick={closeMenu}
+                className="block w-full rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-red-700"
+              >
+                Get Started
+              </Link>
             </div>
           </div>
         </>
