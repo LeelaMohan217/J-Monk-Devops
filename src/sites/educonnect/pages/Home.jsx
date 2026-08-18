@@ -10,7 +10,7 @@ import {
   PlaneTakeoff,
   Check,
 } from "lucide-react";
-import { fadeIn, stagger } from "../../../shared/variants";
+import { fadeIn, stagger, riseIn } from "../../../shared/variants";
 
 const services = [
   {
@@ -203,7 +203,7 @@ const Home = () => {
             {whyPoints.map((point) => (
               <motion.li
                 key={point}
-                variants={fadeIn("left", 0.1)}
+                variants={riseIn(0.1)}
                 className="flex items-start gap-3 bg-white border border-neutral-200 p-4"
               >
                 <Check className="w-4 h-4 text-red-600 shrink-0 mt-1" />
