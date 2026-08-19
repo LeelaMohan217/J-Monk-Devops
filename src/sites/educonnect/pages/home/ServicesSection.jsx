@@ -26,7 +26,7 @@ const ServiceCard = ({ service, index }) => (
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.4 }}
-    className="group relative h-40 w-full overflow-hidden rounded-lg border border-neutral-200 bg-surface"
+    className="group relative h-40 w-full overflow-hidden rounded-xl border border-neutral-200 bg-surface"
   >
     <div className="absolute inset-0 flex flex-col justify-end p-5 group-hover:justify-between">
       <h3 className="text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
@@ -85,13 +85,19 @@ const ServicesSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             className="flex items-center justify-center lg:col-start-2 lg:col-span-2 lg:row-span-2"
           >
-            <div className="h-[220px] w-[85%] overflow-hidden rounded-2xl border border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-40px),calc(100%-40px)_100%,0_100%)]">
+            {/* Portrait, not landscape: matches the two stacked cards'
+                combined height (h-full against the row-span-2 cell) at a
+                narrow fixed width, rather than a wide short strip. The hero
+                photo is landscape by nature, so a hard portrait crop loses
+                the plane on the left — object-position shifted right to
+                keep the person (the actual subject) in frame instead. */}
+            <div className="h-full w-[230px] overflow-hidden rounded-xl border border-neutral-200">
               <picture>
                 <source type="image/webp" srcSet={heroCollageWebp} />
                 <img
                   src={heroCollageJpg}
                   alt="Student holding university admission documents at the airport"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover object-[75%_center]"
                   loading="lazy"
                   decoding="async"
                 />
