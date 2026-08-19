@@ -91,7 +91,10 @@ const BlogPost = () => {
         >
           <BlogBody body={post.body} />
 
-          <div className="mt-4 border-t border-neutral-200 pt-8">
+          <div className="mt-4 flex flex-col gap-3 border-t border-neutral-200 pt-8 sm:flex-row sm:items-baseline sm:gap-6">
+            <span className="shrink-0 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+              Tags
+            </span>
             <TagList tags={post.tags} />
           </div>
         </motion.div>
