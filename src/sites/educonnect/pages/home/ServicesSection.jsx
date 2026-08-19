@@ -22,13 +22,13 @@ const ServiceCard = ({ service, index }) => (
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.4 }}
-    className="group relative h-40 w-full overflow-hidden rounded-lg border border-neutral-800 bg-gradient-to-br from-neutral-900 via-neutral-800 to-red-950"
+    className="group relative h-40 w-full overflow-hidden rounded-lg border border-neutral-200 bg-surface"
   >
     <div className="absolute inset-0 flex flex-col justify-end gap-2 p-5 group-hover:justify-between">
-      <h3 className="text-lg font-medium tracking-tight text-white md:text-xl">
+      <h3 className="text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
         {service.name}
       </h3>
-      <p className="text-sm leading-relaxed text-white/80 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
+      <p className="text-sm leading-relaxed text-neutral-600 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
         {service.description}
       </p>
     </div>
