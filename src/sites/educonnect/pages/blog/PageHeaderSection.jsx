@@ -18,7 +18,7 @@ const PageHeaderSection = () => {
             variants={fadeIn("up", 0.05)}
             initial="hidden"
             animate="show"
-            className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
           >
             {pageHeader.eyebrow}
           </motion.span>

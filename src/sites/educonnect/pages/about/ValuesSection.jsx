@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
-import { Heart, ShieldCheck, Users, Award } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { values } from "./data";
-import BentoCard from "../../components/BentoCard";
 
-const ICONS = [Heart, ShieldCheck, Users, Award];
-
-// Same BentoCard shell as the home page's WhyChooseSection/ServicesSection —
-// icon badge, ghost watermark, one inverted closer — kept as a plain 4-up
-// grid since these four items don't need asymmetric spans to read clearly.
+// Same hairline spec grid as the home page's WhyChooseSection — cells hanging
+// off their own border-t rather than bordered rounded cards, so the first
+// column's type stays flush with the container rail and the two pages read as
+// one system.
 const ValuesSection = () => {
   return (
     <section className="bg-surface py-24 md:py-32">
@@ -20,7 +17,7 @@ const ValuesSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="max-w-2xl"
         >
-          <span className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             {values.eyebrow}
           </span>
 
@@ -29,32 +26,25 @@ const ValuesSection = () => {
           </h2>
         </motion.div>
 
-        <ul className="mt-14 grid gap-4 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
-          {values.items.map((item, index) => {
-            const inverted = index === values.items.length - 1;
-
-            return (
-              <motion.div
-                key={item.term}
-                variants={riseIn(Math.min(index, 3) * 0.06)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.4 }}
-              >
-                <BentoCard
-                  as="div"
-                  icon={ICONS[index]}
-                  index={index}
-                  title={item.term}
-                  description={item.detail}
-                  inverted={inverted}
-                  notched={inverted}
-                  className="h-full"
-                />
-              </motion.div>
-            );
-          })}
-        </ul>
+        <dl className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 md:mt-20 lg:grid-cols-4 lg:gap-x-12">
+          {values.items.map((item, index) => (
+            <motion.div
+              key={item.term}
+              variants={riseIn(Math.min(index, 3) * 0.06)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.4 }}
+              className="border-t border-neutral-200 pt-6"
+            >
+              <dt className="text-base font-medium tracking-tight text-neutral-900">
+                {item.term}
+              </dt>
+              <dd className="mt-3 text-sm leading-relaxed text-neutral-600">
+                {item.detail}
+              </dd>
+            </motion.div>
+          ))}
+        </dl>
       </div>
     </section>
   );

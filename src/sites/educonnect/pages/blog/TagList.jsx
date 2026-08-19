@@ -9,7 +9,7 @@ const TagList = ({ tags, limit }) => {
       {shown.map((tag) => (
         <li
           key={tag}
-          className="rounded-full border border-neutral-200 px-2.5 py-1 font-['IBM_Plex_Mono',monospace] text-[10px] font-medium uppercase tracking-[0.12em] text-neutral-500"
+          className="rounded-full border border-neutral-200 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-500"
         >
           {tag}
         </li>

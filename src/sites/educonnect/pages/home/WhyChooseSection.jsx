@@ -2,15 +2,14 @@ import { motion } from "framer-motion";
 import { PhoneCall, Users, Eye, UserCheck, FileCheck2, LifeBuoy } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { whyUs } from "./data";
-import BentoCard from "../../components/BentoCard";
 
 // One icon per point, matched by array position to whyUs.points in ./data.
 const ICONS = [PhoneCall, Users, Eye, UserCheck, FileCheck2, LifeBuoy];
 
-// Same BentoCard shell as ServicesSection (icon badge, ghost watermark, one
-// inverted closer) but in its `centered` layout — a uniform grid rather than
-// that section's asymmetric spans, so the two sections back-to-back don't
-// read as a repeat of one layout.
+// Plain bordered cards, no shadow or hover motion, all six the same size
+// regardless of copy length (min-h-[280px] rather than letting content set
+// the height), so the grid reads as one deliberate set of tiles rather than
+// six independently sized boxes.
 const WhyChooseSection = () => {
   return (
     <section
@@ -25,7 +24,7 @@ const WhyChooseSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="max-w-2xl"
         >
-          <span className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             {whyUs.eyebrow}
           </span>
 
@@ -40,28 +39,29 @@ const WhyChooseSection = () => {
 
         <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
           {whyUs.points.map((point, index) => {
-            const inverted = index === whyUs.points.length - 1;
+            const Icon = ICONS[index];
 
             return (
-              <motion.div
+              <motion.li
                 key={point.term}
                 variants={riseIn(Math.min(index, 3) * 0.06)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.4 }}
+                className="flex min-h-[280px] flex-col items-center justify-center gap-4 rounded-lg border border-neutral-200 p-8 text-center"
               >
-                <BentoCard
-                  as="div"
-                  icon={ICONS[index]}
-                  index={index}
-                  title={point.term}
-                  description={point.detail}
-                  inverted={inverted}
-                  notched={inverted}
-                  centered
-                  className="h-full"
+                <Icon
+                  className="h-7 w-7 text-red-600"
+                  strokeWidth={1.75}
+                  aria-hidden="true"
                 />
-              </motion.div>
+                <h3 className="text-base font-medium tracking-tight text-neutral-900">
+                  {point.term}
+                </h3>
+                <p className="text-sm leading-relaxed text-neutral-600">
+                  {point.detail}
+                </p>
+              </motion.li>
             );
           })}
         </ul>

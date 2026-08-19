@@ -23,7 +23,5 @@ export const eduConnectConfig = {
     ctaHref: "/educonnect/contact",
     // Line the closing banner up with this site's own 7xl section rail.
     maxWidthClass: "max-w-7xl",
-    // Same opt-in pill treatment as navVariant above.
-    variant: "premium",
   },
 };

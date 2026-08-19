@@ -28,7 +28,7 @@ const BlogBody = ({ body }) => {
                   <li key={itemIndex} className="flex gap-3">
                     {block.type === "ol" ? (
                       <span
-                        className="mt-1 shrink-0 font-['IBM_Plex_Mono',monospace] text-xs font-medium tabular-nums text-neutral-400"
+                        className="mt-1 shrink-0 text-xs font-medium tabular-nums text-neutral-400"
                         aria-hidden="true"
                       >
                         {String(itemIndex + 1).padStart(2, "0")}
@@ -64,7 +64,7 @@ const BlogBody = ({ body }) => {
                     className="grid grid-cols-[1.75rem_1fr] gap-y-1 border-b border-neutral-200 py-4"
                   >
                     <span
-                      className="font-['IBM_Plex_Mono',monospace] text-xs font-medium tabular-nums text-neutral-400"
+                      className="text-xs font-medium tabular-nums text-neutral-400"
                       aria-hidden="true"
                     >
                       {String(itemIndex + 1).padStart(2, "0")}
@@ -96,7 +96,7 @@ const BlogBody = ({ body }) => {
                     <dt className="text-sm text-neutral-700 md:text-base">
                       {item.role}
                     </dt>
-                    <dd className="font-['IBM_Plex_Mono',monospace] text-sm font-medium tabular-nums text-neutral-900 md:text-base">
+                    <dd className="text-sm font-medium tabular-nums text-neutral-900 md:text-base">
                       {item.amount}
                     </dd>
                   </div>

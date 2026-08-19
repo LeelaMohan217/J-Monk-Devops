@@ -103,7 +103,7 @@ const EduConnectContact = () => {
               variants={fadeIn("up", 0.05)}
               initial="hidden"
               animate="show"
-              className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500"
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
             >
               Contact
             </motion.span>
@@ -139,21 +139,20 @@ const EduConnectContact = () => {
             viewport={{ once: true, amount: 0.3 }}
             className="lg:col-span-4"
           >
-            <h2 className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
+            <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
               What we help with
             </h2>
 
-            {/* Same bento card shell as ProcessSection, which carries this
-                identical three-stage copy, just stacked in this narrower
-                sidebar column instead of a 3-up grid. */}
-            <ol className="mt-8 flex flex-col gap-4">
+            {/* Same hairline rows and numeral treatment as the services page's
+                ProcessSection, which carries this identical three-stage copy. */}
+            <ol className="mt-8 border-t border-neutral-200">
               {stages.map((stage) => (
                 <li
                   key={stage.step}
-                  className="rounded-2xl border border-neutral-200 bg-gradient-to-br from-red-50/60 via-surface to-surface p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
+                  className="border-b border-neutral-200 py-6"
                 >
                   <span
-                    className="font-['IBM_Plex_Mono',monospace] text-xs font-medium tabular-nums text-neutral-400"
+                    className="text-xs font-medium tabular-nums text-neutral-400"
                     aria-hidden="true"
                   >
                     {stage.step}

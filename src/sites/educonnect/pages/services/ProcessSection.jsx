@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
-import { ListChecks, FileText, PlaneTakeoff } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { process } from "./data";
-import BentoCard from "../../components/BentoCard";
 
-const ICONS = [ListChecks, FileText, PlaneTakeoff];
-
-// Same BentoCard shell as the rest of the site. The numeral stays meaningful
-// here (unlike a flat feature list, this genuinely is a three-stage
-// sequence), doubling as a step marker rather than just decoration.
+// Same hairline spec grid as about/ValuesSection and home/WhyChooseSection,
+// keeping the step numerals since this list is sequential rather than a flat
+// set. Cells hang off their own border-t instead of sitting in rounded cards,
+// so the first column stays flush with the container rail.
 const ProcessSection = () => {
   return (
     <section className="bg-surface-muted py-24 md:py-32">
@@ -20,7 +17,7 @@ const ProcessSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="max-w-2xl"
         >
-          <span className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             {process.eyebrow}
           </span>
 
@@ -29,31 +26,32 @@ const ProcessSection = () => {
           </h2>
         </motion.div>
 
-        <ol className="mt-14 grid gap-4 md:mt-20 md:grid-cols-3">
-          {process.steps.map((step, index) => {
-            const inverted = index === process.steps.length - 1;
-
-            return (
-              <motion.div
-                key={step.title}
-                variants={riseIn(index * 0.08)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.4 }}
+        <ol className="mt-14 grid gap-x-10 gap-y-10 md:mt-20 md:grid-cols-3 lg:gap-x-12">
+          {process.steps.map((step, index) => (
+            <motion.li
+              key={step.title}
+              variants={riseIn(index * 0.08)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.4 }}
+              className="border-t border-neutral-200 pt-6"
+            >
+              <span
+                className="text-xs font-medium tabular-nums text-neutral-400"
+                aria-hidden="true"
               >
-                <BentoCard
-                  as="div"
-                  icon={ICONS[index]}
-                  index={index}
-                  title={step.title}
-                  description={step.body}
-                  inverted={inverted}
-                  notched={inverted}
-                  className="h-full"
-                />
-              </motion.div>
-            );
-          })}
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <h3 className="mt-4 text-base font-medium tracking-tight text-neutral-900">
+                {step.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                {step.body}
+              </p>
+            </motion.li>
+          ))}
         </ol>
       </div>
     </section>

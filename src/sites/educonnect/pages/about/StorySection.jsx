@@ -18,7 +18,7 @@ const StorySection = () => {
           className="grid gap-10 lg:grid-cols-12 lg:gap-16"
         >
           <div className="lg:col-span-4">
-            <span className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
               {story.eyebrow}
             </span>
 
