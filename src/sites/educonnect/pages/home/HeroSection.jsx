@@ -5,12 +5,10 @@ import { fadeIn } from "../../../../shared/variants";
 import { hero } from "./data";
 import heroCollageJpg from "../../assets/educonnect-hero1.jpg";
 import heroCollageWebp from "../../assets/educonnect-hero1.webp";
-import heroInsetJpg from "../../assets/educonnect-hero2-fallback.jpg";
-import heroInsetWebp from "../../assets/educonnect-hero2.webp";
 
 // Light, editorial hero rather than the previous full-bleed dark photo: white
-// background, copy on the left, a two-photo collage on the right with a
-// rating badge overlapping its bottom edge. Same shape as a lot of premium
+// background, copy on the left, a single photo on the right with a rating
+// badge overlapping its bottom edge. Same shape as a lot of premium
 // SaaS/course-platform heroes, adapted to this site's red accent and
 // hairline-and-type vocabulary instead of that genre's usual blue/rounded
 // look.
@@ -93,55 +91,39 @@ const HeroSection = () => {
             animate="show"
             className="lg:col-span-6"
           >
-            {/* mb-8 clears the rating card, which overlaps past the main
+            {/* mb-8 clears the rating card, which overlaps past the
                 photo's bottom edge — without it the card would sit flush
                 against whatever section follows. */}
-            <div className="relative mb-8 grid grid-cols-5 gap-4">
-              <div className="relative col-span-3">
-                <div className="overflow-hidden rounded-2xl border border-neutral-200">
-                  <picture>
-                    <source type="image/webp" srcSet={heroCollageWebp} />
-                    <img
-                      src={heroCollageJpg}
-                      alt="Student holding university admission documents at the airport"
-                      className="aspect-4/5 w-full object-cover"
-                      decoding="async"
-                    />
-                  </picture>
-                </div>
-
-                {/* Rating card, deliberately no avatar photos: we don't have
-                    real reviewer headshots, and fabricated ones would read
-                    as fake testimonials rather than a genuine metric. */}
-                <div className="absolute -bottom-8 left-4 right-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-surface px-4 py-3 shadow-lg sm:right-auto sm:w-fit">
-                  <div className="flex items-center gap-1.5 text-red-600">
-                    <Star className="h-4 w-4 fill-current" aria-hidden="true" />
-                    <span className="text-lg font-semibold text-neutral-900">
-                      {hero.rating.value}
-                    </span>
-                    <span className="text-xs text-neutral-400">
-                      /{hero.rating.outOf}
-                    </span>
-                  </div>
-                  <div className="h-8 w-px bg-neutral-200" aria-hidden="true" />
-                  <span className="text-xs font-medium text-neutral-500">
-                    {hero.rating.source}
-                  </span>
-                </div>
+            <div className="relative mb-8">
+              <div className="overflow-hidden rounded-2xl border border-neutral-200">
+                <picture>
+                  <source type="image/webp" srcSet={heroCollageWebp} />
+                  <img
+                    src={heroCollageJpg}
+                    alt="Student holding university admission documents at the airport"
+                    className="aspect-4/3 w-full object-cover"
+                    decoding="async"
+                  />
+                </picture>
               </div>
 
-              <div className="col-span-2 mt-10">
-                <div className="overflow-hidden rounded-2xl border border-neutral-200">
-                  <picture>
-                    <source type="image/webp" srcSet={heroInsetWebp} />
-                    <img
-                      src={heroInsetJpg}
-                      alt="Student with luggage at an airport departure gate"
-                      className="aspect-square w-full object-cover"
-                      decoding="async"
-                    />
-                  </picture>
+              {/* Rating card, deliberately no avatar photos: we don't have
+                  real reviewer headshots, and fabricated ones would read
+                  as fake testimonials rather than a genuine metric. */}
+              <div className="absolute -bottom-8 left-4 right-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-surface px-4 py-3 shadow-lg sm:right-auto sm:w-fit">
+                <div className="flex items-center gap-1.5 text-red-600">
+                  <Star className="h-4 w-4 fill-current" aria-hidden="true" />
+                  <span className="text-lg font-semibold text-neutral-900">
+                    {hero.rating.value}
+                  </span>
+                  <span className="text-xs text-neutral-400">
+                    /{hero.rating.outOf}
+                  </span>
                 </div>
+                <div className="h-8 w-px bg-neutral-200" aria-hidden="true" />
+                <span className="text-xs font-medium text-neutral-500">
+                  {hero.rating.source}
+                </span>
               </div>
             </div>
           </motion.div>
