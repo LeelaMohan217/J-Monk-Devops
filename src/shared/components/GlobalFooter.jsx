@@ -62,7 +62,7 @@ const GlobalFooter = () => {
 
         {/* Tighter x-gap below sm widens each of the two columns: a heading
             like "SkillConnect" needs ~114px with its tracking. */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 sm:gap-10 lg:gap-14">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 sm:gap-10 lg:gap-12">
           {platformNavGroups.map((group) => (
             <div key={group.name} className="flex flex-col gap-4">
               <h3 className="text-xs font-medium uppercase tracking-[0.12em] text-white sm:tracking-[0.15em]">
