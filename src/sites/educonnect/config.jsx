@@ -12,6 +12,9 @@ export const eduConnectConfig = {
   navCtaHref: "/educonnect/contact",
   // Match DigiConnect's wider nav rail instead of the default max-w-6xl.
   navMaxWidthClass: "max-w-7xl",
+  // Opts into Navbar's pill-button treatment — DigiConnect/SkillConnect
+  // configs don't set this, so they keep the default rounded-lg button.
+  navVariant: "premium",
   contactCta: {
     heading: "Ready to Start Your Global Journey?",
     subtext:
@@ -20,5 +23,7 @@ export const eduConnectConfig = {
     ctaHref: "/educonnect/contact",
     // Line the closing banner up with this site's own 7xl section rail.
     maxWidthClass: "max-w-7xl",
+    // Same opt-in pill treatment as navVariant above.
+    variant: "premium",
   },
 };

@@ -77,6 +77,7 @@ function SiteNav() {
     navCtaLabel,
     navCtaHref,
     navMaxWidthClass,
+    navVariant,
   } = brand.config;
 
   return (
@@ -87,6 +88,7 @@ function SiteNav() {
       ctaLabel={navCtaLabel}
       ctaHref={navCtaHref}
       {...(navMaxWidthClass ? { maxWidthClass: navMaxWidthClass } : {})}
+      {...(navVariant ? { variant: navVariant } : {})}
     />
   );
 }

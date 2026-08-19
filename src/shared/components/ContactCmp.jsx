@@ -13,12 +13,17 @@ import { riseIn } from "../variants";
 // maxWidthClass mirrors Navbar's prop — the rail differs per brand shell
 // (DigiConnect and EduConnect run max-w-7xl, SkillConnect max-w-6xl), and this
 // banner has to line up with the sections above it rather than impose a width.
+//
+// variant mirrors Navbar's: opt-in, defaults to this component's original
+// look, so only a brand whose config explicitly sets it (currently just
+// EduConnect) renders differently.
 const ContactCmp = ({
   heading,
   subtext,
   ctaLabel,
   ctaHref,
   maxWidthClass = "max-w-6xl",
+  variant = "default",
 }) => {
   return (
     <section className="border-t border-neutral-200 bg-surface">
@@ -41,7 +46,11 @@ const ContactCmp = ({
 
           <Link
             to={ctaHref}
-            className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            className={`group inline-flex w-fit shrink-0 items-center gap-2 bg-red-600 px-6 py-3 text-sm font-medium text-white transition-[background-color,transform] duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 ${
+              variant === "premium"
+                ? "rounded-full active:scale-[0.97]"
+                : "rounded-lg"
+            }`}
           >
             {ctaLabel}
             <ArrowRight

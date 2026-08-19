@@ -16,6 +16,10 @@ import Logo from "../assets/Logo.webp";
 //
 // logo defaults to the shared JMonkDevOps mark (same one GlobalNav uses) so
 // every platform shows it without needing its own config entry.
+//
+// variant is opt-in and defaults to this component's original look, so
+// DigiConnect/SkillConnect render byte-identical unless a brand's config
+// explicitly sets navVariant: "premium" (currently only EduConnect does).
 const Navbar = ({
   siteName,
   logo = Logo,
@@ -24,6 +28,7 @@ const Navbar = ({
   ctaLabel,
   ctaHref,
   maxWidthClass = "max-w-6xl",
+  variant = "default",
 }) => {
   const scrollY = useScrollPosition();
   const scrolled = scrollY > 1;
@@ -85,7 +90,11 @@ const Navbar = ({
 
           <Link
             to={ctaHref}
-            className="hidden rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700 lg:inline-block"
+            className={`hidden bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-[background-color,transform] duration-200 hover:bg-red-700 lg:inline-block ${
+              variant === "premium"
+                ? "rounded-full active:scale-[0.97]"
+                : "rounded-lg"
+            }`}
           >
             {ctaLabel}
           </Link>
