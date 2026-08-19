@@ -106,9 +106,11 @@ const MobileNavMenu = () => {
                 </button>
               </div>
               <div className="border-b border-neutral-200" />
-              <p className="px-6 py-4 text-xs leading-relaxed text-neutral-500">
-                Tap a platform to see the pages that belong to it.
-              </p>
+              {!openBrand && (
+                <p className="px-6 py-4 text-xs leading-relaxed text-neutral-500">
+                  Tap a platform to see the pages that belong to it.
+                </p>
+              )}
             </div>
 
             {/* Middle: the platform list, or a platform's own pages once
