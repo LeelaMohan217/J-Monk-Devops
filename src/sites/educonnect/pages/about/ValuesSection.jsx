@@ -21,7 +21,7 @@ const ValuesSection = () => {
             {values.eyebrow}
           </span>
 
-          <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-neutral-900">
+          <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900">
             {values.heading}
           </h2>
         </motion.div>
