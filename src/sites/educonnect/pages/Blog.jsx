@@ -32,7 +32,9 @@ const Blog = () => {
                   to={`/educonnect/blog/${post.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface transition-colors duration-300 hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
-                  <div className="aspect-16/10 overflow-hidden border-b border-neutral-200">
+                  {/* Small notch on the thumbnail, same signature shape as
+                      the hero photo, scaled down for card size. */}
+                  <div className="aspect-16/10 overflow-hidden border-b border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-20px),calc(100%-20px)_100%,0_100%)]">
                     <PostImage
                       post={post}
                       className="transition-transform duration-500 group-hover:scale-[1.03]"
@@ -40,7 +42,7 @@ const Blog = () => {
                   </div>
 
                   <div className="flex flex-1 flex-col p-5 md:p-6">
-                    <span className="text-xs tabular-nums text-neutral-400">
+                    <span className="font-['IBM_Plex_Mono',monospace] text-xs tabular-nums text-neutral-400">
                       {post.date}
                     </span>
 

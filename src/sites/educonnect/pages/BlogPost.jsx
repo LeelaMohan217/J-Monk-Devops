@@ -55,13 +55,13 @@ const BlogPost = () => {
           {/* Same meta treatment as the blog index: muted tag, plain small
               type for date and read time, no icons. Full tag list moves to
               the foot of the article, after the body. */}
-          <span className="mt-6 block w-fit text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
+          <span className="mt-6 block w-fit font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
             {post.tags[0]}
           </span>
           <h1 className="mt-4 text-display-sm font-semibold text-neutral-900 sm:text-display-md">
             {post.title}
           </h1>
-          <p className="mt-6 text-xs tabular-nums text-neutral-400">
+          <p className="mt-6 font-['IBM_Plex_Mono',monospace] text-xs tabular-nums text-neutral-400">
             {post.date} · {post.readTime}
           </p>
         </motion.div>
@@ -78,7 +78,7 @@ const BlogPost = () => {
           animate="show"
           className="mx-auto mb-12 max-w-3xl px-6 md:mb-16 md:px-8"
         >
-          <div className="aspect-16/9 overflow-hidden rounded-xl border border-neutral-200">
+          <div className="aspect-16/9 overflow-hidden rounded-xl border border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-32px),calc(100%-32px)_100%,0_100%)]">
             <PostImage post={post} />
           </div>
         </motion.div>
@@ -92,7 +92,7 @@ const BlogPost = () => {
           <BlogBody body={post.body} />
 
           <div className="mt-4 flex flex-col gap-3 border-t border-neutral-200 pt-8 sm:flex-row sm:items-baseline sm:gap-6">
-            <span className="shrink-0 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+            <span className="shrink-0 font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
               Tags
             </span>
             <TagList tags={post.tags} />

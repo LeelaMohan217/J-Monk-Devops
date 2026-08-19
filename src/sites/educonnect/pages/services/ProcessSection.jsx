@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { process } from "./data";
 
-// Same hairline spec grid as about/ValuesSection and home/WhyChooseSection,
-// keeping the step numerals since this list is sequential rather than a flat
-// set. Cells hang off their own border-t instead of sitting in rounded cards,
-// so the first column stays flush with the container rail.
+// Same bento shell as the rest of the site. Numerals stay meaningful here
+// (unlike a flat feature list, this genuinely is a three-stage sequence), so
+// the mono numeral doubles as a step marker, not just decoration.
 const ProcessSection = () => {
   return (
     <section className="bg-surface-muted py-24 md:py-32">
@@ -17,7 +16,7 @@ const ProcessSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="max-w-2xl"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+          <span className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500">
             {process.eyebrow}
           </span>
 
@@ -26,32 +25,50 @@ const ProcessSection = () => {
           </h2>
         </motion.div>
 
-        <ol className="mt-14 grid gap-x-10 gap-y-10 md:mt-20 md:grid-cols-3 lg:gap-x-12">
-          {process.steps.map((step, index) => (
-            <motion.li
-              key={step.title}
-              variants={riseIn(index * 0.08)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
-              className="border-t border-neutral-200 pt-6"
-            >
-              <span
-                className="text-xs font-medium tabular-nums text-neutral-400"
-                aria-hidden="true"
+        <ol className="mt-14 grid gap-4 md:mt-20 md:grid-cols-3">
+          {process.steps.map((step, index) => {
+            const inverted = index === process.steps.length - 1;
+
+            return (
+              <motion.li
+                key={step.title}
+                variants={riseIn(index * 0.08)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.4 }}
+                className={`rounded-2xl p-6 shadow-sm transition-shadow duration-300 hover:shadow-md ${
+                  inverted
+                    ? "bg-neutral-900"
+                    : "border border-neutral-200 bg-gradient-to-br from-red-50/60 via-surface to-surface"
+                }`}
               >
-                {String(index + 1).padStart(2, "0")}
-              </span>
+                <span
+                  className={`font-['IBM_Plex_Mono',monospace] text-xs font-medium tabular-nums ${
+                    inverted ? "text-white/50" : "text-neutral-400"
+                  }`}
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-              <h3 className="mt-4 text-base font-medium tracking-tight text-neutral-900">
-                {step.title}
-              </h3>
+                <h3
+                  className={`mt-4 text-base font-medium tracking-tight ${
+                    inverted ? "text-white" : "text-neutral-900"
+                  }`}
+                >
+                  {step.title}
+                </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-neutral-600">
-                {step.body}
-              </p>
-            </motion.li>
-          ))}
+                <p
+                  className={`mt-3 text-sm leading-relaxed ${
+                    inverted ? "text-white/70" : "text-neutral-600"
+                  }`}
+                >
+                  {step.body}
+                </p>
+              </motion.li>
+            );
+          })}
         </ol>
       </div>
     </section>
