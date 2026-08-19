@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, UserCheck, Search, FileCheck2, BadgeCheck, GraduationCap, Plane } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { services } from "./data";
+import BentoCard from "../../components/BentoCard";
 
-// Bento grid instead of the old sticky-header list: a 2-wide card, a 1-wide
-// card, three 1-wide cards, then a full-width dark card as a closer — same
-// asymmetric rhythm as the reference boards (one large tile, a few smaller
-// ones, one inverted tile for contrast). Reused verbatim (same card shell,
-// same mono numeral treatment) by WhyChooseSection, ValuesSection, and
-// ProcessSection so the bento language reads as one system across the site.
+// Bento grid: a 2-wide card, a 1-wide card, three 1-wide cards, then a
+// full-width dark card as a closer — same asymmetric rhythm reused by
+// ServicesListSection on the dedicated services page, since it's the same
+// six services. Card depth (icon badge, ghost watermark, texture/notch on
+// the closer only) comes from the shared BentoCard component.
 const SPANS = ["lg:col-span-2", "lg:col-span-1", "lg:col-span-1", "lg:col-span-1", "lg:col-span-1", "lg:col-span-3"];
+const ICONS = [UserCheck, Search, FileCheck2, BadgeCheck, GraduationCap, Plane];
 
 const ServicesSection = () => {
   return (
@@ -47,7 +48,7 @@ const ServicesSection = () => {
           </Link>
         </motion.div>
 
-        <dl className="mt-14 grid gap-4 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
+        <ul className="mt-14 grid gap-4 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
           {services.items.map((service, index) => {
             const inverted = index === services.items.length - 1;
 
@@ -58,40 +59,22 @@ const ServicesSection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.4 }}
-                className={`rounded-2xl p-6 shadow-sm transition-shadow duration-300 hover:shadow-md sm:col-span-1 ${SPANS[index]} ${
-                  inverted
-                    ? "bg-neutral-900"
-                    : "border border-neutral-200 bg-gradient-to-br from-red-50/60 via-surface to-surface"
-                }`}
+                className={`sm:col-span-1 ${SPANS[index]}`}
               >
-                <span
-                  className={`font-['IBM_Plex_Mono',monospace] text-xs font-medium tabular-nums ${
-                    inverted ? "text-white/50" : "text-neutral-400"
-                  }`}
-                  aria-hidden="true"
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <dt
-                  className={`mt-4 text-lg font-medium tracking-tight ${
-                    inverted ? "text-white" : "text-neutral-900"
-                  }`}
-                >
-                  {service.name}
-                </dt>
-
-                <dd
-                  className={`mt-2 max-w-xl text-sm leading-relaxed ${
-                    inverted ? "text-white/70" : "text-neutral-600"
-                  }`}
-                >
-                  {service.description}
-                </dd>
+                <BentoCard
+                  as="div"
+                  icon={ICONS[index]}
+                  index={index}
+                  title={service.name}
+                  description={service.description}
+                  inverted={inverted}
+                  notched={inverted}
+                  className="h-full"
+                />
               </motion.div>
             );
           })}
-        </dl>
+        </ul>
       </div>
     </section>
   );

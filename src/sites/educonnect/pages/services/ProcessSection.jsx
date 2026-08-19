@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
+import { ListChecks, FileText, PlaneTakeoff } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { process } from "./data";
+import BentoCard from "../../components/BentoCard";
 
-// Same bento shell as the rest of the site. Numerals stay meaningful here
-// (unlike a flat feature list, this genuinely is a three-stage sequence), so
-// the mono numeral doubles as a step marker, not just decoration.
+const ICONS = [ListChecks, FileText, PlaneTakeoff];
+
+// Same BentoCard shell as the rest of the site. The numeral stays meaningful
+// here (unlike a flat feature list, this genuinely is a three-stage
+// sequence), doubling as a step marker rather than just decoration.
 const ProcessSection = () => {
   return (
     <section className="bg-surface-muted py-24 md:py-32">
@@ -30,43 +34,24 @@ const ProcessSection = () => {
             const inverted = index === process.steps.length - 1;
 
             return (
-              <motion.li
+              <motion.div
                 key={step.title}
                 variants={riseIn(index * 0.08)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.4 }}
-                className={`rounded-2xl p-6 shadow-sm transition-shadow duration-300 hover:shadow-md ${
-                  inverted
-                    ? "bg-neutral-900"
-                    : "border border-neutral-200 bg-gradient-to-br from-red-50/60 via-surface to-surface"
-                }`}
               >
-                <span
-                  className={`font-['IBM_Plex_Mono',monospace] text-xs font-medium tabular-nums ${
-                    inverted ? "text-white/50" : "text-neutral-400"
-                  }`}
-                  aria-hidden="true"
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <h3
-                  className={`mt-4 text-base font-medium tracking-tight ${
-                    inverted ? "text-white" : "text-neutral-900"
-                  }`}
-                >
-                  {step.title}
-                </h3>
-
-                <p
-                  className={`mt-3 text-sm leading-relaxed ${
-                    inverted ? "text-white/70" : "text-neutral-600"
-                  }`}
-                >
-                  {step.body}
-                </p>
-              </motion.li>
+                <BentoCard
+                  as="div"
+                  icon={ICONS[index]}
+                  index={index}
+                  title={step.title}
+                  description={step.body}
+                  inverted={inverted}
+                  notched={inverted}
+                  className="h-full"
+                />
+              </motion.div>
             );
           })}
         </ol>
