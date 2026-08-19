@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
+import { PhoneCall, Users, Eye, UserCheck, FileCheck2, LifeBuoy } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { whyUs } from "./data";
 
-// Deliberately a different shape from ServicesSection directly above: that one
-// is a single column of wide rows against a sticky header, this one is a
-// three-up spec grid with the header stacked over it. Same hairline-and-type
-// vocabulary, different structure, so the two sections don't read as a repeat.
-//
-// Each cell hangs off its own border-t rather than sitting inside a bordered
-// card, which keeps the first column's type flush with the container rail.
+// One icon per point, matched by array position to whyUs.points in ./data.
+const ICONS = [PhoneCall, Users, Eye, UserCheck, FileCheck2, LifeBuoy];
+
+// Plain bordered cards, no shadow or hover motion, all six the same size
+// regardless of copy length (min-h-[280px] rather than letting content set
+// the height), so the grid reads as one deliberate set of tiles rather than
+// six independently sized boxes.
 const WhyChooseSection = () => {
   return (
     <section
@@ -36,25 +37,34 @@ const WhyChooseSection = () => {
           </p>
         </motion.div>
 
-        <dl className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 md:mt-20 lg:grid-cols-3 lg:gap-x-12">
-          {whyUs.points.map((point, index) => (
-            <motion.div
-              key={point.term}
-              variants={riseIn(Math.min(index, 3) * 0.06)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
-              className="border-t border-neutral-200 pt-6"
-            >
-              <dt className="text-base font-medium tracking-tight text-neutral-900">
-                {point.term}
-              </dt>
-              <dd className="mt-3 text-sm leading-relaxed text-neutral-600">
-                {point.detail}
-              </dd>
-            </motion.div>
-          ))}
-        </dl>
+        <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
+          {whyUs.points.map((point, index) => {
+            const Icon = ICONS[index];
+
+            return (
+              <motion.li
+                key={point.term}
+                variants={riseIn(Math.min(index, 3) * 0.06)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.4 }}
+                className="flex min-h-[280px] flex-col items-center justify-center gap-4 border border-neutral-200 p-8 text-center"
+              >
+                <Icon
+                  className="h-7 w-7 text-red-600"
+                  strokeWidth={1.75}
+                  aria-hidden="true"
+                />
+                <h3 className="text-base font-medium tracking-tight text-neutral-900">
+                  {point.term}
+                </h3>
+                <p className="text-sm leading-relaxed text-neutral-600">
+                  {point.detail}
+                </p>
+              </motion.li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
