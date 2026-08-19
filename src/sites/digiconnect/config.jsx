@@ -19,5 +19,7 @@ export const digiConnectConfig = {
       "Contact us today to discuss how our custom software solutions can take your business to the next level. Let's innovate together!",
     ctaLabel: "Get Started",
     ctaHref: "/digiconnect/contact",
+    // This site's pages run on a 7xl rail, same as EduConnect's.
+    maxWidthClass: "max-w-7xl",
   },
 };

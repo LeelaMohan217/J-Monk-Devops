@@ -3,7 +3,7 @@ import { digiConnectConfig } from "../../sites/digiconnect/config";
 import { skillConnectConfig } from "../../sites/skillconnect/config";
 import { eduConnectConfig } from "../../sites/educonnect/config";
 import useScrollPosition from "../hooks/useScrollPosition";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/Logo.webp";
 
 const brandGroups = [
   { name: "DigiConnect", homeHref: digiConnectConfig.homeHref, available: true },

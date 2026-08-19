@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, ShieldCheck, Users } from "lucide-react";
 import { riseIn } from "../../shared/variants";
-import whoWeAreImage from "./assets/who-we-are.jpeg";
+import whoWeAreImage from "./assets/who-we-are.webp";
 
 // Concretizes the "one team, one standard" philosophy already stated in the
 // paragraphs below, rather than introducing new claims. A scannable

@@ -18,5 +18,7 @@ export const eduConnectConfig = {
       "Get in touch for personalized guidance on universities, applications, and visas for studying abroad.",
     ctaLabel: "Get in Touch",
     ctaHref: "/educonnect/contact",
+    // Line the closing banner up with this site's own 7xl section rail.
+    maxWidthClass: "max-w-7xl",
   },
 };

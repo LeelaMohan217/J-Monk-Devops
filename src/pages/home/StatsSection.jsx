@@ -25,7 +25,10 @@ const StatsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4">
+        {/* Single column below sm: two columns leave an 80px content box at
+            320px, and a platform label like "SkillConnect" needs ~114px with
+            its tracking, so it overflowed the tile. */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

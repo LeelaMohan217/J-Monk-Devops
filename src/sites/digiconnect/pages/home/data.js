@@ -2,10 +2,10 @@
 // stay purely presentational. Assets are imported directly from ../../assets/
 // rather than through ../../constants — that barrel still carries the stale
 // pre-rebrand copy and instantiates lucide JSX at module scope.
-import productImage from "../../assets/image2.jpg";
-import platformImage from "../../assets/image4.jpg";
-import consultingImage from "../../assets/image1.jpg";
-import partnershipImage from "../../assets/image3.jpg";
+import productImage from "../../assets/image2.webp";
+import platformImage from "../../assets/image4.webp";
+import consultingImage from "../../assets/image1.webp";
+import partnershipImage from "../../assets/image3.webp";
 
 export const hero = {
   heading: "Software your business can actually run on.",

@@ -2,43 +2,20 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
 
+// Plain typographic header on the site rail. The masked grid backdrop that used
+// to sit behind this came from the old hero treatment; the home hero dropped it
+// for a photographic backdrop, so keeping it here left the page headers as the
+// only place it appeared. (The services and blog headers still carry it.)
 const PageHeaderSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-      <div
-        className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
-        aria-hidden="true"
-      >
-        <svg
-          className="absolute inset-0 h-full w-full opacity-[0.14]"
-          focusable="false"
-        >
-          <defs>
-            <pattern
-              id="educonnect-about-grid"
-              width="56"
-              height="56"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 56 0 L 0 0 0 56"
-                fill="none"
-                className="stroke-neutral-400"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#educonnect-about-grid)" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
-        <div className="flex flex-col items-start gap-6 text-left">
+    <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <div className="flex flex-col items-start gap-5 text-left">
           <motion.span
             variants={fadeIn("up", 0.05)}
             initial="hidden"
             animate="show"
-            className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
           >
             {pageHeader.eyebrow}
           </motion.span>
@@ -56,7 +33,7 @@ const PageHeaderSection = () => {
             variants={fadeIn("up", 0.3)}
             initial="hidden"
             animate="show"
-            className="max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
+            className="max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base"
           >
             {pageHeader.lead}
           </motion.p>

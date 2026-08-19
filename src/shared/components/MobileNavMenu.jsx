@@ -6,7 +6,7 @@ import { digiConnectConfig } from "../../sites/digiconnect/config";
 import { skillConnectConfig } from "../../sites/skillconnect/config";
 import { eduConnectConfig } from "../../sites/educonnect/config";
 import { companyConfig } from "../companyConfig";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/Logo.webp";
 import MenuToggleIcon from "./MenuToggleIcon";
 
 const brandGroups = [
@@ -62,11 +62,16 @@ const MobileNavMenu = () => {
           so the toggle lines up with whichever one is underneath it. */}
       {!mobileOpen && (
         <div className="pointer-events-none fixed inset-x-0 top-0 z-70 flex h-16 items-center justify-end px-6 lg:hidden">
+          {/* -m-3 p-3 grows the hit area to 44x44 without moving the 20px icon:
+              this is the only navigation below lg, and a bare icon button was a
+              20x20 target — under the 24x24 minimum, let alone comfortable. */}
           <button
             type="button"
             aria-label="Open menu"
+            aria-expanded={false}
+            aria-controls="mobile-nav-panel"
             onClick={() => setMobileOpen(true)}
-            className="pointer-events-auto text-neutral-700 transition-colors hover:text-black"
+            className="pointer-events-auto -m-3 p-3 text-neutral-700 transition-colors hover:text-black"
           >
             <MenuToggleIcon open={false} />
           </button>
@@ -81,7 +86,10 @@ const MobileNavMenu = () => {
             className="fixed inset-0 z-70 lg:hidden bg-black/40"
           />
 
-          <div className="fixed top-0 left-0 z-70 flex h-dvh w-full flex-col bg-white lg:hidden transition-all ease-in-out duration-500">
+          <div
+            id="mobile-nav-panel"
+            className="fixed top-0 left-0 z-70 flex h-dvh w-full flex-col bg-white lg:hidden transition-all ease-in-out duration-500"
+          >
             {/* Top: logo + close, centered on the same row; a divider; then
                 the description below it. */}
             <div className="flex shrink-0 flex-col">
@@ -99,8 +107,10 @@ const MobileNavMenu = () => {
                 <button
                   type="button"
                   aria-label="Close menu"
+                  aria-expanded
+                  aria-controls="mobile-nav-panel"
                   onClick={closeMenu}
-                  className="text-black"
+                  className="-m-3 p-3 text-black"
                 >
                   <X className="h-5 w-5" />
                 </button>

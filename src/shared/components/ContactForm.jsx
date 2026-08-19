@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 // UI-only contact form. There is deliberately no submission provider wired up
 // yet — `onSubmit` is the seam a real one plugs into later without the markup
 // or validation changing.
+//
+// Labels are sentence-case small type rather than uppercase-tracked: that
+// treatment belongs to section eyebrows, and applying it to eight form labels
+// made the form shout. Required markers are neutral — amber appeared nowhere
+// else in the palette — and red is kept for actual errors.
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const baseField =
-  "w-full rounded-lg border bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/10";
+  "w-full rounded-lg border bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 transition-colors duration-200 focus:outline-none";
 
 const ContactForm = ({
   idPrefix,
@@ -68,15 +74,15 @@ const ContactForm = ({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
         {fields.map((field) => {
           const id = `${idPrefix}-${field.name}`;
           const errorId = `${id}-error`;
           const hasError = Boolean(errors[field.name]);
           const control = `${baseField} ${
             hasError
-              ? "border-red-500 focus-visible:ring-red-500/20"
-              : "border-neutral-200 focus:border-neutral-400"
+              ? "border-red-500 focus:border-red-500"
+              : "border-neutral-200 hover:border-neutral-300 focus:border-neutral-900"
           }`;
 
           return (
@@ -86,11 +92,11 @@ const ContactForm = ({
             >
               <label
                 htmlFor={id}
-                className="text-xs font-medium uppercase tracking-[0.15em] text-neutral-600"
+                className="text-xs font-medium text-neutral-700"
               >
                 {field.label}
                 {field.required && (
-                  <span className="ml-1 text-amber-600" aria-hidden="true">
+                  <span className="ml-1 text-neutral-400" aria-hidden="true">
                     *
                   </span>
                 )}
@@ -110,23 +116,31 @@ const ContactForm = ({
                   className={`${control} resize-y`}
                 />
               ) : field.type === "select" ? (
-                <select
-                  id={id}
-                  name={field.name}
-                  value={values[field.name]}
-                  onChange={handleChange}
-                  aria-required={field.required || undefined}
-                  aria-invalid={hasError || undefined}
-                  aria-describedby={hasError ? errorId : undefined}
-                  className={control}
-                >
-                  <option value="">{field.placeholder || "Select one"}</option>
-                  {field.options.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
+                // Native arrow swapped for the icon set the rest of the site
+                // uses, so selects match the inputs beside them.
+                <div className="relative">
+                  <select
+                    id={id}
+                    name={field.name}
+                    value={values[field.name]}
+                    onChange={handleChange}
+                    aria-required={field.required || undefined}
+                    aria-invalid={hasError || undefined}
+                    aria-describedby={hasError ? errorId : undefined}
+                    className={`${control} appearance-none pr-10`}
+                  >
+                    <option value="">{field.placeholder || "Select one"}</option>
+                    {field.options.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown
+                    className="pointer-events-none absolute top-1/2 right-4 h-4 w-4 -translate-y-1/2 text-neutral-400"
+                    aria-hidden="true"
+                  />
+                </div>
               ) : (
                 <input
                   id={id}
@@ -154,20 +168,24 @@ const ContactForm = ({
         })}
       </div>
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 border-t border-neutral-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <button
           type="submit"
-          className="inline-flex w-fit items-center justify-center rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/30"
+          className="inline-flex w-fit items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
         >
           {submitLabel}
         </button>
 
         <p className="text-xs text-neutral-500">
-          <span className="text-amber-600">*</span> Required
+          <span className="text-neutral-400">*</span> Required
         </p>
       </div>
 
-      <p role="status" aria-live="polite" className="min-h-5 text-sm text-neutral-600">
+      <p
+        role="status"
+        aria-live="polite"
+        className="min-h-5 text-sm text-neutral-600"
+      >
         {submitted ? notice : ""}
       </p>
     </form>

@@ -1,53 +1,76 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { riseIn } from "../../../shared/variants";
 import { blogPosts } from "../blogPosts";
 import PageHeaderSection from "./blog/PageHeaderSection";
+import PostImage from "./blog/PostImage";
 
+// Cards on a grid — the one place in EduConnect that uses them, since posts
+// lead with artwork and read as a set of objects rather than an index of rows.
+// Every other section on the site stays on hairlines and type.
+//
+// Excerpts are clamped to three lines so the meta footer sits on the same
+// baseline across a row regardless of copy length.
 const Blog = () => {
   return (
     <>
       <PageHeaderSection />
 
-      <section className="bg-surface py-16 md:py-24">
+      <section className="bg-surface pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {blogPosts.map((post, index) => (
-              <motion.div
+              <motion.li
                 key={post.slug}
-                variants={riseIn(Math.min(index, 3) * 0.08)}
+                variants={riseIn(Math.min(index, 3) * 0.06)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
               >
                 <Link
                   to={`/educonnect/blog/${post.slug}`}
-                  className="flex h-full flex-col gap-3 rounded-2xl border border-neutral-200 bg-surface-muted p-6 transition-colors duration-300 hover:border-red-200"
+                  className="group flex h-full flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface transition-colors duration-300 hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
-                  <span className="w-fit text-xs font-medium uppercase tracking-[0.2em] text-red-600">
-                    {post.tag}
-                  </span>
-                  <h2 className="text-lg font-semibold text-neutral-900 leading-snug">
-                    {post.title}
-                  </h2>
-                  <p className="text-sm leading-relaxed text-neutral-600">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-2 flex items-center gap-4 text-xs text-neutral-500">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
-                      {post.date}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" aria-hidden="true" />
+                  <div className="aspect-16/10 overflow-hidden border-b border-neutral-200">
+                    <PostImage
+                      post={post}
+                      className="transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5 md:p-6">
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
+                        {post.tag}
+                      </span>
+                      <span className="text-xs tabular-nums text-neutral-400">
+                        {post.date}
+                      </span>
+                    </div>
+
+                    <h2 className="mt-3 text-base font-medium leading-snug tracking-tight text-neutral-900 decoration-neutral-300 underline-offset-4 group-hover:underline md:text-lg">
+                      {post.title}
+                    </h2>
+
+                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-neutral-600">
+                      {post.excerpt}
+                    </p>
+
+                    {/* mt-auto pins the footer to the card's base, so read
+                        times line up across a row despite 2- and 3-line titles. */}
+                    <div className="mt-auto flex items-center gap-2 pt-5 text-xs text-neutral-400">
                       {post.readTime}
-                    </span>
+                      <ArrowRight
+                        className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                        aria-hidden="true"
+                      />
+                    </div>
                   </div>
                 </Link>
-              </motion.div>
+              </motion.li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
     </>

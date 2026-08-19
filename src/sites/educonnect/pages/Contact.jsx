@@ -94,41 +94,16 @@ const stages = [
 const EduConnectContact = () => {
   return (
     <main className="bg-surface">
-      <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-        <div
-          className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
-          aria-hidden="true"
-        >
-          <svg
-            className="absolute inset-0 h-full w-full opacity-[0.14]"
-            focusable="false"
-          >
-            <defs>
-              <pattern
-                id="educonnect-contact-grid"
-                width="56"
-                height="56"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 56 0 L 0 0 0 56"
-                  fill="none"
-                  className="stroke-neutral-400"
-                  strokeWidth="1"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#educonnect-contact-grid)" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
-          <div className="flex flex-col items-start gap-6 text-left">
+      {/* Same header treatment as the about/services/blog pages — no grid
+          backdrop, eyebrow at neutral-500, lead at body size. */}
+      <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="flex flex-col items-start gap-5 text-left">
             <motion.span
               variants={fadeIn("up", 0.05)}
               initial="hidden"
               animate="show"
-              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
             >
               Contact
             </motion.span>
@@ -146,7 +121,7 @@ const EduConnectContact = () => {
               variants={fadeIn("up", 0.3)}
               initial="hidden"
               animate="show"
-              className="max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
+              className="max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base"
             >
               This reaches the EduConnect team directly — the people who
               handle university selection, applications, and visas.
@@ -155,7 +130,7 @@ const EduConnectContact = () => {
         </div>
       </section>
 
-      <section className="bg-surface py-16 md:py-24">
+      <section className="bg-surface pb-24 md:pb-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
           <motion.div
             variants={riseIn(0.05)}
@@ -168,24 +143,29 @@ const EduConnectContact = () => {
               What we help with
             </h2>
 
-            <div className="mt-8 border-t border-neutral-200">
+            {/* Same hairline rows and numeral treatment as the services page's
+                ProcessSection, which carries this identical three-stage copy. */}
+            <ol className="mt-8 border-t border-neutral-200">
               {stages.map((stage) => (
-                <div
+                <li
                   key={stage.step}
                   className="border-b border-neutral-200 py-6"
                 >
-                  <span className="text-xs font-medium tabular-nums text-neutral-400">
+                  <span
+                    className="text-xs font-medium tabular-nums text-neutral-400"
+                    aria-hidden="true"
+                  >
                     {stage.step}
                   </span>
-                  <h3 className="mt-2 text-base font-semibold text-neutral-900">
+                  <h3 className="mt-3 text-base font-medium tracking-tight text-neutral-900">
                     {stage.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">
                     {stage.body}
                   </p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
 
             <p className="mt-8 text-sm leading-relaxed text-neutral-500">
               Wherever you are in that list, start there — you don&apos;t need

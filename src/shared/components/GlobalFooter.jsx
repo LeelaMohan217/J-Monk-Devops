@@ -60,18 +60,23 @@ const GlobalFooter = () => {
           </ul>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 lg:gap-14">
+        {/* Tighter x-gap below sm widens each of the two columns: a heading
+            like "SkillConnect" needs ~114px with its tracking. */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 sm:gap-10 lg:gap-14">
           {platformNavGroups.map((group) => (
             <div key={group.name} className="flex flex-col gap-4">
-              <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
+              <h3 className="text-xs font-medium uppercase tracking-[0.12em] text-white sm:tracking-[0.15em]">
                 {group.name}
               </h3>
-              <ul className="flex flex-col gap-3">
+              {/* py-1 with a tighter gap keeps the visual rhythm while lifting
+                  each link's hit area to 28px — a bare 20px line of text is
+                  under the 24x24 minimum for standalone links. */}
+              <ul className="flex flex-col gap-2">
                 {group.items.map((item) => (
                   <li key={item.href}>
                     <Link
                       to={item.href}
-                      className="inline-block text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
+                      className="inline-block py-1 text-neutral-400 text-sm font-medium hover:text-white transition-colors duration-300"
                     >
                       {item.label}
                     </Link>
@@ -82,17 +87,17 @@ const GlobalFooter = () => {
           ))}
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-medium uppercase tracking-[0.15em] text-white">
+            <h3 className="text-xs font-medium uppercase tracking-[0.12em] text-white sm:tracking-[0.15em]">
               Location
             </h3>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-2">
               <li className="text-neutral-400 text-sm font-medium leading-relaxed break-words">
                 {companyConfig.address}
               </li>
               <li>
                 <a
                   href={`tel:${companyConfig.phone.replace(/\s/g, "")}`}
-                  className="text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
+                  className="inline-block py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
                 >
                   {companyConfig.phone}
                 </a>
@@ -100,7 +105,7 @@ const GlobalFooter = () => {
               <li>
                 <a
                   href={`mailto:${companyConfig.email}`}
-                  className="text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
+                  className="inline-block py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
                 >
                   {companyConfig.email}
                 </a>

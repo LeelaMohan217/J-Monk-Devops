@@ -2,11 +2,13 @@ import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { process } from "./data";
 
-// Same card treatment as about/ValuesSection, with a step index added since
-// this list is sequential rather than a flat set of promises.
+// Same hairline spec grid as about/ValuesSection and home/WhyChooseSection,
+// keeping the step numerals since this list is sequential rather than a flat
+// set. Cells hang off their own border-t instead of sitting in rounded cards,
+// so the first column stays flush with the container rail.
 const ProcessSection = () => {
   return (
-    <section className="bg-surface-muted py-16 md:py-24">
+    <section className="bg-surface-muted py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
@@ -15,23 +17,24 @@ const ProcessSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="max-w-2xl"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             {process.eyebrow}
           </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
+
+          <h2 className="mt-5 text-display-sm font-semibold text-neutral-900">
             {process.heading}
           </h2>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
+        <ol className="mt-14 grid gap-x-10 gap-y-10 md:mt-20 md:grid-cols-3 lg:gap-x-12">
           {process.steps.map((step, index) => (
-            <motion.div
+            <motion.li
               key={step.title}
-              variants={riseIn(index * 0.1)}
+              variants={riseIn(index * 0.08)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}
-              className="rounded-2xl border border-neutral-200 bg-surface p-6"
+              className="border-t border-neutral-200 pt-6"
             >
               <span
                 className="text-xs font-medium tabular-nums text-neutral-400"
@@ -39,16 +42,17 @@ const ProcessSection = () => {
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="mt-3 block h-px w-10 bg-red-600" aria-hidden="true" />
-              <h3 className="mt-5 text-base font-semibold text-neutral-900">
+
+              <h3 className="mt-4 text-base font-medium tracking-tight text-neutral-900">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+
+              <p className="mt-3 text-sm leading-relaxed text-neutral-600">
                 {step.body}
               </p>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

@@ -69,7 +69,7 @@ const HowWeWorkSection = () => {
 
             <Link
               to={howWeWork.cta.href}
-              className="group mt-8 inline-flex w-fit items-center gap-2 text-sm font-medium text-neutral-700 transition-colors duration-300 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="group mt-8 inline-flex w-fit items-center gap-2 py-1 text-sm font-medium text-neutral-700 transition-colors duration-300 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               {howWeWork.cta.label}
               <ArrowRight

@@ -125,7 +125,7 @@ const HeroSection = () => {
                 to="/#who-we-are"
                 className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700"
               >
-                See who we are
+                Know More
                 <ArrowRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"

@@ -3,7 +3,7 @@
 // universe. Deliberately does not restate the home page's hero pitch or its
 // "how we work" delivery principles — this page covers identity and origin,
 // home covers what gets delivered and how.
-import storyImage from "../../assets/why.png";
+import storyImage from "../../assets/why.webp";
 
 export const pageHeader = {
   eyebrow: "About",

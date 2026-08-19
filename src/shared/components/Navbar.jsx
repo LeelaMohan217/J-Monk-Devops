@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import useScrollPosition from "../hooks/useScrollPosition";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/Logo.webp";
 
 // Per-brand sub-bar. Styled to match GlobalNav — transparent until scrolled, then
 // white with a hairline border and a soft shadow — but on the brand shell's own
