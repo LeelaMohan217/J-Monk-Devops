@@ -5,6 +5,7 @@ import { riseIn } from "../../../shared/variants";
 import { blogPosts } from "../blogPosts";
 import PageHeaderSection from "./blog/PageHeaderSection";
 import PostImage from "./blog/PostImage";
+import TagList from "./blog/TagList";
 
 // Cards on a grid — the one place in EduConnect that uses them, since posts
 // lead with artwork and read as a set of objects rather than an index of rows.
@@ -40,11 +41,9 @@ const Blog = () => {
                   </div>
 
                   <div className="flex flex-1 flex-col p-5 md:p-6">
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
-                        {post.tag}
-                      </span>
-                      <span className="text-xs tabular-nums text-neutral-400">
+                    <div className="flex items-center justify-between gap-3">
+                      <TagList tags={post.tags} limit={2} />
+                      <span className="shrink-0 text-xs tabular-nums text-neutral-400">
                         {post.date}
                       </span>
                     </div>

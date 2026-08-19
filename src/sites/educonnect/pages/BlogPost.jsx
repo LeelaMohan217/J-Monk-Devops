@@ -4,6 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { fadeIn } from "../../../shared/variants";
 import { getBlogPostBySlug } from "../blogPosts";
 import PostImage from "./blog/PostImage";
+import TagList from "./blog/TagList";
+import BlogBody from "./blog/BlogBody";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -50,11 +52,11 @@ const BlogPost = () => {
             Back to Blog
           </Link>
 
-          {/* Same meta treatment as the blog index: muted tag, plain small type
-              for date and read time, no icons. */}
-          <span className="mt-6 block w-fit text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
-            {post.tag}
-          </span>
+          {/* Same meta treatment as the blog index: muted tag pills, plain
+              small type for date and read time, no icons. */}
+          <div className="mt-6">
+            <TagList tags={post.tags} />
+          </div>
           <h1 className="mt-4 text-display-sm font-semibold text-neutral-900 sm:text-display-md">
             {post.title}
           </h1>
@@ -86,14 +88,7 @@ const BlogPost = () => {
           animate="show"
           className="mx-auto flex max-w-3xl flex-col gap-6 px-6 md:px-8"
         >
-          {post.body.map((paragraph, index) => (
-            <p
-              key={index}
-              className="text-base leading-relaxed text-neutral-700 md:text-lg"
-            >
-              {paragraph}
-            </p>
-          ))}
+          <BlogBody body={post.body} />
         </motion.div>
       </section>
     </article>
