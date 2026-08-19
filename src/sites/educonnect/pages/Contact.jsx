@@ -82,7 +82,7 @@ const stages = [
   {
     step: "02",
     title: "Getting the application right",
-    body: "Documents, deadlines, and the statement — the parts where a small mistake costs a whole intake.",
+    body: "Documents, deadlines, and the statement. The parts where a small mistake costs a whole intake.",
   },
   {
     step: "03",
@@ -123,7 +123,7 @@ const EduConnectContact = () => {
               animate="show"
               className="max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base"
             >
-              This reaches the EduConnect team directly — the people who
+              This reaches the EduConnect team directly, the people who
               handle university selection, applications, and visas.
             </motion.p>
           </div>
@@ -168,7 +168,7 @@ const EduConnectContact = () => {
             </ol>
 
             <p className="mt-8 text-sm leading-relaxed text-neutral-500">
-              Wherever you are in that list, start there — you don&apos;t need
+              Wherever you are in that list, start there. You don&apos;t need
               anything prepared to get in touch.
             </p>
           </motion.div>

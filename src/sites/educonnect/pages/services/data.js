@@ -12,12 +12,12 @@ export const services = [
   {
     name: "Career Counselling & Profile Evaluation",
     description:
-      "One-on-one sessions to map your academic profile against realistic country, university, and course options — before you spend money on applications that won't work.",
+      "One-on-one sessions to map your academic profile against realistic country, university, and course options, before you spend money on applications that won't work.",
   },
   {
     name: "University & Course Selection",
     description:
-      "Shortlists built around your marks, budget, and what you actually want to do after graduating — not just name recognition.",
+      "Shortlists built around your marks, budget, and what you actually want to do after graduating. Not just name recognition.",
   },
   {
     name: "Application & Admission Support",
@@ -51,7 +51,7 @@ export const process = {
     },
     {
       title: "Getting the application right",
-      body: "Documents, deadlines, and the statement — the parts where a small mistake costs a whole intake.",
+      body: "Documents, deadlines, and the statement. The parts where a small mistake costs a whole intake.",
     },
     {
       title: "Visa and departure",

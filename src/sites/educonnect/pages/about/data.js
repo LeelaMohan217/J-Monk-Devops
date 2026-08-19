@@ -4,7 +4,7 @@
 export const pageHeader = {
   eyebrow: "About",
   heading: "The people behind EduConnect.",
-  lead: "EduConnect is JMonkDevOps' study-abroad guidance practice — a small team of counsellors who stay with you from your first shortlist through the day you land.",
+  lead: "EduConnect is JMonkDevOps' study abroad guidance practice, a small team of counsellors who stay with you from your first shortlist through the day you land.",
 };
 
 export const story = {
@@ -12,7 +12,7 @@ export const story = {
   heading: "Built around what students actually need",
   paragraphs: [
     "We started EduConnect because too many students were making five- and six-figure decisions about their education based on rankings lists and rumours, without anyone walking them through the tradeoffs.",
-    "Our counsellors work with students one-on-one — evaluating academic profiles, shortlisting universities and courses that genuinely fit, and staying involved through applications, visas, and pre-departure preparation.",
+    "Our counsellors work with students one-on-one, evaluating academic profiles, shortlisting universities and courses that genuinely fit, and staying involved through applications, visas, and pre-departure preparation.",
   ],
 };
 
@@ -23,7 +23,7 @@ export const values = {
     {
       term: "Student-first, not university-first",
       detail:
-        "Every recommendation starts with your goals, budget, and academic profile — not a preferred-partner list.",
+        "Every recommendation starts with your goals, budget, and academic profile. Not a preferred-partner list.",
     },
     {
       term: "Honest, even when it costs us",
@@ -33,7 +33,7 @@ export const values = {
     {
       term: "One team, start to finish",
       detail:
-        "The same counsellor stays with you from shortlisting through landing abroad — no relay between departments.",
+        "The same counsellor stays with you from shortlisting through landing abroad, with no relay between departments.",
     },
     {
       term: "Years of applications behind us",

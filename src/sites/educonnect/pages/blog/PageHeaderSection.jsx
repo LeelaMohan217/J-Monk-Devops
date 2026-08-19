@@ -4,7 +4,7 @@ import { fadeIn } from "../../../../shared/variants";
 const pageHeader = {
   eyebrow: "Blog",
   heading: "Notes from the study abroad process.",
-  lead: "Practical guidance on exams, applications, visas, and life abroad — from the questions students ask us most.",
+  lead: "Practical guidance on exams, applications, visas, and life abroad, drawn from the questions students ask us most.",
 };
 
 // Matches about/ and services/ PageHeaderSection: plain typographic header on

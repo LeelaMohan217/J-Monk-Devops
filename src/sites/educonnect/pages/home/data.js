@@ -4,7 +4,7 @@
 export const hero = {
   eyebrow: "Study Abroad Consulting",
   heading: "A clear path from shortlist to offer letter.",
-  lead: "EduConnect pairs every student with a dedicated counsellor for university selection, applications, visas, and the practical work of settling in abroad — one team, start to finish, not a directory you're left to figure out alone.",
+  lead: "EduConnect pairs every student with a dedicated counsellor for university selection, applications, visas, and the practical work of settling in abroad. One team from start to finish, not a directory you're left to figure out alone.",
   primaryCta: { label: "Book a free consultation", href: "/educonnect/contact" },
   secondaryCta: { label: "See how it works", href: "/educonnect/services" },
 };
@@ -20,12 +20,12 @@ export const services = {
     {
       name: "Career Counselling & Profile Evaluation",
       description:
-        "One-on-one sessions to map your academic profile against realistic country, university, and course options — before you spend money on applications that won't work.",
+        "One-on-one sessions to map your academic profile against realistic country, university, and course options, before you spend money on applications that won't work.",
     },
     {
       name: "University & Course Selection",
       description:
-        "Shortlists built around your marks, budget, and what you actually want to do after graduating — not just name recognition.",
+        "Shortlists built around your marks, budget, and what you actually want to do after graduating. Not just name recognition.",
     },
     {
       name: "Application & Admission Support",
@@ -57,7 +57,7 @@ export const services = {
 export const destinations = {
   eyebrow: "Where We Send Students",
   heading: "Seven destinations, and the paperwork for all of them.",
-  hint: "The globe tours every destination we place students in — drag it to look around.",
+  hint: "The globe tours every destination we place students in. Drag it to look around.",
   items: [
     { name: "USA", coordinates: [40.7128, -74.006] }, // New York
     { name: "UK", coordinates: [51.5074, -0.1278] }, // London
@@ -78,7 +78,7 @@ export const whyUs = {
     {
       term: "Personalized from the first call",
       detail:
-        "Every plan starts with a real conversation about your profile, budget, and goals — not a generic checklist.",
+        "Every plan starts with a real conversation about your profile, budget, and goals. Not a generic checklist.",
     },
     {
       term: "One team, start to finish",
@@ -88,7 +88,7 @@ export const whyUs = {
     {
       term: "Transparent, even when it's not what you want to hear",
       detail:
-        "Clear pricing, honest timelines, and straight answers — including when a university isn't the right fit for you.",
+        "Clear pricing, honest timelines, and straight answers, including when a university isn't the right fit for you.",
     },
     {
       term: "Counsellors, not a call center",
