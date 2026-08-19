@@ -1,9 +1,29 @@
+import { useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { HeroBackdrop } from "@/components/ui/hero-backdrop";
 import { fadeIn } from "../../shared/variants";
 import DashboardGridSection from "./DashboardGridSection";
+
+// Matches the lg breakpoint where DashboardGridSection switches from a
+// stacked single column to a 3-up grid. Only there do the gutters between
+// cards leave open space for the wave backdrop to read behind them — below
+// lg the cards stack edge-to-edge with just a 16px gap, so extending the
+// canvas down there would mostly render behind opaque card backgrounds.
+function subscribeDesktop(callback) {
+  const mq = window.matchMedia("(min-width: 1024px)");
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function getDesktopSnapshot() {
+  return window.matchMedia("(min-width: 1024px)").matches;
+}
+
+function getDesktopServerSnapshot() {
+  return false;
+}
 
 const wordReveal = (delay) => ({
   hidden: { y: "100%", opacity: 0 },
@@ -27,13 +47,18 @@ const headingLines = [
 ];
 
 const HeroSection = () => {
+  const isDesktop = useSyncExternalStore(
+    subscribeDesktop,
+    getDesktopSnapshot,
+    getDesktopServerSnapshot,
+  );
+
   return (
     <section className="relative w-full overflow-hidden bg-white pt-28 pb-12">
-      {/* Backdrop is scoped to this wrapper, not the whole section, so its
-          height tracks just the text content — not the dashboard grid below,
-          which stacks tall on mobile and would otherwise spread the wave
-          threads across a much bigger area, leaving most of them hidden
-          behind the cards or the fade-out. */}
+      {/* Backdrop wrapper's height tracks whatever it contains. From lg up
+          that includes DashboardGridSection, so the waves span the whole
+          hero; below lg the grid renders outside this wrapper instead (see
+          the isDesktop check below), same as before. */}
       <div className="relative">
         <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
           <HeroBackdrop />
@@ -109,11 +134,19 @@ const HeroSection = () => {
             </motion.div>
           </div>
         </div>
+
+        {isDesktop && (
+          <div className="relative z-10 mt-12 md:mt-16">
+            <DashboardGridSection />
+          </div>
+        )}
       </div>
 
-      <div className="relative z-10 mt-12 md:mt-16">
-        <DashboardGridSection />
-      </div>
+      {!isDesktop && (
+        <div className="relative z-10 mt-12 md:mt-16">
+          <DashboardGridSection />
+        </div>
+      )}
     </section>
   );
 };
