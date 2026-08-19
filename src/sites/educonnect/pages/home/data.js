@@ -48,6 +48,17 @@ export const services = {
   ],
 };
 
+export const destinations = [
+  "USA",
+  "UK",
+  "Canada",
+  "Australia",
+  "Europe",
+  "Ireland",
+  "New Zealand",
+  "Other Global Destinations",
+];
+
 export const whyUs = {
   eyebrow: "Why EduConnect",
   heading: "Why students choose to go through us.",

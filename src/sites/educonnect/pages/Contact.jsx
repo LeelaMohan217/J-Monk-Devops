@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ContactForm from "../../../shared/components/ContactForm";
-import { riseIn } from "../../../shared/variants";
+import { fadeIn, riseIn } from "../../../shared/variants";
 
 const fields = [
   {
@@ -93,28 +93,69 @@ const stages = [
 
 const EduConnectContact = () => {
   return (
-    <main className="bg-white">
-      <section className="border-b border-neutral-200 bg-stone-50 pt-16 pb-14 md:pt-24 md:pb-20">
-        <motion.div
-          variants={riseIn()}
-          initial="hidden"
-          animate="show"
-          className="mx-auto max-w-7xl px-6 md:px-8"
+    <main className="bg-surface">
+      <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
+        <div
+          className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
+          aria-hidden="true"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
-            EduConnect
-          </span>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight leading-[1.1] text-neutral-900 md:text-6xl">
-            Let&apos;s map the route abroad.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg">
-            This reaches the EduConnect team directly — the people who handle
-            university selection, applications, and visas.
-          </p>
-        </motion.div>
+          <svg
+            className="absolute inset-0 h-full w-full opacity-[0.14]"
+            focusable="false"
+          >
+            <defs>
+              <pattern
+                id="educonnect-contact-grid"
+                width="56"
+                height="56"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 56 0 L 0 0 0 56"
+                  fill="none"
+                  className="stroke-neutral-400"
+                  strokeWidth="1"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#educonnect-contact-grid)" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
+          <div className="flex flex-col items-start gap-6 text-left">
+            <motion.span
+              variants={fadeIn("up", 0.05)}
+              initial="hidden"
+              animate="show"
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+            >
+              Contact
+            </motion.span>
+
+            <motion.h1
+              variants={fadeIn("up", 0.15)}
+              initial="hidden"
+              animate="show"
+              className="max-w-3xl text-display-sm font-semibold text-neutral-900 sm:text-display-md"
+            >
+              Let&apos;s map the route abroad.
+            </motion.h1>
+
+            <motion.p
+              variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              animate="show"
+              className="max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
+            >
+              This reaches the EduConnect team directly — the people who
+              handle university selection, applications, and visas.
+            </motion.p>
+          </div>
+        </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="bg-surface py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
           <motion.div
             variants={riseIn(0.05)}
