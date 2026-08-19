@@ -47,3 +47,41 @@ export const services = {
     },
   ],
 };
+
+export const whyUs = {
+  eyebrow: "Why EduConnect",
+  heading: "Why students choose to go through us.",
+  lead: "There are cheaper directories and freer forums. Here's what a dedicated counsellor actually gets you.",
+  points: [
+    {
+      term: "Personalized from the first call",
+      detail:
+        "Every plan starts with a real conversation about your profile, budget, and goals — not a generic checklist.",
+    },
+    {
+      term: "One team, start to finish",
+      detail:
+        "The same counsellor stays with you from your first shortlist through visa approval and the flight itself.",
+    },
+    {
+      term: "Transparent, even when it's not what you want to hear",
+      detail:
+        "Clear pricing, honest timelines, and straight answers — including when a university isn't the right fit for you.",
+    },
+    {
+      term: "Counsellors, not a call center",
+      detail:
+        "People who've guided hundreds of applications and know where they actually go wrong.",
+    },
+    {
+      term: "Paperwork handled, not just explained",
+      detail:
+        "We manage the document complexity so you can focus on preparing for the move itself.",
+    },
+    {
+      term: "Support past the visa stamp",
+      detail:
+        "We stay reachable through your first weeks abroad, not just until the offer letter arrives.",
+    },
+  ],
+};
