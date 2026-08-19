@@ -115,12 +115,12 @@ const Home = () => {
               >
                 Get in Touch <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="#services"
+              <Link
+                to="/educonnect/services"
                 className="px-6 py-3 border border-neutral-300 text-neutral-800 hover:border-red-600 hover:text-red-700 font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
                 Our Services
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

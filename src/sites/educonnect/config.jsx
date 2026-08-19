@@ -3,6 +3,9 @@ export const eduConnectConfig = {
   homeHref: "/educonnect",
   navItems: [
     { label: "Home", href: "/educonnect" },
+    { label: "About", href: "/educonnect/about" },
+    { label: "Services", href: "/educonnect/services" },
+    { label: "Blog", href: "/educonnect/blog" },
     { label: "Contact", href: "/educonnect/contact" },
   ],
   navCtaLabel: "Get in Touch",
