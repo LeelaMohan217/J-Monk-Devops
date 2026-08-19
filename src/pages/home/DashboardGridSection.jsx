@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { platforms } from "./data";
 import { fadeIn } from "../../shared/variants";
-import digiConnectCard from "./assets/digiconnect-card.jpg";
+import digiConnectCard from "./assets/digiconnect-card.jpeg";
 import skillConnectCard from "./assets/skillconnect-card.jpg";
-import eduConnectCard from "./assets/educonnect-card.jpg";
+import eduConnectCard from "./assets/educonnect-card.jpeg";
 
 const platformImages = {
   "01": digiConnectCard,
