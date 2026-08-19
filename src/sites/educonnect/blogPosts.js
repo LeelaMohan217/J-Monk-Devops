@@ -1,9 +1,9 @@
-import howMuchGap from "./assets/blog/how-much-gap.jpeg";
-import canITravel from "./assets/blog/can-i-tavel.jpeg";
-import bestManagementUsa from "./assets/blog/best-management-usa.jpeg";
-import day1Cpt from "./assets/blog/day1-cpt.jpeg";
-import supplyChain from "./assets/blog/supply-chain.jpeg";
-import day1CptUniversities from "./assets/blog/day1-cpt-universities.jpeg";
+import howMuchGap from "./assets/blog/how-much-gap.jpg";
+import canITravel from "./assets/blog/can-i-travel.jpg";
+import bestManagementUsa from "./assets/blog/best-management-usa.jpg";
+import day1Cpt from "./assets/blog/day1-cpt.jpg";
+import supplyChain from "./assets/blog/supply-chain.jpg";
+import day1CptUniversities from "./assets/blog/day1-cpt-universities.jpg";
 
 // Static placeholder posts, no CMS/backend behind EduConnect yet, so blog
 // content lives here and Blog.jsx / BlogPost.jsx both read from it.

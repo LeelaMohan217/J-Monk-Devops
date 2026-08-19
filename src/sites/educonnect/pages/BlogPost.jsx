@@ -52,11 +52,12 @@ const BlogPost = () => {
             Back to Blog
           </Link>
 
-          {/* Same meta treatment as the blog index: muted tag pills, plain
-              small type for date and read time, no icons. */}
-          <div className="mt-6">
-            <TagList tags={post.tags} />
-          </div>
+          {/* Same meta treatment as the blog index: muted tag, plain small
+              type for date and read time, no icons. Full tag list moves to
+              the foot of the article, after the body. */}
+          <span className="mt-6 block w-fit text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
+            {post.tags[0]}
+          </span>
           <h1 className="mt-4 text-display-sm font-semibold text-neutral-900 sm:text-display-md">
             {post.title}
           </h1>
@@ -89,6 +90,10 @@ const BlogPost = () => {
           className="mx-auto flex max-w-3xl flex-col gap-6 px-6 md:px-8"
         >
           <BlogBody body={post.body} />
+
+          <div className="mt-4 border-t border-neutral-200 pt-8">
+            <TagList tags={post.tags} />
+          </div>
         </motion.div>
       </section>
     </article>
