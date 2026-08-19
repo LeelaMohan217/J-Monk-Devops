@@ -25,9 +25,9 @@ const ServicesSection = () => {
             {services.eyebrow}
           </span>
 
-          <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-neutral-900">
+          <h1 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-neutral-900">
             {services.heading}
-          </h2>
+          </h1>
 
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-neutral-600">
             {services.lead}
