@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   UserCheck,
   GraduationCap,
   ClipboardCheck,
@@ -11,6 +9,7 @@ import {
   Check,
 } from "lucide-react";
 import { fadeIn, stagger, riseIn } from "../../../shared/variants";
+import HeroSection from "./home/HeroSection";
 
 const services = [
   {
@@ -74,57 +73,7 @@ const destinations = [
 const Home = () => {
   return (
     <>
-      <div className="bg-linear-to-t from-neutral-50 to-neutral-200">
-        <div className="max-w-6xl mx-auto py-2 md:py-4 px-6 md:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate="show"
-            className="flex flex-col items-center text-center gap-4 md:gap-6 pt-24 pb-24 sm:pb-28"
-          >
-            <motion.span
-              variants={fadeIn("up", 0.1)}
-              className="uppercase tracking-[0.25em] text-red-600 text-xs md:text-sm font-semibold"
-            >
-              EduConnect
-            </motion.span>
-            <motion.h1
-              variants={fadeIn("up", 0.2)}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold md:font-semibold leading-tight"
-            >
-              Dream. Move.{" "}
-              <span className="bg-linear-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
-                Become.
-              </span>
-            </motion.h1>
-            <motion.p
-              variants={fadeIn("up", 0.3)}
-              className="max-w-2xl text-neutral-600 text-base md:text-lg"
-            >
-              We guide students through every stage of their international
-              education journey — from career counselling and university
-              selection to visa assistance and pre-departure support.
-            </motion.p>
-            <motion.div
-              variants={fadeIn("up", 0.4)}
-              className="flex flex-wrap justify-center gap-4 mt-2"
-            >
-              <Link
-                to="/educonnect/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/20 hover:-translate-y-0.5"
-              >
-                Get in Touch <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/educonnect/services"
-                className="px-6 py-3 border border-neutral-300 text-neutral-800 hover:border-red-600 hover:text-red-700 font-medium transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Our Services
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
+      <HeroSection />
 
       <section id="services" className="bg-white py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col gap-12">
