@@ -5,8 +5,8 @@ export const hero = {
   eyebrow: "Study Abroad Consulting",
   // Split so HeroSection can colour the back half of the sentence — kept as
   // two plain strings rather than markup so this file stays pure data.
-  headingLead: "A clear path from shortlist to ",
-  headingAccent: "offer letter.",
+  headingLead: "Expert guidance, real ",
+  headingAccent: "global outcomes.",
   lead: "EduConnect pairs every student with a dedicated counsellor for university selection, applications, visas, and the practical work of settling in abroad. One team from start to finish, not a directory you're left to figure out alone.",
   primaryCta: { label: "Book a free consultation", href: "/educonnect/contact" },
   secondaryCta: { label: "See how it works", href: "/educonnect/services" },
