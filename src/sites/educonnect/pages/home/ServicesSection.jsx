@@ -12,10 +12,14 @@ import heroCollageWebp from "../../assets/educonnect-hero1.webp";
 // both real services, just the more supplementary two, still listed in full
 // on /educonnect/services via the CTA below.
 
-// Dark gradient tile, no photo — heading pinned to the bottom by default,
-// description hidden. On hover the content flips to justify-between: heading
-// jumps to the top, description fades in at the bottom, gap between them is
-// intentional rather than tightly packed.
+// Plain white tile, heading pinned to the bottom by default, description
+// collapsed to zero height (not just invisible — opacity alone still
+// reserves layout space, which was pushing multi-line headings up out of
+// the card). The grid-rows 0fr->1fr trick collapses/expands the description
+// properly regardless of how many lines it wraps to. On hover the content
+// flips to justify-between: heading rises to the top, description expands
+// in below it, whatever gap results is intentional rather than tightly
+// packed.
 const ServiceCard = ({ service, index }) => (
   <motion.li
     variants={riseIn(index * 0.06)}
@@ -24,13 +28,15 @@ const ServiceCard = ({ service, index }) => (
     viewport={{ once: true, amount: 0.4 }}
     className="group relative h-40 w-full overflow-hidden rounded-lg border border-neutral-200 bg-surface"
   >
-    <div className="absolute inset-0 flex flex-col justify-end gap-2 p-5 group-hover:justify-between">
+    <div className="absolute inset-0 flex flex-col justify-end p-5 group-hover:justify-between">
       <h3 className="text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
         {service.name}
       </h3>
-      <p className="text-sm leading-relaxed text-neutral-600 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
-        {service.description}
-      </p>
+      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grid-rows-[1fr]">
+        <p className="min-h-0 overflow-hidden text-sm leading-relaxed text-neutral-600 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100">
+          {service.description}
+        </p>
+      </div>
     </div>
   </motion.li>
 );
