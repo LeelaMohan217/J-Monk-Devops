@@ -3,13 +3,15 @@
 // src/sites/digiconnect/pages/about/data.js structure.
 export const pageHeader = {
   eyebrow: "About",
-  heading: "The people behind EduConnect.",
+  headingLead: "The people behind ",
+  headingAccent: "EduConnect.",
   lead: "EduConnect is JMonkDevOps' study abroad guidance practice, a small team of counsellors who stay with you from your first shortlist through the day you land.",
 };
 
 export const story = {
   eyebrow: "Our Story",
-  heading: "Built around what students actually need",
+  headingLead: "Built around what students ",
+  headingAccent: "actually need",
   paragraphs: [
     "We started EduConnect because too many students were making five- and six-figure decisions about their education based on rankings lists and rumours, without anyone walking them through the tradeoffs.",
     "Our counsellors work with students one-on-one, evaluating academic profiles, shortlisting universities and courses that genuinely fit, and staying involved through applications, visas, and pre-departure preparation.",
@@ -18,7 +20,8 @@ export const story = {
 
 export const values = {
   eyebrow: "What That Means In Practice",
-  heading: "A few things worth knowing before you call.",
+  headingLead: "A few things worth knowing ",
+  headingAccent: "before you call.",
   items: [
     {
       term: "Student-first, not university-first",

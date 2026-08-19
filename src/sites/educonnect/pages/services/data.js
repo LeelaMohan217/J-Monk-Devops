@@ -3,7 +3,8 @@
 // per-page data.js files.
 export const pageHeader = {
   eyebrow: "Services",
-  heading: "End-to-end support for your study abroad journey.",
+  headingLead: "End-to-end support for your ",
+  headingAccent: "study abroad journey.",
   lead: "From your first shortlist to your first week abroad, here's where EduConnect helps.",
 };
 
@@ -43,7 +44,8 @@ export const services = [
 
 export const process = {
   eyebrow: "How It Works",
-  heading: "Three stages, one team throughout.",
+  headingLead: "Three stages, ",
+  headingAccent: "one team throughout.",
   steps: [
     {
       title: "Choosing where to apply",

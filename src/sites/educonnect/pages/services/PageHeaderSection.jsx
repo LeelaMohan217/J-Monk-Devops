@@ -25,7 +25,10 @@ const PageHeaderSection = () => {
             animate="show"
             className="max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl"
           >
-            {pageHeader.heading}
+            {pageHeader.headingLead}
+            <span className="font-['Playfair_Display',serif] text-red-600 italic">
+              {pageHeader.headingAccent}
+            </span>
           </motion.h1>
 
           <motion.p

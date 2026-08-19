@@ -28,7 +28,10 @@ export const hero = {
 
 export const services = {
   eyebrow: "What We Help With",
-  heading: "Everything between deciding to go and landing there.",
+  // Split so the section can colour the closing phrase — same pattern as
+  // hero.headingLead/headingAccent.
+  headingLead: "Everything between deciding to go and ",
+  headingAccent: "landing there.",
   lead: "Six services, one counsellor. You don't get handed off between departments as your application moves along.",
   cta: { label: "See the full services page", href: "/educonnect/services" },
   // Mirrors the service list on the dedicated /educonnect/services page —
@@ -69,7 +72,8 @@ export const services = {
 
 export const whyUs = {
   eyebrow: "Why EduConnect",
-  heading: "Why students choose to go through us.",
+  headingLead: "Why students choose ",
+  headingAccent: "to go through us.",
   lead: "There are cheaper directories and freer forums. Here's what a dedicated counsellor actually gets you.",
   points: [
     {

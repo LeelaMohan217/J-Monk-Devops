@@ -114,7 +114,10 @@ const EduConnectContact = () => {
               animate="show"
               className="max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl"
             >
-              Let&apos;s map the route abroad.
+              Let&apos;s map the{" "}
+              <span className="font-['Playfair_Display',serif] text-red-600 italic">
+                route abroad.
+              </span>
             </motion.h1>
 
             <motion.p

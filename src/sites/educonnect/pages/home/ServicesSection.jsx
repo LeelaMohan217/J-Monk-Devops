@@ -26,7 +26,10 @@ const ServicesSection = () => {
           </span>
 
           <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900">
-            {services.heading}
+            {services.headingLead}
+            <span className="font-['Playfair_Display',serif] text-red-600 italic">
+              {services.headingAccent}
+            </span>
           </h2>
 
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-neutral-600">

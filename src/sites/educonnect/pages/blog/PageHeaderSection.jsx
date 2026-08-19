@@ -3,7 +3,8 @@ import { fadeIn } from "../../../../shared/variants";
 
 const pageHeader = {
   eyebrow: "Blog",
-  heading: "Notes from the study abroad process.",
+  headingLead: "Notes from the ",
+  headingAccent: "study abroad process.",
   lead: "Practical guidance on exams, applications, visas, and life abroad, drawn from the questions students ask us most.",
 };
 
@@ -29,7 +30,10 @@ const PageHeaderSection = () => {
             animate="show"
             className="max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl"
           >
-            {pageHeader.heading}
+            {pageHeader.headingLead}
+            <span className="font-['Playfair_Display',serif] text-red-600 italic">
+              {pageHeader.headingAccent}
+            </span>
           </motion.h1>
 
           <motion.p
