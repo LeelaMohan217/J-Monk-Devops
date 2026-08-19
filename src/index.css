@@ -5,6 +5,12 @@
    numerals, stat values) via arbitrary font-[...] classes — not wired into
    the shared --font-sans token, so DigiConnect/SkillConnect are unaffected. */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+/* Geist (EduConnect's body/heading font, applied via a wrapper class in
+   EduConnectApp.jsx so it cascades without touching --font-sans) and
+   Playfair Display (EduConnect's red accent-text font, e.g. the hero
+   heading's coloured word) — same "load globally, scope by class" pattern
+   as IBM Plex Mono above. */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 /*
   ---break---
 */

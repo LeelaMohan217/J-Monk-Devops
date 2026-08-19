@@ -35,7 +35,9 @@ const HeroSection = () => {
               className="max-w-xl text-display-sm font-semibold text-neutral-900 sm:text-display-md"
             >
               {hero.headingLead}
-              <span className="text-red-600">{hero.headingAccent}</span>
+              <span className="font-['Playfair_Display',serif] text-red-600">
+                {hero.headingAccent}
+              </span>
             </motion.h1>
 
             <motion.p
