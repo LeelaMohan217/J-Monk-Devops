@@ -48,7 +48,7 @@ const WhyChooseSection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.4 }}
-                className="flex min-h-[280px] flex-col items-center justify-center gap-4 border border-neutral-200 p-8 text-center"
+                className="flex min-h-[280px] flex-col items-center justify-center gap-4 rounded-lg border border-neutral-200 p-8 text-center"
               >
                 <Icon
                   className="h-7 w-7 text-red-600"
