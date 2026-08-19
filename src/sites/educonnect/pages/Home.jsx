@@ -1,54 +1,8 @@
 import { motion } from "framer-motion";
-import {
-  UserCheck,
-  GraduationCap,
-  ClipboardCheck,
-  Stamp,
-  BookOpen,
-  PlaneTakeoff,
-  Check,
-} from "lucide-react";
+import { Check } from "lucide-react";
 import { fadeIn, stagger, riseIn } from "../../../shared/variants";
 import HeroSection from "./home/HeroSection";
-
-const services = [
-  {
-    icon: UserCheck,
-    title: "Career Counselling & Profile Evaluation",
-    description:
-      "Personalized counselling sessions to identify suitable countries, universities, and career pathways.",
-  },
-  {
-    icon: GraduationCap,
-    title: "University & Course Selection",
-    description:
-      "Expert assistance in selecting universities and courses aligned with your academic profile and goals.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Application & Admission Support",
-    description:
-      "Help with application processes, document preparation, SOP guidance, and admission procedures.",
-  },
-  {
-    icon: Stamp,
-    title: "Visa Assistance",
-    description:
-      "Complete support for visa applications, documentation, and interview guidance.",
-  },
-  {
-    icon: BookOpen,
-    title: "IELTS / TOEFL / PTE Guidance",
-    description:
-      "Exam preparation guidance, study planning support, and strategic preparation resources.",
-  },
-  {
-    icon: PlaneTakeoff,
-    title: "Pre-Departure & Student Support",
-    description:
-      "Accommodation guidance, travel preparation, and international transition support.",
-  },
-];
+import ServicesSection from "./home/ServicesSection";
 
 const whyPoints = [
   "Personalized Student Guidance",
@@ -75,50 +29,7 @@ const Home = () => {
     <>
       <HeroSection />
 
-      <section id="services" className="bg-white py-20 md:py-24">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col gap-12">
-          <motion.div
-            variants={fadeIn("up", 0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
-            className="max-w-2xl mx-auto text-center flex flex-col gap-4"
-          >
-            <span className="uppercase tracking-[0.25em] text-red-600 text-xs md:text-sm font-semibold">
-              Our Services
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">
-              End-to-end support for your study abroad journey
-            </h2>
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {services.map((service) => (
-              <motion.div
-                key={service.title}
-                variants={fadeIn("up", 0.1)}
-                className="flex flex-col gap-3 p-7 bg-neutral-50 border border-neutral-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="w-11 h-11 bg-linear-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-md shadow-red-900/20">
-                  <service.icon className="w-5 h-5" />
-                </div>
-                <h3 className="font-semibold text-lg text-neutral-900">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <ServicesSection />
 
       <section className="bg-neutral-50 py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-14 items-start">
