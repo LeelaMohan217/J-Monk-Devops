@@ -13,35 +13,70 @@ import { riseIn } from "../variants";
 // maxWidthClass mirrors Navbar's prop — the rail differs per brand shell
 // (DigiConnect and EduConnect run max-w-7xl, SkillConnect max-w-6xl), and this
 // banner has to line up with the sections above it rather than impose a width.
+//
+// variant is opt-in and defaults to "default" (the original look), so
+// DigiConnect/SkillConnect render byte-identical unless a brand's config
+// explicitly sets contactCta.variant (currently only EduConnect does, using
+// "dark": a light-gray panel with a solid black button instead of the
+// red-on-white banner).
 const ContactCmp = ({
   heading,
   subtext,
   ctaLabel,
   ctaHref,
   maxWidthClass = "max-w-6xl",
+  variant = "default",
 }) => {
+  const dark = variant === "dark";
+
   return (
-    <section className="border-t border-neutral-200 bg-surface">
+    <section
+      className={
+        dark
+          ? "bg-surface-sunken"
+          : "border-t border-neutral-200 bg-surface"
+      }
+    >
       <div className={`mx-auto ${maxWidthClass} px-6 py-16 md:px-8 md:py-24`}>
         <motion.div
           variants={riseIn()}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16"
+          className={
+            dark
+              ? "flex flex-col items-center gap-6 rounded-2xl p-10 text-center md:p-16"
+              : "flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16"
+          }
         >
           <div>
-            <h2 className="max-w-2xl text-display-sm font-semibold text-neutral-900">
+            <h2
+              className={
+                dark
+                  ? "text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900"
+                  : "max-w-2xl text-display-sm font-semibold text-neutral-900"
+              }
+            >
               {heading}
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base">
+            <p
+              className={
+                dark
+                  ? "mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600 md:text-base"
+                  : "mt-4 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base"
+              }
+            >
               {subtext}
             </p>
           </div>
 
           <Link
             to={ctaHref}
-            className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            className={`group inline-flex w-fit shrink-0 items-center gap-2 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 ${
+              dark
+                ? "rounded-full bg-neutral-900 hover:bg-neutral-800 focus-visible:outline-neutral-900"
+                : "rounded-lg bg-red-600 hover:bg-red-700 focus-visible:outline-red-600"
+            }`}
           >
             {ctaLabel}
             <ArrowRight
