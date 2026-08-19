@@ -1,6 +1,7 @@
 import HeroSection from "./home/HeroSection";
 import ServicesSection from "./home/ServicesSection";
 import WhyChooseSection from "./home/WhyChooseSection";
+import TestimonialsSection from "./home/TestimonialsSection";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <HeroSection />
       <ServicesSection />
       <WhyChooseSection />
+      <TestimonialsSection />
     </>
   );
 };

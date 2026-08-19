@@ -67,6 +67,33 @@ export const services = {
   ],
 };
 
+// PLACEHOLDER — every quote/name/detail below is a stand-in for layout
+// purposes, not a real student. Replace all three before this goes live.
+export const testimonials = {
+  eyebrow: "What Students Say",
+  heading: "A few voices from the journey.",
+  items: [
+    {
+      quote:
+        "My counsellor walked me through every step, from shortlisting universities to the visa interview. I never felt like I was figuring it out alone.",
+      name: "Ananya R.",
+      detail: "MS in Data Science, Canada",
+    },
+    {
+      quote:
+        "I was overwhelmed by all the options until EduConnect helped me narrow things down to what actually fit my budget and goals.",
+      name: "Rahul M.",
+      detail: "MBA, United Kingdom",
+    },
+    {
+      quote:
+        "They handled the paperwork so I could focus on preparing for the move itself. Genuinely made the whole process less stressful.",
+      name: "Priya S.",
+      detail: "Bachelor's, Australia",
+    },
+  ],
+};
+
 export const whyUs = {
   eyebrow: "Why EduConnect",
   heading: "Why students choose to go through us.",
