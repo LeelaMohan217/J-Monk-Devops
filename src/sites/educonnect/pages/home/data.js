@@ -3,10 +3,27 @@
 // DigiConnect's src/sites/digiconnect/pages/home/data.js.
 export const hero = {
   eyebrow: "Study Abroad Consulting",
-  heading: "A clear path from shortlist to offer letter.",
+  // Split so HeroSection can colour the back half of the sentence — kept as
+  // two plain strings rather than markup so this file stays pure data.
+  headingLead: "A clear path from shortlist to ",
+  headingAccent: "offer letter.",
   lead: "EduConnect pairs every student with a dedicated counsellor for university selection, applications, visas, and the practical work of settling in abroad. One team from start to finish, not a directory you're left to figure out alone.",
   primaryCta: { label: "Book a free consultation", href: "/educonnect/contact" },
   secondaryCta: { label: "See how it works", href: "/educonnect/services" },
+  // PLACEHOLDER — swap in real figures before this goes live. "Study
+  // destinations" is the one real number here (matches the seven countries
+  // listed on the services/about pages); the other two need actual data.
+  stats: [
+    { value: "500+", label: "Students placed" },
+    { value: "50+", label: "Partner universities" },
+    { value: "7", label: "Study destinations" },
+  ],
+  // PLACEHOLDER — replace with the real rating, source, and review count.
+  rating: {
+    value: "4.8",
+    outOf: "5",
+    source: "Google Reviews",
+  },
 };
 
 export const services = {
