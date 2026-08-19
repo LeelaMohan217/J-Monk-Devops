@@ -27,7 +27,7 @@ const PageHeaderSection = () => {
             variants={fadeIn("up", 0.15)}
             initial="hidden"
             animate="show"
-            className="max-w-3xl text-display-sm font-semibold text-neutral-900 sm:text-display-md"
+            className="max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl"
           >
             {pageHeader.heading}
           </motion.h1>

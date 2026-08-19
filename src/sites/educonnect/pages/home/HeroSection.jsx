@@ -32,7 +32,7 @@ const HeroSection = () => {
               variants={fadeIn("up", 0.1)}
               initial="hidden"
               animate="show"
-              className="max-w-xl text-display-sm font-semibold text-neutral-900 sm:text-display-md"
+              className="max-w-xl text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl"
             >
               {hero.headingLead}
               <span className="font-['Playfair_Display',serif] text-red-600 italic">

@@ -58,7 +58,7 @@ const BlogPost = () => {
           <span className="mt-6 block w-fit text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
             {post.tags[0]}
           </span>
-          <h1 className="mt-4 text-display-sm font-semibold text-neutral-900 sm:text-display-md">
+          <h1 className="mt-4 text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl">
             {post.title}
           </h1>
           <p className="mt-6 text-xs tabular-nums text-neutral-400">
