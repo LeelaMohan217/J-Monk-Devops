@@ -44,7 +44,13 @@ function ScrollToTop() {
       }
     }
 
-    window.scrollTo(0, 0);
+    // index.html sets scroll-behavior: smooth on <html> for in-page anchor
+    // links, but scrollTo's default "auto" behavior defers to that CSS
+    // property — so without an explicit "instant" override here, this
+    // reset would itself animate smoothly up from wherever the page was
+    // scrolled, visibly scrolling past the footer instead of snapping to
+    // the top instantly.
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location]);
 
   return null;
@@ -91,7 +97,12 @@ function App() {
       <ScrollToTop />
       <SiteNav />
       <MobileNavMenu />
-      <Suspense fallback={null}>
+      {/* fallback is not null: while a brand's lazy chunk is loading, an empty
+          fallback collapses the routed content to nothing, so the footer
+          (always mounted, below this boundary) rides up next to the navbar
+          until the real page pops in and pushes it back down. A min-h-screen
+          spacer keeps the footer off-screen for that gap instead. */}
+      <Suspense fallback={<div className="min-h-screen" />}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/digiconnect/*" element={<DigiConnectApp />} />

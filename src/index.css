@@ -60,6 +60,12 @@
     @apply font-sans;
     overscroll-behavior-y: none;
     overflow-x: hidden;
+    /* Otherwise, when a lazy route's fallback briefly collapses the page's
+       height during a client-side navigation, Chromium's scroll anchoring
+       tries to preserve the old visual anchor and re-adjusts scroll on its
+       own — after ScrollToTop's layout effect already reset it to 0,
+       overriding it and causing the footer to flash into view. */
+    overflow-anchor: none;
   }
 }
 /*
