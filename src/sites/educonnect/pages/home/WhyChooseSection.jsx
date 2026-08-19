@@ -1,20 +1,61 @@
 import { motion } from "framer-motion";
-import { PhoneCall, Users, Eye, UserCheck, FileCheck2, LifeBuoy } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { whyUs } from "./data";
+import photo1 from "../../assets/blog/supply-chain.jpg";
+import photo2 from "../../assets/blog/best-management-usa.jpg";
+import photo3 from "../../assets/educonnect-hero1.jpg";
 
-// One icon per point, matched by array position to whyUs.points in ./data.
-const ICONS = [PhoneCall, Users, Eye, UserCheck, FileCheck2, LifeBuoy];
+// 3-col, 2-row checkerboard: even cells are photo tiles, odd cells are plain
+// white content tiles (heading + description, no icon). Replaces the
+// earlier icon-card grid entirely. Only 3 of whyUs.points fit 3 content
+// cells — kept the most distinct spread across the student journey (start,
+// differentiator, finish); data.js still carries all 6 for anywhere else
+// that might want the full list.
+const PHOTOS = [photo1, photo2, photo3];
+const POINT_INDEXES = [0, 2, 5];
 
-// Plain bordered cards, no shadow or hover motion, all six the same size
-// regardless of copy length (min-h-[280px] rather than letting content set
-// the height), so the grid reads as one deliberate set of tiles rather than
-// six independently sized boxes.
+const PhotoTile = ({ src, index }) => (
+  <motion.li
+    variants={riseIn(index * 0.06)}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.4 }}
+    className="aspect-square overflow-hidden rounded-xl border border-neutral-200"
+  >
+    <img
+      src={src}
+      alt=""
+      className="h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  </motion.li>
+);
+
+const ContentTile = ({ point, index }) => (
+  <motion.li
+    variants={riseIn(index * 0.06)}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.4 }}
+    className="flex aspect-square flex-col justify-center rounded-xl border border-neutral-200 bg-surface p-6"
+  >
+    <h3 className="text-base font-medium tracking-tight text-neutral-900">
+      {point.term}
+    </h3>
+    <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+      {point.detail}
+    </p>
+  </motion.li>
+);
+
 const WhyChooseSection = () => {
+  const points = POINT_INDEXES.map((i) => whyUs.points[i]);
+
   return (
     <section
       id="why-us"
-      className="scroll-mt-24 bg-surface-muted py-24 md:py-32"
+      className="scroll-mt-24 bg-surface py-24 md:py-32"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
@@ -40,33 +81,13 @@ const WhyChooseSection = () => {
           </p>
         </motion.div>
 
-        <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
-          {whyUs.points.map((point, index) => {
-            const Icon = ICONS[index];
-
-            return (
-              <motion.li
-                key={point.term}
-                variants={riseIn(Math.min(index, 3) * 0.06)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.4 }}
-                className="flex min-h-[280px] flex-col items-center justify-center gap-4 rounded-lg border border-neutral-200 p-8 text-center"
-              >
-                <Icon
-                  className="h-7 w-7 text-red-600"
-                  strokeWidth={1.75}
-                  aria-hidden="true"
-                />
-                <h3 className="text-base font-medium tracking-tight text-neutral-900">
-                  {point.term}
-                </h3>
-                <p className="text-sm leading-relaxed text-neutral-600">
-                  {point.detail}
-                </p>
-              </motion.li>
-            );
-          })}
+        <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3 md:mt-20">
+          <PhotoTile src={PHOTOS[0]} index={0} />
+          <ContentTile point={points[0]} index={1} />
+          <PhotoTile src={PHOTOS[1]} index={2} />
+          <ContentTile point={points[1]} index={3} />
+          <PhotoTile src={PHOTOS[2]} index={4} />
+          <ContentTile point={points[2]} index={5} />
         </ul>
       </div>
     </section>

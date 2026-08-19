@@ -26,6 +26,17 @@ export const hero = {
   },
 };
 
+export const aboutIntro = {
+  eyebrow: "Who We Are",
+  headingLead: "We guide the whole journey, not just the ",
+  headingAccent: "paperwork.",
+  paragraph:
+    "EduConnect started because too many students were piecing together advice from forums, agents with hidden commissions, and outdated university brochures. We built a practice around one counsellor staying with you from your first shortlist to the day you land, so nothing falls through the cracks between departments.",
+  cta: { label: "Know more about us", href: "/educonnect/about" },
+  // PLACEHOLDER — swap in the real client satisfaction figure once tracked.
+  stat: { value: "98%", label: "Client satisfaction rate" },
+};
+
 export const services = {
   eyebrow: "What We Help With",
   // Split so the section can colour the closing phrase — same pattern as
@@ -66,6 +77,50 @@ export const services = {
       name: "Pre-Departure & Settling-In Support",
       description:
         "Accommodation, travel, and the practical groundwork for your first weeks in a new country.",
+    },
+  ],
+};
+
+// PLACEHOLDER — every quote/name below is a stand-in for layout purposes,
+// not a real student. Replace all five before this goes live. avatarColor is
+// a flat fill for the review's monogram circle, deliberately not a photo —
+// no real reviewer headshots exist yet, and a fabricated one would read as
+// a fake testimonial rather than a genuine review (same reasoning as the
+// hero's rating card).
+export const testimonials = {
+  eyebrow: "Testimonials",
+  headingLead: "Real progress, ",
+  headingAccent: "real transformations.",
+  lead: "A handful of reviews from students who went through the process with us.",
+  items: [
+    {
+      quote:
+        "EduConnect made a confusing process feel manageable from day one.",
+      name: "Ananya R.",
+      avatarColor: "bg-red-100",
+    },
+    {
+      quote:
+        "I had three different offers by the time I actually understood my own options. My counsellor walked me through every one of them without ever pushing a particular university.",
+      name: "Rahul M.",
+      avatarColor: "bg-neutral-200",
+    },
+    {
+      quote:
+        "What stood out wasn't just the guidance on applications, it was how available they stayed through the visa interview prep and even after I landed. I had questions about renting an apartment and opening a bank account, and someone actually answered them instead of pointing me to a generic FAQ page.",
+      name: "Priya S.",
+      avatarColor: "bg-red-200",
+    },
+    {
+      quote:
+        "Honest about which universities were actually a stretch for my profile, which saved me a lot of wasted application fees.",
+      name: "Karthik V.",
+      avatarColor: "bg-neutral-300",
+    },
+    {
+      quote: "Straightforward pricing, no surprise add-ons partway through.",
+      name: "Meera K.",
+      avatarColor: "bg-red-100",
     },
   ],
 };
