@@ -50,26 +50,6 @@ export const services = {
   ],
 };
 
-// `coordinates` are [latitude, longitude] marker positions for the globe in
-// DestinationsSection — one representative city per destination, since the
-// globe plots points rather than borders. The catch-all entry has none, so it
-// renders as a label only.
-export const destinations = {
-  eyebrow: "Where We Send Students",
-  heading: "Seven destinations, and the paperwork for all of them.",
-  hint: "The globe tours every destination we place students in. Drag it to look around.",
-  items: [
-    { name: "USA", coordinates: [40.7128, -74.006] }, // New York
-    { name: "UK", coordinates: [51.5074, -0.1278] }, // London
-    { name: "Canada", coordinates: [43.6532, -79.3832] }, // Toronto
-    { name: "Australia", coordinates: [-33.8688, 151.2093] }, // Sydney
-    { name: "Europe", coordinates: [52.52, 13.405] }, // Berlin
-    { name: "Ireland", coordinates: [53.3498, -6.2603] }, // Dublin
-    { name: "New Zealand", coordinates: [-36.8485, 174.7633] }, // Auckland
-    { name: "Other Global Destinations" },
-  ],
-};
-
 export const whyUs = {
   eyebrow: "Why EduConnect",
   heading: "Why students choose to go through us.",
