@@ -6,12 +6,13 @@ import { hero } from "./data";
 import heroCollageJpg from "../../assets/educonnect-hero1.jpg";
 import heroCollageWebp from "../../assets/educonnect-hero1.webp";
 
-// Light, editorial hero rather than the previous full-bleed dark photo: white
-// background, copy on the left, a single photo on the right with a rating
-// badge overlapping its bottom edge. Same shape as a lot of premium
-// SaaS/course-platform heroes, adapted to this site's red accent and
-// hairline-and-type vocabulary instead of that genre's usual blue/rounded
-// look.
+// Redesign pass: notched bottom-right corner on the photo is the site's one
+// signature shape (see also ValuesSection's about portrait, if any, and the
+// About page) — a literal turn in the path, echoing "shortlist to offer
+// letter." Buttons are pill-shaped everywhere now instead of rounded-lg.
+// Eyebrow and stat values switch to IBM Plex Mono, paired against Inter for
+// headings/body, so numbers and labels read as precise/data-like rather than
+// decorative — the type pairing this redesign is built around.
 const HeroSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-surface pt-32 pb-20 md:pt-40 md:pb-28">
@@ -22,7 +23,7 @@ const HeroSection = () => {
               variants={fadeIn("up", 0)}
               initial="hidden"
               animate="show"
-              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
+              className="font-['IBM_Plex_Mono',monospace] text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500"
             >
               {hero.eyebrow}
             </motion.span>
@@ -54,13 +55,13 @@ const HeroSection = () => {
             >
               <Link
                 to={hero.primaryCta.href}
-                className="inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
                 {hero.primaryCta.label}
               </Link>
               <Link
                 to={hero.secondaryCta.href}
-                className="inline-flex items-center justify-center rounded-lg border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:border-red-600 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:border-red-600 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
                 {hero.secondaryCta.label}
               </Link>
@@ -74,7 +75,7 @@ const HeroSection = () => {
             >
               {hero.stats.map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl">
+                  <div className="font-['IBM_Plex_Mono',monospace] text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl">
                     {stat.value}
                   </div>
                   <div className="mt-1 text-xs text-neutral-500">
@@ -95,7 +96,11 @@ const HeroSection = () => {
                 photo's bottom edge — without it the card would sit flush
                 against whatever section follows. */}
             <div className="relative mb-8">
-              <div className="overflow-hidden rounded-2xl border border-neutral-200">
+              {/* Notched bottom-right corner, 40px bite — the site's
+                  signature shape, a literal turn in the frame. clip-path
+                  clips the whole painted box, border included, so a plain
+                  border still reads correctly along the cut edge. */}
+              <div className="overflow-hidden rounded-2xl border border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-40px),calc(100%-40px)_100%,0_100%)]">
                 <picture>
                   <source type="image/webp" srcSet={heroCollageWebp} />
                   <img
@@ -113,7 +118,7 @@ const HeroSection = () => {
               <div className="absolute -bottom-8 left-4 right-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-surface px-4 py-3 shadow-lg sm:right-auto sm:w-fit">
                 <div className="flex items-center gap-1.5 text-red-600">
                   <Star className="h-4 w-4 fill-current" aria-hidden="true" />
-                  <span className="text-lg font-semibold text-neutral-900">
+                  <span className="font-['IBM_Plex_Mono',monospace] text-lg font-semibold text-neutral-900">
                     {hero.rating.value}
                   </span>
                   <span className="text-xs text-neutral-400">

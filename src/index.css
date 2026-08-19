@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+/* IBM Plex Mono: used only by EduConnect's own components (eyebrows,
+   numerals, stat values) via arbitrary font-[...] classes — not wired into
+   the shared --font-sans token, so DigiConnect/SkillConnect are unaffected. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 /*
   ---break---
 */
