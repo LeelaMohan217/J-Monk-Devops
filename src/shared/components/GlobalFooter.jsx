@@ -97,7 +97,13 @@ const GlobalFooter = () => {
               <li>
                 <a
                   href={`tel:${companyConfig.phone.replace(/\s/g, "")}`}
-                  className="inline-block py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
+                  // max-w-full is what makes the sibling break-words actually
+                  // work: an inline-block shrink-wraps to its content, so the
+                  // email grew to its full 172px and spilled out of the grid
+                  // cell (off-screen entirely at 320px) instead of wrapping.
+                  // Capping it at the cell width gives break-words something to
+                  // break the unbreakable address against.
+                  className="inline-block max-w-full py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
                 >
                   {companyConfig.phone}
                 </a>
@@ -105,7 +111,13 @@ const GlobalFooter = () => {
               <li>
                 <a
                   href={`mailto:${companyConfig.email}`}
-                  className="inline-block py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
+                  // max-w-full is what makes the sibling break-words actually
+                  // work: an inline-block shrink-wraps to its content, so the
+                  // email grew to its full 172px and spilled out of the grid
+                  // cell (off-screen entirely at 320px) instead of wrapping.
+                  // Capping it at the cell width gives break-words something to
+                  // break the unbreakable address against.
+                  className="inline-block max-w-full py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
                 >
                   {companyConfig.email}
                 </a>
