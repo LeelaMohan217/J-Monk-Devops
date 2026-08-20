@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { whatWeDo } from "./data";
+import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
 const WhatWeDoSection = () => {
   return (
@@ -21,7 +22,8 @@ const WhatWeDoSection = () => {
               {whatWeDo.eyebrow}
             </span>
             <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
-              {whatWeDo.heading}
+              {whatWeDo.headingLead}
+              <span className={ACCENT_CLASS}>{whatWeDo.headingAccent}</span>
             </h2>
           </div>
           <p className="text-base leading-relaxed text-neutral-600 lg:col-span-4 lg:col-start-9">
@@ -53,7 +55,7 @@ const WhatWeDoSection = () => {
                 />
               </div>
               <div className="px-3 pt-4 pb-3">
-                <h3 className="text-base font-semibold text-neutral-900">
+                <h3 className={`text-lg ${HEADING_FULL_CLASS}`}>
                   {card.label}
                 </h3>
                 <p className="mt-2 text-xs leading-relaxed text-neutral-600 md:text-sm">

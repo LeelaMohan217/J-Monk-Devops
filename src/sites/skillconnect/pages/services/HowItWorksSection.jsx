@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { howItWorks } from "./data";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const HowItWorksSection = () => {
   return (
@@ -17,7 +18,8 @@ const HowItWorksSection = () => {
             {howItWorks.eyebrow}
           </span>
           <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
-            {howItWorks.heading}
+            {howItWorks.headingLead}
+            <span className={ACCENT_CLASS}>{howItWorks.headingAccent}</span>
           </h2>
 
           {howItWorks.paragraphs.map((paragraph) => (

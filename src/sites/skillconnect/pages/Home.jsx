@@ -11,53 +11,60 @@ import {
   Check,
 } from "lucide-react";
 import { fadeIn, stagger, riseIn } from "../../../shared/variants";
+import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../headingStyles";
 
+// Copy rewritten away from the keyword strings this page used to carry. The
+// first card said the projects "simulate real industry environments", which
+// directly contradicted the services page's promise that the work is live client
+// work and "not a sandbox exercise". It now says what actually happens.
+//
+// No description uses a dash as punctuation.
 const offerings = [
   {
     icon: Rocket,
-    title: "Real-World Project Experience",
+    title: "Real project work",
     description:
-      "Work on practical projects that simulate real industry environments and build hands-on experience.",
+      "You are put on live client projects with a real deadline and someone waiting on the result, not an exercise built to be marked and thrown away.",
   },
   {
     icon: TrendingUp,
-    title: "Skill-Based Learning Opportunities",
+    title: "Skills in the stack we use",
     description:
-      "Develop industry-relevant skills through structured guidance and collaborative workflows.",
+      "Training covers what our engineers actually build client work in, so nothing you learn is a warm-up for the thing you will really be asked to do.",
   },
   {
     icon: Handshake,
-    title: "Internship & Collaboration Programs",
+    title: "Internships and freelance work",
     description:
-      "Take part in project collaborations, internships, and community initiatives.",
+      "Two ways in besides training. An internship placed on an active project, or freelance work you take on directly while we handle the client side.",
   },
   {
     icon: FileText,
-    title: "Portfolio & Resume Building",
+    title: "Something to point at",
     description:
-      "Create strong portfolios, project showcases, and professional profiles for better opportunities.",
+      "You finish with work you can show and talk through in an interview, which does more than a certificate saying you attended.",
   },
   {
     icon: Compass,
-    title: "Mentorship & Career Guidance",
+    title: "Mentorship from working engineers",
     description:
-      "Learn from experienced professionals through mentorship, career roadmaps, and interview prep.",
+      "Reviews and guidance come from the people shipping client projects, not from a separate training department.",
   },
   {
     icon: Users,
-    title: "Community & Networking",
+    title: "People to build with",
     description:
-      "Join a collaborative ecosystem of learners, developers, creators, and founders.",
+      "You work alongside other learners and the engineers reviewing your code, which is closer to a real team than a classroom is.",
   },
 ];
 
 const whyPoints = [
-  "Practical Learning Over Traditional Theory",
-  "Industry-Oriented Skill Development",
-  "Exposure to Real Work Environments",
-  "Opportunities to Learn While Earning",
-  "Career-Focused Learning Ecosystem",
-  "Collaborative & Supportive Community",
+  "Live projects rather than practice exercises",
+  "Taught in the stack our client work runs on",
+  "Reviewed by engineers who ship, not trainers",
+  "The freelancing track pays while you learn",
+  "Work you can show, not just a certificate",
+  "A team to build with, not a classroom",
 ];
 
 const audience = [
@@ -90,10 +97,9 @@ const Home = () => {
               variants={fadeIn("up", 0.2)}
               className="text-5xl sm:text-6xl md:text-7xl font-bold md:font-semibold leading-tight"
             >
-              Learn. Build.{" "}
-              <span className="bg-linear-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
-                Grow.
-              </span>
+              {/* Was a red gradient with bg-clip-text. Now the same red
+                  Playfair italic accent every other heading on the site uses. */}
+              Learn. Build. <span className={ACCENT_CLASS}>Grow.</span>
             </motion.h1>
             <motion.p
               variants={fadeIn("up", 0.3)}
@@ -109,15 +115,23 @@ const Home = () => {
             >
               <Link
                 to="/skillconnect/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/20 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium transition-all duration-300 shadow-lg shadow-red-900/20 hover:-translate-y-0.5"
               >
-                Get in Touch <ArrowRight className="w-4 h-4" />
+                Get in Touch
+                <ArrowRight
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </Link>
               <a
                 href="#offerings"
-                className="px-6 py-3 border border-neutral-300 text-neutral-800 hover:border-red-600 hover:text-red-700 font-medium transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 px-6 py-3 border border-neutral-300 text-neutral-800 hover:border-red-600 hover:text-red-700 font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
                 What We Offer
+                <ArrowRight
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </a>
             </motion.div>
           </motion.div>
@@ -137,7 +151,8 @@ const Home = () => {
               What We Offer
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">
-              A practical path from learning to career-ready
+              A practical path from learning to{" "}
+              <span className={ACCENT_CLASS}>career-ready</span>
             </h2>
           </motion.div>
 
@@ -157,7 +172,7 @@ const Home = () => {
                 <div className="w-11 h-11 bg-linear-to-br from-red-500 to-red-700 text-white flex items-center justify-center shadow-md shadow-red-900/20">
                   <offering.icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-900">
+                <h3 className={`text-lg ${HEADING_FULL_CLASS}`}>
                   {offering.title}
                 </h3>
                 <p className="text-sm text-neutral-600 leading-relaxed">
@@ -182,12 +197,13 @@ const Home = () => {
               Why SkillConnect
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">
-              Built around real experience, not just theory
+              Built around real experience,{" "}
+              <span className={ACCENT_CLASS}>not just theory</span>
             </h2>
             <p className="text-neutral-600 text-base leading-relaxed">
-              We help learners move beyond theoretical education and gain
-              practical exposure through live projects, teamwork, mentorship,
-              and career-oriented learning experiences.
+              The point is to get you onto work somebody is depending on, with
+              engineers reviewing it, early enough that you have something to
+              show before you start applying.
             </p>
           </motion.div>
 
@@ -221,7 +237,7 @@ const Home = () => {
           className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col items-center gap-6 text-center"
         >
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
-            Who Can Join?
+            Who <span className={ACCENT_CLASS}>can join?</span>
           </h2>
           <div className="flex flex-wrap justify-center gap-3">
             {audience.map((item) => (

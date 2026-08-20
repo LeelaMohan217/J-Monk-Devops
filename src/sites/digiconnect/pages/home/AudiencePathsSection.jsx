@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { audiencePaths } from "./data";
+import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
 const AudiencePathsSection = () => {
   return (
@@ -23,7 +24,8 @@ const AudiencePathsSection = () => {
               {audiencePaths.eyebrow}
             </span>
             <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
-              {audiencePaths.heading}
+              {audiencePaths.headingLead}
+              <span className={ACCENT_CLASS}>{audiencePaths.headingAccent}</span>
             </h2>
           </div>
           <p className="text-base leading-relaxed text-neutral-600 lg:col-span-4 lg:col-start-9">
@@ -57,7 +59,12 @@ const AudiencePathsSection = () => {
                     {path.label}
                   </span>
                   <div className="mt-2 lg:mt-0">
-                    <h3 className="text-2xl font-semibold tracking-tight text-neutral-700 transition-colors duration-300 group-hover:text-neutral-950 md:text-3xl">
+                    {/* Was neutral-700 shifting to neutral-950 on hover. Now
+                        the accent carries it, so the hover colour shift is
+                        gone and the row's arrow signals interactivity. */}
+                    <h3
+                      className={`text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
+                    >
                       {path.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-neutral-600">

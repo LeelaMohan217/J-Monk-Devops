@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { howWeWork } from "./data";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const HowWeWorkSection = () => {
   return (
@@ -42,7 +43,8 @@ const HowWeWorkSection = () => {
               {howWeWork.eyebrow}
             </span>
             <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
-              {howWeWork.heading}
+              {howWeWork.headingLead}
+              <span className={ACCENT_CLASS}>{howWeWork.headingAccent}</span>
             </h2>
 
             {howWeWork.paragraphs.map((paragraph) => (

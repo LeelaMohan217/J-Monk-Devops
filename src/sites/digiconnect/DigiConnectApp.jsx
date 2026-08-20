@@ -2,8 +2,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import ContactCmp from "../../shared/components/ContactCmp";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Student from "./pages/Student";
-import Businessman from "./pages/Businessman";
+import Services from "./pages/Services";
+import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import { digiConnectConfig } from "./config";
 
@@ -15,8 +15,8 @@ function DigiConnectApp() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="student" element={<Student />} />
-        <Route path="businessman" element={<Businessman />} />
+        <Route path="services" element={<Services />} />
+        <Route path="careers" element={<Careers />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
       {location.pathname !== "/digiconnect/contact" && (

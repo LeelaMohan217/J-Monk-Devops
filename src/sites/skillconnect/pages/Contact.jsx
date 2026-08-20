@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import ContactForm from "../../../shared/components/ContactForm";
 import { riseIn } from "../../../shared/variants";
+import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../headingStyles";
 
 const fields = [
   {
@@ -93,10 +95,11 @@ const SkillConnectContact = () => {
             SkillConnect
           </span>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight leading-[1.1] text-neutral-900 md:text-6xl">
-            Tell us what you&apos;re trying to learn.
+            Tell us what you&apos;re{" "}
+            <span className={ACCENT_CLASS}>trying to learn.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg">
-            This reaches the SkillConnect team directly — the people running the
+            This reaches the SkillConnect team directly. The people running the
             projects and the mentorship, not a general enquiries desk.
           </p>
         </motion.div>
@@ -121,7 +124,7 @@ const SkillConnectContact = () => {
                   key={reason.title}
                   className="border-b border-neutral-200 py-6"
                 >
-                  <h3 className="text-base font-semibold text-neutral-900">
+                  <h3 className={`text-lg ${HEADING_FULL_CLASS}`}>
                     {reason.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">
@@ -143,6 +146,12 @@ const SkillConnectContact = () => {
               idPrefix="skillconnect-contact"
               fields={fields}
               submitLabel="Send to SkillConnect"
+              submitAdornment={
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              }
             />
           </motion.div>
         </div>

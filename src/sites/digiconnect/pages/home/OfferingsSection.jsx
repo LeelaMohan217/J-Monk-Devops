@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { offerings } from "./data";
+import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
 const OfferingsSection = () => {
   return (
@@ -22,7 +23,8 @@ const OfferingsSection = () => {
             {offerings.eyebrow}
           </span>
           <h2 className="mt-4 text-display-sm font-semibold text-neutral-900 md:text-display-md">
-            {offerings.heading}
+            {offerings.headingLead}
+            <span className={ACCENT_CLASS}>{offerings.headingAccent}</span>
           </h2>
         </motion.div>
 
@@ -54,7 +56,9 @@ const OfferingsSection = () => {
                     <span className="h-px w-10 bg-red-600" aria-hidden="true" />
                   </div>
 
-                  <h3 className="mt-5 text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
+                  <h3
+                    className={`mt-5 text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
+                  >
                     {service.name}
                   </h3>
                 </div>

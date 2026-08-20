@@ -1,22 +1,32 @@
 // All copy for the DigiConnect home page lives here so the section components
 // stay purely presentational. Assets are imported directly from ../../assets/
-// rather than through ../../constants — that barrel still carries the stale
+// rather than through ../../constants, since that barrel still carries the stale
 // pre-rebrand copy and instantiates lucide JSX at module scope.
+//
+// Headings are split into a `headingLead` and a `headingAccent`. The lead stays
+// in the sans face, the accent takes red Playfair italic from
+// ../../headingStyles. Kept as two plain strings rather than markup so this file
+// stays pure data.
+//
+// No sentence here uses a dash as punctuation. Where a dash was doing the work
+// of a pause, the sentence was split or reworded instead.
 import productImage from "../../assets/image2.webp";
 import platformImage from "../../assets/image4.webp";
 import consultingImage from "../../assets/image1.webp";
 import partnershipImage from "../../assets/image3.webp";
 
 export const hero = {
-  heading: "Software your business can actually run on.",
-  lead: "DigiConnect designs, builds, and maintains custom software, SaaS products, cloud infrastructure, and the integrations that hold them together — one team, from architecture to production.",
+  headingLead: "Software your business can ",
+  headingAccent: "actually run on.",
+  lead: "DigiConnect designs, builds, and maintains custom software, SaaS products, cloud infrastructure, and the integrations that hold them together. One team, from architecture through to production.",
   primaryCta: { label: "Start a project", href: "/digiconnect/contact" },
-  secondaryCta: { label: "See our offerings", href: "/digiconnect/businessman" },
+  secondaryCta: { label: "See our services", href: "/digiconnect/services" },
 };
 
 export const whatWeDo = {
   eyebrow: "What we do",
-  heading: "Three things we get asked for most.",
+  headingLead: "Three things we get asked for ",
+  headingAccent: "most.",
   lead: "Most engagements start in one of these three places, then grow into the others. You do not have to know which one you need before calling.",
   cards: [
     {
@@ -44,50 +54,53 @@ export const whatWeDo = {
 };
 
 export const offerings = {
-  eyebrow: "Offerings",
-  heading: "What we build and run.",
-  cta: { label: "See the full offerings page", href: "/digiconnect/businessman" },
+  eyebrow: "Services",
+  headingLead: "What we build ",
+  headingAccent: "and run.",
+  cta: { label: "See the full services page", href: "/digiconnect/services" },
+  // Rewritten away from the keyword lists this section used to carry ("scalable
+  // enterprise platforms tailored to your operational needs"), which said very
+  // little and read as filler. Each line now names something concrete instead.
   // Mirrors the `services` array in src/pages/home/data.js, which the umbrella
-  // landing page does not render. Kept local so DigiConnect can evolve this copy
-  // independently; the duplicate should be reconciled when the offerings page
-  // is rewritten.
+  // landing page does not render.
   services: [
     {
       name: "Custom Software Development",
       description:
-        "We design and develop scalable web applications, mobile applications, enterprise platforms, and business management systems tailored to your operational needs.",
+        "Web and mobile apps, internal tools, and the business systems your team runs on all day. Built around how you already work.",
     },
     {
       name: "SaaS Product Development",
       description:
-        "Build powerful SaaS products with secure architecture, modern UI/UX, scalable backend systems, subscription models, and cloud-native infrastructure.",
+        "Multi-tenant products with the boring parts handled properly: accounts, roles, billing, and the reporting your customers will ask for in month three.",
     },
     {
       name: "Cloud & Infrastructure Solutions",
       description:
-        "Deploy and manage secure cloud environments with optimized infrastructure, server management, scalability planning, and performance monitoring.",
+        "Environments that can be rebuilt from scratch rather than nursed along, with monitoring that tells you something is wrong before a customer does.",
     },
     {
       name: "DevOps & Automation Services",
       description:
-        "Streamline development workflows using CI/CD pipelines, infrastructure automation, deployment strategies, monitoring systems, and operational optimization.",
+        "Pipelines that get code to production without a person shepherding each step, so releasing stops being an event you schedule around.",
     },
     {
       name: "API Development & System Integration",
       description:
-        "Integrate third-party platforms, payment gateways, CRMs, ERPs, communication tools, and automation systems for seamless business operations.",
+        "Getting your payment gateway, CRM, and whatever else you already pay for to talk to each other properly, including the failure cases.",
     },
     {
       name: "Technical Consulting",
       description:
-        "Get expert guidance on digital transformation, software architecture, product strategy, technology stack selection, and scalability planning.",
+        "A straight answer on architecture, stack choices, and what will break first as you grow. Useful whether or not you hire us to build it.",
     },
   ],
 };
 
 export const howWeWork = {
   eyebrow: "How we work",
-  heading: "Fewer surprises, by design.",
+  headingLead: "Fewer surprises, ",
+  headingAccent: "by design.",
   image: partnershipImage,
   paragraphs: [
     "We would rather lose a project at the scoping call than halfway through it. That means telling you when a simpler build solves the problem, and when the thing you asked for is not the thing you need.",
@@ -102,7 +115,7 @@ export const howWeWork = {
     {
       term: "Built to hand over",
       detail:
-        "Documented, deployable, and readable by whoever maintains it next — including your own team.",
+        "Documented, deployable, and readable by whoever maintains it next, including your own team.",
     },
     {
       term: "One team throughout",
@@ -115,28 +128,31 @@ export const howWeWork = {
 
 export const audiencePaths = {
   eyebrow: "Where you fit",
-  heading: "Two ways in.",
-  lead: "Most people arrive for one of these. Pick the closer one — we will redirect you if it is the other.",
+  headingLead: "Two ",
+  headingAccent: "ways in.",
+  lead: "Most people arrive for one of these. Pick the closer one and we will redirect you if it turns out to be the other.",
   paths: [
     {
       id: "01",
       label: "Business",
-      title: "Offerings",
+      title: "Services",
       line: "Software, cloud, and automation built around how your business already works.",
-      href: "/digiconnect/businessman",
+      href: "/digiconnect/services",
     },
     {
       id: "02",
       label: "Student",
-      title: "Student programs",
+      // The student programs live on SkillConnect now, so this path leaves the
+      // site. Same SPA, so a react-router Link still handles it client-side.
+      title: "Student programs on SkillConnect",
       line: "Internships, freelancing routes, and training that put you on real project work.",
-      href: "/digiconnect/student",
+      href: "/skillconnect/services",
     },
   ],
 };
 
 // Exactly the eight published on the umbrella landing page. Do not extend this
-// list — the landing records a standing decision not to fabricate capability
+// list. The landing records a standing decision not to fabricate capability
 // claims.
 export const stack = [
   "React",

@@ -1,11 +1,13 @@
+import { ACCENT_CLASS } from "./headingStyles";
+
 export const digiConnectConfig = {
   siteName: "DigiConnect",
   homeHref: "/digiconnect",
   navItems: [
     { label: "Home", href: "/digiconnect" },
     { label: "About", href: "/digiconnect/about" },
-    { label: "Student", href: "/digiconnect/student" },
-    { label: "Offerings", href: "/digiconnect/businessman" },
+    { label: "Services", href: "/digiconnect/services" },
+    { label: "Careers", href: "/digiconnect/careers" },
     { label: "Contact", href: "/digiconnect/contact" },
   ],
   navCtaLabel: "Get started",
@@ -13,13 +15,28 @@ export const digiConnectConfig = {
   // DigiConnect's own pages run on a max-w-7xl rail; Navbar opts into it here
   // so SkillConnect/EduConnect keep their default max-w-6xl.
   navMaxWidthClass: "max-w-7xl",
+  // Puts the same ArrowRight the page CTAs use on the nav button. A boolean
+  // rather than a node so this file stays pure data; App.jsx builds the element.
+  navCtaArrow: true,
   contactCta: {
-    heading: "Ready to Elevate Your Business?",
+    eyebrow: "Next step",
+    // Rewritten from "Ready to Elevate Your Business? / Contact us today to
+    // discuss how our custom software solutions can take your business to the
+    // next level. Let's innovate together!", which was generic filler and made
+    // a promise the rest of the site deliberately avoids making.
+    //
+    // Split for the red Playfair accent, same as every other heading here.
+    headingLead: "Tell us what you are ",
+    headingAccent: "trying to build.",
+    accentClass: ACCENT_CLASS,
     subtext:
-      "Contact us today to discuss how our custom software solutions can take your business to the next level. Let's innovate together!",
-    ctaLabel: "Get Started",
+      "A few lines is enough to start. If we are not the right fit for it, we will say so on the first call rather than three weeks in.",
+    ctaLabel: "Start a project",
     ctaHref: "/digiconnect/contact",
     // This site's pages run on a 7xl rail, same as EduConnect's.
     maxWidthClass: "max-w-7xl",
+    // Bordered card with a red rule and an accented heading. SkillConnect does
+    // not set this, so it keeps ContactCmp's original banner.
+    variant: "panel",
   },
 };

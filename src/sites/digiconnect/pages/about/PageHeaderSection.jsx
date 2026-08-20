@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const PageHeaderSection = () => {
   return (
@@ -51,7 +52,8 @@ const PageHeaderSection = () => {
             animate="show"
             className="max-w-3xl text-display-sm font-semibold text-neutral-900 sm:text-display-md"
           >
-            {pageHeader.heading}
+            {pageHeader.headingLead}
+            <span className={ACCENT_CLASS}>{pageHeader.headingAccent}</span>
           </motion.h1>
 
           <motion.p

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { hero } from "./data";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const HeroSection = () => {
   return (
@@ -43,7 +45,8 @@ const HeroSection = () => {
             animate="show"
             className="max-w-4xl text-display-sm font-semibold text-neutral-900 sm:text-display-md lg:text-display-lg"
           >
-            {hero.heading}
+            {hero.headingLead}
+            <span className={ACCENT_CLASS}>{hero.headingAccent}</span>
           </motion.h1>
 
           <motion.p
@@ -61,17 +64,27 @@ const HeroSection = () => {
             animate="show"
             className="mt-2 flex flex-col gap-3 sm:flex-row sm:gap-4"
           >
+            {/* Both carry the same ArrowRight the rest of the site's CTAs use,
+                sliding on hover via the group class. */}
             <Link
               to={hero.primaryCta.href}
-              className="inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               {hero.primaryCta.label}
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Link>
             <Link
               to={hero.secondaryCta.href}
-              className="inline-flex items-center justify-center rounded-lg border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:border-red-600 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:border-red-600 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               {hero.secondaryCta.label}
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Link>
           </motion.div>
         </div>

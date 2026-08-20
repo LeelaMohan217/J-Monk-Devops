@@ -6,8 +6,8 @@ import { ACCENT_CLASS } from "../../headingStyles";
 const PageHeaderSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Masked grid, same treatment as the home hero and the about/student/
-          services headers, each with its own namespaced pattern id. */}
+      {/* Masked grid, same treatment as the home hero and the about, services,
+          and contact headers, each namespaced with its own pattern id. */}
       <div
         className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
         aria-hidden="true"
@@ -18,7 +18,7 @@ const PageHeaderSection = () => {
         >
           <defs>
             <pattern
-              id="digiconnect-contact-grid"
+              id="digiconnect-careers-grid"
               width="56"
               height="56"
               patternUnits="userSpaceOnUse"
@@ -31,7 +31,11 @@ const PageHeaderSection = () => {
               />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#digiconnect-contact-grid)" />
+          <rect
+            width="100%"
+            height="100%"
+            fill="url(#digiconnect-careers-grid)"
+          />
         </svg>
       </div>
 

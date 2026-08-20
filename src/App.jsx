@@ -1,5 +1,6 @@
 import { Suspense, lazy, useLayoutEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import Landing from "./pages/Landing";
 import GlobalNav from "./shared/components/GlobalNav";
 import Navbar from "./shared/components/Navbar";
@@ -78,6 +79,7 @@ function SiteNav() {
     navCtaHref,
     navMaxWidthClass,
     navVariant,
+    navCtaArrow,
   } = brand.config;
 
   return (
@@ -89,6 +91,16 @@ function SiteNav() {
       ctaHref={navCtaHref}
       {...(navMaxWidthClass ? { maxWidthClass: navMaxWidthClass } : {})}
       {...(navVariant ? { variant: navVariant } : {})}
+      {...(navCtaArrow
+        ? {
+            ctaAdornment: (
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            ),
+          }
+        : {})}
     />
   );
 }

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { useContactForm } from "../../../../shared/hooks/useContactForm";
 import { companyConfig } from "../../../../shared/companyConfig";
@@ -137,9 +137,13 @@ const ContactSection = () => {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="submit"
-                className="inline-flex w-fit items-center justify-center rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/30"
+                className="group inline-flex w-fit items-center justify-center gap-2 rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/30"
               >
                 Send message
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </button>
 
               <p className="text-xs text-neutral-500">

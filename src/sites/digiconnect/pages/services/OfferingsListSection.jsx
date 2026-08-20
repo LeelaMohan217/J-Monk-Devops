@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { offerings } from "./data";
+import { HEADING_FULL_CLASS } from "../../headingStyles";
 
 const OfferingsListSection = () => {
   return (
@@ -30,7 +31,9 @@ const OfferingsListSection = () => {
                   <span className="h-px w-10 bg-red-600" aria-hidden="true" />
                 </div>
 
-                <h2 className="mt-5 text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
+                <h2
+                  className={`mt-5 text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
+                >
                   {offering.name}
                 </h2>
               </div>

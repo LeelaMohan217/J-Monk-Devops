@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 import { Laptop, BadgeIndianRupee, Shapes } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { programs } from "./data";
+import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
-// Same icons the old constants/index.jsx studentData array used for these
-// three tracks, kept for continuity even though the copy itself is new.
+// Same icons DigiConnect's old constants/index.jsx studentData array used
+// for these three tracks, kept for continuity even though the copy is new.
 const icons = {
   internship: Laptop,
   freelancing: BadgeIndianRupee,
@@ -30,7 +31,8 @@ const ProgramsSection = () => {
               {programs.eyebrow}
             </span>
             <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
-              {programs.heading}
+              {programs.headingLead}
+              <span className={ACCENT_CLASS}>{programs.headingAccent}</span>
             </h2>
           </div>
           <p className="text-base leading-relaxed text-neutral-600 lg:col-span-4 lg:col-start-9">
@@ -52,7 +54,7 @@ const ProgramsSection = () => {
                 className="rounded-2xl border border-neutral-200 bg-surface p-6"
               >
                 <Icon className="h-6 w-6 text-red-600" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="mt-5 text-base font-semibold text-neutral-900">
+                <h3 className={`mt-5 text-lg ${HEADING_FULL_CLASS}`}>
                   {item.term}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-600">

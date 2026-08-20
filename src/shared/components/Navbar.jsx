@@ -27,6 +27,10 @@ const Navbar = ({
   navItems,
   ctaLabel,
   ctaHref,
+  // Optional node rendered after the CTA label (DigiConnect's ArrowRight).
+  // Unset for SkillConnect/EduConnect, so their buttons are unchanged.
+  // lg:inline-flex replaces lg:inline-block so label and icon share a baseline.
+  ctaAdornment = null,
   maxWidthClass = "max-w-6xl",
   variant = "default",
 }) => {
@@ -90,13 +94,14 @@ const Navbar = ({
 
           <Link
             to={ctaHref}
-            className={`hidden bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-[background-color,transform] duration-200 hover:bg-red-700 lg:inline-block ${
+            className={`group hidden items-center gap-2 bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-[background-color,transform] duration-200 hover:bg-red-700 lg:inline-flex ${
               variant === "premium"
                 ? "rounded-full active:scale-[0.97]"
                 : "rounded-lg"
             }`}
           >
             {ctaLabel}
+            {ctaAdornment}
           </Link>
         </div>
       </div>

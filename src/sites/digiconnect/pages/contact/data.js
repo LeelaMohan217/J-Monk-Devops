@@ -1,10 +1,11 @@
-// Copy and field config for the DigiConnect contact page. Contact info
-// values themselves are not duplicated here — ContactSection reads them
-// straight from the shared companyConfig so there is one source of truth.
+// Copy and field config for the DigiConnect contact page. Contact info values
+// themselves are not duplicated here. ContactSection reads them straight from
+// the shared companyConfig so there is one source of truth.
 export const pageHeader = {
   eyebrow: "Contact",
-  heading: "Tell us about the project.",
-  lead: "Send a few lines about what you're building or trying to fix, and we'll get back to you directly — no account manager in between.",
+  headingLead: "Tell us about ",
+  headingAccent: "the project.",
+  lead: "Send a few lines about what you're building or trying to fix and we'll get back to you directly. No account manager in between.",
 };
 
 export const formFields = [

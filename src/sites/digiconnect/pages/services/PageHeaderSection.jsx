@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const PageHeaderSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Masked grid, same treatment as the home hero and the about/student
+      {/* Masked grid, same treatment as the home hero and the about/careers
           headers, each with its own namespaced pattern id. */}
       <div
         className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
@@ -17,7 +18,7 @@ const PageHeaderSection = () => {
         >
           <defs>
             <pattern
-              id="digiconnect-businessman-grid"
+              id="digiconnect-services-grid"
               width="56"
               height="56"
               patternUnits="userSpaceOnUse"
@@ -33,7 +34,7 @@ const PageHeaderSection = () => {
           <rect
             width="100%"
             height="100%"
-            fill="url(#digiconnect-businessman-grid)"
+            fill="url(#digiconnect-services-grid)"
           />
         </svg>
       </div>
@@ -55,7 +56,8 @@ const PageHeaderSection = () => {
             animate="show"
             className="max-w-3xl text-display-sm font-semibold text-neutral-900 sm:text-display-md"
           >
-            {pageHeader.heading}
+            {pageHeader.headingLead}
+            <span className={ACCENT_CLASS}>{pageHeader.headingAccent}</span>
           </motion.h1>
 
           <motion.p

@@ -14,12 +14,16 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const baseField =
   "w-full rounded-lg border bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 transition-colors duration-200 focus:outline-none";
 
+// submitAdornment is an optional node rendered after the submit label, used by
+// SkillConnect for its ArrowRight. Left undefined by EduConnect, so its button
+// renders exactly as before.
 const ContactForm = ({
   idPrefix,
   fields,
   submitLabel = "Send message",
   notice = "Contact submission will be available soon.",
   onSubmit,
+  submitAdornment = null,
 }) => {
   const [values, setValues] = useState(() =>
     Object.fromEntries(fields.map((field) => [field.name, ""])),
@@ -171,9 +175,10 @@ const ContactForm = ({
       <div className="flex flex-col gap-4 border-t border-neutral-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <button
           type="submit"
-          className="inline-flex w-fit items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+          className="group inline-flex w-fit items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
         >
           {submitLabel}
+          {submitAdornment}
         </button>
 
         <p className="text-xs text-neutral-500">
