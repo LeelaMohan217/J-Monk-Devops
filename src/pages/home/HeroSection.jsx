@@ -1,32 +1,20 @@
-import { useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { HeroBackdrop } from "@/components/ui/hero-backdrop";
 import { fadeIn } from "../../shared/variants";
 import DashboardGridSection from "./DashboardGridSection";
+import useIsDesktop from "./useIsDesktop";
+import { HERO_CTA_DELAY } from "./motionConfig";
 
-// Matches the lg breakpoint where DashboardGridSection switches from a
-// stacked single column to a 3-up grid. Only there do the gutters between
-// cards leave open space for the wave backdrop to read behind them — below
-// lg the cards stack edge-to-edge with just a 16px gap, so extending the
-// canvas down there would mostly render behind opaque card backgrounds.
-function subscribeDesktop(callback) {
-  const mq = window.matchMedia("(min-width: 1024px)");
-  mq.addEventListener("change", callback);
-  return () => mq.removeEventListener("change", callback);
-}
 
-function getDesktopSnapshot() {
-  return window.matchMedia("(min-width: 1024px)").matches;
-}
-
-function getDesktopServerSnapshot() {
-  return false;
-}
-
+// y is 130%, not 100%, because each word's mask now carries bottom padding to
+// clear the descenders (see the heading below). 100% would leave the word's top
+// edge showing in that padding band before it animates in. 130% clears the
+// tallest mask (the accent words, whose clip runs ~1.18x the line height) with
+// margin to spare; the extra travel is not perceptible at this duration.
 const wordReveal = (delay) => ({
-  hidden: { y: "100%", opacity: 0 },
+  hidden: { y: "130%", opacity: 0 },
   show: {
     y: "0%",
     opacity: 1,
@@ -50,11 +38,7 @@ const headingLines = [
 const ACCENT_CLASS = "font-['Playfair_Display',serif] text-red-600 italic";
 
 const HeroSection = () => {
-  const isDesktop = useSyncExternalStore(
-    subscribeDesktop,
-    getDesktopSnapshot,
-    getDesktopServerSnapshot,
-  );
+  const isDesktop = useIsDesktop();
 
   return (
     <section className="relative w-full overflow-hidden bg-white pt-28 pb-12">
@@ -83,7 +67,11 @@ const HeroSection = () => {
               digitalizing Local Bharath
             </motion.p>
 
-            <h1 className="w-full max-w-2xl text-3xl leading-tight font-semibold sm:text-5xl md:text-6xl">
+            {/* leading-[1.05] rather than leading-tight (1.25): at display
+                sizes 1.25 leaves a visible trench between the two lines. The
+                descender room the tighter leading gives up is added back as
+                padding on each word's mask, below. */}
+            <h1 className="w-full max-w-2xl text-3xl leading-[1.05] font-semibold sm:text-5xl md:text-6xl">
               {headingLines.map((line, lineIndex) => (
                 <span key={lineIndex} className="block">
                   {line.map((word, wordIndex) => {
@@ -91,10 +79,28 @@ const HeroSection = () => {
                     return (
                       <span
                         key={`${word.text}-${index}`}
-                        // Accent words get a sliver of right padding so the
-                        // italic slant isn't clipped by the reveal mask.
-                        className={`mr-[0.25em] inline-block overflow-hidden align-bottom last:mr-0 ${
-                          word.accent ? "pr-[0.08em]" : ""
+                        // Every word's mask needs padding, because
+                        // overflow-hidden clips any ink outside the line box.
+                        //
+                        // Bottom (all words): descenders. Space below the
+                        // baseline inside the box is lineHeight/2 minus half the
+                        // font's content height, so at leading-[1.05] neither
+                        // face has room for its own descender: Inter's "y" needs
+                        // 13/60em and has 9.5, Playfair's "f" needs 12/60em and
+                        // has 6.5. 0.14em covers both with room to spare.
+                        //
+                        // Left/right (accent words only): Playfair Display
+                        // Italic paints outside its advance width. The "f"
+                        // starting "forward." reaches ~0.05em left of the layout
+                        // origin, and the closing glyph's slant reaches right.
+                        //
+                        // Each pad is paired with an equal negative margin, so
+                        // the ink stays exactly where it was and neither word
+                        // spacing nor line spacing changes. Only the clip grows.
+                        // wordReveal's hidden y is raised to 120% to stay hidden
+                        // behind the taller mask.
+                        className={`mr-[0.25em] -mb-[0.14em] inline-block overflow-hidden align-bottom pb-[0.14em] last:mr-0 ${
+                          word.accent ? "-ml-[0.08em] pl-[0.08em] pr-[0.08em]" : ""
                         }`}
                       >
                         <motion.span
@@ -123,8 +129,11 @@ const HeroSection = () => {
               opportunities.
             </motion.p>
 
+            {/* Last of the hero copy. DashboardGridSection's cards follow at
+                HERO_CARDS_DELAY, so both delays come from motionConfig to keep
+                that order fixed. */}
             <motion.div
-              variants={fadeIn("up", 1.15)}
+              variants={fadeIn("up", HERO_CTA_DELAY)}
               initial="hidden"
               animate="show"
             >

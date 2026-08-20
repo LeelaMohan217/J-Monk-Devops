@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { riseIn } from "../../shared/variants";
+import { STEP, centerTrigger, groupContainer } from "./motionConfig";
 import { faqs } from "./data";
 
 const FAQSection = () => {
@@ -10,42 +11,61 @@ const FAQSection = () => {
   return (
     <section id="faq" className="bg-stone-50 py-16 md:py-24 scroll-mt-36">
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid gap-12 lg:grid-cols-2 lg:items-start">
+        {/* Eyebrow, heading, and description arrive one at a time, matching
+            StatsSection. Delays are explicit per child rather than left to a
+            parent staggerChildren: riseIn always writes a `delay` into its own
+            transition, and a child's explicit delay overrides the one the parent
+            computes, so a stagger container would fire all three at once.
+
+            The wrapper keeps the single in-view trigger, which the children
+            inherit by having variants without their own initial/whileInView. */}
         <motion.div
-          variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          variants={groupContainer}
+          {...centerTrigger}
           className="flex flex-col items-start gap-4 text-left"
         >
-          <div className="inline-flex items-center gap-2 text-neutral-600">
+          <motion.div
+            variants={riseIn(0)}
+            className="inline-flex items-center gap-2 text-neutral-600"
+          >
             <span className="text-xs font-medium uppercase tracking-[0.2em]">
               FAQs
             </span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900">
+          <motion.h2
+            variants={riseIn(STEP)}
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900"
+          >
             Got questions? We have{" "}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">
               answers.
             </span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-sm sm:text-base leading-relaxed text-neutral-600">
+          <motion.p
+            variants={riseIn(STEP * 2)}
+            className="text-sm sm:text-base leading-relaxed text-neutral-600"
+          >
             Answers to the questions we hear most about JMonkDevOps and its
             platforms.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="flex flex-col divide-y divide-neutral-200 border-t border-neutral-200">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
+              // Each row triggers on its own with no index delay, unlike the
+              // header group above. The six rows stack to ~540px, so their tops
+              // cross the centre line at six different scroll offsets and they
+              // reveal one by one as you read down, on desktop and mobile alike.
+              // A shared trigger plus index delays would instead push the last
+              // rows to a 1s wait and fire them while still below the fold.
               <motion.div
                 key={faq.question}
-                variants={riseIn(Math.min(index, 4) * 0.06)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
+                variants={riseIn(0)}
+                {...centerTrigger}
               >
                 <button
                   type="button"
@@ -56,8 +76,11 @@ const FAQSection = () => {
                   <span className="text-sm md:text-base font-semibold text-neutral-900">
                     {faq.question}
                   </span>
+                  {/* transition covers transform as well as color: this icon
+                      flips 180deg on open, and with transition-colors alone the
+                      rotation snapped while only the colour eased. */}
                   <ChevronDown
-                    className={`w-5 h-5 shrink-0 transition-colors ${
+                    className={`w-5 h-5 shrink-0 transition-[color,transform] duration-300 ${
                       isOpen ? "rotate-180 text-red-600" : "text-neutral-400"
                     }`}
                   />

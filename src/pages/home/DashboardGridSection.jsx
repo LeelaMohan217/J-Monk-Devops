@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { platforms } from "./data";
-import { fadeIn } from "../../shared/variants";
+import { riseIn } from "../../shared/variants";
+import { HERO_CARDS_DELAY, STEP } from "./motionConfig";
+import useIsDesktop from "./useIsDesktop";
 import digiConnectCard from "./assets/digiconnect-card.webp";
 import skillConnectCard from "./assets/skillconnect-card.webp";
 import eduConnectCard from "./assets/educonnect-card.webp";
@@ -14,18 +16,39 @@ const platformImages = {
 };
 
 const DashboardGridSection = () => {
+  const isDesktop = useIsDesktop();
+
   return (
-    <motion.section
-      className="max-w-7xl mx-auto grid grid-cols-1 gap-4 px-6 md:gap-6 md:px-8 lg:grid-cols-3"
-      variants={fadeIn("up", 1.3)}
-      initial="hidden"
-      animate="show"
-    >
+    <section className="max-w-7xl mx-auto grid grid-cols-1 gap-4 px-6 md:gap-6 md:px-8 lg:grid-cols-3">
       {platforms.map((platform, index) => (
-        <Link
+        // One card at a time instead of the whole grid as a single block.
+        //
+        // The two layouts need genuinely different behaviour:
+        //
+        // Desktop. The cards are the tail of the hero's staged entrance, so they
+        // are mount-timed like the rest of it and start after the CTA at
+        // HERO_CARDS_DELAY. All three sit in one row, so the index step is what
+        // separates them. A scroll trigger is wrong here: their tops sit ~607px
+        // down in an 800px viewport, below the centre line, so the page would
+        // load showing three blank slots.
+        //
+        // Mobile. The grid stacks past 1200px, well below the fold, so it is
+        // scroll-triggered per card. No hero delay, because that would stall each
+        // card over a second after it appeared, and no index step either: the
+        // cards are ~490px apart and already arrive one at a time.
+        <motion.div
           key={platform.id}
+          variants={riseIn(
+            isDesktop ? HERO_CARDS_DELAY + index * STEP : 0,
+          )}
+          initial="hidden"
+          {...(isDesktop
+            ? { animate: "show" }
+            : { whileInView: "show", viewport: { once: true } })}
+        >
+        <Link
           to={platform.href}
-          className="group relative flex w-full flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm transition-colors duration-300 hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+          className="group relative flex h-full w-full flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm transition-colors duration-300 hover:border-neutral-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
         >
           <BorderBeam duration={8} size={120} delay={index * 2} />
 
@@ -56,8 +79,9 @@ const DashboardGridSection = () => {
             </p>
           </div>
         </Link>
+        </motion.div>
       ))}
-    </motion.section>
+    </section>
   );
 };
 
