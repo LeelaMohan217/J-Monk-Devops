@@ -11,6 +11,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 There is no test suite configured in this project (no test runner/framework in `package.json`).
 
+## Git conventions
+
+- Commit messages are a single plain subject line describing the change (e.g. `Highlight landing headings in red Playfair italic`). No body, and no trailers — in particular, do **not** append `Co-Authored-By:` or any other Claude/Anthropic attribution line.
+
 ## Architecture
 
 This project hosts multiple marketing/company websites under one JMonkDevOps umbrella, built with React 18 + Vite, React Router, Tailwind CSS, and Framer Motion, all sharing a single build/deploy. There is no backend — everything is static/client-side.
