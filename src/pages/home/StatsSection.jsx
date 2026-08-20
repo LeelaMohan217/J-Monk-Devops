@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../shared/variants";
-import { STEP, centerTrigger, groupContainer } from "./motionConfig";
+import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
 import { stats } from "./data";
 
 const StatsSection = () => {

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, MapPin, ShieldCheck, Users } from "lucide-react";
 import { riseIn } from "../../shared/variants";
 import whoWeAreImage from "./assets/who-we-are.webp";
-import { STEP, centerTrigger, groupContainer } from "./motionConfig";
+import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
 
 
 // Concretizes the "one team, one standard" philosophy already stated in the

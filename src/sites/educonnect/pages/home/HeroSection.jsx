@@ -1,11 +1,27 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { fadeIn } from "../../../../shared/variants";
+import { fadeIn, riseIn } from "../../../../shared/variants";
 import { hero } from "./data";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
+import WordReveal from "../../../../shared/components/WordReveal";
+import splitAccentHeading from "../../../../shared/splitAccentHeading";
+import {
+  HERO_CTA_DELAY,
+  HERO_LEAD_DELAY,
+  HERO_TAIL_DELAY,
+  STEP,
+  groupContainer,
+} from "../../../../shared/motionConfig";
 import heroCollageJpg from "../../assets/educonnect-hero1.jpg";
 import heroCollageWebp from "../../assets/educonnect-hero1.webp";
+
+const ACCENT_CLASS = "font-['Playfair_Display',serif] text-red-600 italic";
+
+// One line, not two: unlike the umbrella landing hero this heading sits in a
+// half-width column and wraps differently at every breakpoint, so forcing a
+// break at a chosen word would leave an orphan at some of them.
+const headingLines = [splitAccentHeading(hero.headingLead, hero.headingAccent)];
 
 // Redesign pass: notched bottom-right corner on the photo is the site's one
 // signature shape (see also ValuesSection's about portrait, if any, and the
@@ -31,21 +47,22 @@ const HeroSection = () => {
 
             {/* PAGE_HEADING_SIZE, not HERO_HEADING_SIZE: this hero is split
                 two-column from lg up, so the heading never gets more than half
-                the rail and stops one step below the full-width heroes. */}
-            <motion.h1
-              variants={fadeIn("up", 0.1)}
-              initial="hidden"
-              animate="show"
+                the rail and stops one step below the full-width heroes.
+
+                The h1 itself no longer animates. Its words each lift out of
+                their own mask instead, the same reveal the landing hero uses;
+                a fadeIn here would slide the finished block on top of that. */}
+            <h1
               className={`max-w-xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
             >
-              {hero.headingLead}
-              <span className="font-['Playfair_Display',serif] text-red-600 italic">
-                {hero.headingAccent}
-              </span>
-            </motion.h1>
+              <WordReveal lines={headingLines} accentClass={ACCENT_CLASS} />
+            </h1>
 
+            {/* Lead and CTAs wait for the last heading word to land, rather than
+                the 0.2/0.3 they used to run at, which put them in motion while
+                the heading was still arriving. */}
             <motion.p
-              variants={fadeIn("up", 0.2)}
+              variants={fadeIn("up", HERO_LEAD_DELAY)}
               initial="hidden"
               animate="show"
               className="max-w-lg text-sm leading-relaxed text-neutral-600 md:text-base"
@@ -54,7 +71,7 @@ const HeroSection = () => {
             </motion.p>
 
             <motion.div
-              variants={fadeIn("up", 0.3)}
+              variants={fadeIn("up", HERO_CTA_DELAY)}
               initial="hidden"
               animate="show"
               className="mt-2 flex flex-col gap-3 sm:flex-row sm:gap-4"
@@ -73,25 +90,36 @@ const HeroSection = () => {
               </Link>
             </motion.div>
 
+            {/* The tail of the hero's entrance, like the platform cards on the
+                landing page: last in, and rippling left to right on the index
+                step rather than arriving as one block. The three sit in a row at
+                every width, so they share this one mount timing. */}
             <motion.div
-              variants={fadeIn("up", 0.4)}
+              variants={groupContainer}
               initial="hidden"
               animate="show"
               className="mt-4 flex flex-wrap items-start gap-x-10 gap-y-6"
             >
-              {hero.stats.map((stat) => (
-                <div key={stat.label}>
+              {hero.stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  variants={riseIn(HERO_TAIL_DELAY + index * STEP)}
+                >
                   <div className="font-['IBM_Plex_Mono',monospace] text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl">
                     {stat.value}
                   </div>
                   <div className="mt-1 text-xs text-neutral-500">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
 
+          {/* Deliberately early, alongside the heading, rather than waiting its
+              turn in the reading order. It is its own column and half the hero's
+              area at lg, so holding it back to the tail delay would leave the
+              right side of the screen empty for over a second. */}
           <motion.div
             variants={fadeIn("up", 0.15)}
             initial="hidden"
@@ -120,8 +148,17 @@ const HeroSection = () => {
 
               {/* Rating card, deliberately no avatar photos: we don't have
                   real reviewer headshots, and fabricated ones would read
-                  as fake testimonials rather than a genuine metric. */}
-              <div className="absolute -bottom-8 left-4 right-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-surface px-4 py-3 shadow-lg sm:right-auto sm:w-fit">
+                  as fake testimonials rather than a genuine metric.
+
+                  Timed with the stat row, not with the photo it sits on: the
+                  two are the hero's proof points, so they land together as the
+                  last beat even though they are in different columns. */}
+              <motion.div
+                variants={riseIn(HERO_TAIL_DELAY)}
+                initial="hidden"
+                animate="show"
+                className="absolute -bottom-8 left-4 right-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-surface px-4 py-3 shadow-lg sm:right-auto sm:w-fit"
+              >
                 <div className="flex items-center gap-1.5 text-red-600">
                   <Star className="h-4 w-4 fill-current" aria-hidden="true" />
                   <span className="font-['IBM_Plex_Mono',monospace] text-lg font-semibold text-neutral-900">
@@ -135,7 +172,7 @@ const HeroSection = () => {
                 <span className="text-xs font-medium text-neutral-500">
                   {hero.rating.source}
                 </span>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

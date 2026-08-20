@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { platforms } from "./data";
 import { riseIn } from "../../shared/variants";
-import { HERO_CARDS_DELAY, STEP } from "./motionConfig";
-import useIsDesktop from "./useIsDesktop";
+import { HERO_TAIL_DELAY, STEP } from "../../shared/motionConfig";
+import useIsDesktop from "../../shared/hooks/useIsDesktop";
 import digiConnectCard from "./assets/digiconnect-card.webp";
 import skillConnectCard from "./assets/skillconnect-card.webp";
 import eduConnectCard from "./assets/educonnect-card.webp";
@@ -27,7 +27,7 @@ const DashboardGridSection = () => {
         //
         // Desktop. The cards are the tail of the hero's staged entrance, so they
         // are mount-timed like the rest of it and start after the CTA at
-        // HERO_CARDS_DELAY. All three sit in one row, so the index step is what
+        // HERO_TAIL_DELAY. All three sit in one row, so the index step is what
         // separates them. A scroll trigger is wrong here: their tops sit ~607px
         // down in an 800px viewport, below the centre line, so the page would
         // load showing three blank slots.
@@ -39,7 +39,7 @@ const DashboardGridSection = () => {
         <motion.div
           key={platform.id}
           variants={riseIn(
-            isDesktop ? HERO_CARDS_DELAY + index * STEP : 0,
+            isDesktop ? HERO_TAIL_DELAY + index * STEP : 0,
           )}
           initial="hidden"
           {...(isDesktop

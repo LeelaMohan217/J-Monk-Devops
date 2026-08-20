@@ -4,27 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { HeroBackdrop } from "@/components/ui/hero-backdrop";
 import { fadeIn } from "../../shared/variants";
 import { HERO_HEADING_SIZE } from "../../shared/headingSizes";
+import WordReveal from "../../shared/components/WordReveal";
 import DashboardGridSection from "./DashboardGridSection";
-import useIsDesktop from "./useIsDesktop";
-import { HERO_CTA_DELAY } from "./motionConfig";
-
-// y is 130%, not 100%, because each word's mask now carries bottom padding to
-// clear the descenders (see the heading below). 100% would leave the word's top
-// edge showing in that padding band before it animates in. 130% clears the
-// tallest mask (the accent words, whose clip runs ~1.18x the line height) with
-// margin to spare; the extra travel is not perceptible at this duration.
-const wordReveal = (delay) => ({
-  hidden: { y: "130%", opacity: 0 },
-  show: {
-    y: "0%",
-    opacity: 1,
-    transition: {
-      duration: 0.9,
-      delay,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-});
+import useIsDesktop from "../../shared/hooks/useIsDesktop";
+import { HERO_CTA_DELAY, HERO_LEAD_DELAY } from "../../shared/motionConfig";
 
 // Grouped into two explicit lines rather than left to wrap naturally, so the
 // heading is reliably 2 lines at any viewport width instead of depending on
@@ -77,9 +60,9 @@ const HeroSection = () => {
             {/* leading-[1.05] rather than leading-tight (1.25): at display
                 sizes 1.25 leaves a visible trench between the two lines. The
                 descender room the tighter leading gives up is added back as
-                padding on each word's mask, below. It overrides the line-height
-                the display-* tokens carry at every step, which is why the mask
-                padding below can stay a single em value.
+                padding on each word's mask, inside WordReveal. It overrides the
+                line-height the display-* tokens carry at every step, which is
+                why that mask padding can stay a single em value.
 
                 The size ramp itself is HERO_HEADING_SIZE, shared with the brand
                 heroes. Its base step matters here: without one the heading
@@ -87,58 +70,12 @@ const HeroSection = () => {
             <h1
               className={`w-full max-w-4xl leading-[1.05] font-semibold ${HERO_HEADING_SIZE}`}
             >
-              {headingLines.map((line, lineIndex) => (
-                <span key={lineIndex} className="block">
-                  {line.map((word, wordIndex) => {
-                    const index =
-                      lineIndex * headingLines[0].length + wordIndex;
-                    return (
-                      <span
-                        key={`${word.text}-${index}`}
-                        // Every word's mask needs padding, because
-                        // overflow-hidden clips any ink outside the line box.
-                        //
-                        // Bottom (all words): descenders. Space below the
-                        // baseline inside the box is lineHeight/2 minus half the
-                        // font's content height, so at leading-[1.05] neither
-                        // face has room for its own descender: Inter's "y" needs
-                        // 13/60em and has 9.5, Playfair's "f" needs 12/60em and
-                        // has 6.5. 0.14em covers both with room to spare.
-                        //
-                        // Left/right (accent words only): Playfair Display
-                        // Italic paints outside its advance width. The "f"
-                        // starting "forward." reaches ~0.05em left of the layout
-                        // origin, and the closing glyph's slant reaches right.
-                        //
-                        // Each pad is paired with an equal negative margin, so
-                        // the ink stays exactly where it was and neither word
-                        // spacing nor line spacing changes. Only the clip grows.
-                        // wordReveal's hidden y is raised to 120% to stay hidden
-                        // behind the taller mask.
-                        className={`mr-[0.25em] -mb-[0.14em] inline-block overflow-hidden align-bottom pb-[0.14em] last:mr-0 ${
-                          word.accent
-                            ? "-ml-[0.08em] pl-[0.08em] pr-[0.08em]"
-                            : ""
-                        }`}
-                      >
-                        <motion.span
-                          className={`inline-block ${word.accent ? ACCENT_CLASS : ""}`}
-                          variants={wordReveal(0.1 + index * 0.04)}
-                          initial="hidden"
-                          animate="show"
-                        >
-                          {word.text}
-                        </motion.span>
-                      </span>
-                    );
-                  })}
-                </span>
-              ))}
+              <WordReveal lines={headingLines} accentClass={ACCENT_CLASS} />
             </h1>
 
             <motion.p
               className="max-w-xl sm:max-w-2xl text-base text-neutral-600 leading-relaxed"
-              variants={fadeIn("up", 1)}
+              variants={fadeIn("up", HERO_LEAD_DELAY)}
               initial="hidden"
               animate="show"
             >

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { riseIn } from "../../shared/variants";
-import { STEP, centerTrigger, groupContainer } from "./motionConfig";
+import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
 import { faqs } from "./data";
 
 const FAQSection = () => {
