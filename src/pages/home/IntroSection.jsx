@@ -49,7 +49,10 @@ const IntroSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="max-w-4xl text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900"
         >
-          <span className="text-red-600">One ecosystem</span> built to power
+          <span className="font-['Playfair_Display',serif] text-red-600 italic">
+            One ecosystem
+          </span>{" "}
+          built to power
           local businesses, sharpen student skills, and fuel infinite digital
           growth across Bharath.
         </motion.h2>

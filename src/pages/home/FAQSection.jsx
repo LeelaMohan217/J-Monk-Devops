@@ -24,7 +24,10 @@ const FAQSection = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900">
-            Got questions? We have <span className="text-red-600">answers</span>.
+            Got questions? We have{" "}
+            <span className="font-['Playfair_Display',serif] text-red-600 italic">
+              answers.
+            </span>
           </h2>
 
           <p className="text-sm sm:text-base leading-relaxed text-neutral-600">

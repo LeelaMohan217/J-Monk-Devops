@@ -40,11 +40,14 @@ const wordReveal = (delay) => ({
 
 // Grouped into two explicit lines rather than left to wrap naturally, so the
 // heading is reliably 2 lines at any viewport width instead of depending on
-// max-w to coax a break in the right place.
+// max-w to coax a break in the right place. `accent` words get the red
+// Playfair Display italic treatment used for accent text across the brands.
 const headingLines = [
-  ["Everything", "you", "need"],
-  ["to", "move", "forward."],
+  [{ text: "Everything" }, { text: "you" }, { text: "need" }],
+  [{ text: "to" }, { text: "move", accent: true }, { text: "forward.", accent: true }],
 ];
+
+const ACCENT_CLASS = "font-['Playfair_Display',serif] text-red-600 italic";
 
 const HeroSection = () => {
   const isDesktop = useSyncExternalStore(
@@ -87,16 +90,20 @@ const HeroSection = () => {
                     const index = lineIndex * headingLines[0].length + wordIndex;
                     return (
                       <span
-                        key={`${word}-${index}`}
-                        className="mr-[0.25em] inline-block overflow-hidden align-bottom last:mr-0"
+                        key={`${word.text}-${index}`}
+                        // Accent words get a sliver of right padding so the
+                        // italic slant isn't clipped by the reveal mask.
+                        className={`mr-[0.25em] inline-block overflow-hidden align-bottom last:mr-0 ${
+                          word.accent ? "pr-[0.08em]" : ""
+                        }`}
                       >
                         <motion.span
-                          className="inline-block"
+                          className={`inline-block ${word.accent ? ACCENT_CLASS : ""}`}
                           variants={wordReveal(0.1 + index * 0.04)}
                           initial="hidden"
                           animate="show"
                         >
-                          {word}
+                          {word.text}
                         </motion.span>
                       </span>
                     );

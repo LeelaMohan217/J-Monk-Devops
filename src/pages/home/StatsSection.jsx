@@ -16,7 +16,10 @@ const StatsSection = () => {
             Where things stand
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-neutral-900">
-            <span className="text-red-600">Numbers</span> we can stand behind.
+            <span className="font-['Playfair_Display',serif] text-red-600 italic">
+              Numbers
+            </span>{" "}
+            we can stand behind.
           </h2>
           <p className="mt-4 text-sm sm:text-base leading-relaxed text-neutral-600">
             DigiConnect, SkillConnect, and EduConnect are still early.
