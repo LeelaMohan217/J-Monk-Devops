@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { fadeIn } from "../../../shared/variants";
+import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
 import { getBlogPostBySlug } from "../blogPosts";
 import PostImage from "./blog/PostImage";
 import TagList from "./blog/TagList";
@@ -58,7 +59,9 @@ const BlogPost = () => {
           <span className="mt-6 block w-fit text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
             {post.tags[0]}
           </span>
-          <h1 className="mt-4 text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl">
+          <h1
+            className={`mt-4 font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
+          >
             {post.title}
           </h1>
           <p className="mt-6 text-xs tabular-nums text-neutral-400">

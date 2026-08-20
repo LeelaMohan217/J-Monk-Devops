@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
+import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 
 const PageHeaderSection = () => {
   return (
@@ -50,7 +51,7 @@ const PageHeaderSection = () => {
             variants={fadeIn("up", 0.15)}
             initial="hidden"
             animate="show"
-            className="max-w-3xl text-display-sm font-semibold text-neutral-900 sm:text-display-md"
+            className={`max-w-3xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
           >
             {pageHeader.headingLead}
             <span className={ACCENT_CLASS}>{pageHeader.headingAccent}</span>

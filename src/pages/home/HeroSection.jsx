@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { HeroBackdrop } from "@/components/ui/hero-backdrop";
 import { fadeIn } from "../../shared/variants";
+import { HERO_HEADING_SIZE } from "../../shared/headingSizes";
 import DashboardGridSection from "./DashboardGridSection";
 import useIsDesktop from "./useIsDesktop";
 import { HERO_CTA_DELAY } from "./motionConfig";
@@ -76,8 +77,16 @@ const HeroSection = () => {
             {/* leading-[1.05] rather than leading-tight (1.25): at display
                 sizes 1.25 leaves a visible trench between the two lines. The
                 descender room the tighter leading gives up is added back as
-                padding on each word's mask, below. */}
-            <h1 className="w-full max-w-4xl leading-[1.05] font-semibold sm:text-display-md lg:text-display-lg">
+                padding on each word's mask, below. It overrides the line-height
+                the display-* tokens carry at every step, which is why the mask
+                padding below can stay a single em value.
+
+                The size ramp itself is HERO_HEADING_SIZE, shared with the brand
+                heroes. Its base step matters here: without one the heading
+                dropped to the inherited 16px on phones. */}
+            <h1
+              className={`w-full max-w-4xl leading-[1.05] font-semibold ${HERO_HEADING_SIZE}`}
+            >
               {headingLines.map((line, lineIndex) => (
                 <span key={lineIndex} className="block">
                   {line.map((word, wordIndex) => {

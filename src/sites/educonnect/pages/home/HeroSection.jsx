@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { hero } from "./data";
+import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 import heroCollageJpg from "../../assets/educonnect-hero1.jpg";
 import heroCollageWebp from "../../assets/educonnect-hero1.webp";
 
@@ -28,11 +29,14 @@ const HeroSection = () => {
               {hero.eyebrow}
             </motion.span>
 
+            {/* PAGE_HEADING_SIZE, not HERO_HEADING_SIZE: this hero is split
+                two-column from lg up, so the heading never gets more than half
+                the rail and stops one step below the full-width heroes. */}
             <motion.h1
               variants={fadeIn("up", 0.1)}
               initial="hidden"
               animate="show"
-              className="max-w-xl text-3xl leading-tight font-semibold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl"
+              className={`max-w-xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
             >
               {hero.headingLead}
               <span className="font-['Playfair_Display',serif] text-red-600 italic">

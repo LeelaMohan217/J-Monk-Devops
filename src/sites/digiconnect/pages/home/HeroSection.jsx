@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { hero } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
+import { HERO_HEADING_SIZE } from "../../../../shared/headingSizes";
 
 const HeroSection = () => {
   return (
@@ -43,7 +44,7 @@ const HeroSection = () => {
             variants={fadeIn("up", 0.05)}
             initial="hidden"
             animate="show"
-            className="max-w-4xl text-display-sm font-semibold text-neutral-900 sm:text-display-md lg:text-display-lg"
+            className={`max-w-4xl font-semibold text-neutral-900 ${HERO_HEADING_SIZE}`}
           >
             {hero.headingLead}
             <span className={ACCENT_CLASS}>{hero.headingAccent}</span>

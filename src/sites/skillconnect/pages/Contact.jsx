@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import ContactForm from "../../../shared/components/ContactForm";
 import { riseIn } from "../../../shared/variants";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../headingStyles";
+import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
 
 const fields = [
   {
@@ -94,7 +95,9 @@ const SkillConnectContact = () => {
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             SkillConnect
           </span>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight leading-[1.1] text-neutral-900 md:text-6xl">
+          <h1
+            className={`mt-4 max-w-3xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
+          >
             Tell us what you&apos;re{" "}
             <span className={ACCENT_CLASS}>trying to learn.</span>
           </h1>

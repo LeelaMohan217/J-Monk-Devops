@@ -32,7 +32,15 @@
   --color-surface-invert: #0a0a0a;
 
   /* Editorial display scale. Tailwind's text-* sizes stop tightening above
-     4xl, which is why every heading previously read at the same weight. */
+     4xl, which is why every heading previously read at the same weight.
+     Four steps, one per device band, consumed through the two class strings in
+     src/shared/headingSizes.js rather than picked per component: xs = phones,
+     sm = large phones, md = tablets, lg = desktop. Tracking loosens as the size
+     drops because the tight desktop values close the letters up too far to read
+     at phone sizes. */
+  --text-display-xs: 2rem;
+  --text-display-xs--line-height: 1.12;
+  --text-display-xs--letter-spacing: -0.015em;
   --text-display-sm: 2.5rem;
   --text-display-sm--line-height: 1.08;
   --text-display-sm--letter-spacing: -0.02em;

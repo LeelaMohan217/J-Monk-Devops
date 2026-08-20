@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { fadeIn, stagger, riseIn } from "../../../shared/variants";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../headingStyles";
+import { HERO_HEADING_SIZE } from "../../../shared/headingSizes";
 
 // Copy rewritten away from the keyword strings this page used to carry. The
 // first card said the projects "simulate real industry environments", which
@@ -95,7 +96,7 @@ const Home = () => {
             </motion.span>
             <motion.h1
               variants={fadeIn("up", 0.2)}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold md:font-semibold leading-tight"
+              className={`font-semibold ${HERO_HEADING_SIZE}`}
             >
               {/* Was a red gradient with bg-clip-text. Now the same red
                   Playfair italic accent every other heading on the site uses. */}
