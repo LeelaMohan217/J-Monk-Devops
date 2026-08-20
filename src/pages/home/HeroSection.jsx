@@ -7,7 +7,6 @@ import DashboardGridSection from "./DashboardGridSection";
 import useIsDesktop from "./useIsDesktop";
 import { HERO_CTA_DELAY } from "./motionConfig";
 
-
 // y is 130%, not 100%, because each word's mask now carries bottom padding to
 // clear the descenders (see the heading below). 100% would leave the word's top
 // edge showing in that padding band before it animates in. 130% clears the
@@ -32,7 +31,11 @@ const wordReveal = (delay) => ({
 // Playfair Display italic treatment used for accent text across the brands.
 const headingLines = [
   [{ text: "Everything" }, { text: "you" }, { text: "need" }],
-  [{ text: "to" }, { text: "move", accent: true }, { text: "forward.", accent: true }],
+  [
+    { text: "to" },
+    { text: "move", accent: true },
+    { text: "forward.", accent: true },
+  ],
 ];
 
 const ACCENT_CLASS = "font-['Playfair_Display',serif] text-red-600 italic";
@@ -47,7 +50,10 @@ const HeroSection = () => {
           hero; below lg the grid renders outside this wrapper instead (see
           the isDesktop check below), same as before. */}
       <div className="relative">
-        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+        <div
+          className="pointer-events-none absolute inset-0 z-0"
+          aria-hidden="true"
+        >
           <HeroBackdrop />
           <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white" />
         </div>
@@ -71,11 +77,12 @@ const HeroSection = () => {
                 sizes 1.25 leaves a visible trench between the two lines. The
                 descender room the tighter leading gives up is added back as
                 padding on each word's mask, below. */}
-            <h1 className="w-full max-w-2xl text-3xl leading-[1.05] font-semibold sm:text-5xl md:text-6xl">
+            <h1 className="w-full max-w-4xl leading-[1.05] font-semibold sm:text-display-md lg:text-display-lg">
               {headingLines.map((line, lineIndex) => (
                 <span key={lineIndex} className="block">
                   {line.map((word, wordIndex) => {
-                    const index = lineIndex * headingLines[0].length + wordIndex;
+                    const index =
+                      lineIndex * headingLines[0].length + wordIndex;
                     return (
                       <span
                         key={`${word.text}-${index}`}
@@ -100,7 +107,9 @@ const HeroSection = () => {
                         // wordReveal's hidden y is raised to 120% to stay hidden
                         // behind the taller mask.
                         className={`mr-[0.25em] -mb-[0.14em] inline-block overflow-hidden align-bottom pb-[0.14em] last:mr-0 ${
-                          word.accent ? "-ml-[0.08em] pl-[0.08em] pr-[0.08em]" : ""
+                          word.accent
+                            ? "-ml-[0.08em] pl-[0.08em] pr-[0.08em]"
+                            : ""
                         }`}
                       >
                         <motion.span
@@ -124,9 +133,9 @@ const HeroSection = () => {
               initial="hidden"
               animate="show"
             >
-              We build focused platforms that help businesses grow digitally, give
-              students practical skills, and support individuals reaching global
-              opportunities.
+              We build focused platforms that help businesses grow digitally,
+              give students practical skills, and support individuals reaching
+              global opportunities.
             </motion.p>
 
             {/* Last of the hero copy. DashboardGridSection's cards follow at
