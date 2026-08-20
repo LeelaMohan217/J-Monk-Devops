@@ -43,7 +43,7 @@ export const services = {
   // hero.headingLead/headingAccent.
   headingLead: "Everything between deciding to go and ",
   headingAccent: "landing there.",
-  lead: "Six services, one counsellor. You don't get handed off between departments as your application moves along.",
+  lead: "Four services, one counsellor. You don't get handed off between departments as your application moves along.",
   cta: { label: "See the full services page", href: "/educonnect/services" },
   // Mirrors the service list on the dedicated /educonnect/services page —
   // kept local so the home section can evolve its copy independently.

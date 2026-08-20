@@ -12,7 +12,7 @@ const BannerSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6 }}
-      className="h-64 w-full overflow-hidden md:h-80"
+      className="h-64 w-full overflow-hidden md:h-120"
     >
       <picture>
         <source type="image/webp" srcSet={heroWebp} />

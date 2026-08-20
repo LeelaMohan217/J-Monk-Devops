@@ -17,7 +17,7 @@ const TestimonialsSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
-          className="max-w-2xl"
+          className="mx-auto max-w-2xl text-center"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             {testimonials.eyebrow}
@@ -30,7 +30,7 @@ const TestimonialsSection = () => {
             </span>
           </h2>
 
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-neutral-600">
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-neutral-600">
             {testimonials.lead}
           </p>
         </motion.div>

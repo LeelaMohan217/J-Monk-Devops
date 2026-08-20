@@ -10,9 +10,9 @@ import introImg from "../../assets/blog/best-management-usa.jpg";
 // "students collaborating" photography yet.
 const AboutIntroSection = () => {
   return (
-    <section className="bg-surface py-24 md:py-32">
+    <section className="bg-surface py-16 md:py-24 border-t">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-6">
           <motion.div
             variants={riseIn()}
             initial="hidden"
@@ -20,7 +20,7 @@ const AboutIntroSection = () => {
             viewport={{ once: true, amount: 0.4 }}
             className="relative lg:col-span-5"
           >
-            <div className="aspect-4/5 overflow-hidden rounded-xl border border-neutral-200">
+            <div className="aspect-5/5 overflow-hidden rounded-xl border border-neutral-200">
               <img
                 src={introImg}
                 alt="EduConnect counsellors working with students"
@@ -29,15 +29,6 @@ const AboutIntroSection = () => {
                 decoding="async"
               />
             </div>
-
-            <div className="absolute -bottom-6 right-4 w-32 rounded-xl border border-red-100 bg-red-50 p-4 shadow-lg sm:-right-6 sm:w-40">
-              <p className="text-3xl font-semibold tracking-tight text-red-600">
-                {aboutIntro.stat.value}
-              </p>
-              <p className="mt-1 text-xs leading-snug text-neutral-600">
-                {aboutIntro.stat.label}
-              </p>
-            </div>
           </motion.div>
 
           <motion.div
@@ -45,7 +36,7 @@ const AboutIntroSection = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.4 }}
-            className="lg:col-span-6 lg:col-start-7"
+            className="lg:col-span-6 lg:col-start-7 flex flex-col items-start"
           >
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
               {aboutIntro.eyebrow}
@@ -64,7 +55,7 @@ const AboutIntroSection = () => {
 
             <Link
               to={aboutIntro.cta.href}
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
             >
               {aboutIntro.cta.label}
             </Link>
