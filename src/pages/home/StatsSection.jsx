@@ -1,9 +1,26 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { riseIn } from "../../shared/variants";
-import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
+import {
+  CENTER_MARGIN,
+  STEP,
+  centerTrigger,
+  groupContainer,
+} from "../../shared/motionConfig";
+import CountUp from "../../shared/components/CountUp";
 import { stats } from "./data";
 
 const StatsSection = () => {
+  // The counters need the trigger as a value, which whileInView keeps to
+  // itself. Observing the same element with the same margin and `once` gives
+  // them the group's trigger rather than a second one of their own, so each
+  // number starts counting exactly as its tile begins to rise.
+  const tilesRef = useRef(null);
+  const tilesInView = useInView(tilesRef, {
+    once: true,
+    margin: CENTER_MARGIN,
+  });
+
   return (
     <section id="stats" className="bg-stone-50 py-16 md:py-24 scroll-mt-36">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:px-8 lg:grid-cols-2 lg:gap-16">
@@ -56,6 +73,7 @@ const StatsSection = () => {
             still short enough that the last tile has not scrolled past by the
             time its turn comes. */}
         <motion.div
+          ref={tilesRef}
           variants={groupContainer}
           {...centerTrigger}
           className="grid grid-cols-1 gap-4 sm:grid-cols-2"
@@ -66,8 +84,14 @@ const StatsSection = () => {
               variants={riseIn(index * STEP)}
               className="rounded-2xl bg-red-50 p-6 md:p-8"
             >
-              <span className="text-4xl font-bold text-red-600 md:text-5xl">
-                {stat.value}
+              {/* tabular-nums so the digits keep one width as they run: without
+                  it the tile's text reflows on nearly every frame. */}
+              <span className="text-4xl font-bold tabular-nums text-red-600 md:text-5xl">
+                <CountUp
+                  value={stat.value}
+                  start={tilesInView}
+                  delay={index * STEP}
+                />
               </span>
               <p className="mt-2 text-sm font-medium text-neutral-800">
                 {stat.label}
