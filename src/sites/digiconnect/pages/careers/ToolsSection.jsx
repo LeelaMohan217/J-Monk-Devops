@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { tools } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
@@ -12,9 +13,7 @@ const ToolsSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
+          {...centerTrigger}
           className="grid gap-6 lg:grid-cols-12 lg:items-end"
         >
           <div className="lg:col-span-7">
@@ -32,10 +31,8 @@ const ToolsSection = () => {
         </motion.div>
 
         <motion.ul
-          variants={riseIn(0.08)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          variants={riseIn(STEP)}
+          {...centerTrigger}
           className="mt-10 flex flex-wrap gap-3 md:mt-12"
         >
           {tools.items.map((item) => (

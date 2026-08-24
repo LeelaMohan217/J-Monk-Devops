@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { openRoles } from "./data";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
@@ -21,9 +22,7 @@ const OpenRolesSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="max-w-2xl"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
@@ -37,13 +36,15 @@ const OpenRolesSection = () => {
 
         {hasRoles ? (
           <div className="mt-12 border-t border-neutral-200 md:mt-16">
-            {openRoles.items.map((role, index) => (
+            {openRoles.items.map((role) => (
               <motion.div
                 key={role.id}
-                variants={riseIn(Math.min(index, 3) * 0.06)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.4 }}
+                // No index step: this is a variable-length list of full-width
+                // rows, so each one gets its own centre-line trigger and fires
+                // when it arrives. A step here would stall rows that are already
+                // on screen, which is the case motionConfig warns about.
+                variants={riseIn()}
+                {...centerTrigger}
                 className="border-b border-neutral-200"
               >
                 <Link
@@ -75,10 +76,8 @@ const OpenRolesSection = () => {
           </div>
         ) : (
           <motion.div
-            variants={riseIn(0.08)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
+            variants={riseIn(STEP)}
+            {...centerTrigger}
             className="mt-12 rounded-2xl border border-neutral-200 bg-surface p-8 md:mt-16 md:p-10"
           >
             <span className="h-px w-10 bg-red-600" aria-hidden="true" />

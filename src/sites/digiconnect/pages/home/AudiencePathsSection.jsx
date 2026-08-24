@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { audiencePaths } from "./data";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
@@ -14,9 +15,7 @@ const AudiencePathsSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="grid gap-6 lg:grid-cols-12 lg:items-end"
         >
           <div className="lg:col-span-7">
@@ -37,10 +36,12 @@ const AudiencePathsSection = () => {
           {audiencePaths.paths.map((path, index) => (
             <motion.div
               key={path.id}
-              variants={riseIn(Math.min(index, 3) * 0.06)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
+              // Only two paths here, around 300px of page between them, so they
+              // are on screen together and the index step is what makes them
+              // ripple. The longer full-width lists (offerings, open roles) drop
+              // the step for exactly the opposite reason.
+              variants={riseIn(index * STEP)}
+              {...centerTrigger}
               className="border-b border-neutral-200"
             >
               <Link

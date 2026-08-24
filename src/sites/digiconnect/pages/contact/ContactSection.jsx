@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { useContactForm } from "../../../../shared/hooks/useContactForm";
 import { companyConfig } from "../../../../shared/companyConfig";
 import { formFields } from "./data";
@@ -41,9 +42,7 @@ const ContactSection = () => {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
+          {...centerTrigger}
           className="lg:col-span-4"
         >
           <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
@@ -72,10 +71,8 @@ const ContactSection = () => {
         </motion.div>
 
         <motion.div
-          variants={riseIn(0.1)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          variants={riseIn(STEP)}
+          {...centerTrigger}
           className="lg:col-span-7 lg:col-start-6"
         >
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">

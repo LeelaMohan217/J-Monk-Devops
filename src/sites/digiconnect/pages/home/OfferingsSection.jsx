@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
@@ -14,9 +15,7 @@ const OfferingsSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="max-w-3xl"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
@@ -34,10 +33,8 @@ const OfferingsSection = () => {
               key={service.name}
               // Delay is clamped so the sixth row does not sit visibly idle
               // after entering view; the landing only ever staggers three.
-              variants={riseIn(Math.min(index, 3) * 0.08)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              variants={riseIn()}
+              {...centerTrigger}
               className="border-t border-neutral-200 py-10 last:border-b md:py-14"
             >
               <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
@@ -75,9 +72,7 @@ const OfferingsSection = () => {
 
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="mt-10"
         >
           <Link

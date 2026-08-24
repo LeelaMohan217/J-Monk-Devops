@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { howWeWork } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
@@ -15,9 +16,7 @@ const HowWeWorkSection = () => {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <motion.div
             variants={riseIn()}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
+            {...centerTrigger}
             className="rounded-2xl border border-neutral-200 bg-surface p-2 shadow-sm"
           >
             <div className="aspect-[3/2] w-full overflow-hidden rounded-xl bg-surface ring-1 ring-inset ring-black/10">
@@ -34,10 +33,8 @@ const HowWeWorkSection = () => {
           </motion.div>
 
           <motion.div
-            variants={riseIn(0.08)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
+            variants={riseIn(STEP)}
+            {...centerTrigger}
           >
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {howWeWork.eyebrow}

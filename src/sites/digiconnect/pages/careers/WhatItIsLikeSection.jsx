@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { whatItIsLike } from "./data";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
@@ -12,9 +13,7 @@ const WhatItIsLikeSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="max-w-2xl"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
@@ -30,10 +29,8 @@ const WhatItIsLikeSection = () => {
           {whatItIsLike.items.map((item, index) => (
             <motion.div
               key={item.term}
-              variants={riseIn(Math.min(index, 3) * 0.08)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
+              variants={riseIn(Math.min(index, 3) * STEP)}
+              {...centerTrigger}
               className="rounded-2xl border border-neutral-200 bg-surface p-6"
             >
               <span className="h-px w-10 bg-red-600" aria-hidden="true" />

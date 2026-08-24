@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { centerTrigger } from "../../../../shared/motionConfig";
 
 const MapSection = () => {
   return (
@@ -7,9 +8,7 @@ const MapSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          {...centerTrigger}
           className="rounded-2xl border border-neutral-200 bg-surface p-2 shadow-sm"
         >
           <div className="aspect-[21/9] w-full overflow-hidden rounded-xl ring-1 ring-inset ring-black/10">

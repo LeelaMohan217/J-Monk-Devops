@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { whatWeDo } from "./data";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
@@ -12,9 +13,7 @@ const WhatWeDoSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="grid gap-6 lg:grid-cols-12 lg:items-end"
         >
           <div className="lg:col-span-7">
@@ -35,10 +34,8 @@ const WhatWeDoSection = () => {
           {whatWeDo.cards.map((card, index) => (
             <motion.div
               key={card.id}
-              variants={riseIn(Math.min(index, 3) * 0.08)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              variants={riseIn(Math.min(index, 3) * STEP)}
+              {...centerTrigger}
               className="flex flex-col rounded-2xl border border-neutral-200 bg-surface p-2 shadow-sm"
             >
               {/* The artwork is white-on-white, so the inset ring supplies the

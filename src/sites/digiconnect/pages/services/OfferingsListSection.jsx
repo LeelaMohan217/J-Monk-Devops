@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 import { HEADING_FULL_CLASS } from "../../headingStyles";
 
@@ -10,10 +11,8 @@ const OfferingsListSection = () => {
         {offerings.map((offering, index) => (
           <motion.article
             key={offering.name}
-            variants={riseIn(Math.min(index, 3) * 0.06)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
+            variants={riseIn()}
+            {...centerTrigger}
             className="border-t border-neutral-200 py-10 last:border-b md:py-14"
           >
             <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">

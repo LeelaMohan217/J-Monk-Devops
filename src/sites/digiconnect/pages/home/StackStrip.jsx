@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { centerTrigger } from "../../../../shared/motionConfig";
 import { stack } from "./data";
 
 const StackStrip = () => {
@@ -10,9 +11,7 @@ const StackStrip = () => {
             content and per-item motion reads as noise. */}
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
+          {...centerTrigger}
           className="flex flex-col items-center gap-6"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
