@@ -99,9 +99,9 @@ const MobileNavMenu = () => {
                   onClick={closeMenu}
                   className="flex items-center gap-2"
                 >
-                  <img className="h-9 w-9" alt="JMonkDevOps" src={Logo} />
+                  <img className="h-9 w-9" alt="JMonkDevops" src={Logo} />
                   <span className="text-base font-semibold tracking-tight text-black">
-                    JMonkDevOps
+                    JMonkDevops
                   </span>
                 </Link>
                 <button

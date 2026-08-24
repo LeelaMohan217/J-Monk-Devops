@@ -5,7 +5,7 @@ export const pageHeader = {
   eyebrow: "About",
   headingLead: "The people behind ",
   headingAccent: "EduConnect.",
-  lead: "EduConnect is JMonkDevOps' study abroad guidance practice, a small team of counsellors who stay with you from your first shortlist through the day you land.",
+  lead: "EduConnect is JMonkDevops' study abroad guidance practice, a small team of counsellors who stay with you from your first shortlist through the day you land.",
 };
 
 export const story = {

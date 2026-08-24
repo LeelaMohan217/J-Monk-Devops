@@ -14,7 +14,7 @@ import Logo from "../assets/Logo.webp";
 // Rendered at the top level in App.jsx (outside the routed page content) so
 // it persists across route changes instead of remounting per page.
 //
-// logo defaults to the shared JMonkDevOps mark (same one GlobalNav uses) so
+// logo defaults to the shared JMonkDevops mark (same one GlobalNav uses) so
 // every platform shows it without needing its own config entry.
 //
 // variant is opt-in and defaults to this component's original look, so

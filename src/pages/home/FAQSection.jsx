@@ -47,7 +47,7 @@ const FAQSection = () => {
             variants={riseIn(STEP * 2)}
             className="text-sm sm:text-base leading-relaxed text-neutral-600"
           >
-            Answers to the questions we hear most about JMonkDevOps and its
+            Answers to the questions we hear most about JMonkDevops and its
             platforms.
           </motion.p>
         </motion.div>

@@ -1,10 +1,10 @@
-// Umbrella-level company details for the JMonkDevOps landing page.
+// Umbrella-level company details for the JMonkDevops landing page.
 // The landing page must not depend on any single vertical's config —
 // each site's own config keeps its own copy for its own pages.
 export const companyConfig = {
-  name: "JMonkDevOps",
+  name: "JMonkDevops",
   description:
-    "JMonkDevOps enhances everyday lives by providing software that digitalizes to improve business growth with latest tools and technologies.",
+    "JMonkDevops enhances everyday lives by providing software that digitalizes to improve business growth with latest tools and technologies.",
   address:
     "Door No.5-69, Pedaparimi Village, Thullur Mandal, Guntur District, 522236, Andhra Pradesh",
   phone: "+91 7330300203",

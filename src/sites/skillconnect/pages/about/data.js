@@ -16,7 +16,7 @@ export const pageHeader = {
   eyebrow: "About",
   headingLead: "Built for people who want to be judged on ",
   headingAccent: "what they have built.",
-  lead: "SkillConnect is the learning side of JMonkDevOps, run out of Guntur, Andhra Pradesh. It exists so students and career-switchers can get onto real project work instead of collecting another certificate that says they might be able to do it.",
+  lead: "SkillConnect is the learning side of JMonkDevops, run out of Guntur, Andhra Pradesh. It exists so students and career-switchers can get onto real project work instead of collecting another certificate that says they might be able to do it.",
 };
 
 export const story = {

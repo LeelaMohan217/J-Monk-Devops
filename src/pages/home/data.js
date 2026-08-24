@@ -123,9 +123,9 @@ export const ecosystem = {
 
 export const faqs = [
   {
-    question: "What is JMonkDevOps?",
+    question: "What is JMonkDevops?",
     answer:
-      "JMonkDevOps is an umbrella of three connected platforms — DigiConnect, SkillConnect, and EduConnect — each focused on a different kind of growth: business technology, hands-on skill-building, and global education, all held to the same standard of quality.",
+      "JMonkDevops is an umbrella of three connected platforms — DigiConnect, SkillConnect, and EduConnect — each focused on a different kind of growth: business technology, hands-on skill-building, and global education, all held to the same standard of quality.",
   },
   {
     question: "What's the difference between DigiConnect, SkillConnect, and EduConnect?",

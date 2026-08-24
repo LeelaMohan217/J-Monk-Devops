@@ -70,7 +70,7 @@ const IntroSection = () => {
         >
           <img
             src={whoWeAreImage}
-            alt="The JMonkDevOps team collaborating"
+            alt="The JMonkDevops team collaborating"
             className="h-full w-full rounded-xl object-cover ring-1 ring-inset ring-black/10"
           />
         </motion.div>

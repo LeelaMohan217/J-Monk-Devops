@@ -12,7 +12,7 @@ export const pageHeader = {
   eyebrow: "About",
   headingLead: "The team behind ",
   headingAccent: "DigiConnect.",
-  lead: "DigiConnect is JMonkDevOps' software and cloud engineering practice, run out of Guntur, Andhra Pradesh. We keep the group small enough that the people who scope your project are the same people who ship it.",
+  lead: "DigiConnect is JMonkDevops' software and cloud engineering practice, run out of Guntur, Andhra Pradesh. We keep the group small enough that the people who scope your project are the same people who ship it.",
 };
 
 export const story = {
