@@ -28,7 +28,18 @@ const ValuesSection = () => {
               key={item.term}
               variants={riseIn(Math.min(index, 3) * STEP)}
               {...centerTrigger}
-              className="rounded-2xl border border-neutral-200 bg-surface-muted p-6"
+              // Radial glow with the origin alternating corner to corner, the
+              // same treatment EduConnect's about values cards carry, down to
+              // the identical stops. That page is the direct counterpart of this
+              // one, so the two should read as one system.
+              //
+              // Border moves to red-100: a grey hairline against the tint reads
+              // as a slightly dirty edge.
+              className={`rounded-2xl border border-red-100 p-6 ${
+                index % 2 === 0
+                  ? "bg-radial-[at_0%_0%] from-red-100 via-red-50 to-surface to-60%"
+                  : "bg-radial-[at_100%_0%] from-red-100 via-red-50 to-surface to-60%"
+              }`}
             >
               <span className="h-px w-10 bg-red-600" aria-hidden="true" />
               <h3 className={`mt-5 text-lg ${HEADING_FULL_CLASS}`}>

@@ -31,7 +31,15 @@ const WhatItIsLikeSection = () => {
               key={item.term}
               variants={riseIn(Math.min(index, 3) * STEP)}
               {...centerTrigger}
-              className="rounded-2xl border border-neutral-200 bg-surface p-6"
+              // Flat red-50 on every second card, the alternation EduConnect's
+              // services grid uses, rather than the radial glow on the about
+              // page's values cards. Same colour, two treatments, so sections do
+              // not all look identical while still belonging together.
+              className={`rounded-2xl border p-6 ${
+                index % 2 === 1
+                  ? "border-red-100 bg-red-50"
+                  : "border-neutral-200 bg-surface"
+              }`}
             >
               <span className="h-px w-10 bg-red-600" aria-hidden="true" />
               <h3 className={`mt-5 text-lg ${HEADING_FULL_CLASS}`}>

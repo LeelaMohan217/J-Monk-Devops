@@ -55,7 +55,10 @@ const WhatWeDoSection = () => {
                 <h3 className={`text-lg ${HEADING_FULL_CLASS}`}>
                   {card.label}
                 </h3>
-                <p className="mt-2 text-xs leading-relaxed text-neutral-600 md:text-sm">
+                {/* text-sm, the size every other card body on the site uses.
+                    This was the one at text-xs md:text-sm, a step smaller than
+                    its counterparts on the about and careers pages. */}
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
                   {card.description}
                 </p>
               </div>
