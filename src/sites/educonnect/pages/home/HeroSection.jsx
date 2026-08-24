@@ -174,7 +174,12 @@ const HeroSection = () => {
                 variants={riseIn(HERO_TAIL_DELAY)}
                 initial="hidden"
                 animate="show"
-                className="absolute -bottom-8 left-4 right-4 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-surface px-4 py-3 shadow-lg sm:right-auto sm:w-fit"
+                // gap-2, not gap-3. The gap applies on both sides of the
+                // divider, so at 12px the space between the score and the
+                // avatars measured 25px in a card only 201px wide. 8px brings it
+                // to 17px, which still separates the two halves without the
+                // score looking stranded.
+                className="absolute -bottom-8 left-4 right-4 flex items-center gap-2 rounded-2xl border border-neutral-200 bg-surface px-4 py-3 shadow-lg sm:right-auto sm:w-fit"
               >
                 <div className="flex items-center gap-1.5 text-red-600">
                   <Star className="h-4 w-4 fill-current" aria-hidden="true" />
