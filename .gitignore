@@ -20,6 +20,14 @@ dist-ssr
 *.tar.gz
 *.7z
 
+# Image masters. Photos ship as a committed .webp + .jpg pair encoded down from
+# these; the sources are 20x to 50x larger and nothing imports them, so they
+# stay local. Keep your originals somewhere outside the repo as well, since
+# git is not backing them up.
+src/**/assets/**/*.png
+# The logo and the shared mark are genuine PNG deliverables, not masters.
+!src/shared/assets/*.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

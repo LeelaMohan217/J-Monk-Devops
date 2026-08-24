@@ -8,10 +8,18 @@ import {
 } from "../../../../shared/motionConfig";
 import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { services } from "./data";
-import counsellingImg from "../../assets/blog/how-much-gap.jpg";
-import selectionImg from "../../assets/blog/can-i-travel.jpg";
-import applicationImg from "../../assets/blog/day1-cpt.jpg";
-import visaImg from "../../assets/blog/day1-cpt-universities.jpg";
+// Purpose-shot artwork per service, replacing the four blog thumbnails these
+// cards borrowed while the project had none of its own. Each is a webp with a
+// jpg fallback, encoded down from ~2MB PNG masters (7.7MB across the four) that
+// are not committed.
+import counsellingWebp from "../../assets/services/career-counselling.webp";
+import counsellingJpg from "../../assets/services/career-counselling.jpg";
+import selectionWebp from "../../assets/services/course-selection.webp";
+import selectionJpg from "../../assets/services/course-selection.jpg";
+import applicationWebp from "../../assets/services/admission-support.webp";
+import applicationJpg from "../../assets/services/admission-support.jpg";
+import visaWebp from "../../assets/services/visa-assistance.webp";
+import visaJpg from "../../assets/services/visa-assistance.jpg";
 
 // Centered header over a simple row of 4 equal cards — photo on top, heading
 // and description in plain space below, no hover mechanic. Replaces the
@@ -19,7 +27,14 @@ import visaImg from "../../assets/blog/day1-cpt-universities.jpg";
 // before (counselling, selection, application, visa) — the two more
 // supplementary ones (IELTS/PTE guidance, pre-departure support) stay listed
 // in full on /educonnect/services via the CTA below.
-const IMAGES = [counsellingImg, selectionImg, applicationImg, visaImg];
+// Order matches services.items, so index N of one lines up with index N of the
+// other: counselling, selection, application, visa.
+const IMAGES = [
+  { webp: counsellingWebp, jpg: counsellingJpg },
+  { webp: selectionWebp, jpg: selectionJpg },
+  { webp: applicationWebp, jpg: applicationJpg },
+  { webp: visaWebp, jpg: visaJpg },
+];
 
 // Desktop and stacked need genuinely different behaviour, the same split
 // DashboardGridSection makes on the landing page.
@@ -38,14 +53,23 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
     {...(isDesktop ? {} : centerTrigger)}
     className="flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface"
   >
-    <div className="aspect-square overflow-hidden border-b border-neutral-200">
-      <img
-        src={image}
-        alt=""
-        className="h-full w-full object-cover"
-        loading="lazy"
-        decoding="async"
-      />
+    {/* 3/4, the artwork's own ratio, rather than the square this used for the
+        borrowed blog photos. Two of these four carry legible text in the frame
+        (the signpost labels, the visa checklist) and a square crop of a 3:4
+        source cuts a quarter of the height away, which sliced through it. */}
+    <div className="aspect-3/4 overflow-hidden border-b border-neutral-200">
+      <picture>
+        <source type="image/webp" srcSet={image.webp} />
+        <img
+          src={image.jpg}
+          alt=""
+          width="800"
+          height="1067"
+          className="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
     </div>
     <div className="p-5">
       <h3 className="text-base font-medium tracking-tight text-neutral-900">
