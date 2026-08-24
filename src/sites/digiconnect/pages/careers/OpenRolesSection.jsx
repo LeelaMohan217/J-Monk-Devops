@@ -1,6 +1,7 @@
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Search } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { openRoles } from "./data";
@@ -10,9 +11,30 @@ import { ACCENT_CLASS } from "../../headingStyles";
 // state is the honest default, since the site does not keep evergreen listings
 // up, so it is a designed state rather than a fallback. Adding entries to
 // `openRoles.items` switches this to the listing without touching this file.
+//
+// The search field is part of the listing state only. It filters on title, type
+// and summary together, so "remote", "backend" and "full-time" all work without
+// needing separate facets, which would be over-built for a board this size.
+//
+// It deliberately does not render while `items` is empty. A search box over an
+// empty list is a dead control, and it would be the first thing a visitor
+// reached for on a page whose answer is "nothing posted yet".
 const OpenRolesSection = () => {
+  const [query, setQuery] = useState("");
   const hasRoles = openRoles.items.length > 0;
   const { emptyState } = openRoles;
+
+  const visibleRoles = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return openRoles.items;
+    return openRoles.items.filter((role) =>
+      [role.title, role.type, role.summary]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(q),
+    );
+  }, [query]);
 
   return (
     <section
@@ -35,8 +57,46 @@ const OpenRolesSection = () => {
         </motion.div>
 
         {hasRoles ? (
-          <div className="mt-12 border-t border-neutral-200 md:mt-16">
-            {openRoles.items.map((role) => (
+          <>
+            {/* Label is sr-only: the icon plus placeholder carry it visually,
+                but a bare input with no accessible name is unusable with a
+                screen reader. type="search" gives browsers their native clear
+                control for free. */}
+            <motion.div
+              variants={riseIn(STEP)}
+              {...centerTrigger}
+              className="mt-10 md:mt-12"
+            >
+              <label htmlFor="role-search" className="sr-only">
+                Search open roles
+              </label>
+              <div className="relative max-w-md">
+                <Search
+                  className="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-neutral-400"
+                  strokeWidth={1.75}
+                  aria-hidden="true"
+                />
+                <input
+                  id="role-search"
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search by role, stack, or location"
+                  className="w-full rounded-lg border border-neutral-200 bg-surface py-3 pr-4 pl-11 text-sm text-neutral-900 transition-colors duration-200 placeholder:text-neutral-400 focus:border-neutral-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900/10"
+                />
+              </div>
+
+              {/* aria-live so a screen reader hears the count change as the
+                  filter narrows, rather than the list silently reordering. */}
+              <p aria-live="polite" className="mt-3 text-xs text-neutral-500">
+                {visibleRoles.length}{" "}
+                {visibleRoles.length === 1 ? "role" : "roles"}
+                {query.trim() ? ` matching "${query.trim()}"` : " open"}
+              </p>
+            </motion.div>
+
+            <div className="mt-8 border-t border-neutral-200 md:mt-10">
+              {visibleRoles.map((role) => (
               <motion.div
                 key={role.id}
                 // No index step: this is a variable-length list of full-width
@@ -72,8 +132,27 @@ const OpenRolesSection = () => {
                   />
                 </Link>
               </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+
+            {/* The filter can empty the list even though roles exist, which is
+                a different situation from having none posted. Saying so, with a
+                way back, beats leaving the reader looking at a bare rule. */}
+            {visibleRoles.length === 0 && (
+              <div className="py-10 text-center md:py-14">
+                <p className="text-sm leading-relaxed text-neutral-600">
+                  No open roles match that search.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="mt-3 text-sm font-medium text-red-700 underline decoration-red-300 underline-offset-4 transition-colors hover:text-red-800 hover:decoration-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                >
+                  Clear the search
+                </button>
+              </div>
+            )}
+          </>
         ) : (
           <motion.div
             variants={riseIn(STEP)}
