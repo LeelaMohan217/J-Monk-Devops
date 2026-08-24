@@ -7,20 +7,25 @@ import {
 } from "../../../../shared/motionConfig";
 import { values } from "./data";
 
-// Cards on a red gradient, replacing the hairline grid of cells that hung off
-// their own border-t. With the story section above now made of tinted cards,
-// bare rules here made the page look like it changed system halfway down.
+// Cards on a red radial glow, the same treatment the services page's how-it-
+// works cards carry, replacing the top-to-bottom linear fade these had.
 //
-// The tint runs top to bottom, from red-50 into the section's own white ground,
-// rather than sitting flat like the story cards. That keeps the two sections
-// related without making them identical: same colour, different treatment.
+// The origin alternates: odd cards glow from the top-left corner, even ones from
+// the top-right. Across a four-up row that reads as the light coming from
+// alternating sides rather than every card being lit identically, which is what
+// a single origin looked like once there were four of them side by side.
 //
-// bg-linear-to-b is Tailwind v4's syntax for what used to be bg-gradient-to-b.
-// The project uses both spellings; the landing hero is on the v4 one, so new
-// code follows that.
+// Stops match the services page exactly, so the two sections are the same
+// treatment and not merely similar ones: red-100 at the corner, red-50 through
+// the middle, and the card's own white ground by 60%, which keeps the tint a
+// corner glow instead of washing the whole card.
 //
 // Border is red-100 rather than neutral-200. Against a red gradient a grey
 // hairline reads as a slightly dirty edge.
+const GLOW_FROM_TOP_LEFT =
+  "bg-radial-[at_0%_0%] from-red-100 via-red-50 to-surface to-60%";
+const GLOW_FROM_TOP_RIGHT =
+  "bg-radial-[at_100%_0%] from-red-100 via-red-50 to-surface to-60%";
 const ValuesSection = () => {
   return (
     <section className="bg-surface py-16 md:py-24">
@@ -63,7 +68,9 @@ const ValuesSection = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}
-              className="flex flex-col rounded-2xl border border-red-100 bg-linear-to-b from-red-50 to-surface p-6 md:p-7"
+              className={`flex flex-col rounded-2xl border border-red-100 p-6 md:p-7 ${
+                index % 2 === 0 ? GLOW_FROM_TOP_LEFT : GLOW_FROM_TOP_RIGHT
+              }`}
             >
               <dt className="text-base font-medium tracking-tight text-neutral-900 md:text-lg">
                 {item.term}
