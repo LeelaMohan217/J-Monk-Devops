@@ -1,45 +1,77 @@
 import { motion } from "framer-motion";
+import {
+  FileCheck,
+  GraduationCap,
+  Languages,
+  Luggage,
+  Stamp,
+  UserSearch,
+} from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { services } from "./data";
 
-// The canonical services list, so it reads as a spec table rather than six
-// stacked mini-heroes: numeral and name hold the left columns, the description
-// sits in its own column at body size. Previously the names ran at text-3xl and
-// the descriptions at text-xl, which gave the page no hierarchy at all.
+// Cards, replacing the hairline spec table this used to be. That table put a
+// numeral and a name in the left columns with the description in its own column
+// on the right, which read as a reference list rather than as six things you can
+// ask for: at a glance it was four hundred pixels of rules and small type with
+// no object to land on.
 //
-// No eyebrow header of its own — PageHeaderSection above already frames it.
-// Red is reserved for CTAs and active states now, so the old red rule per row
-// is gone; the numerals carry the sequence.
+// Icons rather than photographs, for two reasons. The home page already shows
+// four of these six as photo cards, so repeating those images here would put the
+// same artwork on the site twice; and there is no artwork at all for the other
+// two, which would have left a grid of six cards with four photos and two holes.
+//
+// Looked up by id so ./data.js stays pure data.
+const icons = {
+  counselling: UserSearch,
+  selection: GraduationCap,
+  application: FileCheck,
+  visa: Stamp,
+  tests: Languages,
+  departure: Luggage,
+};
+
 const ServicesListSection = () => {
   return (
     <section className="bg-surface pb-24 md:pb-32">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        {services.map((service, index) => (
-          <motion.article
-            key={service.name}
-            variants={riseIn(Math.min(index, 3) * 0.06)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="grid gap-y-3 border-t border-neutral-200 py-8 last:border-b md:py-10 lg:grid-cols-12 lg:gap-x-12"
-          >
-            <div className="flex items-baseline gap-4 lg:col-span-5">
-              <span
-                className="text-xs font-medium tabular-nums text-neutral-400"
-                aria-hidden="true"
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h2 className="text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
-                {service.name}
-              </h2>
-            </div>
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => {
+            const Icon = icons[service.id];
 
-            <p className="max-w-2xl text-sm leading-relaxed text-neutral-600 md:text-base lg:col-span-6 lg:col-start-7">
-              {service.description}
-            </p>
-          </motion.article>
-        ))}
+            return (
+              <motion.li
+                key={service.id}
+                // Delay is clamped, the same way this page's other grids clamp
+                // theirs, so the sixth card does not sit visibly idle after it
+                // has already entered view.
+                variants={riseIn(Math.min(index, 3) * 0.06)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-col rounded-2xl border border-neutral-200 bg-surface p-6 md:p-7"
+              >
+                <Icon
+                  className="h-6 w-6 text-red-600"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+
+                {/* h2, as the old table had it. PageHeaderSection above owns
+                    the page's h1 and there is no section heading between it and
+                    these cards, so h3 here would skip a level. The visual size
+                    is set by the classes, independently of the level. */}
+                <h2 className="mt-5 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
+                  {service.name}
+                </h2>
+
+                <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                  {service.description}
+                </p>
+              </motion.li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

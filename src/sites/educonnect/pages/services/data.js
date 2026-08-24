@@ -8,34 +8,44 @@ export const pageHeader = {
   lead: "From your first shortlist to your first week abroad, here's where EduConnect helps.",
 };
 
-// Mirrors the `services` list in ../home/data.js.
+// Mirrors the `services` list in ../home/data.js, which shows the first four of
+// these as photo cards. This page carries all six.
+//
+// `id` is what ServicesListSection looks each card's icon up by, so this file
+// stays pure data rather than instantiating lucide components at module scope.
 export const services = [
   {
+    id: "counselling",
     name: "Career Counselling & Profile Evaluation",
     description:
       "One-on-one sessions to map your academic profile against realistic country, university, and course options, before you spend money on applications that won't work.",
   },
   {
+    id: "selection",
     name: "University & Course Selection",
     description:
       "Shortlists built around your marks, budget, and what you actually want to do after graduating. Not just name recognition.",
   },
   {
+    id: "application",
     name: "Application & Admission Support",
     description:
       "Document preparation, statement of purpose guidance, and deadline management, so nothing slips through at the worst possible time.",
   },
   {
+    id: "visa",
     name: "Visa Assistance",
     description:
       "Financial documentation, form filing, and interview preparation handled by people who've sat through hundreds of these.",
   },
   {
+    id: "tests",
     name: "IELTS / TOEFL / PTE Guidance",
     description:
       "Test strategy and study planning matched to which exam actually suits how you test.",
   },
   {
+    id: "departure",
     name: "Pre-Departure & Settling-In Support",
     description:
       "Accommodation, travel, and the practical groundwork for your first weeks in a new country.",
