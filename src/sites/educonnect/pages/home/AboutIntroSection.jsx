@@ -7,7 +7,7 @@ import {
   groupContainer,
 } from "../../../../shared/motionConfig";
 import { aboutIntro } from "./data";
-import introImg from "../../assets/educonnect-intro.jpeg";
+import introImg from "../../assets/educonnect-intro.png";
 
 // "Who We Are" intro: photo left, copy + CTA right.
 //
@@ -26,18 +26,26 @@ const AboutIntroSection = () => {
   return (
     <section className="bg-surface py-16 md:py-24 border-t">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+        {/* Two equal halves on a 32px gutter, rather than a 12-track grid on a
+            64px one. With twelve columns at gap-16 the eleven gutters ate 704 of
+            the rail's 1265px, leaving each track 41px, so a five-column photo
+            came out at 461px against 568px of copy. Equal columns on a smaller
+            gutter give the photo 616px and match the two sides. */}
+        <div className="grid gap-8 lg:grid-cols-2">
           {/* The photo keeps its own trigger. Below lg it stacks above the copy
               and the two never reach the centre line together. */}
           <motion.div
             variants={riseIn()}
             {...centerTrigger}
-            className="relative lg:col-span-5"
+            className="relative"
           >
-            {/* 4:3, matching the source. The old square frame cropped a third
-                of the width away, and this photo puts the student and the
-                counsellor at opposite edges, so a square crop cut into both. */}
-            <div className="aspect-4/3 overflow-hidden rounded-xl border border-neutral-200">
+            {/* Stacked it holds 4:3, the source's own ratio. From lg the frame
+                drops the fixed ratio and fills the row instead (h-full against
+                the grid's default stretch), so the photo ends up exactly as tall
+                as the copy beside it. object-cover then trims the top and bottom
+                rather than the sides, which is the safe axis here: the student
+                and the counsellor sit at opposite edges of the frame. */}
+            <div className="aspect-4/3 overflow-hidden rounded-xl border border-neutral-200 lg:aspect-auto lg:h-full">
               <img
                 src={introImg}
                 alt="An EduConnect counsellor going through university options with a student"
@@ -58,7 +66,7 @@ const AboutIntroSection = () => {
           <motion.div
             variants={groupContainer}
             {...centerTrigger}
-            className="lg:col-span-6 lg:col-start-7 flex flex-col items-start"
+            className="flex flex-col items-start justify-center"
           >
             {/* inline-block because riseIn animates y, and a transform does
                 nothing to a plain inline element: this would only fade. */}
