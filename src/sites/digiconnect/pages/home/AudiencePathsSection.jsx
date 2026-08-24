@@ -23,7 +23,7 @@ const AudiencePathsSection = () => {
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {audiencePaths.eyebrow}
             </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
               {audiencePaths.headingLead}
               <span className={ACCENT_CLASS}>{audiencePaths.headingAccent}</span>
             </h2>

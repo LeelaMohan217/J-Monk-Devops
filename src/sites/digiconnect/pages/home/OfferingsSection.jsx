@@ -22,7 +22,7 @@ const OfferingsSection = () => {
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             {offerings.eyebrow}
           </span>
-          <h2 className="mt-4 text-display-sm font-semibold text-neutral-900 md:text-display-md">
+          <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             {offerings.headingLead}
             <span className={ACCENT_CLASS}>{offerings.headingAccent}</span>
           </h2>

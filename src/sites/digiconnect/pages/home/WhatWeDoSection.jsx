@@ -21,7 +21,7 @@ const WhatWeDoSection = () => {
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {whatWeDo.eyebrow}
             </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
               {whatWeDo.headingLead}
               <span className={ACCENT_CLASS}>{whatWeDo.headingAccent}</span>
             </h2>
