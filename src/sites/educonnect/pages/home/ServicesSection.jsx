@@ -93,8 +93,11 @@ const ServicesSection = () => {
     ? { variants: groupContainer, ...centerTrigger }
     : {};
 
+  // py-16 md:py-24 matches the who-we-are section directly above, rather than
+  // the py-24 md:py-32 this used to carry, so adjacent bands do not step from
+  // 96px to 128px of vertical padding.
   return (
-    <section id="services" className="scroll-mt-24 bg-surface-muted py-24 md:py-32">
+    <section id="services" className="scroll-mt-24 bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* Eyebrow, heading, lead: three beats on one trigger, matching the
             landing page's section headers. */}
