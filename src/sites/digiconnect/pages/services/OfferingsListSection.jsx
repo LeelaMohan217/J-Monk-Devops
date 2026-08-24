@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
-import { HEADING_FULL_CLASS } from "../../headingStyles";
 
 const OfferingsListSection = () => {
   return (
@@ -31,7 +30,7 @@ const OfferingsListSection = () => {
                 </div>
 
                 <h2
-                  className={`mt-5 text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
+                  className="mt-5 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl"
                 >
                   {offering.name}
                 </h2>

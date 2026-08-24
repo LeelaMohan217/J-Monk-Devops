@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const OfferingsSection = () => {
   return (
@@ -54,7 +54,7 @@ const OfferingsSection = () => {
                   </div>
 
                   <h3
-                    className={`mt-5 text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
+                    className="mt-5 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl"
                   >
                     {service.name}
                   </h3>

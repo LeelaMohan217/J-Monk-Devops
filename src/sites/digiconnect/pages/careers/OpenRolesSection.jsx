@@ -4,7 +4,7 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { openRoles } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 // Two states, driven entirely by whether data.js has any roles in it. The empty
 // state is the honest default, since the site does not keep evergreen listings
@@ -56,7 +56,7 @@ const OpenRolesSection = () => {
                       {role.type}
                     </span>
                     <h3
-                      className={`mt-2 text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
+                      className="mt-2 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl"
                     >
                       {role.title}
                     </h3>
@@ -81,7 +81,7 @@ const OpenRolesSection = () => {
             className="mt-12 rounded-2xl border border-neutral-200 bg-surface p-8 md:mt-16 md:p-10"
           >
             <span className="h-px w-10 bg-red-600" aria-hidden="true" />
-            <h3 className={`mt-5 text-2xl md:text-3xl ${HEADING_FULL_CLASS}`}>
+            <h3 className="mt-5 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">
               {emptyState.heading}
             </h3>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-600 md:text-base">

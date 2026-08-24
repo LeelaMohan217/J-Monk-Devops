@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { whatWeDo } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const WhatWeDoSection = () => {
   return (
@@ -52,7 +52,7 @@ const WhatWeDoSection = () => {
                 />
               </div>
               <div className="px-3 pt-4 pb-3">
-                <h3 className={`text-lg ${HEADING_FULL_CLASS}`}>
+                <h3 className="text-base font-medium tracking-tight text-neutral-900 md:text-lg">
                   {card.label}
                 </h3>
                 {/* text-sm, the size every other card body on the site uses.

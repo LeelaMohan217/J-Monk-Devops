@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { values } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const ValuesSection = () => {
   return (
@@ -42,7 +42,7 @@ const ValuesSection = () => {
               }`}
             >
               <span className="h-px w-10 bg-red-600" aria-hidden="true" />
-              <h3 className={`mt-5 text-lg ${HEADING_FULL_CLASS}`}>
+              <h3 className="mt-5 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
                 {item.term}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-600">

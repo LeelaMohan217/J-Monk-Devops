@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { whatItIsLike } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 // Same three-card treatment as the about page's ValuesSection, since these are
 // the same operating constraints stated from a candidate's side rather than a
@@ -42,7 +42,7 @@ const WhatItIsLikeSection = () => {
               }`}
             >
               <span className="h-px w-10 bg-red-600" aria-hidden="true" />
-              <h3 className={`mt-5 text-lg ${HEADING_FULL_CLASS}`}>
+              <h3 className="mt-5 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
                 {item.term}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-600">

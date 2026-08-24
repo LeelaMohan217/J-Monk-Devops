@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { audiencePaths } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const AudiencePathsSection = () => {
   return (
@@ -60,12 +60,12 @@ const AudiencePathsSection = () => {
                     {path.label}
                   </span>
                   <div className="mt-2 lg:mt-0">
-                    {/* Was neutral-700 shifting to neutral-950 on hover. Now
-                        the accent carries it, so the hover colour shift is
-                        gone and the row's arrow signals interactivity. */}
-                    <h3
-                      className={`text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
-                    >
+                    {/* No hover colour shift on the title: the row's arrow is
+                        what signals it is interactive. This used to sit in red
+                        Playfair italic, which carried that job on its own; it is
+                        plain sans now, matching EduConnect's card titles, and
+                        the arrow still does the signalling. */}
+                    <h3 className="text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">
                       {path.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-neutral-600">
