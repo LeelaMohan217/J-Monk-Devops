@@ -62,29 +62,59 @@ const ServicesListSection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className={`flex flex-col rounded-2xl border p-6 md:p-7 ${
+                // group + relative + overflow-hidden for the hover swipe below.
+                // overflow-hidden is what keeps the sliding panel inside the
+                // rounded corners instead of squaring them off.
+                //
+                // The border transitions to the other card's colour on hover, so
+                // the edge follows the fill rather than staying behind.
+                className={`group relative flex flex-col overflow-hidden rounded-2xl border transition-colors duration-500 ${
                   tinted
-                    ? "border-red-100 bg-red-50"
-                    : "border-neutral-200 bg-surface"
+                    ? "border-red-100 bg-red-50 hover:border-neutral-200"
+                    : "border-neutral-200 bg-surface hover:border-red-100"
                 }`}
               >
-                <Icon
-                  className="h-6 w-6 text-red-600"
-                  strokeWidth={1.5}
+                {/* The hover fill: a panel in the opposite card's colour,
+                    parked one full width to the left and sliding to cover on
+                    hover. Because it only ever moves between those two
+                    positions it enters and leaves by the same edge, rather than
+                    sweeping across and exiting the far side.
+
+                    A plain untinted card reveals red on hover and a tinted one
+                    reveals plain, so hovering any card shows you the state its
+                    neighbour is in.
+
+                    motion-reduce drops the travel to a straight swap, since a
+                    panel flying across the card is exactly the kind of movement
+                    that setting turns off. */}
+                <span
                   aria-hidden="true"
+                  className={`pointer-events-none absolute inset-0 z-0 -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0 motion-reduce:transition-none ${
+                    tinted ? "bg-surface" : "bg-red-50"
+                  }`}
                 />
 
-                {/* h2, as the old table had it. PageHeaderSection above owns
-                    the page's h1 and there is no section heading between it and
-                    these cards, so h3 here would skip a level. The visual size
-                    is set by the classes, independently of the level. */}
-                <h2 className="mt-5 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
-                  {service.name}
-                </h2>
+                {/* z-10 so the copy paints above the sliding panel. Without it
+                    the panel, being positioned, would cover the in-flow text. */}
+                <div className="relative z-10 flex flex-col p-6 md:p-7">
+                  <Icon
+                    className="h-6 w-6 text-red-600"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
 
-                <p className="mt-3 text-sm leading-relaxed text-neutral-600">
-                  {service.description}
-                </p>
+                  {/* h2, as the old table had it. PageHeaderSection above owns
+                      the page's h1 and there is no section heading between it
+                      and these cards, so h3 here would skip a level. The visual
+                      size is set by the classes, independently of the level. */}
+                  <h2 className="mt-5 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
+                    {service.name}
+                  </h2>
+
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                    {service.description}
+                  </p>
+                </div>
               </motion.li>
             );
           })}
