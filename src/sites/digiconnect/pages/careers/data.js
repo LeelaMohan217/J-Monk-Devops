@@ -34,12 +34,14 @@ export const openRoles = {
   // { id: "senior-backend", title: "Senior Backend Engineer",
   //   type: "Full-time, Guntur", summary: "...", href: "/digiconnect/contact" }
   //
-  // The search field above the list appears only when this array has entries.
-  // A search box over an empty list is a dead control, and it would be the first
-  // thing a visitor touched on a page whose honest answer is "nothing yet".
+  // Options for the work-mode filter. Edit here rather than in the component;
+  // "Any mode" is added by the component as the default and is not a value.
+  modes: ["Remote", "Hybrid", "On-site"],
+  // Add `mode` to each entry alongside the fields above, matching one of the
+  // strings in `modes`, and the dropdown starts filtering on it.
   items: [],
   emptyState: {
-    heading: "Nothing posted right now.",
+    heading: "No openings right now.",
     // Trimmed from five sentences to two. The point is that there is nothing
     // open and that unsolicited work is still welcome; the paragraph explaining
     // our stance on evergreen listings was longer than the roles list it stood
