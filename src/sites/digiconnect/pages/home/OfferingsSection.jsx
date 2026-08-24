@@ -6,6 +6,18 @@ import { centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
+// Column spans by position, over a six-column grid. Rows work out as 3+3,
+// 2+2+2, then 3 plus the 3-wide CTA cell, so every row fills exactly and the
+// grid ends square.
+const SPANS = [
+  "lg:col-span-3",
+  "lg:col-span-3",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-3",
+];
+
 const OfferingsSection = () => {
   return (
     <section
@@ -27,65 +39,83 @@ const OfferingsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="mt-14 md:mt-20">
+        {/* Bento, replacing six full-width rows that each ran the name down the
+            left and the description across the right. Stacked, they were six
+            near-identical bands and the section read as a table.
+
+            Spans over six columns: 3+3, then 2+2+2, then 3+3, so each row fills
+            exactly and no two consecutive rows share a rhythm. The last cell of
+            the last row is the CTA rather than a service, which is what lets the
+            grid finish square instead of leaving a hole or trailing a link
+            underneath it.
+
+            SPANS is indexed by position, so reordering `offerings.services`
+            reshuffles the layout with it. Six entries is the assumption; a
+            seventh would fall back to the 2-column span and still tile. */}
+        <div className="mt-14 grid gap-4 md:mt-20 md:grid-cols-2 md:gap-6 lg:grid-cols-6">
           {offerings.services.map((service, index) => (
             <motion.article
               key={service.name}
-              // Delay is clamped so the sixth row does not sit visibly idle
-              // after entering view; the landing only ever staggers three.
+              // No index step: six cells over three rows is tall enough that a
+              // step would stall the lower ones. Each gets its own trigger.
               variants={riseIn()}
               {...centerTrigger}
-              className="border-t border-neutral-200 py-10 last:border-b md:py-14"
+              className={`flex flex-col rounded-2xl border border-neutral-200 bg-surface p-6 md:p-8 ${
+                SPANS[index] ?? "lg:col-span-2"
+              }`}
             >
-              <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-                <div className="lg:col-span-4">
-                  <div className="flex items-center gap-4">
-                    {/* Hidden from the accessibility tree: otherwise a screen
-                        reader announces "zero one" before six consecutive
-                        headings. Marks are red because DigiConnect's shell is
-                        red throughout, where the landing uses amber. */}
-                    <span
-                      className="text-xs font-medium tabular-nums text-neutral-400 md:text-sm"
-                      aria-hidden="true"
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="h-px w-10 bg-red-600" aria-hidden="true" />
-                  </div>
-
-                  <h3
-                    className="mt-5 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl"
-                  >
-                    {service.name}
-                  </h3>
-                </div>
-
-                <div className="lg:col-span-7 lg:col-start-6">
-                  <p className="text-lg leading-relaxed text-neutral-800 md:text-xl">
-                    {service.description}
-                  </p>
-                </div>
+              <div className="flex items-center gap-4">
+                {/* Hidden from the accessibility tree: otherwise a screen
+                    reader announces "zero one" before six consecutive
+                    headings. */}
+                <span
+                  className="text-xs font-medium tabular-nums text-neutral-400 md:text-sm"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="h-px w-10 bg-red-600" aria-hidden="true" />
               </div>
+
+              <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
+                {service.name}
+              </h3>
+              {/* text-sm, the card-body size used site-wide. These descriptions
+                  ran at text-lg md:text-xl while they were full-width editorial
+                  rows, which inside a bento cell would outweigh its own
+                  heading. */}
+              <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                {service.description}
+              </p>
             </motion.article>
           ))}
-        </div>
 
-        <motion.div
-          variants={riseIn()}
-          {...centerTrigger}
-          className="mt-10"
-        >
-          <Link
-            to={offerings.cta.href}
-            className="group inline-flex w-fit items-center gap-2 py-1 text-sm font-medium text-neutral-700 transition-colors duration-300 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+          {/* The closing cell. Red radial glow rather than a plain card, so the
+              one actionable cell in the grid is the one that looks different,
+              and it reuses the glow already on the about and careers cards
+              instead of introducing another treatment. */}
+          <motion.div
+            variants={riseIn()}
+            {...centerTrigger}
+            // md:col-span-2 so the CTA fills the final row at the two-column
+            // tier instead of sitting half-width beside a gap.
+            className="flex flex-col justify-between rounded-2xl border border-red-100 bg-radial-[at_100%_0%] from-red-100 via-red-50 to-surface to-60% p-6 md:col-span-2 md:p-8 lg:col-span-3"
           >
-            {offerings.cta.label}
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </Link>
-        </motion.div>
+            <p className="max-w-sm text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
+              {offerings.cta.label}
+            </p>
+            <Link
+              to={offerings.cta.href}
+              className="group mt-8 inline-flex w-fit items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            >
+              See all services
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
