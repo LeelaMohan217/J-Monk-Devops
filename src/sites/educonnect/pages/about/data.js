@@ -1,11 +1,20 @@
 // Copy for the EduConnect about page, kept separate from ../home/data.js so
 // the two pages can evolve independently — mirrors DigiConnect's
 // src/sites/digiconnect/pages/about/data.js structure.
+// Longer than the "The people behind EduConnect." this replaced, which ran to a
+// single line and left the header looking thin beside the services and blog
+// ones, but deliberately not much longer: at 56px in a max-w-3xl rail the
+// heading turns over around 52 characters, and the services and blog headings
+// both sit at two lines. A first attempt at 63 characters pushed this one to
+// three lines and a 256-character lead to four, which overshot the other two
+// rather than matching them.
+//
+// There is no `image` key: this header is text only, like the other two.
 export const pageHeader = {
   eyebrow: "About",
-  headingLead: "The people behind ",
-  headingAccent: "EduConnect.",
-  lead: "EduConnect is JMonkDevops' study abroad guidance practice, a small team of counsellors who stay with you from your first shortlist through the day you land.",
+  headingLead: "The counsellor you start with ",
+  headingAccent: "is the one you keep.",
+  lead: "EduConnect is JMonkDevops' study abroad guidance practice, run out of Guntur, Andhra Pradesh, with one counsellor assigned to each student from shortlist to landing.",
 };
 
 export const story = {
@@ -16,11 +25,6 @@ export const story = {
     "We started EduConnect because too many students were making five- and six-figure decisions about their education based on rankings lists and rumours, without anyone walking them through the tradeoffs.",
     "Our counsellors work with students one-on-one, evaluating academic profiles, shortlisting universities and courses that genuinely fit, and staying involved through applications, visas, and pre-departure preparation.",
   ],
-  // Lifts the sharpest idea in the section out of the prose, so the column has
-  // a break at its midpoint rather than running as one unbroken block. Drawn
-  // from the first paragraph's point about rankings, not a new claim.
-  pullQuote:
-    "A ranking tells you how a university is regarded. It does not tell you whether you will get in, whether you can afford it, or whether you will want to be there.",
 };
 
 export const values = {

@@ -5,24 +5,42 @@ import {
   centerTrigger,
   groupContainer,
 } from "../../../../shared/motionConfig";
+import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { story } from "./data";
+import storyImg from "../../assets/educonnect-about.jpg";
 
-// Centred header over a centred prose column, the same shape the home page's
-// services and testimonials sections use, replacing the sidehead layout that put
-// the heading in a left column beside the text.
+// Centred eyebrow and heading over a row of three: a tinted copy card, the
+// photo, then a second tinted copy card. The photo is the portrait that used to
+// sit in this page's header, which now runs text only like the services and blog
+// headers; putting it here keeps it on the page without making one header the
+// odd one out.
 //
-// The prose itself stays left aligned inside its centred column. Centring the
-// heading is a framing device; centring three lines of body copy costs the
-// reader a ragged left edge to find on every line.
+// bg-red-50 for the two copy cards, the same tint the landing page's stat tiles
+// use, so the accent stays inside the palette the site already has rather than
+// introducing a new one. They carry no border: the tint is the edge.
 //
-// The quote is separated by rules above and below rather than a rule down one
-// side, which is what a centred column calls for: a left rule on centred content
-// hangs off nothing.
+// The photo cell is aspect-square while stacked, so it has a height of its own,
+// and drops that from lg where h-full lets it match whichever copy card is
+// tallest. Same arrangement as the who-we-are section on the home page.
 //
-// Two trigger groups, not one. The header and the prose are far enough apart
-// that a single trigger would fire the body while it was still below the fold,
-// and it would be static by the time the reader reached it.
+// Desktop and stacked need different reveals, the same split ServicesSection
+// makes. In a row of three the cards share a y position, so only the index step
+// produces the ripple. Stacked they are ~900px of page and arrive one at a time,
+// where a shared trigger plus index delays would fire the third while it was
+// still well below the fold.
 const StorySection = () => {
+  const isDesktop = useIsDesktop();
+
+  const RowTag = isDesktop ? motion.div : "div";
+  const rowProps = isDesktop
+    ? { variants: groupContainer, ...centerTrigger }
+    : {};
+
+  const cardMotion = (index) => ({
+    variants: riseIn(isDesktop ? index * STEP : 0),
+    ...(isDesktop ? {} : centerTrigger),
+  });
+
   return (
     <section className="bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
@@ -51,37 +69,43 @@ const StorySection = () => {
           </motion.h2>
         </motion.div>
 
-        <motion.div
-          variants={groupContainer}
-          {...centerTrigger}
-          className="mx-auto mt-12 max-w-3xl md:mt-16"
+        <RowTag
+          {...rowProps}
+          className="mt-12 grid gap-6 md:mt-16 lg:grid-cols-3"
         >
-          <motion.p
-            variants={riseIn(0)}
-            className="text-base leading-relaxed text-neutral-800 md:text-lg"
+          <motion.div
+            {...cardMotion(0)}
+            className="flex flex-col justify-center rounded-2xl bg-red-50 p-8 md:p-9"
           >
-            {story.paragraphs[0]}
-          </motion.p>
+            <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
+              {story.paragraphs[0]}
+            </p>
+          </motion.div>
 
-          <motion.figure
-            variants={riseIn(STEP)}
-            className="my-10 border-y border-neutral-200 py-8 text-center md:my-12"
+          <motion.div
+            {...cardMotion(1)}
+            className="aspect-square overflow-hidden rounded-2xl border border-neutral-200 lg:aspect-auto lg:h-full"
           >
-            <blockquote className="font-['Playfair_Display',serif] text-xl italic leading-snug text-neutral-900 md:text-2xl">
-              {story.pullQuote}
-            </blockquote>
-          </motion.figure>
+            <img
+              src={storyImg}
+              alt="An EduConnect student at graduation"
+              width="736"
+              height="736"
+              className="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </motion.div>
 
-          {story.paragraphs.slice(1).map((paragraph) => (
-            <motion.p
-              key={paragraph}
-              variants={riseIn(STEP * 2)}
-              className="text-sm leading-relaxed text-neutral-600 md:text-base"
-            >
-              {paragraph}
-            </motion.p>
-          ))}
-        </motion.div>
+          <motion.div
+            {...cardMotion(2)}
+            className="flex flex-col justify-center rounded-2xl bg-red-50 p-8 md:p-9"
+          >
+            <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
+              {story.paragraphs[1]}
+            </p>
+          </motion.div>
+        </RowTag>
       </div>
     </section>
   );
