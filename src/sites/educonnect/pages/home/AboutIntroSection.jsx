@@ -101,9 +101,9 @@ const AboutIntroSection = () => {
             {/* Text link rather than a filled pill. The red button competed with
                 the section heading's red accent for the eye, and this is a
                 secondary route to the about page, not the page's main action.
-                Underline appears on hover so the resting state stays quiet, and
-                the arrow slides the same distance the site's other text CTAs
-                move theirs.
+                Black rather than neutral-900, and the colour does not change on
+                hover: the underline and the arrow are the whole hover signal, so
+                there is no transition-colors here either.
 
                 decoration-1 / underline-offset-4 keep the rule off the
                 descenders; without the offset it cuts through the 'y' in
@@ -111,7 +111,7 @@ const AboutIntroSection = () => {
             <motion.div variants={riseIn(STEP * 3)} className="mt-8 w-fit">
               <Link
                 to={aboutIntro.cta.href}
-                className="group inline-flex items-center gap-2 py-1 text-sm font-medium text-neutral-900 underline-offset-4 transition-colors duration-300 hover:text-red-700 hover:underline hover:decoration-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="group inline-flex items-center gap-2 py-1 text-sm font-medium text-black underline-offset-4 hover:underline hover:decoration-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
                 {aboutIntro.cta.label}
                 <ArrowRight
