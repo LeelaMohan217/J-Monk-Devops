@@ -126,30 +126,12 @@ export const howWeWork = {
   cta: { label: "More about DigiConnect", href: "/digiconnect/about" },
 };
 
-export const audiencePaths = {
-  eyebrow: "Where you fit",
-  headingLead: "Two ",
-  headingAccent: "ways in.",
-  lead: "Most people arrive for one of these. Pick the closer one and we will redirect you if it turns out to be the other.",
-  paths: [
-    {
-      id: "01",
-      label: "Business",
-      title: "Services",
-      line: "Software, cloud, and automation built around how your business already works.",
-      href: "/digiconnect/services",
-    },
-    {
-      id: "02",
-      label: "Student",
-      // The student programs live on SkillConnect now, so this path leaves the
-      // site. Same SPA, so a react-router Link still handles it client-side.
-      title: "Student programs on SkillConnect",
-      line: "Internships, freelancing routes, and training that put you on real project work.",
-      href: "/skillconnect/services",
-    },
-  ],
-};
+// `audiencePaths` used to live here, a "Where you fit / Two ways in" section
+// offering a Business route and a Student route. The student programs run under
+// SkillConnect now, so that second route was the only thing on this site still
+// addressing students, and removing it left a two-way chooser with one way in.
+// The section went with it. The business route it held is not lost: the
+// offerings section above already closes on a link to the full services page.
 
 // Exactly the eight published on the umbrella landing page. Do not extend this
 // list. The landing records a standing decision not to fabricate capability

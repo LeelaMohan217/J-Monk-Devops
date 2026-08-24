@@ -7,8 +7,10 @@ import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 const PageHeaderSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Masked grid, same treatment as the home hero and the about/student/
-          services headers, each with its own namespaced pattern id. */}
+      {/* Masked grid, same treatment as the home hero and the about, services
+          and careers headers, each with its own namespaced pattern id. (The
+          "student" header this used to list alongside them is gone; that page
+          moved to SkillConnect.) */}
       <div
         className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
         aria-hidden="true"

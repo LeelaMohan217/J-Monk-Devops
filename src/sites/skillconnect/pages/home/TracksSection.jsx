@@ -5,7 +5,9 @@ import { riseIn } from "../../../../shared/variants";
 import { tracks } from "./data";
 import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
 
-// Same editorial row treatment as DigiConnect's AudiencePathsSection, and it
+// Editorial numbered rows. This treatment came from DigiConnect's
+// AudiencePathsSection, which has since been deleted along with the rest of that
+// site's student-facing content, so this is now the only place it appears. It
 // does the same job: it is the way off the home page. The full breakdown of the
 // three tracks lives on the services page, which is where every row points.
 const TracksSection = () => {

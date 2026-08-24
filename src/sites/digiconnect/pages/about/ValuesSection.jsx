@@ -22,7 +22,10 @@ const ValuesSection = () => {
           </h2>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
+        {/* Two columns, not three: there are two values here since the one
+            about student programs moved to SkillConnect, and a three-column
+            grid would leave a visible empty cell. */}
+        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
           {values.items.map((item, index) => (
             <motion.div
               key={item.term}

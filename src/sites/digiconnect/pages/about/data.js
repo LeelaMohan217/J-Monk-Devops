@@ -41,10 +41,11 @@ export const values = {
       detail:
         "Whoever you talk to during scoping is who you talk to during the build. There is no account-management relay in between.",
     },
-    {
-      term: "Client work and student programs, one team",
-      detail:
-        "The internships, freelancing routes, and training now run under SkillConnect, staffed by the same engineers doing the client work here rather than a separate offshoot.",
-    },
+    // A third item used to sit here, "Client work and student programs, one
+    // team", explaining that the internships and training run under SkillConnect
+    // with the same engineers. It was the last place this site described the
+    // student side, which belongs to SkillConnect now, so it is gone and the
+    // grid below drops to two columns to suit. Nothing was invented to replace
+    // it: two true things beat three with one padded out.
   ],
 };
