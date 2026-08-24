@@ -16,6 +16,11 @@ export const story = {
     "We started EduConnect because too many students were making five- and six-figure decisions about their education based on rankings lists and rumours, without anyone walking them through the tradeoffs.",
     "Our counsellors work with students one-on-one, evaluating academic profiles, shortlisting universities and courses that genuinely fit, and staying involved through applications, visas, and pre-departure preparation.",
   ],
+  // Lifts the sharpest idea in the section out of the prose, so the column has
+  // a break at its midpoint rather than running as one unbroken block. Drawn
+  // from the first paragraph's point about rankings, not a new claim.
+  pullQuote:
+    "A ranking tells you how a university is regarded. It does not tell you whether you will get in, whether you can afford it, or whether you will want to be there.",
 };
 
 export const values = {
