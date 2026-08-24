@@ -5,6 +5,7 @@ import { fadeIn, riseIn } from "../../../../shared/variants";
 import { hero } from "./data";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 import WordReveal from "../../../../shared/components/WordReveal";
+import CountUp from "../../../../shared/components/CountUp";
 import splitAccentHeading from "../../../../shared/splitAccentHeading";
 import {
   HERO_CTA_DELAY,
@@ -105,8 +106,19 @@ const HeroSection = () => {
                   key={stat.label}
                   variants={riseIn(HERO_TAIL_DELAY + index * STEP)}
                 >
+                  {/* Counts up on the same delay its tile rises on. `start` is
+                      left at its default: this is a hero, so it is mount-timed
+                      rather than scroll-triggered, and there is no in-view
+                      trigger to wait for the way the landing page's tiles have.
+
+                      No tabular-nums here, unlike those tiles: IBM Plex Mono is
+                      monospaced (as is its fallback), so the digits already hold
+                      one width and the row cannot reflow as the number runs. */}
                   <div className="font-['IBM_Plex_Mono',monospace] text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl">
-                    {stat.value}
+                    <CountUp
+                      value={stat.value}
+                      delay={HERO_TAIL_DELAY + index * STEP}
+                    />
                   </div>
                   <div className="mt-1 text-xs text-neutral-500">
                     {stat.label}
