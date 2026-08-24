@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, ShieldCheck, Users, Waypoints } from "lucide-react";
 import { riseIn } from "../../shared/variants";
 import whoWeAreImage from "./assets/who-we-are.webp";
 import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
@@ -22,9 +22,19 @@ const operatingPrinciples = [
       "We hold business software, student mentorship, and study-abroad guidance to the same bar. Not a lighter one for any of them.",
   },
   {
-    icon: MapPin,
-    title: "Rooted in Bharath",
-    detail: "Based in Andhra Pradesh, building platforms meant to hold up anywhere.",
+    // "One path" rather than the "Rooted in Bharath" this replaced, so all
+    // three read as one series. It is also the phrase the brand already uses
+    // for this idea, in the ecosystem copy in ./data.js and on SkillConnect's
+    // about page: "It is one path, not three."
+    //
+    // Dropping the geography costs the section nothing. The heading above
+    // already ends "across Bharath", and the footer carries the Andhra Pradesh
+    // address, so the location was the one line here that repeated something
+    // rather than adding to it.
+    icon: Waypoints,
+    title: "One path",
+    detail:
+      "Most people arrive needing one of the three and come back later for another. You are not starting over with a new company each time.",
   },
 ];
 
