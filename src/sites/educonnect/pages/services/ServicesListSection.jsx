@@ -39,6 +39,19 @@ const ServicesListSection = () => {
           {services.map((service, index) => {
             const Icon = icons[service.id];
 
+            // Every second card takes the red-50 tint the about page uses, so
+            // the 2nd, 4th and 6th are shaded. In the three-column layout that
+            // lands as a checkerboard, since the offset shifts by one each row.
+            //
+            // Worth knowing at sm, where the grid is two columns: every second
+            // card is then the right-hand one of its row, so the tint reads as a
+            // stripe down that column rather than as an alternation.
+            //
+            // Tinted cards take a red-100 hairline. A grey border against the
+            // tint reads as a slightly dirty edge, the same reason the about
+            // page's gradient cards moved off neutral-200.
+            const tinted = index % 2 === 1;
+
             return (
               <motion.li
                 key={service.id}
@@ -49,7 +62,11 @@ const ServicesListSection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className="flex flex-col rounded-2xl border border-neutral-200 bg-surface p-6 md:p-7"
+                className={`flex flex-col rounded-2xl border p-6 md:p-7 ${
+                  tinted
+                    ? "border-red-100 bg-red-50"
+                    : "border-neutral-200 bg-surface"
+                }`}
               >
                 <Icon
                   className="h-6 w-6 text-red-600"
