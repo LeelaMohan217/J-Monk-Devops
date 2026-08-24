@@ -22,8 +22,15 @@ import { riseIn } from "../variants";
 // and this banner has to line up with the sections above it rather than impose a
 // width. eyebrow / headingAccent / accentClass are optional and unset for the
 // brands on "default", so those render exactly as before.
+//
+// The heading prop is `headingLead`, not `heading`, to match the
+// headingLead/headingAccent pair every page's data.js splits its headings into.
+// It was `heading` until the panel variant landed: DigiConnect's and
+// SkillConnect's configs both wrote `headingLead` on the assumption it followed
+// that convention, so both silently dropped the first half of their closing
+// heading and rendered only the accent.
 const ContactCmp = ({
-  heading,
+  headingLead,
   headingAccent,
   accentClass = "",
   eyebrow,
@@ -53,7 +60,7 @@ const ContactCmp = ({
           >
             <div>
               <h2 className="max-w-2xl text-display-sm font-semibold text-neutral-900">
-                {heading}
+                {headingLead}
               </h2>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base">
                 {subtext}
@@ -100,7 +107,7 @@ const ContactCmp = ({
               )}
 
               <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
-                {heading}
+                {headingLead}
                 {headingAccent && (
                   <span className={accentClass}>{headingAccent}</span>
                 )}

@@ -16,7 +16,7 @@ export const eduConnectConfig = {
   // configs don't set this, so they keep the default rounded-lg button.
   navVariant: "premium",
   contactCta: {
-    heading: "Ready to talk with us?",
+    headingLead: "Ready to talk with us?",
     subtext:
       "Tell us where you're headed and what stage you're at. We'll get back to you with next steps.",
     ctaLabel: "Connect today",
