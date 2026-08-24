@@ -96,41 +96,58 @@ const ContactCmp = ({
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-surface-muted"
+          // Three things changed here to take the panel from conventional to
+          // quiet-premium.
+          //
+          // The 2px red rule across the top edge is gone. A hard coloured bar
+          // pinned to one edge is a dated device and it was the loudest thing in
+          // the block, competing with the button for the eye. The colour now
+          // arrives as a wide radial glow from the top right, the treatment
+          // already on the about, careers and offerings cards, so the panel
+          // belongs to the same family instead of announcing itself.
+          //
+          // The fill moves off surface-muted onto white. The panel sits on a
+          // white page, so a grey card read as a box dropped onto it; white with
+          // a hairline reads as part of the page.
+          //
+          // Padding grows a step at every tier, up to p-20 on desktop. Space is
+          // most of what separates premium from merely tidy, and this is the
+          // last thing on the page, so it can afford it.
+          className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-surface bg-radial-[at_100%_0%] from-red-50 via-surface to-surface to-70%"
         >
-          {/* Red rule along the top edge, the one piece of colour holding the
-              card together. Inside the overflow clip so it stops at the corners
-              rather than running past them. */}
-          <span
-            className="absolute inset-x-0 top-0 h-0.5 bg-red-600"
-            aria-hidden="true"
-          />
-
-          <div className="flex flex-col gap-10 p-8 md:p-12 lg:flex-row lg:items-end lg:justify-between lg:gap-16 lg:p-16">
+          <div className="flex flex-col gap-10 p-8 md:p-14 lg:flex-row lg:items-end lg:justify-between lg:gap-16 lg:p-20">
             <div className="max-w-2xl">
               {eyebrow && (
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
                   {eyebrow}
                 </span>
               )}
 
-              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+              {/* One step larger than the section headings around it, and on
+                  balance-wrapped lines so a two-line heading breaks evenly
+                  rather than leaving one word stranded on the second line. */}
+              <h2 className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-balance text-neutral-900 sm:text-4xl md:text-5xl lg:text-6xl">
                 {headingLead}
                 {headingAccent && (
                   <span className={accentClass}>{headingAccent}</span>
                 )}
               </h2>
 
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base">
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-neutral-600 md:text-base">
                 {subtext}
               </p>
             </div>
 
             {/* shrink-0 so the button never compresses under the heading at the
-                lg breakpoint, where the two sit side by side. */}
+                lg breakpoint, where the two sit side by side.
+
+                Now the only saturated element in the panel, since the red top
+                rule is gone, so it reads as the single action without needing to
+                be large. Sized up slightly and given the arrow slide the site's
+                other CTAs use. */}
             <Link
               to={ctaHref}
-              className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-lg bg-red-600 px-7 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-lg bg-red-600 px-8 py-4 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               {ctaLabel}
               {arrow}
