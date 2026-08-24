@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import {
   STEP,
@@ -97,12 +98,26 @@ const AboutIntroSection = () => {
               {aboutIntro.paragraph}
             </motion.p>
 
+            {/* Text link rather than a filled pill. The red button competed with
+                the section heading's red accent for the eye, and this is a
+                secondary route to the about page, not the page's main action.
+                Underline appears on hover so the resting state stays quiet, and
+                the arrow slides the same distance the site's other text CTAs
+                move theirs.
+
+                decoration-1 / underline-offset-4 keep the rule off the
+                descenders; without the offset it cuts through the 'y' in
+                "Know more about us". */}
             <motion.div variants={riseIn(STEP * 3)} className="mt-8 w-fit">
               <Link
                 to={aboutIntro.cta.href}
-                className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="group inline-flex items-center gap-2 py-1 text-sm font-medium text-neutral-900 underline-offset-4 transition-colors duration-300 hover:text-red-700 hover:underline hover:decoration-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
                 {aboutIntro.cta.label}
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </Link>
             </motion.div>
           </motion.div>
