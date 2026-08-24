@@ -68,10 +68,35 @@ const ProcessSection = () => {
               // colour reads as light falling on the card rather than as a fill.
               //
               // to-60% pulls the stop in so the tint stays a corner glow instead
-              // of washing the whole card. Border stays red-100, as on the other
-              // tinted cards.
-              className="flex flex-col rounded-2xl border border-red-100 bg-radial-[at_0%_0%] from-red-100 via-red-50 to-surface to-60% p-6 md:p-7"
+              // of washing the whole card.
+              //
+              // group + relative + overflow-hidden support the hover swipe
+              // below, the same mechanic the services cards above use. The
+              // border deepens a step so the edge follows the fill.
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-red-100 bg-radial-[at_0%_0%] from-red-100 via-red-50 to-surface to-60% transition-colors duration-500 hover:border-red-200"
             >
+              {/* The hover fill, growing out of the top-left corner rather than
+                  sliding in from the left edge like the services cards do.
+                  Those cards are a flat tint with no origin, so a horizontal
+                  swipe suits them. These carry a radial glow anchored at
+                  at_0%_0%, and a fill entering from the left cut across that
+                  diagonal instead of following it.
+
+                  origin-top-left with scale-0 to scale-100 expands both axes
+                  from that same corner, so the fill spreads the way the glow
+                  already reads: top left towards bottom right.
+
+                  Flat red-50, taking the card from a corner glow to a full
+                  tint. Revealing plain white would have worked mechanically but
+                  reads as the glow being taken away, which is an odd thing for a
+                  hover to do. */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-0 origin-top-left scale-0 bg-red-50 transition-transform duration-500 ease-out group-hover:scale-100 motion-reduce:transition-none"
+              />
+
+              {/* z-10 so the copy paints above the sliding panel. */}
+              <div className="relative z-10 flex flex-col p-6 md:p-7">
               {/* IBM Plex Mono, the face EduConnect already uses for numerals
                   in the hero stats. tabular-nums so 01/02/03 sit on identical
                   widths across the three cards. */}
@@ -93,6 +118,7 @@ const ProcessSection = () => {
               <p className="mt-3 text-sm leading-relaxed text-neutral-600">
                 {step.body}
               </p>
+              </div>
             </motion.li>
           ))}
         </ol>
