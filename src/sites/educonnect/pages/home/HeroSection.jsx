@@ -44,7 +44,11 @@ const HeroSection = () => {
               variants={fadeIn("up", 0)}
               initial="hidden"
               animate="show"
-              className="text-[11px] font-medium uppercase tracking-[0.16em] text-neutral-500"
+              // text-xs and tracking-[0.2em], the eyebrow spec every other
+              // section on this site uses. This one had drifted to an arbitrary
+              // text-[11px] with tracking-[0.16em], so the hero's label sat a
+              // pixel smaller and slightly tighter than the eleven others.
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
             >
               {hero.eyebrow}
             </motion.span>

@@ -74,7 +74,7 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
       </picture>
     </div>
     <div className="p-5">
-      <h3 className="text-base font-medium tracking-tight text-neutral-900">
+      <h3 className="text-base font-medium tracking-tight text-neutral-900 md:text-lg">
         {service.name}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-neutral-600">

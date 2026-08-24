@@ -161,7 +161,7 @@ const EduConnectContact = () => {
                   >
                     {stage.step}
                   </span>
-                  <h3 className="mt-3 text-base font-medium tracking-tight text-neutral-900">
+                  <h3 className="mt-3 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
                     {stage.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">
