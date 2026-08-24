@@ -53,11 +53,13 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
     {...(isDesktop ? {} : centerTrigger)}
     className="flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface"
   >
-    {/* 3/4, the artwork's own ratio, rather than the square this used for the
-        borrowed blog photos. Two of these four carry legible text in the frame
-        (the signpost labels, the visa checklist) and a square crop of a 3:4
-        source cuts a quarter of the height away, which sliced through it. */}
-    <div className="aspect-3/4 overflow-hidden border-b border-neutral-200">
+    {/* Square frame on a 3:4 source, so a quarter of the height is cropped.
+        object-top takes all of that off the bottom rather than splitting it
+        top and bottom, which is what makes the crop safe here: every one of
+        these four puts its subject in the upper portion of the frame, and the
+        two carrying legible text (the signpost labels, the visa checklist) have
+        it high enough to survive intact. A centred crop cut into both. */}
+    <div className="aspect-square overflow-hidden border-b border-neutral-200">
       <picture>
         <source type="image/webp" srcSet={image.webp} />
         <img
@@ -65,7 +67,7 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
           alt=""
           width="800"
           height="1067"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-top"
           loading="lazy"
           decoding="async"
         />
@@ -96,8 +98,17 @@ const ServicesSection = () => {
   // py-16 md:py-24 matches the who-we-are section directly above, rather than
   // the py-24 md:py-32 this used to carry, so adjacent bands do not step from
   // 96px to 128px of vertical padding.
+  //
+  // border-b earns its place: the testimonials section below shares this
+  // section's surface-muted ground, so without a rule the two run together as
+  // one continuous band with no seam. The colour is left to the base layer,
+  // which resolves to the same neutral-200 hairline the who-we-are section's
+  // border-t uses.
   return (
-    <section id="services" className="scroll-mt-24 bg-surface-muted py-16 md:py-24">
+    <section
+      id="services"
+      className="scroll-mt-24 border-b border-neutral-200 bg-surface-muted py-16 md:py-24"
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* Eyebrow, heading, lead: three beats on one trigger, matching the
             landing page's section headers. */}
