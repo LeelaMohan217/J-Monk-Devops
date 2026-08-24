@@ -19,7 +19,6 @@ export const digiConnectConfig = {
   // rather than a node so this file stays pure data; App.jsx builds the element.
   navCtaArrow: true,
   contactCta: {
-    eyebrow: "Next step",
     // Rewritten from "Ready to Elevate Your Business? / Contact us today to
     // discuss how our custom software solutions can take your business to the
     // next level. Let's innovate together!", which was generic filler and made
@@ -35,8 +34,8 @@ export const digiConnectConfig = {
     ctaHref: "/digiconnect/contact",
     // This site's pages run on a 7xl rail, same as EduConnect's.
     maxWidthClass: "max-w-7xl",
-    // Bordered card with a red rule and an accented heading. SkillConnect does
-    // not set this, so it keeps ContactCmp's original banner.
-    variant: "panel",
+    // No `variant` any more. This used to ask for "panel", a bordered card with
+    // a red rule along its top edge; ContactCmp now renders one band for every
+    // brand, the centred one EduConnect was already using.
   },
 };

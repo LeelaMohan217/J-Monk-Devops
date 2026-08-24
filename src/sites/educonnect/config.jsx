@@ -23,10 +23,10 @@ export const eduConnectConfig = {
     ctaHref: "/educonnect/contact",
     // Line the closing banner up with this site's own 7xl section rail.
     maxWidthClass: "max-w-7xl",
-    // No `variant` here on purpose. This site takes ContactCmp's default
-    // centred banner; DigiConnect and SkillConnect opt into "panel". A "dark"
-    // value used to sit here asking for a gray panel with a black pill button,
-    // but no such variant was ever built, so it fell through to this same
-    // default and only made the config look like it did something.
+    // ContactCmp takes no `variant` from anyone now: the centred band this site
+    // was already using is the only one, and DigiConnect and SkillConnect were
+    // moved onto it. A "dark" value used to sit here asking for a gray panel
+    // with a black pill button, but no such variant was ever built, so it fell
+    // through to the default anyway and only made the config look busy.
   },
 };

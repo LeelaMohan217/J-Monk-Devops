@@ -17,7 +17,6 @@ export const skillConnectConfig = {
   // rather than a node so this file stays pure data; App.jsx builds the element.
   navCtaArrow: true,
   contactCta: {
-    eyebrow: "Next step",
     // Rewritten from "Ready to Build Real-World Skills? / Get in touch to learn
     // more about upcoming projects, mentorship, and internship opportunities
     // with SkillConnect.", which was a generic call to action that repeated the
@@ -34,8 +33,7 @@ export const skillConnectConfig = {
     // This site's newer pages run on a 7xl rail, same as DigiConnect's, so the
     // closing card lines up with them rather than the older 6xl home sections.
     maxWidthClass: "max-w-7xl",
-    // Bordered card with a red rule and an accented heading, matching
-    // DigiConnect. EduConnect keeps ContactCmp's original banner.
-    variant: "panel",
+    // No `variant` any more: ContactCmp renders one band for every brand, the
+    // centred one EduConnect was already using.
   },
 };
