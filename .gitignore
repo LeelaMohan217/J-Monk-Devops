@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# Build archives. The `dist` rule above matches only a file or directory named
+# exactly "dist", so a committed dist.zip slipped past it three times and left
+# ~129MB of dead blobs in history before a purge removed them.
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
