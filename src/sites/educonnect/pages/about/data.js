@@ -1,56 +1,70 @@
-// Copy for the EduConnect about page, kept separate from ../home/data.js so
-// the two pages can evolve independently — mirrors DigiConnect's
-// src/sites/digiconnect/pages/about/data.js structure.
-// Longer than the "The people behind EduConnect." this replaced, which ran to a
-// single line and left the header looking thin beside the services and blog
-// ones, but deliberately not much longer: at 56px in a max-w-3xl rail the
-// heading turns over around 52 characters, and the services and blog headings
-// both sit at two lines. A first attempt at 63 characters pushed this one to
-// three lines and a 256-character lead to four, which overshot the other two
-// rather than matching them.
+// Copy for the EduConnect about page, kept separate from ../home/data.js so the
+// two pages can evolve independently.
 //
-// There is no `image` key: this header is text only, like the other two.
+// Rewritten by hand to stop reading like generated marketing text. The tells
+// that got removed, in case they creep back in:
+//
+//   - Three item lists everywhere. "applications, visas, and pre-departure
+//     preparation", "your goals, budget, and academic profile", "admissions,
+//     visas, and the move itself". Once you notice the rhythm you cannot stop
+//     noticing it.
+//   - "actually" and "genuinely" propping up claims that were vague without
+//     them: "what students actually need", "courses that genuinely fit".
+//   - The X-not-Y construction on repeat: "student-first, not university-first",
+//     "not a preferred-partner list".
+//   - Abstract nouns doing the work a verb should. "guidance practice",
+//     "one counsellor assigned to each student", "no relay between departments".
+//   - Every sentence the same length, so the whole page reads at one pitch.
+//
+// What replaced them: contractions, fragments where a fragment is how a person
+// would say it, one concrete detail per claim, and sentence lengths that vary.
+// No new facts were invented. Every claim here already existed somewhere in this
+// file or in ../services/data.js.
+//
+// Still no dash punctuation anywhere, and no `image` key on the header, which is
+// text only like the services and blog ones.
+
 export const pageHeader = {
   eyebrow: "About",
-  headingLead: "The counsellor you start with ",
-  headingAccent: "is the one you keep.",
-  lead: "EduConnect is JMonkDevops' study abroad guidance practice, run out of Guntur, Andhra Pradesh, with one counsellor assigned to each student from shortlist to landing.",
+  headingLead: "One counsellor, ",
+  headingAccent: "the whole way through.",
+  lead: "We're a small study abroad team in Guntur, Andhra Pradesh, part of JMonkDevops. When you come to us, one of us takes your case and stays on it until you've landed.",
 };
 
 export const story = {
-  eyebrow: "Our Story",
-  headingLead: "Built around what students ",
-  headingAccent: "actually need",
+  eyebrow: "Why we started",
+  headingLead: "Most students were guessing. ",
+  headingAccent: "We wanted to fix that.",
   paragraphs: [
-    "We started EduConnect because too many students were making five- and six-figure decisions about their education based on rankings lists and rumours, without anyone walking them through the tradeoffs.",
-    "Our counsellors work with students one-on-one, evaluating academic profiles, shortlisting universities and courses that genuinely fit, and staying involved through applications, visas, and pre-departure preparation.",
+    "People were picking universities off ranking lists and WhatsApp forwards, then committing lakhs to the choice. Nobody sat down with them first to explain what they were giving up by choosing one place over another.",
+    "So the setup here is plain. One counsellor per student. They read your marks, tell you which countries are realistic, help you get the application together, and pick up the phone when the visa interview goes badly.",
   ],
 };
 
 export const values = {
-  eyebrow: "What That Means In Practice",
+  eyebrow: "How we work",
   headingLead: "A few things worth knowing ",
   headingAccent: "before you call.",
   items: [
     {
-      term: "Student-first, not university-first",
+      term: "No university pays us",
       detail:
-        "Every recommendation starts with your goals, budget, and academic profile. Not a preferred-partner list.",
+        "Nobody here earns a commission for steering you towards a particular campus. If the cheaper course is the better fit, that's what you'll hear.",
     },
     {
-      term: "Honest, even when it costs us",
+      term: "We will tell you no",
       detail:
-        "We'll tell you when a course or country isn't the right fit, even if that means a harder conversation.",
+        "Sometimes the honest answer is that your marks won't get you into the place you had in mind. Better to hear that now than after the application fee is paid.",
     },
     {
-      term: "One team, start to finish",
+      term: "The same person, all the way",
       detail:
-        "The same counsellor stays with you from shortlisting through landing abroad, with no relay between departments.",
+        "You won't get passed to an applications team once the shortlist is done, then to a visa team after that. It stays with whoever you started with.",
     },
     {
-      term: "Years of applications behind us",
+      term: "We've done this a lot",
       detail:
-        "Counsellors who've guided hundreds of students through admissions, visas, and the move itself.",
+        "Hundreds of applications and visa interviews between us. Most of what goes wrong, we've watched go wrong before.",
     },
   ],
 };
