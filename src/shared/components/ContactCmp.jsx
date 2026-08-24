@@ -7,15 +7,21 @@ import { riseIn } from "../variants";
 //
 // Two variants:
 //
-// "default" — SkillConnect and EduConnect. Deliberately stays light:
-// GlobalFooter directly below is bg-neutral-900, so an inverted banner here
-// would merge into it and the page would lose its ending. The hairline top
-// border is what separates it from whichever surface the last section used.
+// "default" — EduConnect only, and the fallback for any value that is not
+// "panel". Deliberately stays light: GlobalFooter directly below is
+// bg-neutral-900, so an inverted banner here would merge into it and the page
+// would lose its ending. The hairline top border is what separates it from
+// whichever surface the last section used. Heading, subtext, and button are all
+// centred on one axis, so the band reads as a single closing statement rather
+// than a left-aligned block with a button pushed to the far edge.
 //
-// "panel" — DigiConnect only. A bordered card with a red rule along its top
-// edge, an eyebrow, and an accented heading, so the page closes on a deliberate
-// object rather than trailing off into a full-bleed band. Replaces the flat
-// banner DigiConnect used to share with SkillConnect.
+// Note that EduConnect's config asks for variant "dark", which does not exist
+// here and therefore lands on this default. Either add that variant or drop the
+// value; today it is only misleading, not broken.
+//
+// "panel" — DigiConnect and SkillConnect. A bordered card with a red rule along
+// its top edge, an eyebrow, and an accented heading, so the page closes on a
+// deliberate object rather than trailing off into a full-bleed band.
 //
 // Both variants take their content as props and hardcode no brand's copy.
 // maxWidthClass mirrors Navbar's prop, since the rail differs per brand shell
@@ -56,20 +62,26 @@ const ContactCmp = ({
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.4 }}
-            className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16"
+            className="flex flex-col items-center gap-8 text-center"
           >
             <div>
-              <h2 className="max-w-2xl text-display-sm font-semibold text-neutral-900">
+              {/* mx-auto on both, because max-w on a centred child still needs
+                  its own centring: text-center aligns the lines inside the box,
+                  it does not centre the box itself. */}
+              <h2 className="mx-auto max-w-2xl text-display-sm font-semibold text-neutral-900">
                 {headingLead}
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base">
                 {subtext}
               </p>
             </div>
 
+            {/* rounded-full, matching the pill EduConnect uses for buttons
+                elsewhere on its pages. The panel variant below keeps rounded-lg,
+                which is what DigiConnect and SkillConnect use throughout. */}
             <Link
               to={ctaHref}
-              className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               {ctaLabel}
               {arrow}
