@@ -1,10 +1,5 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
-import {
-  STEP,
-  centerTrigger,
-  groupContainer,
-} from "../../../../shared/motionConfig";
 import { process } from "./data";
 
 // Cards, matching the services grid above, replacing the hairline cells that
@@ -23,31 +18,39 @@ const ProcessSection = () => {
   return (
     <section className="bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        {/* Centred, matching the about page's story and how-we-work headers.
-            Eyebrow then heading on one shared trigger, in reading order. */}
+        {/* Centred, revealing as one block on an `amount: 0.5` trigger.
+
+            This briefly used centerTrigger with the eyebrow and heading staged
+            as separate children, and the heading was reported missing on the
+            live page. Measuring it afterwards, the geometry was fine: this
+            group's top clears the 55% line that centerTrigger needs with room to
+            spare, so the never-fires case motionConfig warns about was not what
+            happened here.
+
+            It is back on the simpler trigger anyway. `amount: 0.5` fires when
+            half the element is on screen, which anything can satisfy from any
+            position on any page length, where centerTrigger depends on where the
+            group sits relative to the end of the document. For a heading, where
+            the failure mode is text that is silently absent rather than an
+            animation that looks slightly off, the trigger with no positional
+            precondition is the one to use. */}
         <motion.div
-          variants={groupContainer}
-          {...centerTrigger}
+          variants={riseIn()}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
           className="mx-auto max-w-2xl text-center"
         >
-          {/* inline-block because riseIn animates y, and a transform does
-              nothing to a plain inline element: this would only fade. */}
-          <motion.span
-            variants={riseIn(0)}
-            className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
-          >
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
             {process.eyebrow}
-          </motion.span>
+          </span>
 
-          <motion.h2
-            variants={riseIn(STEP)}
-            className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl"
-          >
+          <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             {process.headingLead}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">
               {process.headingAccent}
             </span>
-          </motion.h2>
+          </h2>
         </motion.div>
 
         <ol className="mt-14 grid gap-6 md:mt-20 md:grid-cols-3">
