@@ -25,8 +25,11 @@ const TestimonialsSection = () => {
     ? { variants: groupContainer, ...centerTrigger }
     : {};
 
+  // py-16 md:py-24, the same rhythm the who-we-are and services sections use.
+  // This was the last section still on py-24 md:py-32, so it was the one place
+  // the page stepped from 96px of vertical padding to 128px.
   return (
-    <section className="bg-surface-muted py-24 md:py-32">
+    <section className="bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={groupContainer}
