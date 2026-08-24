@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { CENTER_MARGIN } from "../../../../shared/motionConfig";
-import heroImg from "../../assets/educonnect-hero1.jpg";
-import heroWebp from "../../assets/educonnect-hero1.webp";
+// Same pair the hero uses. This band is full-bleed, so it stretches the photo
+// wider than anywhere else on the site and the old 735px version showed it.
+import heroImg from "../../assets/educonnect-hero.jpg";
+import heroWebp from "../../assets/educonnect-hero.webp";
 
 // Pure pacing beat between ServicesSection and WhyChooseSection — full-bleed
 // photo, no text overlay, no CTA. Reuses the hero photo since it's the

@@ -73,10 +73,30 @@ const TestimonialsSection = () => {
                 {item.quote}
               </blockquote>
               <figcaption className="mt-5 flex items-center gap-3">
-                <span
-                  className={`h-9 w-9 shrink-0 rounded-full ${item.avatarColor}`}
-                  aria-hidden="true"
-                />
+                {/* object-top rather than the default centre: every portrait
+                    here is a half-body shot with the face in the top third, and
+                    a centred cover-crop lands on the torso. Anchoring to the top
+                    also guarantees no crown of a head is cut off, which
+                    object-position values below ~10% start doing on the tallest
+                    of them.
+
+                    Falls back to the flat monogram circle when an item has no
+                    image, so a sixth testimonial can be added before its
+                    portrait exists. */}
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="h-9 w-9 shrink-0 rounded-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <span
+                    className={`h-9 w-9 shrink-0 rounded-full ${item.avatarColor}`}
+                    aria-hidden="true"
+                  />
+                )}
                 <span className="text-sm font-medium text-neutral-900">
                   {item.name}
                 </span>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, User } from "lucide-react";
 import { fadeIn, riseIn } from "../../../../shared/variants";
 import { hero } from "./data";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
@@ -14,8 +14,11 @@ import {
   STEP,
   groupContainer,
 } from "../../../../shared/motionConfig";
-import heroCollageJpg from "../../assets/educonnect-hero1.jpg";
-import heroCollageWebp from "../../assets/educonnect-hero1.webp";
+// 1536px wide, encoded down from the 2.1MB educonnect-hero.png master that sits
+// beside them. The previous pair was 735px for a slot that renders ~590px, so it
+// was soft on any retina screen.
+import heroPhotoJpg from "../../assets/educonnect-hero.jpg";
+import heroPhotoWebp from "../../assets/educonnect-hero.webp";
 
 const ACCENT_CLASS = "font-['Playfair_Display',serif] text-red-600 italic";
 
@@ -148,11 +151,13 @@ const HeroSection = () => {
                   border still reads correctly along the cut edge. */}
               <div className="overflow-hidden rounded-2xl border border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-40px),calc(100%-40px)_100%,0_100%)]">
                 <picture>
-                  <source type="image/webp" srcSet={heroCollageWebp} />
+                  <source type="image/webp" srcSet={heroPhotoWebp} />
                   <img
-                    src={heroCollageJpg}
+                    src={heroPhotoJpg}
                     alt="Student holding university admission documents at the airport"
                     className="aspect-4/3 w-full object-cover"
+                    width="1536"
+                    height="1024"
                     decoding="async"
                   />
                 </picture>
@@ -181,9 +186,46 @@ const HeroSection = () => {
                   </span>
                 </div>
                 <div className="h-8 w-px bg-neutral-200" aria-hidden="true" />
-                <span className="text-xs font-medium text-neutral-500">
-                  {hero.rating.source}
-                </span>
+
+                {/* Reviewer avatars, in place of the "Google Reviews" label.
+                    Overlapping circles via -space-x-2, each ringed in the card's
+                    own surface colour so the row reads as a stack rather than as
+                    separate dots.
+
+                    The source string moves to sr-only rather than being dropped:
+                    faces carry no provenance, so without it a screen reader
+                    would hear a bare 4.8 with nothing saying where it came
+                    from. */}
+                <div className="flex items-center">
+                  <span className="sr-only">{hero.rating.source}</span>
+
+                  <div
+                    className="flex items-center -space-x-2"
+                    aria-hidden="true"
+                  >
+                    {hero.rating.reviewers.map((reviewer, index) => (
+                      <span
+                        key={reviewer.name ?? index}
+                        className="inline-flex h-7 w-7 items-center justify-center overflow-hidden rounded-full border-2 border-surface bg-neutral-100"
+                      >
+                        {reviewer.image ? (
+                          <img
+                            src={reviewer.image}
+                            alt=""
+                            className="h-full w-full object-cover object-top"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <User
+                            className="h-3.5 w-3.5 text-neutral-400"
+                            strokeWidth={1.75}
+                          />
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             </div>
           </motion.div>

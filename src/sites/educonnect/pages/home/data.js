@@ -1,3 +1,21 @@
+import ananyaPortrait from "../../assets/testimonials/ananya-r.jpg";
+import rahulPortrait from "../../assets/testimonials/rahul-m.jpg";
+import priyaPortrait from "../../assets/testimonials/priya-s.jpg";
+import karthikPortrait from "../../assets/testimonials/karthik-v.jpg";
+import meeraPortrait from "../../assets/testimonials/meera-k.jpg";
+
+// The five people the page shows: the hero's rating-card avatar stack and the
+// testimonials list are the same students, so both read from this array rather
+// than each holding its own copy that could drift when a portrait is swapped.
+// Order is shared too, so the stack reads in the same order as the quotes.
+const reviewers = [
+  { image: ananyaPortrait, name: "Ananya R." },
+  { image: rahulPortrait, name: "Rahul M." },
+  { image: priyaPortrait, name: "Priya S." },
+  { image: karthikPortrait, name: "Karthik V." },
+  { image: meeraPortrait, name: "Meera K." },
+];
+
 // Copy for the EduConnect home page, kept separate from the section
 // components so they stay purely presentational — same pattern as
 // DigiConnect's src/sites/digiconnect/pages/home/data.js.
@@ -18,11 +36,23 @@ export const hero = {
     { value: "50+", label: "Partner universities" },
     { value: "7", label: "Study destinations" },
   ],
-  // PLACEHOLDER — replace with the real rating, source, and review count.
+  // PLACEHOLDER — replace with the real rating, source, and review count. The
+  // portraits in the avatar stack below are attached to the same stand-in names
+  // the testimonials use, so the faces, names, quotes, and this rating all have
+  // to be replaced together rather than one at a time.
+  //
+  // The stack shows the first three of the five rather than all of them: it is
+  // a glance-sized proof point next to the rating, not a roster, and five
+  // circles crowded the card against the rating text. The testimonials section
+  // below still lists all five.
+  //
+  // An entry with no `image` falls back to a neutral avatar glyph, so the stack
+  // still renders if a portrait is ever removed.
   rating: {
     value: "4.8",
     outOf: "5",
     source: "Google Reviews",
+    reviewers: reviewers.slice(0, 3),
   },
 };
 
@@ -82,11 +112,13 @@ export const services = {
 };
 
 // PLACEHOLDER — every quote/name below is a stand-in for layout purposes,
-// not a real student. Replace all five before this goes live. avatarColor is
-// a flat fill for the review's monogram circle, deliberately not a photo —
-// no real reviewer headshots exist yet, and a fabricated one would read as
-// a fake testimonial rather than a genuine review (same reasoning as the
-// hero's rating card).
+// not a real student. Replace all five before this goes live, and note that the
+// portraits are now attached to those stand-in names, so the two have to be
+// replaced together rather than one at a time.
+//
+// `avatarColor` is the flat monogram fill an item falls back to when it has no
+// `image`. Kept rather than deleted: it is what a sixth testimonial would render
+// with before its portrait exists.
 export const testimonials = {
   eyebrow: "Testimonials",
   headingLead: "Real progress, ",
@@ -96,30 +128,30 @@ export const testimonials = {
     {
       quote:
         "EduConnect made a confusing process feel manageable from day one.",
-      name: "Ananya R.",
+      ...reviewers[0],
       avatarColor: "bg-red-100",
     },
     {
       quote:
         "I had three different offers by the time I actually understood my own options. My counsellor walked me through every one of them without ever pushing a particular university.",
-      name: "Rahul M.",
+      ...reviewers[1],
       avatarColor: "bg-neutral-200",
     },
     {
       quote:
         "What stood out wasn't just the guidance on applications, it was how available they stayed through the visa interview prep and even after I landed. I had questions about renting an apartment and opening a bank account, and someone actually answered them instead of pointing me to a generic FAQ page.",
-      name: "Priya S.",
+      ...reviewers[2],
       avatarColor: "bg-red-200",
     },
     {
       quote:
         "Honest about which universities were actually a stretch for my profile, which saved me a lot of wasted application fees.",
-      name: "Karthik V.",
+      ...reviewers[3],
       avatarColor: "bg-neutral-300",
     },
     {
       quote: "Straightforward pricing, no surprise add-ons partway through.",
-      name: "Meera K.",
+      ...reviewers[4],
       avatarColor: "bg-red-100",
     },
   ],
