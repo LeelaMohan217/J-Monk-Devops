@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import {
+  STEP,
+  centerTrigger,
+  groupContainer,
+} from "../../../../shared/motionConfig";
 import { values } from "./data";
 
 // Cards on a red gradient, replacing the hairline grid of cells that hung off
@@ -20,23 +25,32 @@ const ValuesSection = () => {
   return (
     <section className="bg-surface py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
+        {/* Centred to match the story section above, so the two consecutive
+            sections on this page frame their content the same way. Eyebrow and
+            heading arrive in reading order on one trigger, as they do there. */}
         <motion.div
-          variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
-          className="max-w-2xl"
+          variants={groupContainer}
+          {...centerTrigger}
+          className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+          {/* inline-block because riseIn animates y, and a transform does
+              nothing to a plain inline element: this would only fade. */}
+          <motion.span
+            variants={riseIn(0)}
+            className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
+          >
             {values.eyebrow}
-          </span>
+          </motion.span>
 
-          <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <motion.h2
+            variants={riseIn(STEP)}
+            className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl"
+          >
             {values.headingLead}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">
               {values.headingAccent}
             </span>
-          </h2>
+          </motion.h2>
         </motion.div>
 
         <dl className="mt-12 grid gap-6 md:mt-16 sm:grid-cols-2 lg:grid-cols-4">
