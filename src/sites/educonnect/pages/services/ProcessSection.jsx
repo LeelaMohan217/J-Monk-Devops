@@ -16,7 +16,7 @@ import { process } from "./data";
 // raised objects rather than as panels the same colour as the page.
 const ProcessSection = () => {
   return (
-    <section className="bg-surface-muted py-24 md:py-32">
+    <section className="bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}

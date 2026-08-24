@@ -72,7 +72,7 @@ const BlogPost = () => {
 
       <div className="border-t border-neutral-200" />
 
-      <section className="bg-surface py-16 md:py-20">
+      <section className="bg-surface py-16 md:py-24">
         {/* Same PostImage as the index cards, so an article isn't imageless
             while its own card carries artwork. */}
         <motion.div

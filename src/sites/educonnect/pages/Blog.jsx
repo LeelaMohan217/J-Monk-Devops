@@ -17,7 +17,7 @@ const Blog = () => {
     <>
       <PageHeaderSection />
 
-      <section className="bg-surface pb-24 md:pb-32">
+      <section className="bg-surface pb-16 md:pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {blogPosts.map((post, index) => (

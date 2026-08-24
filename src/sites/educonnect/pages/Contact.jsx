@@ -134,7 +134,7 @@ const EduConnectContact = () => {
         </div>
       </section>
 
-      <section className="bg-surface pb-24 md:pb-32">
+      <section className="bg-surface pb-16 md:pb-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
           <motion.div
             variants={riseIn(0.05)}

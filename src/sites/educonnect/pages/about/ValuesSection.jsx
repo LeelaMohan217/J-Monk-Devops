@@ -8,7 +8,7 @@ import { values } from "./data";
 // one system.
 const ValuesSection = () => {
   return (
-    <section className="bg-surface py-24 md:py-32">
+    <section className="bg-surface py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
