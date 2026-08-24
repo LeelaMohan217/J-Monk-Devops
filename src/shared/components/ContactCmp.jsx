@@ -15,10 +15,6 @@ import { riseIn } from "../variants";
 // centred on one axis, so the band reads as a single closing statement rather
 // than a left-aligned block with a button pushed to the far edge.
 //
-// Note that EduConnect's config asks for variant "dark", which does not exist
-// here and therefore lands on this default. Either add that variant or drop the
-// value; today it is only misleading, not broken.
-//
 // "panel" — DigiConnect and SkillConnect. A bordered card with a red rule along
 // its top edge, an eyebrow, and an accented heading, so the page closes on a
 // deliberate object rather than trailing off into a full-bleed band.
