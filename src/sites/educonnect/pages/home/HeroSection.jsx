@@ -82,7 +82,7 @@ const HeroSection = () => {
               variants={fadeIn("up", HERO_CTA_DELAY)}
               initial="hidden"
               animate="show"
-              className="mt-2 flex flex-col gap-3 sm:flex-row sm:gap-4"
+              className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
             >
               <Link
                 to={hero.primaryCta.href}

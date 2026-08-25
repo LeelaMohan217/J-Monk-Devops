@@ -71,7 +71,7 @@ const HeroSection = () => {
             variants={fadeIn("up", 0.35)}
             initial="hidden"
             animate="show"
-            className="mt-2 flex flex-col gap-3 sm:flex-row sm:gap-4"
+            className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
           >
             {/* The secondary used to be a #offerings jump on this same page.
                 It goes to the services page now, so both CTAs lead somewhere,

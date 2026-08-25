@@ -38,7 +38,11 @@ const AboutIntroSection = () => {
           <motion.div
             variants={riseIn()}
             {...centerTrigger}
-            className="relative"
+            // order-2 stacked, order-1 from lg. The photo leads in source order
+            // so it holds the left column at desktop, but stacked that put it
+            // above the heading and the section opened on an image with no
+            // context.
+            className="relative order-2 lg:order-1"
           >
             {/* Stacked it holds 4:3, the source's own ratio. From lg the frame
                 drops the fixed ratio and fills the row instead (h-full against
@@ -67,7 +71,7 @@ const AboutIntroSection = () => {
           <motion.div
             variants={groupContainer}
             {...centerTrigger}
-            className="flex flex-col items-start justify-center"
+            className="order-1 flex flex-col items-start justify-center lg:order-2"
           >
             {/* inline-block because riseIn animates y, and a transform does
                 nothing to a plain inline element: this would only fade. */}
