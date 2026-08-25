@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { fadeIn } from "../../../../shared/variants";
+import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import { hero } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 import { HERO_HEADING_SIZE } from "../../../../shared/headingSizes";
@@ -103,11 +104,27 @@ const HeroSection = () => {
             className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
           >
             {/* Both carry the same ArrowRight the rest of the site's CTAs use,
-                sliding on hover via the group class. */}
+                sliding on hover via the group class, and both now take a
+                GlazeSweep gloss on the same hover.
+
+                Each gained `relative overflow-hidden` to host it: relative for
+                the band to position against, overflow-hidden to keep it inside
+                the pill on its way past. Neither costs anything here. The arrow
+                only travels 4px against 24px of right padding so it never
+                reaches the clip, and an outline is painted outside the border box
+                so overflow-hidden leaves the focus ring alone.
+
+                The two bands are different colours because the buttons are. A
+                white gloss on the filled red reads as light on a surface, but on
+                the bordered CTA, which is white on a white section, white would
+                sweep across invisibly. That one gets red-600/15 instead, which
+                also puts the sweep in the same register as its own hover, where
+                the border and label already go red. */}
             <Link
               to={hero.primaryCta.href}
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
+              <GlazeSweep className="bg-white/30" />
               {hero.primaryCta.label}
               <ArrowRight
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -116,8 +133,9 @@ const HeroSection = () => {
             </Link>
             <Link
               to={hero.secondaryCta.href}
-              className="group inline-flex items-center justify-center gap-2 rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:border-red-600 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:border-red-600 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
+              <GlazeSweep className="bg-red-600/15" />
               {hero.secondaryCta.label}
               <ArrowRight
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
