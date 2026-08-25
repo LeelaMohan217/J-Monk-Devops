@@ -111,7 +111,7 @@ const MobileNavMenu = () => {
                   <Link
                     to="/"
                     onClick={closeMenu}
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-1"
                   >
                     <img
                       className="h-12 w-12 object-contain"
@@ -120,7 +120,7 @@ const MobileNavMenu = () => {
                       width={48}
                       height={48}
                     />
-                    <span className="text-base font-semibold tracking-tight text-black">
+                    <span className="text-lg font-semibold tracking-tight text-black">
                       JMonkDevops
                     </span>
                   </Link>
