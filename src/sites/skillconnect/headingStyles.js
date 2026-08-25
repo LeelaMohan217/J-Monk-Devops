@@ -14,10 +14,9 @@
 export const ACCENT_CLASS =
   "font-['Playfair_Display',serif] text-red-600 italic";
 
-// For headings that cannot be split, because the text is dynamic or is a short
-// standalone label: card titles, value terms, track names.
-//
-// Same declarations as ACCENT_CLASS today, kept separate so card titles can be
-// softened later without touching the section-heading accent above.
-export const HEADING_FULL_CLASS =
-  "font-['Playfair_Display',serif] text-red-600 italic";
+// There was a HEADING_FULL_CLASS here that put card titles, value terms and
+// track names in the same Playfair red italic. It is gone, for the reason it
+// went from ../digiconnect/headingStyles.js: the accent earns its weight by
+// landing once per section, on the heading. Spending it again on every card
+// title in the grid below turned it into the page's default voice. Card titles
+// are sans at font-medium text-neutral-900 now, across all three brands.

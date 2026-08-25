@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { centerTrigger } from "../../../../shared/motionConfig";
 import { tracks } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 // Editorial numbered rows. This treatment came from DigiConnect's
 // AudiencePathsSection, which has since been deleted along with the rest of that
@@ -19,16 +20,14 @@ const TracksSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="grid gap-6 lg:grid-cols-12 lg:items-end"
         >
           <div className="lg:col-span-7">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {tracks.eyebrow}
             </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
               {tracks.headingLead}
               <span className={ACCENT_CLASS}>{tracks.headingAccent}</span>
             </h2>
@@ -39,13 +38,14 @@ const TracksSection = () => {
         </motion.div>
 
         <div className="mt-12 border-t border-neutral-200 md:mt-16">
-          {tracks.items.map((track, index) => (
+          {/* A trigger per row with no index delay, not one staggered group:
+              these are full-width editorial rows, so by the time a third-in-line
+              delay elapsed the last row would already be well past the fold. */}
+          {tracks.items.map((track) => (
             <motion.div
               key={track.id}
-              variants={riseIn(Math.min(index, 3) * 0.06)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
+              variants={riseIn()}
+              {...centerTrigger}
               className="border-b border-neutral-200"
             >
               <Link
@@ -67,7 +67,7 @@ const TracksSection = () => {
                   </span>
                   <div className="mt-2 lg:mt-0">
                     <h3
-                      className={`text-2xl tracking-tight md:text-3xl ${HEADING_FULL_CLASS}`}
+                      className="text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl"
                     >
                       {track.title}
                     </h3>

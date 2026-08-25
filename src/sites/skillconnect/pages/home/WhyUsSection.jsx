@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { whyUs } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
@@ -15,15 +16,13 @@ const WhyUsSection = () => {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <motion.div
             variants={riseIn()}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
+            {...centerTrigger}
             className="lg:col-span-5"
           >
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {whyUs.eyebrow}
             </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
               {whyUs.headingLead}
               <span className={ACCENT_CLASS}>{whyUs.headingAccent}</span>
             </h2>
@@ -39,10 +38,8 @@ const WhyUsSection = () => {
           </motion.div>
 
           <motion.ul
-            variants={riseIn(0.08)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            variants={riseIn(STEP)}
+            {...centerTrigger}
             className="border-t border-neutral-200 lg:col-span-6 lg:col-start-7"
           >
             {whyUs.points.map((point) => (

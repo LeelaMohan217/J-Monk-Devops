@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { centerTrigger } from "../../../../shared/motionConfig";
 import { audience } from "./data";
 
 // The sunken closing strip DigiConnect's StackStrip occupies, and the same
@@ -11,9 +12,7 @@ const AudienceStrip = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
+          {...centerTrigger}
           className="flex flex-col items-center gap-6"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">

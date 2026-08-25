@@ -8,8 +8,9 @@ import {
   Users,
 } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 // Looked up by id, the same way the services page's ProgramsSection does it, so
 // ./data.js can stay pure data rather than instantiating lucide components at
@@ -32,16 +33,14 @@ const OfferingsSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="grid gap-6 lg:grid-cols-12 lg:items-end"
         >
           <div className="lg:col-span-7">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {offerings.eyebrow}
             </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
               {offerings.headingLead}
               <span className={ACCENT_CLASS}>{offerings.headingAccent}</span>
             </h2>
@@ -60,10 +59,8 @@ const OfferingsSection = () => {
                 key={item.id}
                 // Delay is clamped the way the sibling grids clamp theirs, so
                 // the sixth card does not sit visibly idle after entering view.
-                variants={riseIn(Math.min(index, 3) * 0.08)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.4 }}
+                variants={riseIn(Math.min(index, 3) * STEP)}
+                {...centerTrigger}
                 className="rounded-2xl border border-neutral-200 bg-surface p-6"
               >
                 <Icon
@@ -71,7 +68,7 @@ const OfferingsSection = () => {
                   strokeWidth={1.5}
                   aria-hidden="true"
                 />
-                <h3 className={`mt-5 text-lg ${HEADING_FULL_CLASS}`}>
+                <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-600">

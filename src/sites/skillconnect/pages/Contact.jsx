@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ContactForm from "../../../shared/components/ContactForm";
 import { riseIn } from "../../../shared/variants";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../headingStyles";
+import { STEP, centerTrigger } from "../../../shared/motionConfig";
+import { ACCENT_CLASS } from "../headingStyles";
 import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
 
 const fields = [
@@ -118,9 +119,7 @@ const SkillConnectContact = () => {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
           <motion.div
             variants={riseIn(0.05)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
+            {...centerTrigger}
             className="lg:col-span-4"
           >
             <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
@@ -133,7 +132,7 @@ const SkillConnectContact = () => {
                   key={reason.title}
                   className="border-b border-neutral-200 py-6"
                 >
-                  <h3 className={`text-lg ${HEADING_FULL_CLASS}`}>
+                  <h3 className="text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
                     {reason.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">
@@ -145,10 +144,8 @@ const SkillConnectContact = () => {
           </motion.div>
 
           <motion.div
-            variants={riseIn(0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            variants={riseIn(STEP)}
+            {...centerTrigger}
             className="lg:col-span-7 lg:col-start-6"
           >
             <ContactForm

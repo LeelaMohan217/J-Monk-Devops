@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { riseIn } from "../../../../shared/variants";
+import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { values } from "./data";
-import { ACCENT_CLASS, HEADING_FULL_CLASS } from "../../headingStyles";
+import { ACCENT_CLASS } from "../../headingStyles";
 
 const ValuesSection = () => {
   return (
@@ -9,15 +10,13 @@ const ValuesSection = () => {
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={riseIn()}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          {...centerTrigger}
           className="max-w-2xl"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             {values.eyebrow}
           </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             {values.headingLead}
             <span className={ACCENT_CLASS}>{values.headingAccent}</span>
           </h2>
@@ -27,14 +26,12 @@ const ValuesSection = () => {
           {values.items.map((item, index) => (
             <motion.div
               key={item.term}
-              variants={riseIn(Math.min(index, 3) * 0.08)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
+              variants={riseIn(Math.min(index, 3) * STEP)}
+              {...centerTrigger}
               className="rounded-2xl border border-neutral-200 bg-surface-muted p-6"
             >
               <span className="h-px w-10 bg-red-600" aria-hidden="true" />
-              <h3 className={`mt-5 text-lg ${HEADING_FULL_CLASS}`}>
+              <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
                 {item.term}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-600">
