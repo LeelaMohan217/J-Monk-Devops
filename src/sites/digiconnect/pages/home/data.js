@@ -101,31 +101,37 @@ export const offerings = {
   // landing page does not render.
   services: [
     {
+      id: "custom-software",
       name: "Custom Software Development",
       description:
         "Web and mobile apps, internal tools, and the business systems your team runs on all day. Built around how you already work.",
     },
     {
+      id: "saas-product",
       name: "SaaS Product Development",
       description:
         "Multi-tenant products with the boring parts handled properly: accounts, roles, billing, and the reporting your customers will ask for in month three.",
     },
     {
+      id: "cloud-infrastructure",
       name: "Cloud & Infrastructure Solutions",
       description:
         "Environments that can be rebuilt from scratch rather than nursed along, with monitoring that tells you something is wrong before a customer does.",
     },
     {
+      id: "devops-automation",
       name: "DevOps & Automation Services",
       description:
         "Pipelines that get code to production without a person shepherding each step, so releasing stops being an event you schedule around.",
     },
     {
+      id: "api-integration",
       name: "API Development & System Integration",
       description:
         "Getting your payment gateway, CRM, and whatever else you already pay for to talk to each other properly, including the failure cases.",
     },
     {
+      id: "technical-consulting",
       name: "Technical Consulting",
       description:
         "A straight answer on architecture, stack choices, and what will break first as you grow. Useful whether or not you hire us to build it.",
