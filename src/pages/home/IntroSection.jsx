@@ -161,14 +161,17 @@ const IntroSection = () => {
           <motion.div
             variants={riseIn(0)}
             {...centerTrigger}
-            className="w-fit"
+            // The wrapper has to widen too. It was w-fit at every width, so
+            // widening only the Link inside it would have left the button
+            // capped at the wrapper's shrink-to-fit width on a phone.
+            className="w-full sm:w-fit"
           >
             {/* Solid red fill matching GlobalNav's CTA: same rounded-lg,
                 px-5 py-2.5, text-sm font-medium, and red-600 to red-700 on
                 hover. Was an outlined neutral button. */}
             <Link
               to="/#stats"
-              className="group inline-flex w-fit items-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 sm:w-fit"
             >
               See our numbers
               <ArrowRight

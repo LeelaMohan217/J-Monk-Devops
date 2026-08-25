@@ -91,10 +91,20 @@ const HeroSection = () => {
               variants={fadeIn("up", HERO_CTA_DELAY)}
               initial="hidden"
               animate="show"
+              // The hero column is flex flex-col items-center, so this wrapper
+              // shrinks to its content and the Link's w-full would resolve
+              // against that shrunk box rather than the column. It needs the
+              // width itself for the button to reach the full rail on a phone.
+              className="w-full sm:w-auto"
             >
+              {/* w-full below sm so the hero CTA spans the column on a phone
+                  the way every brand hero's does, then sm:w-fit to hold it to
+                  its label once there is room. justify-center matters only in
+                  the full-width state, where the label would otherwise sit
+                  against the left padding. */}
               <Link
                 to="/#who-we-are"
-                className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 sm:w-fit"
               >
                 Know More
                 <ArrowRight
