@@ -10,9 +10,11 @@
 //
 // No sentence here uses a dash as punctuation. Where a dash was doing the work
 // of a pause, the sentence was split or reworded instead.
-import productImage from "../../assets/image2.webp";
-import platformImage from "../../assets/image4.webp";
-import consultingImage from "../../assets/image1.webp";
+// whatWeDo used to import three of these, one per card. It takes a single image
+// now that its cards are text tiles beside one image panel rather than three
+// cards each topped by artwork. image4 and image1 went with that change and are
+// no longer imported anywhere in src/.
+import whatWeDoImage from "../../assets/image2.webp";
 import partnershipImage from "../../assets/image3.webp";
 
 export const hero = {
@@ -49,27 +51,37 @@ export const hero = {
 
 export const whatWeDo = {
   eyebrow: "What we do",
-  headingLead: "Three things we get asked for ",
-  headingAccent: "most.",
-  lead: "Most engagements start in one of these three places, then grow into the others. You do not have to know which one you need before calling.",
+  // Three stacked lines, not one sentence that wraps. The reference this section
+  // follows breaks its heading deliberately, a category word then a qualifier then
+  // the subject, so the lines are stored separately rather than coaxed out of a
+  // max-w. headingAccent stays the last of the three, so the red Playfair italic
+  // still lands once on the closing phrase the way it does in the other 22 section
+  // headings.
+  headingLines: ["Software", "That works around"],
+  headingAccent: "Your business",
+  lead: "Tailored solutions to streamline operations and scale faster.",
+  // One image for the section, sitting in the panel that runs down the left of the
+  // tile grid. image2 rather than either of the other two: it shows code, layout
+  // and design tooling together, so it reads for all three cards at once instead
+  // of illustrating whichever one it used to sit on.
+  image: whatWeDoImage,
+  // Text only now. These are the three tiles to the right of the image panel, so
+  // a label and a description is the whole of each one.
   cards: [
     {
       id: "product",
-      image: productImage,
       label: "Product engineering",
       description:
         "Web and mobile applications, internal tools, and business platforms built around your workflow.",
     },
     {
       id: "platforms",
-      image: platformImage,
       label: "Platforms and dashboards",
       description:
         "SaaS products with the reporting, roles, and billing layers already thought through.",
     },
     {
       id: "consulting",
-      image: consultingImage,
       label: "Consulting and review",
       description:
         "An outside read on architecture, stack choices, and what breaks first as you scale.",
