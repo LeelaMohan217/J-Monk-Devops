@@ -106,7 +106,12 @@ const OfferingsSection = () => {
             </p>
             <Link
               to={offerings.cta.href}
-              className="group mt-8 inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 w-full sm:w-auto"
+              // sm:w-fit, not sm:w-auto. This cell is a flex column, so its
+              // children stretch across the cross axis by default and `w-auto`
+              // does nothing to stop it: the button filled the full 623px cell
+              // from sm upwards. An explicit fit-content width is what holds it
+              // to its label.
+              className="group mt-8 inline-flex w-full items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:w-fit"
             >
               See all services
               <ArrowRight
