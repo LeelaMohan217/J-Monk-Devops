@@ -93,7 +93,7 @@ export const offerings = {
   eyebrow: "Services",
   headingLead: "What we build ",
   headingAccent: "and run.",
-  cta: { label: "See the full services page", href: "/digiconnect/services" },
+  cta: { href: "/digiconnect/services" },
   // Rewritten away from the keyword lists this section used to carry ("scalable
   // enterprise platforms tailored to your operational needs"), which said very
   // little and read as filler. Each line now names something concrete instead.
