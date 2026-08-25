@@ -104,7 +104,7 @@ const HeroSection = () => {
                   against the left padding. */}
               <Link
                 to="/#who-we-are"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 sm:w-fit"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 sm:w-fit"
               >
                 Know More
                 <ArrowRight

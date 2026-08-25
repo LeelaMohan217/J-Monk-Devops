@@ -50,7 +50,7 @@ const GlobalFooter = () => {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={link.label}
-                    className="rounded-lg text-neutral-400 border border-neutral-800 p-2 flex items-center justify-center hover:text-white hover:border-neutral-600 transition-colors duration-300"
+                    className="rounded-full text-neutral-400 border border-neutral-800 p-2 flex items-center justify-center hover:text-white hover:border-neutral-600 transition-colors duration-300"
                   >
                     <Icon className="w-4 h-4" />
                   </a>

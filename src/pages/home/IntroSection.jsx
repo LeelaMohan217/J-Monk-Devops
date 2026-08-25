@@ -171,7 +171,7 @@ const IntroSection = () => {
                 hover. Was an outlined neutral button. */}
             <Link
               to="/#stats"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 sm:w-fit"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 sm:w-fit"
             >
               See our numbers
               <ArrowRight

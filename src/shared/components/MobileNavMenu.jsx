@@ -213,7 +213,11 @@ const MobileNavMenu = () => {
                         target="_blank"
                         rel="noreferrer"
                         aria-label={link.label}
-                        className="flex items-center justify-center rounded-lg border border-neutral-200 p-2 text-neutral-600 transition-colors hover:border-red-200 hover:text-red-600"
+                        // Circular, since the padding is even on both axes and
+                        // every other button on the site is a pill. A square
+                        // corner here was the one radius left that did not
+                        // match.
+                        className="flex items-center justify-center rounded-full border border-neutral-200 p-2 text-neutral-600 transition-colors hover:border-red-200 hover:text-red-600"
                       >
                         <Icon className="h-4 w-4" aria-hidden="true" />
                       </a>
@@ -227,7 +231,7 @@ const MobileNavMenu = () => {
               <Link
                 to="/#who-we-are"
                 onClick={closeMenu}
-                className="block w-full rounded-lg bg-red-600 px-5 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-red-700"
+                className="block w-full rounded-full bg-red-600 px-5 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-red-700"
               >
                 Get Started
               </Link>

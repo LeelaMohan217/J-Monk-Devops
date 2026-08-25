@@ -67,7 +67,7 @@ const GlobalNav = () => {
           <div className="col-start-3 justify-self-end">
             <Link
               to="/#who-we-are"
-              className="hidden lg:inline-block rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
+              className="hidden lg:inline-block rounded-full bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
             >
               Get Started
             </Link>

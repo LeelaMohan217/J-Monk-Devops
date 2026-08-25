@@ -94,10 +94,12 @@ const Navbar = ({
 
           <Link
             to={ctaHref}
-            className={`group hidden items-center gap-2 bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-[background-color,transform] duration-200 hover:bg-red-700 lg:inline-flex ${
-              variant === "premium"
-                ? "rounded-full active:scale-[0.97]"
-                : "rounded-lg"
+            // The radius used to be the thing this ternary switched: pill for
+            // the premium variant, rounded-lg otherwise. Every button on the
+            // site is a pill now, so radius moved out to the base string and
+            // the press-scale is all the variant still changes.
+            className={`group hidden items-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-[background-color,transform] duration-200 hover:bg-red-700 lg:inline-flex ${
+              variant === "premium" ? "active:scale-[0.97]" : ""
             }`}
           >
             {ctaLabel}
