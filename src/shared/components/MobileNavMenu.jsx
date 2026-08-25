@@ -107,7 +107,7 @@ const MobileNavMenu = () => {
               {/* Top: logo + close, centered on the same row; a divider; then
                   the description below it. */}
               <div className="flex shrink-0 flex-col">
-                <div className="flex items-center justify-between px-6 py-5">
+                <div className="flex items-center justify-between px-6 py-2">
                   <Link
                     to="/"
                     onClick={closeMenu}
