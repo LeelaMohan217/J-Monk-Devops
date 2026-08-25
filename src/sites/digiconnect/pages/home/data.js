@@ -26,11 +26,20 @@ export const hero = {
   //
   // Sentence case, and it renders that way: HeroSection sets this one lowercase
   // where the other eyebrows are uppercase, so unlike them the casing here is
-  // visible and belongs to the string. Length has plenty of room as a result.
-  // The uppercase eyebrows are the tight ones, costing about 10px per character
-  // against a 327px phone rail; lowercase at tracking-wide runs closer to 6px,
-  // so this sits well inside one line.
+  // visible and belongs to the string.
+  //
+  // Length is the one thing to watch when rewording it, because this eyebrow now
+  // sits in a badge with a sparkle and an arrow beside it rather than running
+  // free. Those plus the pill's padding cost about 70px, so on the 327px phone
+  // rail the words themselves have roughly 255px, and at text-sm lowercase a
+  // character runs about 7px. That leaves room for around 36; this is 29. Past
+  // the limit the pill wraps to two lines rather than the text simply reflowing,
+  // which looks like a broken button.
   eyebrow: "Software and cloud engineering",
+  // The badge's arrow promises a destination. About rather than services because
+  // the label names the practice and that page defines it, and because the two
+  // CTAs below already own contact and services.
+  eyebrowHref: "/digiconnect/about",
   headingLead: "Software your business can ",
   headingAccent: "actually run on.",
   lead: "DigiConnect designs, builds, and maintains custom software, SaaS products, cloud infrastructure, and the integrations that hold them together. One team, from architecture through to production.",
