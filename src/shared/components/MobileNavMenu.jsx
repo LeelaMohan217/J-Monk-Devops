@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, Facebook, Instagram, Linkedin, Twitter, X } from "lucide-react";
+import { ArrowRight, ChevronLeft, Facebook, Instagram, Linkedin, Twitter, X } from "lucide-react";
 import { digiConnectConfig } from "../../sites/digiconnect/config";
 import { skillConnectConfig } from "../../sites/skillconnect/config";
 import { eduConnectConfig } from "../../sites/educonnect/config";
@@ -178,7 +178,7 @@ const MobileNavMenu = () => {
                         onClick={() => setOpenBrand(null)}
                         className="flex w-full items-center gap-3 border-b border-neutral-200 py-4 text-xl font-normal text-neutral-900 transition-colors hover:text-red-600"
                       >
-                        <ArrowLeft className="h-5 w-5 shrink-0" aria-hidden="true" />
+                        <ChevronLeft className="h-5 w-5 shrink-0" aria-hidden="true" />
                         {openBrand}
                       </button>
 
