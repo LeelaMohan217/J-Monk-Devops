@@ -6,18 +6,6 @@ import { centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
-// Column spans by position, over a six-column grid. Rows work out as 3+3,
-// 2+2+2, then 3 plus the 3-wide CTA cell, so every row fills exactly and the
-// grid ends square.
-const SPANS = [
-  "lg:col-span-3",
-  "lg:col-span-3",
-  "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-2",
-  "lg:col-span-3",
-];
-
 const OfferingsSection = () => {
   return (
     <section
@@ -39,20 +27,14 @@ const OfferingsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Bento, replacing six full-width rows that each ran the name down the
-            left and the description across the right. Stacked, they were six
-            near-identical bands and the section read as a table.
+        {/* Six equal cards, three to a row. This was a bento of mixed column
+            spans over a six-track grid; the varied widths made the six services
+            read as ranked when they are peers, and the layout depended on there
+            being exactly six of them. A plain grid takes any number.
 
-            Spans over six columns: 3+3, then 2+2+2, then 3+3, so each row fills
-            exactly and no two consecutive rows share a rhythm. The last cell of
-            the last row is the CTA rather than a service, which is what lets the
-            grid finish square instead of leaving a hole or trailing a link
-            underneath it.
-
-            SPANS is indexed by position, so reordering `offerings.services`
-            reshuffles the layout with it. Six entries is the assumption; a
-            seventh would fall back to the 2-column span and still tile. */}
-        <div className="mt-14 grid gap-4 md:mt-20 md:grid-cols-2 md:gap-6 lg:grid-cols-6">
+            Two columns at md, three from lg, the same ramp SkillConnect's
+            offerings grid uses for its own six. */}
+        <div className="mt-14 grid gap-4 md:mt-20 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {offerings.services.map((service, index) => (
             <motion.article
               key={service.name}
@@ -60,9 +42,7 @@ const OfferingsSection = () => {
               // step would stall the lower ones. Each gets its own trigger.
               variants={riseIn()}
               {...centerTrigger}
-              className={`flex flex-col rounded-2xl border border-neutral-200 bg-surface p-6 md:p-8 ${
-                SPANS[index] ?? "lg:col-span-2"
-              }`}
+              className="flex flex-col rounded-2xl border border-neutral-200 bg-surface p-6 md:p-8"
             >
               <div className="flex items-center gap-4">
                 {/* Hidden from the accessibility tree: otherwise a screen
@@ -97,8 +77,10 @@ const OfferingsSection = () => {
           <motion.div
             variants={riseIn()}
             {...centerTrigger}
-            // md:col-span-2 so the CTA fills the final row at the two-column
-            // tier instead of sitting half-width beside a gap.
+            // Spans the full width at both tiers, so it closes the grid as a
+            // band rather than sitting in the last cell beside empty tracks.
+            // Six services divide evenly by two and by three, which means the
+            // CTA always starts a row of its own.
             className="flex flex-col justify-between rounded-2xl border border-red-100 bg-radial-[at_100%_0%] from-red-100 via-red-50 to-surface to-60% p-6 md:col-span-2 md:p-8 lg:col-span-3"
           >
             <p className="max-w-sm text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
