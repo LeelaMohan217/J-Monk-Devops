@@ -63,60 +63,42 @@ const OfferingsSection = () => {
                 // a step would stall the lower ones. Each gets its own trigger.
                 variants={riseIn()}
                 {...centerTrigger}
-                className="relative"
+                className="overflow-hidden rounded-2xl border border-neutral-200 bg-surface"
               >
-                {/* Flat offset "shadow" — a solid duplicate of the card's own
-                    shape, nudged down-right, no blur. This IS the shadow; the
-                    card itself never also gets shadow-lg. Same clip-path as
-                    the card so its notch cuts identically — otherwise a
-                    square red-100 corner would sit inside the card's
-                    diagonal cut and break the torn-paper read. */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 translate-x-1.5 translate-y-1.5 rounded-2xl bg-red-100 [clip-path:polygon(0_0,calc(100%-40px)_0,100%_40px,100%_100%,0_100%)]"
-                />
+                {/* Header band: solid red-600 with a diagonal-cut bottom
+                    edge — a flat color-block panel rather than a soft tint,
+                    closer to corporate/bank deck references than the site's
+                    usual soft cards. overflow-hidden on the article is what
+                    rounds this band's own square top corners — it has none
+                    of its own. */}
+                <div className="bg-red-600 px-6 pt-6 pb-12 [clip-path:polygon(0_0,100%_0,100%_75%,0_100%)] md:px-8 md:pt-8">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className="text-xs font-medium tabular-nums text-white/70 md:text-sm"
+                      aria-hidden="true"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <Icon className="h-6 w-6 text-white" strokeWidth={1.75} aria-hidden="true" />
+                  </div>
+                </div>
 
-                {/* Card surface. Tinted, so per the site's rule elsewhere
-                    (see ServicesListSection.jsx) a red hairline replaces the
-                    neutral one — a grey border against a tint reads as a
-                    dirty edge. Corner notch is the site's signature shape,
-                    reused from the EduConnect hero photo, top-right here
-                    since the index numeral already claims the top-left. */}
-                <div className="relative flex flex-col rounded-2xl border border-red-100 bg-red-50 p-6 md:p-8 [clip-path:polygon(0_0,calc(100%-40px)_0,100%_40px,100%_100%,0_100%)]">
-                  {/* Hidden from the accessibility tree: otherwise a screen
-                      reader announces "zero one" before six consecutive
-                      headings. */}
-                  <span
-                    className="text-xs font-medium tabular-nums text-neutral-400 md:text-sm"
-                    aria-hidden="true"
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
+                {/* Content zone, pulled up under the diagonal cut so the
+                    heading starts close to the band's shortest point instead
+                    of leaving a dead gap of white space. relative z-10:
+                    clip-path on the header above establishes its own
+                    stacking context (the same category as transform/filter/
+                    opacity), which paints above plain static content
+                    regardless of DOM order — without this, the header's
+                    still-uncut left edge would paint over the heading text
+                    wherever the negative margin makes them overlap. */}
+                <div className="relative z-10 -mt-6 px-6 pb-6 md:px-8 md:pb-8">
+                  <h3 className="text-lg font-bold tracking-tight text-neutral-900 md:text-xl">
                     {service.name}
                   </h3>
-                  {/* text-sm, the card-body size used site-wide. These
-                      descriptions ran at text-lg md:text-xl while they were
-                      full-width editorial rows, which inside a bento cell
-                      would outweigh its own heading. */}
                   <p className="mt-3 text-sm leading-relaxed text-neutral-600">
                     {service.description}
                   </p>
-                </div>
-
-                {/* Icon, half in / half out of the notch: its 40x40 box
-                    exactly matches the notch's own cut triangle, so the
-                    diagonal cut bisects the circle through its center. Solid
-                    red-600 fill rather than a bare stroke, since it straddles
-                    two different backgrounds — the solid card corner and the
-                    cut-away void — and needs a fixed surface to stay legible
-                    against either. */}
-                <div
-                  aria-hidden="true"
-                  className="absolute top-0 right-0 flex h-10 w-10 items-center justify-center rounded-full bg-red-600"
-                >
-                  <Icon className="h-5 w-5 text-white" strokeWidth={1.75} aria-hidden="true" />
                 </div>
               </motion.article>
             );
