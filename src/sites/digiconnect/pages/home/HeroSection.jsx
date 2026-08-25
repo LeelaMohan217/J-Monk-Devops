@@ -11,8 +11,24 @@ const HeroSection = () => {
     <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
-          <motion.h1
+          {/* text-xs, uppercase, tracking-[0.2em], text-neutral-600: the eyebrow
+              spec every inner page header on this brand uses, so the home page
+              opens on the same label as the four pages behind it. */}
+          <motion.span
             variants={fadeIn("up", 0.05)}
+            initial="hidden"
+            animate="show"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+          >
+            {hero.eyebrow}
+          </motion.span>
+
+          {/* The ramp shifted a step to make room above: 0.05 / 0.15 / 0.3 /
+              0.45, matching the page headers' eyebrow-then-heading-then-lead
+              timing rather than keeping the heading at the 0.05 it had when it
+              was the first thing on the page. */}
+          <motion.h1
+            variants={fadeIn("up", 0.15)}
             initial="hidden"
             animate="show"
             className={`max-w-4xl font-semibold text-neutral-900 ${HERO_HEADING_SIZE}`}
@@ -22,7 +38,7 @@ const HeroSection = () => {
           </motion.h1>
 
           <motion.p
-            variants={fadeIn("up", 0.2)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
             animate="show"
             className="max-w-2xl text-base leading-relaxed text-neutral-600"
@@ -31,7 +47,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            variants={fadeIn("up", 0.35)}
+            variants={fadeIn("up", 0.45)}
             initial="hidden"
             animate="show"
             className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"

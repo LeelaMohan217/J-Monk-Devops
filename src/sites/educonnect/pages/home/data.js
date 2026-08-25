@@ -20,7 +20,21 @@ const reviewers = [
 // components so they stay purely presentational — same pattern as
 // DigiConnect's src/sites/digiconnect/pages/home/data.js.
 export const hero = {
-  eyebrow: "Study Abroad Consulting",
+  // Two jobs in one line. The first half names the field, because nothing else
+  // above the fold does: the heading is abstract and the brand name alone does
+  // not say what EduConnect is. The second half is the part that is actually
+  // ours, the single counsellor rather than a directory or a handoff chain.
+  // "Study Abroad Consulting" said only the first, and said it as a category
+  // any competitor could print.
+  //
+  // Sentence case, like every other eyebrow on the site. It renders uppercase
+  // so this is invisible, but the three below it still carry Title Case from an
+  // earlier pass and only this one has been brought back in line.
+  //
+  // Length is the constraint on rewording it: at text-xs with 0.2em tracking an
+  // uppercase character costs about 10px, so the 327px phone rail holds roughly
+  // 30 before the eyebrow wraps to a second line. This is 28.
+  eyebrow: "Study abroad, one counsellor",
   // Split so HeroSection can colour the back half of the sentence — kept as
   // two plain strings rather than markup so this file stays pure data.
   headingLead: "Expert guidance, real ",

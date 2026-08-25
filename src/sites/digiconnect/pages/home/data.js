@@ -16,6 +16,16 @@ import consultingImage from "../../assets/image1.webp";
 import partnershipImage from "../../assets/image3.webp";
 
 export const hero = {
+  // Names the practice rather than the brand. SkillConnect's hero has no eyebrow
+  // at all because the one it used to carry was the word "SkillConnect", which
+  // the sub-navbar directly above already shows; this one earns its line by
+  // saying what kind of outfit is speaking before the heading makes its claim.
+  // The wording is the about page's own ("JMonkDevops' software and cloud
+  // engineering practice") rather than a new phrase, so the two pages describe
+  // the same company. Kept to 29 characters: at text-xs with 0.2em tracking an
+  // uppercase character costs about 10px, and the 327px phone rail holds roughly
+  // 28 before the eyebrow wraps, so this sits right at one line.
+  eyebrow: "Software and cloud engineering",
   headingLead: "Software your business can ",
   headingAccent: "actually run on.",
   lead: "DigiConnect designs, builds, and maintains custom software, SaaS products, cloud infrastructure, and the integrations that hold them together. One team, from architecture through to production.",
