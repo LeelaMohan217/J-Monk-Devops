@@ -38,6 +38,15 @@ const socialIcons = {
   LinkedIn: Linkedin,
 };
 
+// Which platform (if any) the given path belongs to, so the menu can open
+// straight into that platform's own page list instead of always starting
+// at the top-level "pick a platform" screen. Landing-page routes match no
+// brand's homeHref prefix, so they fall through to the top-level list.
+const getCurrentBrandName = (pathname) =>
+  brandGroups.find(
+    (brand) => brand.available && pathname.startsWith(brand.homeHref),
+  )?.name ?? null;
+
 // The single mobile menu for the whole app — rendered once in App.jsx,
 // outside the routed page content, so it's the same drill-down panel
 // (all three platforms + that platform's own pages) whether you're on the
@@ -49,10 +58,18 @@ const MobileNavMenu = () => {
   const [openBrand, setOpenBrand] = useState(null);
   const location = useLocation();
 
+  // Only closes the panel on navigation — which screen it opens to next is
+  // decided fresh in openMenu below, not here, so a manual "back to all
+  // platforms" tap (via the arrow) doesn't linger after the menu is closed
+  // and reopened from the same page.
   useEffect(() => {
     setMobileOpen(false);
-    setOpenBrand(null);
   }, [location]);
+
+  const openMenu = () => {
+    setOpenBrand(getCurrentBrandName(location.pathname));
+    setMobileOpen(true);
+  };
 
   const closeMenu = () => setMobileOpen(false);
 
@@ -70,7 +87,7 @@ const MobileNavMenu = () => {
             aria-label="Open menu"
             aria-expanded={false}
             aria-controls="mobile-nav-panel"
-            onClick={() => setMobileOpen(true)}
+            onClick={openMenu}
             className="pointer-events-auto -m-3 p-3 text-neutral-700 transition-colors hover:text-black"
           >
             <MenuToggleIcon open={false} />
