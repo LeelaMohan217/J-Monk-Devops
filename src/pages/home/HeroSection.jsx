@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { HeroBackdrop } from "@/components/ui/hero-backdrop";
 import { fadeIn } from "../../shared/variants";
 import { HERO_HEADING_SIZE } from "../../shared/headingSizes";
@@ -44,8 +45,36 @@ const HeroSection = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-center">
           <div className="flex flex-col items-center gap-6 text-center">
+            {/* Magic UI's shiny-text badge, same treatment as the DigiConnect
+                hero's, but keeping this page's own pinging dot where that one
+                has a sparkle.
+
+                The glass chrome stays: border-neutral-200 over bg-white/60 with
+                backdrop-blur, not the opaque bg-neutral-100 the DigiConnect
+                badge uses. This badge sits on top of HeroBackdrop's waves, so
+                the translucency is doing real work here and an opaque fill would
+                punch a flat hole in them.
+
+                The dot stays outside AnimatedShinyText. It could sit inside
+                without breaking (bg-clip-text clips an element's own background,
+                not its children's) but the badge is already the flex row with
+                gap-2, so nesting it would buy nothing and would put a red
+                element inside something whose whole job is tinting text.
+
+                Casing and weight are untouched, still text-xs font-semibold
+                uppercase tracking-widest. Unlike the DigiConnect badge, which is
+                lowercase at text-sm, that was not part of the ask here.
+
+                No arrow either, again unlike DigiConnect's: this badge is a
+                label rather than a Link, and an arrow on it would point nowhere.
+
+                text-neutral-800/70 replaces text-neutral-600. The alpha is what
+                makes the sweep visible at all, since it is a gradient clipped to
+                the glyphs showing through the text colour's transparency, and
+                darkening 600 to 800 keeps it legible once 30% of it is given up
+                to that. */}
             <motion.p
-              className="inline-flex w-fit shrink-0 items-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-neutral-200 bg-white/60 px-3.5 py-2 text-xs font-semibold uppercase tracking-widest text-neutral-600 shadow-sm backdrop-blur"
+              className="inline-flex w-fit shrink-0 items-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-neutral-200 bg-white/60 px-3.5 py-2 shadow-sm backdrop-blur"
               variants={fadeIn("up", 0)}
               initial="hidden"
               animate="show"
@@ -54,7 +83,9 @@ const HeroSection = () => {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-red-600" />
               </span>
-              digitalizing Local Bharath
+              <AnimatedShinyText className="mx-0 text-xs font-semibold uppercase tracking-widest text-neutral-800/70">
+                digitalizing Local Bharath
+              </AnimatedShinyText>
             </motion.p>
 
             {/* leading-[1.05] rather than leading-tight (1.25): at display
