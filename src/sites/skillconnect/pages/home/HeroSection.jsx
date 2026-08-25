@@ -12,38 +12,8 @@ import { HERO_HEADING_SIZE } from "../../../../shared/headingSizes";
 // no assets folder at all, so a stock photo here would be filler.
 const HeroSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Masked grid, the same backdrop the about and services headers on this
-          site use. The pattern id is namespaced per section because more than
-          one of them can mount in a single site. */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
-        aria-hidden="true"
-      >
-        <svg
-          className="absolute inset-0 h-full w-full opacity-[0.14]"
-          focusable="false"
-        >
-          <defs>
-            <pattern
-              id="skillconnect-home-grid"
-              width="56"
-              height="56"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 56 0 L 0 0 0 56"
-                fill="none"
-                className="stroke-neutral-400"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#skillconnect-home-grid)" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
+    <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
           {/* No eyebrow, unlike the inner page headers: the sub-navbar directly
               above already reads "SkillConnect", and the old hero's eyebrow was

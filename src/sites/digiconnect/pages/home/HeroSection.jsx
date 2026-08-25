@@ -8,37 +8,8 @@ import { HERO_HEADING_SIZE } from "../../../../shared/headingSizes";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Masked grid, ported from the umbrella landing hero. The pattern id is
-          namespaced because the landing declares its own `hero-grid`. */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 [mask-image:linear-gradient(to_bottom,black_0px,black_420px,transparent_640px)]"
-        aria-hidden="true"
-      >
-        <svg
-          className="absolute inset-0 h-full w-full opacity-[0.14]"
-          focusable="false"
-        >
-          <defs>
-            <pattern
-              id="digiconnect-hero-grid"
-              width="56"
-              height="56"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 56 0 L 0 0 0 56"
-                fill="none"
-                className="stroke-neutral-400"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#digiconnect-hero-grid)" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-8">
+    <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
           <motion.h1
             variants={fadeIn("up", 0.05)}
@@ -54,7 +25,7 @@ const HeroSection = () => {
             variants={fadeIn("up", 0.2)}
             initial="hidden"
             animate="show"
-            className="max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
+            className="max-w-2xl text-base leading-relaxed text-neutral-600"
           >
             {hero.lead}
           </motion.p>
