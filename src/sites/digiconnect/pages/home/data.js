@@ -22,9 +22,14 @@ export const hero = {
   // saying what kind of outfit is speaking before the heading makes its claim.
   // The wording is the about page's own ("JMonkDevops' software and cloud
   // engineering practice") rather than a new phrase, so the two pages describe
-  // the same company. Kept to 29 characters: at text-xs with 0.2em tracking an
-  // uppercase character costs about 10px, and the 327px phone rail holds roughly
-  // 28 before the eyebrow wraps, so this sits right at one line.
+  // the same company.
+  //
+  // Sentence case, and it renders that way: HeroSection sets this one lowercase
+  // where the other eyebrows are uppercase, so unlike them the casing here is
+  // visible and belongs to the string. Length has plenty of room as a result.
+  // The uppercase eyebrows are the tight ones, costing about 10px per character
+  // against a 327px phone rail; lowercase at tracking-wide runs closer to 6px,
+  // so this sits well inside one line.
   eyebrow: "Software and cloud engineering",
   headingLead: "Software your business can ",
   headingAccent: "actually run on.",

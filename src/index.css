@@ -195,6 +195,32 @@
       background-position: 0% 50%;
     }
   }
+  /* Magic UI's animated-shiny-text. Added by the shadcn CLI and reflowed to
+     match the two blocks above; its own output ran the value onto a second line
+     before the semicolon and closed this @theme on the keyframes' brace.
+
+     The sweep is a gradient clipped to the glyphs, so the travel is expressed in
+     background-position and has to overshoot by the gradient's own width in both
+     directions for the highlight to start and finish fully off the text.
+
+     Note this ping-pongs rather than looping one way, which the duplicated stops
+     make easy to misread. Over the 8s cycle: 0 to 30% crosses left to right, 30
+     to 60% is parked off the right edge, 60 to 90% crosses back right to left,
+     and 90 to 100% is parked off the left. So there are two glints per cycle in
+     opposite directions, each with a rest after it, and the rests are what keep
+     this reading as an occasional catch of light rather than a running loop. */
+  --animate-shiny-text: shiny-text 8s infinite;
+  @keyframes shiny-text {
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+    30%,
+    60% {
+      background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
 }
 /*
   ---break---
