@@ -11,9 +11,10 @@
 // between the header and the openings: `whatItIsLike`, three cards on owning
 // your own work, and `tools`, the stack list. Both were removed because someone
 // arriving here wants to see whether there is a job, and they had to scroll past
-// roughly four hundred words of pitch to find out. What those sections said is
-// still on the site: the ownership argument is in ../about/data.js, and the
-// stack is on the home page's closing strip.
+// roughly four hundred words of pitch to find out. The ownership argument those
+// sections made is still on the site, in ../about/data.js. The stack list is
+// not: the home page's closing strip that carried it has since been removed
+// too, so no page names the technologies any more.
 //
 // The internship signpost that used to sit in the empty state is gone too, along
 // with the rest of this site's student-facing content. SkillConnect owns that.

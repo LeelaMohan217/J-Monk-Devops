@@ -133,16 +133,9 @@ export const howWeWork = {
 // The section went with it. The business route it held is not lost: the
 // offerings section above already closes on a link to the full services page.
 
-// Exactly the eight published on the umbrella landing page. Do not extend this
-// list. The landing records a standing decision not to fabricate capability
-// claims.
-export const stack = [
-  "React",
-  "Node.js",
-  "AWS",
-  "Docker",
-  "PostgreSQL",
-  "GitHub Actions",
-  "Tailwind CSS",
-  "Kubernetes",
-];
+// There was a `stack` list here — React, Node, AWS, Docker, Postgres, GitHub
+// Actions, Tailwind, Kubernetes — feeding a StackStrip closing section on this
+// page. Both are gone. It was the last tech list anywhere on the site, so if one
+// is ever wanted again it starts from scratch, and the standing rule it carried
+// still applies: name only what is actually used, never pad the list to look
+// broader.

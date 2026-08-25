@@ -3,9 +3,11 @@ import { riseIn } from "../../../../shared/variants";
 import { centerTrigger } from "../../../../shared/motionConfig";
 import { audience } from "./data";
 
-// The sunken closing strip DigiConnect's StackStrip occupies, and the same
-// centred pill row. One wrapper reveal rather than six staggered pills: this is
-// an index of who qualifies, and per-item motion would read as noise.
+// A sunken closing strip of centred pills. DigiConnect had the same shape in a
+// StackStrip section listing its technologies; that has since been removed, so
+// this is the only place the treatment survives. One wrapper reveal rather than
+// six staggered pills: this is an index of who qualifies, and per-item motion
+// would read as noise.
 const AudienceStrip = () => {
   return (
     <section className="bg-surface-sunken py-12 md:py-16">
