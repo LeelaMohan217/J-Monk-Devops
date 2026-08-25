@@ -5,6 +5,7 @@ import { riseIn } from "../../../shared/variants";
 import { blogPosts } from "../blogPosts";
 import PageHeaderSection from "./blog/PageHeaderSection";
 import PostImage from "./blog/PostImage";
+import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
 // Cards on a grid — the one place in EduConnect that uses them, since posts
 // lead with artwork and read as a set of objects rather than an index of rows.
@@ -13,6 +14,11 @@ import PostImage from "./blog/PostImage";
 // Excerpts are clamped to three lines so the meta footer sits on the same
 // baseline across a row regardless of copy length.
 const Blog = () => {
+  useDocumentMeta(
+    "Blog | EduConnect",
+    "Practical guidance on exams, applications, visas, and life abroad, drawn from the questions students ask us most."
+  );
+
   return (
     <>
       <PageHeaderSection />

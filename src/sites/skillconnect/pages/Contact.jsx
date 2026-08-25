@@ -5,6 +5,7 @@ import { riseIn } from "../../../shared/variants";
 import { STEP, centerTrigger } from "../../../shared/motionConfig";
 import { ACCENT_CLASS } from "../headingStyles";
 import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
+import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
 const fields = [
   {
@@ -84,6 +85,11 @@ const reasons = [
 ];
 
 const SkillConnectContact = () => {
+  useDocumentMeta(
+    "Contact | SkillConnect",
+    "This reaches the SkillConnect team directly. The people running the projects and the mentorship, not a general enquiries desk."
+  );
+
   return (
     <main className="bg-surface">
       {/* Same header block as this site's about and services pages: the surface

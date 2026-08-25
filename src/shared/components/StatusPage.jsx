@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { PAGE_HEADING_SIZE } from "../headingSizes";
+import useDocumentMeta from "../hooks/useDocumentMeta";
 
 // Generic full-page message, shared by every 404 (one per brand, so the
 // right nav/footer chrome still surrounds it) and the error boundary's
@@ -30,6 +31,10 @@ const StatusPage = ({
 }) => {
   const CtaTag = ctaIsExternalReload ? "a" : Link;
   const ctaProps = ctaIsExternalReload ? { href: ctaHref } : { to: ctaHref };
+
+  // Client-side routing means the previous page's title would otherwise
+  // just linger here unchanged.
+  useDocumentMeta(`${headingLead} | JMonkDevops`, subtext);
 
   return (
     <section className="w-full bg-surface pt-32 pb-24 md:pt-40 md:pb-32">
