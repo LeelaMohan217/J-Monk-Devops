@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, Facebook, Instagram, Linkedin, Twitter, X } from "lucide-react";
+import { ArrowRight, ChevronLeft, X } from "lucide-react";
 import { digiConnectConfig } from "../../sites/digiconnect/config";
 import { skillConnectConfig } from "../../sites/skillconnect/config";
 import { eduConnectConfig } from "../../sites/educonnect/config";
-import { companyConfig } from "../companyConfig";
 import Logo from "../assets/Logo.webp";
 import MenuToggleIcon from "./MenuToggleIcon";
 
@@ -29,14 +28,6 @@ const brandGroups = [
     available: true,
   },
 ];
-
-// Same icon map used in GlobalFooter, kept in sync with companyConfig.social.
-const socialIcons = {
-  Facebook,
-  Instagram,
-  Twitter,
-  LinkedIn: Linkedin,
-};
 
 // Which platform (if any) the given path belongs to, so the menu can open
 // straight into that platform's own page list instead of always starting
@@ -237,34 +228,13 @@ const MobileNavMenu = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Bottom: social links, a divider, then the CTA — pinned to the
-                  panel's bottom edge regardless of which "screen" is showing. */}
+              {/* Bottom: the CTA — pinned to the panel's bottom edge
+                  regardless of which "screen" is showing. Social links used
+                  to sit here too, but a nav drawer exists to move users
+                  through the site, not out of it, and they only duplicated
+                  GlobalFooter — dropped in favor of giving this CTA the
+                  drawer's last, most-seen spot to itself. */}
               <div className="shrink-0 p-6">
-                <ul className="flex gap-3">
-                  {companyConfig.social.map((link) => {
-                    const Icon = socialIcons[link.label];
-                    return (
-                      <li key={link.label}>
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label={link.label}
-                          // Circular, since the padding is even on both axes and
-                          // every other button on the site is a pill. A square
-                          // corner here was the one radius left that did not
-                          // match.
-                          className="flex items-center justify-center rounded-full border border-neutral-200 p-2 text-neutral-600 transition-colors hover:border-red-200 hover:text-red-600"
-                        >
-                          <Icon className="h-4 w-4" aria-hidden="true" />
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-
-                <div className="my-4 border-b border-neutral-200" />
-
                 <Link
                   to="/#who-we-are"
                   onClick={closeMenu}
