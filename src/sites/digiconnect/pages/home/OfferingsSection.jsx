@@ -63,40 +63,43 @@ const OfferingsSection = () => {
                 // a step would stall the lower ones. Each gets its own trigger.
                 variants={riseIn()}
                 {...centerTrigger}
-                className="overflow-hidden rounded-2xl border border-neutral-200 bg-surface"
+                className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-surface p-6 md:p-8"
               >
-                {/* Header band: solid red-600 with a diagonal-cut bottom
-                    edge — a flat color-block panel rather than a soft tint,
-                    closer to corporate/bank deck references than the site's
-                    usual soft cards. overflow-hidden on the article is what
-                    rounds this band's own square top corners — it has none
-                    of its own. */}
-                <div className="bg-red-600 px-6 pt-6 pb-12 [clip-path:polygon(0_0,100%_0,100%_75%,0_100%)] md:px-8 md:pt-8">
-                  <div className="flex items-center justify-between">
-                    <span
-                      className="text-xs font-medium tabular-nums text-white/70 md:text-sm"
-                      aria-hidden="true"
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <Icon className="h-6 w-6 text-white" strokeWidth={1.75} aria-hidden="true" />
-                  </div>
+                {/* Oversized ghost numeral, bleeding off the corner behind
+                    the content — an editorial background element, not the
+                    focal color. Faint enough (7% opacity) to read as
+                    texture rather than compete with the heading. */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-7 -right-3 z-0 text-[120px] font-extrabold leading-none tracking-[-0.04em] text-red-600/[0.07] select-none md:-bottom-9 md:-right-4 md:text-[150px]"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                {/* Small solid geometric badge — carries the brand color as
+                    a repeating "kit of parts" accent instead of a full-card
+                    fill. Plain asymmetric border-radius, not clip-path: the
+                    header-band design's stacking-context bug (clip-path
+                    implicitly promotes an element above plain static
+                    content, regardless of DOM order) doesn't apply here
+                    since nothing in this card uses clip-path. */}
+                <div
+                  aria-hidden="true"
+                  className="absolute right-0 top-0 z-[1] h-14 w-14 rounded-[0_16px_0_56px] bg-red-600 md:h-16 md:w-16 md:rounded-[0_16px_0_64px]"
+                >
+                  <Icon
+                    className="absolute right-[13px] top-[13px] h-[18px] w-[18px] text-white md:right-[15px] md:top-[15px] md:h-5 md:w-5"
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
                 </div>
 
-                {/* Content zone, pulled up under the diagonal cut so the
-                    heading starts close to the band's shortest point instead
-                    of leaving a dead gap of white space. relative z-10:
-                    clip-path on the header above establishes its own
-                    stacking context (the same category as transform/filter/
-                    opacity), which paints above plain static content
-                    regardless of DOM order — without this, the header's
-                    still-uncut left edge would paint over the heading text
-                    wherever the negative margin makes them overlap. */}
-                <div className="relative z-10 -mt-6 px-6 pb-6 md:px-8 md:pb-8">
-                  <h3 className="text-lg font-bold tracking-tight text-neutral-900 md:text-xl">
+                <div className="relative z-[2]">
+                  <h3 className="mt-8 text-lg font-extrabold tracking-[-0.01em] leading-[1.2] text-neutral-900 md:mt-10 md:text-[22px]">
                     {service.name}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                  <div className="my-3.5 h-[3px] w-8 rounded bg-red-600" />
+                  <p className="text-sm leading-[1.65] text-neutral-600">
                     {service.description}
                   </p>
                 </div>
