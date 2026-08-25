@@ -67,9 +67,10 @@ const AboutIntroSection = () => {
 
             <motion.h2
               variants={riseIn(STEP)}
-              // leading-[1.1] rather than leading-tight (1.25): at 48px that
-              // was a 12px gap between the two lines of this heading, which
-              // read as two separate statements rather than one sentence.
+              // leading-[1.1] is the section-heading standard across all three
+              // brands now. It started here: leading-tight (1.25) left a 12px
+              // gap between this heading's two lines, which read as two
+              // separate statements rather than one sentence.
               className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-900"
             >
               {aboutIntro.headingLead}

@@ -45,7 +45,7 @@ const ProcessSection = () => {
             {process.eyebrow}
           </span>
 
-          <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             {process.headingLead}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">
               {process.headingAccent}

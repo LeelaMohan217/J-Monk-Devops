@@ -60,7 +60,7 @@ const StorySection = () => {
 
           <motion.h2
             variants={riseIn(STEP)}
-            className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl"
+            className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl"
           >
             {story.headingLead}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">

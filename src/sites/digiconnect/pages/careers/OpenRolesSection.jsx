@@ -80,7 +80,7 @@ const OpenRolesSection = () => {
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             {openRoles.eyebrow}
           </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             {openRoles.headingLead}
             <span className={ACCENT_CLASS}>{openRoles.headingAccent}</span>
           </h2>
