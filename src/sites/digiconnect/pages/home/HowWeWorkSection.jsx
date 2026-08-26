@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Check, ChevronDown } from "lucide-react";
+import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
 import { howWeWork } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 import processPhoto from "../../assets/digiconnect-process.webp";
+import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 
 const CASCADE_STEP = 0.1;
 const ACCORDION_STEP = 0.05;
 
 const HowWeWorkSection = () => {
+  const isDesktop = useIsDesktop();
   const imageRef = useRef(null);
   const [imageHeight, setImageHeight] = useState(null);
   const [openIndex, setOpenIndex] = useState(0);
@@ -38,7 +40,7 @@ const HowWeWorkSection = () => {
           className="grid gap-10 lg:grid-cols-[1fr_1fr_1.1fr] lg:gap-12"
         >
           <div
-            style={imageHeight ? { height: imageHeight } : undefined}
+            style={isDesktop && imageHeight ? { height: imageHeight } : undefined}
             className="lg:sticky lg:top-32 lg:flex lg:flex-col"
           >
             <div>
@@ -63,16 +65,18 @@ const HowWeWorkSection = () => {
               </motion.p>
             </div>
 
-            <motion.div variants={fadeIn("up", 3 * CASCADE_STEP)} className="lg:mt-auto">
+            <motion.div
+              variants={fadeIn("up", 3 * CASCADE_STEP)}
+              className="hidden lg:mt-auto lg:block"
+            >
               <Link
                 to={howWeWork.cta.href}
-                className="group mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 lg:mt-0"
+                className="group mt-10 inline-flex w-fit items-center gap-2 whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 lg:mt-0"
               >
                 {howWeWork.cta.label}
-                <ArrowRight
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
               </Link>
             </motion.div>
           </div>
@@ -161,6 +165,22 @@ const HowWeWorkSection = () => {
               );
             })}
           </div>
+
+          <motion.div
+            variants={fadeIn("up", 0)}
+            {...centerTrigger}
+            className="flex justify-center lg:hidden"
+          >
+            <Link
+              to={howWeWork.cta.href}
+              className="group inline-flex w-fit items-center gap-2 whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+            >
+              {howWeWork.cta.label}
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

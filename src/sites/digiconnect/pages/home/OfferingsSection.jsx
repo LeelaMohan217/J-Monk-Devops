@@ -56,22 +56,6 @@ const OfferingsSection = () => {
           >
             {offerings.lead}
           </motion.p>
-
-          <motion.div
-            variants={fadeIn("up", 3 * CASCADE_STEP)}
-            className="mt-8 flex justify-center md:mt-10"
-          >
-            <Link
-              to={offerings.cta.href}
-              className="group inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-            >
-              {offerings.cta.label}
-              <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </Link>
-          </motion.div>
         </motion.div>
 
         <motion.div
@@ -103,6 +87,23 @@ const OfferingsSection = () => {
               </motion.article>
             );
           })}
+        </motion.div>
+
+        <motion.div
+          variants={fadeIn("up", 0)}
+          {...centerTrigger}
+          className="mt-10 flex justify-center md:mt-14"
+        >
+          <Link
+            to={offerings.cta.href}
+            className="group inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+          >
+            {offerings.cta.label}
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </Link>
         </motion.div>
       </div>
     </section>
