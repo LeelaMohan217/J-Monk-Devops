@@ -27,21 +27,28 @@ const Navbar = ({
         }`}
       >
         <div className={`mx-auto flex items-center justify-between py-2 px-6 ${maxWidthClass}`}>
-          <Link
-            to={homeHref}
-            className="flex shrink-0 items-center gap-2 text-lg font-semibold tracking-tight text-black"
-          >
+          <div className="flex shrink-0 items-center gap-2">
             {logo && (
-              <img
-                src={logo}
-                alt={siteName}
-                className="h-12 w-12 object-contain"
-                width={48}
-                height={48}
-              />
+              <Link to="/" className="group relative flex shrink-0">
+                <img
+                  src={logo}
+                  alt="JMonkDevops"
+                  className="h-12 w-12 object-contain"
+                  width={48}
+                  height={48}
+                />
+                <span className="pointer-events-none absolute top-full left-1/2 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-neutral-900 px-2.5 py-1 text-xs font-medium text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  Click here to go to main home page
+                </span>
+              </Link>
             )}
-            {siteName}
-          </Link>
+            <Link
+              to={homeHref}
+              className="text-lg font-semibold tracking-tight text-black"
+            >
+              {siteName}
+            </Link>
+          </div>
 
           <ul className="hidden items-center gap-10 lg:flex">
             {navItems.map((item) => {

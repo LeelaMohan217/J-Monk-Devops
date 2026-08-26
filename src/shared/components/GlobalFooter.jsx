@@ -106,7 +106,7 @@ const GlobalFooter = () => {
       <div className="border-t border-neutral-800">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
           <p className="text-neutral-600 text-xs">
-            © {new Date().getFullYear()} {companyConfig.name}. All rights
+            © 2024 {companyConfig.name}. All rights
             reserved.
           </p>
           <p className="text-neutral-600 text-xs">
