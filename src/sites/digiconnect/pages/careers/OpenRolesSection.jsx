@@ -52,7 +52,7 @@ const OpenRolesSection = () => {
   return (
     <section
       id="open-roles"
-      className="bg-surface-muted py-16 md:py-24 scroll-mt-24"
+      className="bg-olive-100 py-16 md:py-24 scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div variants={riseIn()} {...centerTrigger} className="max-w-2xl">

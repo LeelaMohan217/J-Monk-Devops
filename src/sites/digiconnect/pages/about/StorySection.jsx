@@ -6,7 +6,7 @@ import { ACCENT_CLASS } from "../../headingStyles";
 
 const StorySection = () => {
   return (
-    <section className="bg-surface-muted py-16 md:py-24">
+    <section className="bg-olive-100 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <motion.div
