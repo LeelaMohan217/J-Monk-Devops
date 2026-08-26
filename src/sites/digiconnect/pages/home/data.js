@@ -97,7 +97,6 @@ export const howWeWork = {
         "Market research",
         "Brand & audience mapping",
         "Goal alignment",
-        "Competitive analysis",
       ],
     },
     {
@@ -107,7 +106,6 @@ export const howWeWork = {
         "Innovation roadmap",
         "Strategic positioning",
         "Business transformation",
-        "Digital adoption",
       ],
     },
     {
@@ -117,7 +115,6 @@ export const howWeWork = {
         "Web & digital solutions",
         "Product development",
         "Campaign execution",
-        "User experience design",
       ],
     },
     {
@@ -127,7 +124,6 @@ export const howWeWork = {
         "Usability testing",
         "Feedback-driven adjustments",
         "Scalable improvements",
-        "Iterative design processes",
       ],
     },
   ],
