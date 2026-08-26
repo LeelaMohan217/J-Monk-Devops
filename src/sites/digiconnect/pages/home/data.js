@@ -1,5 +1,4 @@
 import whatWeDoImage from "../../assets/image2.webp";
-import partnershipImage from "../../assets/image3.webp";
 
 export const hero = {
   eyebrow: "Connect. Automate. Scale.",
@@ -86,31 +85,52 @@ export const offerings = {
 
 export const howWeWork = {
   eyebrow: "How we work",
-  headingLead: "Fewer surprises, ",
-  headingAccent: "by design.",
-  image: partnershipImage,
-  paragraphs: [
-    "We would rather lose a project at the scoping call than halfway through it. That means telling you when a simpler build solves the problem, and when the thing you asked for is not the thing you need.",
-    "Understanding the problem properly is the part most of the industry rushes. We stay in that part longer, and the finished product is where you see the difference.",
+  headingLead: "Simple steps for ",
+  headingAccent: "lasting impact",
+  lead: "Discovery to delivery, we follow a proven framework that ensures clarity, precision, and growth.",
+  cta: { label: "Get in touch", href: "/digiconnect/contact" },
+  steps: [
+    {
+      title: "Discover & Define",
+      description: "Uncover insights that matter most to your business.",
+      points: [
+        "Market research",
+        "Brand & audience mapping",
+        "Goal alignment",
+        "Competitive analysis",
+      ],
+    },
+    {
+      title: "Strategy & Direction",
+      description: "Translate insights into action with a clear growth path.",
+      points: [
+        "Innovation roadmap",
+        "Strategic positioning",
+        "Business transformation",
+        "Digital adoption",
+      ],
+    },
+    {
+      title: "Build & Execute",
+      description: "Bring ideas to life with precision and scalability.",
+      points: [
+        "Web & digital solutions",
+        "Product development",
+        "Campaign execution",
+        "User experience design",
+      ],
+    },
+    {
+      title: "Test & Refine",
+      description: "Validate detail to ensure seamless performance.",
+      points: [
+        "Usability testing",
+        "Feedback-driven adjustments",
+        "Scalable improvements",
+        "Iterative design processes",
+      ],
+    },
   ],
-  principles: [
-    {
-      term: "Scope in writing",
-      detail:
-        "You get the plan, the assumptions, and what is explicitly out of scope before work starts.",
-    },
-    {
-      term: "Built to hand over",
-      detail:
-        "Documented, deployable, and readable by whoever maintains it next, including your own team.",
-    },
-    {
-      term: "One team throughout",
-      detail:
-        "The people who design it are the people who build and deploy it. No handoff to a different bench.",
-    },
-  ],
-  cta: { label: "More about DigiConnect", href: "/digiconnect/about" },
 };
 
 
