@@ -6,7 +6,7 @@ import heroBg from "../../assets/digiconnect-about-hero.webp";
 
 const PageHeaderSection = () => {
   return (
-    <section className="relative flex min-h-screen w-full items-center overflow-hidden pt-28 pb-16 md:pt-32 md:pb-24">
+    <section className="relative flex min-h-[60vh] w-full items-end overflow-hidden pt-28 pb-16 md:min-h-screen md:items-center md:pt-32 md:pb-24">
       <img
         src={heroBg}
         alt=""
@@ -14,7 +14,7 @@ const PageHeaderSection = () => {
         className="absolute inset-x-0 top-16 bottom-0 h-[calc(100%-4rem)] w-full object-cover"
       />
       <div
-        className="absolute inset-x-0 top-16 bottom-0 bg-neutral-900/70"
+        className="absolute inset-x-0 top-16 bottom-0 bg-gradient-to-t from-neutral-900/85 via-neutral-900/55 to-neutral-900/25 md:bg-gradient-to-r md:from-neutral-900/75 md:via-neutral-900/55 md:to-neutral-900/25"
         aria-hidden="true"
       />
 
