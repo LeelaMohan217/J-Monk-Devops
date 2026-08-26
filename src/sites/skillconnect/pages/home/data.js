@@ -1,7 +1,8 @@
 
 export const hero = {
-  headingLead: "Learn. Build. ",
-  headingAccent: "Grow.",
+  eyebrow: "Learn. Build. Grow.",
+  headingLead: "Built through projects, mentorship, and ",
+  headingAccent: "real work.",
   lead: "A hands-on learning ecosystem where students, freshers, and career-switchers gain industry exposure, real-world experience, and career-building opportunities beyond traditional education.",
   primaryCta: { label: "Get in touch", href: "/skillconnect/contact" },
   secondaryCta: { label: "See the tracks", href: "/skillconnect/services" },

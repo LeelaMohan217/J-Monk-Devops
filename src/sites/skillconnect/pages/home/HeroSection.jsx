@@ -11,18 +11,27 @@ const HeroSection = () => {
     <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col items-start gap-6 text-left md:items-center md:text-center">
-          <motion.h1
+          <motion.span
             variants={fadeIn("up", 0.05)}
+            initial="hidden"
+            animate="show"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+          >
+            {hero.eyebrow}
+          </motion.span>
+
+          <motion.h1
+            variants={fadeIn("up", 0.15)}
             initial="hidden"
             animate="show"
             className={`max-w-4xl font-semibold text-neutral-900 ${HERO_HEADING_SIZE}`}
           >
             {hero.headingLead}
-            <span className={ACCENT_CLASS}>{hero.headingAccent}</span>
+            <span className={`${ACCENT_CLASS} whitespace-nowrap`}>{hero.headingAccent}</span>
           </motion.h1>
 
           <motion.p
-            variants={fadeIn("up", 0.2)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
             animate="show"
             className="max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
@@ -31,7 +40,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            variants={fadeIn("up", 0.35)}
+            variants={fadeIn("up", 0.45)}
             initial="hidden"
             animate="show"
             className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"

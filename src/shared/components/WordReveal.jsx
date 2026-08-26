@@ -27,6 +27,25 @@ const WordReveal = ({
 }) => {
   let wordIndex = -1;
 
+  const renderWord = (word) => {
+    wordIndex += 1;
+    return (
+      <span
+        key={`${word.text}-${wordIndex}`}
+        className={`${MASK} ${word.accent ? ACCENT_MASK : ""}`}
+      >
+        <motion.span
+          className={`inline-block ${word.accent ? accentClass : ""}`}
+          variants={wordReveal(start + wordIndex * step)}
+          initial="hidden"
+          animate="show"
+        >
+          {word.text}
+        </motion.span>
+      </span>
+    );
+  };
+
   return (
     <>
       <span className="sr-only">
@@ -34,28 +53,31 @@ const WordReveal = ({
       </span>
 
       <span aria-hidden="true">
-        {lines.map((line, lineIndex) => (
-          <span key={lineIndex} className="block">
-            {line.map((word) => {
-              wordIndex += 1;
-              return (
-                <span
-                  key={`${word.text}-${wordIndex}`}
-                  className={`${MASK} ${word.accent ? ACCENT_MASK : ""}`}
-                >
-                  <motion.span
-                    className={`inline-block ${word.accent ? accentClass : ""}`}
-                    variants={wordReveal(start + wordIndex * step)}
-                    initial="hidden"
-                    animate="show"
-                  >
-                    {word.text}
-                  </motion.span>
-                </span>
-              );
-            })}
-          </span>
-        ))}
+        {lines.map((line, lineIndex) => {
+          const groups = [];
+          line.forEach((word) => {
+            const currentGroup = groups[groups.length - 1];
+            if (currentGroup && currentGroup.accent === !!word.accent) {
+              currentGroup.words.push(word);
+            } else {
+              groups.push({ accent: !!word.accent, words: [word] });
+            }
+          });
+
+          return (
+            <span key={lineIndex} className="block">
+              {groups.map((group, groupIndex) =>
+                group.accent ? (
+                  <span key={groupIndex} className="whitespace-nowrap">
+                    {group.words.map(renderWord)}
+                  </span>
+                ) : (
+                  group.words.map(renderWord)
+                ),
+              )}
+            </span>
+          );
+        })}
       </span>
     </>
   );

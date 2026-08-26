@@ -2,8 +2,7 @@ import whatWeDoImage from "../../assets/image2.webp";
 import partnershipImage from "../../assets/image3.webp";
 
 export const hero = {
-  eyebrow: "Software and cloud engineering",
-  eyebrowHref: "/digiconnect/about",
+  eyebrow: "Connect. Automate. Scale.",
   headingLead: "Software your business can ",
   headingAccent: "actually run on.",
   lead: "DigiConnect designs, builds, and maintains custom software, SaaS products, cloud infrastructure, and the integrations that hold them together. One team, from architecture through to production.",

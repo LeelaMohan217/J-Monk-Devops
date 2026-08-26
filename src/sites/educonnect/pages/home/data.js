@@ -13,9 +13,9 @@ const reviewers = [
 ];
 
 export const hero = {
-  eyebrow: "Study abroad, one counsellor",
-  headingLead: "Expert guidance, real ",
-  headingAccent: "global outcomes.",
+  eyebrow: "Dream. Move. Become.",
+  headingLead: "Expert guidance, ",
+  headingAccent: "real global outcomes.",
   lead: "EduConnect pairs every student with a dedicated counsellor for university selection, applications, visas, and the practical work of settling in abroad. One team from start to finish, not a directory you're left to figure out alone.",
   primaryCta: { label: "Book a free consultation", href: "/educonnect/contact" },
   secondaryCta: { label: "See how it works", href: "/educonnect/services" },
