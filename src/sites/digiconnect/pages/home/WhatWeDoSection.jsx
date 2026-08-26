@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Users, Award, TrendingUp } from "lucide-react";
 import { riseIn } from "../../../../shared/variants";
 import {
   STEP,
@@ -15,13 +16,19 @@ const PLACEMENT = [
   "lg:col-start-3 lg:row-start-2",
 ];
 
+const ICONS = {
+  strategy: Users,
+  expertise: Award,
+  results: TrendingUp,
+};
+
 const WhatWeDoSection = () => {
   const isDesktop = useIsDesktop();
 
   return (
     <section
       id="what-we-do"
-      className="scroll-mt-24 bg-surface-muted py-16 md:py-24"
+      className="scroll-mt-24 bg-olive-100 py-16 md:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
@@ -44,38 +51,47 @@ const WhatWeDoSection = () => {
         <motion.div
           variants={groupContainer}
           {...centerTrigger}
-          className="mt-12 grid gap-4 md:mt-16 md:gap-6 lg:grid-cols-3 lg:grid-rows-[minmax(220px,1fr)_minmax(220px,1fr)]"
+          className="mt-12 grid gap-4 md:mt-16 md:gap-5 lg:grid-cols-[1.3fr_1fr_1fr] lg:grid-rows-[minmax(220px,1fr)_minmax(220px,1fr)]"
         >
           <motion.div
             variants={riseIn(0)}
             {...(isDesktop ? {} : centerTrigger)}
-            className="overflow-hidden lg:col-start-1 lg:row-span-2 lg:row-start-1"
+            className="group overflow-hidden rounded-sm lg:col-start-1 lg:row-span-2 lg:row-start-1"
           >
             <img
               src={whatWeDo.image}
               alt=""
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </motion.div>
 
-          {whatWeDo.cards.map((card, index) => (
-            <motion.div
-              key={card.id}
-              variants={riseIn(isDesktop ? (index + 1) * STEP : 0)}
-              {...(isDesktop ? {} : centerTrigger)}
-              className={`flex flex-col justify-between border border-neutral-200 bg-surface p-6 md:p-8 ${PLACEMENT[index]}`}
-            >
-              <h3 className="text-base font-medium tracking-tight text-neutral-800 md:text-lg">
-                {card.label}
-              </h3>
+          {whatWeDo.cards.map((card, index) => {
+            const Icon = ICONS[card.id];
+            return (
+              <motion.div
+                key={card.id}
+                variants={riseIn(isDesktop ? (index + 1) * STEP : 0)}
+                {...(isDesktop ? {} : centerTrigger)}
+                className={`flex flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-6 md:p-8 ${PLACEMENT[index]}`}
+              >
+                <div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50">
+                    <Icon className="h-5 w-5 text-red-600" strokeWidth={1.75} aria-hidden="true" />
+                  </div>
 
-              <p className="mt-8 text-sm leading-relaxed text-neutral-600">
-                {card.description}
-              </p>
-            </motion.div>
-          ))}
+                  <h3 className="mt-4 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
+                    {card.label}
+                  </h3>
+                </div>
+
+                <p className="mt-8 text-sm leading-relaxed text-neutral-600">
+                  {card.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

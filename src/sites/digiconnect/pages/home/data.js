@@ -39,10 +39,11 @@ export const whatWeDo = {
 };
 
 export const offerings = {
-  eyebrow: "Services",
-  headingLead: "What we build ",
-  headingAccent: "and run.",
-  cta: { href: "/digiconnect/services" },
+  eyebrow: "Our Services",
+  headingLead: "Explore what we do ",
+  headingAccent: "best",
+  lead: "Explore solutions to help your business scale smarter, operate efficiently, and stay ahead of change.",
+  cta: { label: "Explore services", href: "/digiconnect/services" },
   services: [
     {
       id: "custom-software",

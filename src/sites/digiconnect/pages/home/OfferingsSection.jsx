@@ -33,7 +33,7 @@ const OfferingsSection = () => {
         <motion.div
           variants={riseIn()}
           {...centerTrigger}
-          className="max-w-3xl"
+          className="mx-auto max-w-2xl text-center"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             {offerings.eyebrow}
@@ -42,66 +42,55 @@ const OfferingsSection = () => {
             {offerings.headingLead}
             <span className={ACCENT_CLASS}>{offerings.headingAccent}</span>
           </h2>
+          <p className="mt-4 text-base leading-relaxed text-neutral-600">
+            {offerings.lead}
+          </p>
         </motion.div>
-
-        <div className="mt-14 grid gap-4 md:mt-20 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {offerings.services.map((service, index) => {
-            const Icon = icons[service.id];
-            return (
-              <motion.article
-                key={service.id}
-                variants={riseIn()}
-                {...centerTrigger}
-                className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-surface p-6 md:p-8"
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-7 -right-3 z-0 text-[120px] font-extrabold leading-none tracking-[-0.04em] text-red-600/[0.07] select-none md:-bottom-9 md:-right-4 md:text-[150px]"
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <div
-                  aria-hidden="true"
-                  className="absolute right-0 top-0 z-[1] h-14 w-14 rounded-[0_16px_0_56px] bg-red-600 md:h-16 md:w-16 md:rounded-[0_16px_0_64px]"
-                >
-                  <Icon
-                    className="absolute right-[13px] top-[13px] h-[18px] w-[18px] text-white md:right-[15px] md:top-[15px] md:h-5 md:w-5"
-                    strokeWidth={1.75}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <div className="relative z-[2]">
-                  <h3 className="mt-8 text-lg font-extrabold tracking-[-0.01em] leading-[1.2] text-neutral-800 md:mt-10 md:text-[22px]">
-                    {service.name}
-                  </h3>
-                  <div className="my-3.5 h-[3px] w-8 rounded bg-red-600" />
-                  <p className="text-sm leading-[1.65] text-neutral-600">
-                    {service.description}
-                  </p>
-                </div>
-              </motion.article>
-            );
-          })}
-        </div>
 
         <motion.div
           variants={riseIn()}
           {...centerTrigger}
-          className="mt-10 flex justify-center md:mt-14"
+          className="mt-8 flex justify-center md:mt-10"
         >
           <Link
             to={offerings.cta.href}
             className="group inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
-            See all services
+            {offerings.cta.label}
             <ArrowRight
               className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
               aria-hidden="true"
             />
           </Link>
         </motion.div>
+
+        <div className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+          {offerings.services.map((service) => {
+            const Icon = icons[service.id];
+            return (
+              <motion.article
+                key={service.id}
+                variants={riseIn()}
+                {...centerTrigger}
+                className="flex flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-8 md:p-10"
+              >
+                <div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50">
+                    <Icon className="h-5 w-5 text-red-600" strokeWidth={1.75} aria-hidden="true" />
+                  </div>
+
+                  <h3 className="mt-4 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
+                    {service.name}
+                  </h3>
+                </div>
+
+                <p className="mt-8 text-sm leading-relaxed text-neutral-600">
+                  {service.description}
+                </p>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

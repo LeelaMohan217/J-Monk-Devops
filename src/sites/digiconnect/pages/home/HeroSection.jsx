@@ -77,13 +77,13 @@ const HeroSection = () => {
             animate="show"
             className="lg:col-span-6"
           >
-            <div className="overflow-hidden rounded-2xl border border-neutral-200">
+            <div className="group overflow-hidden rounded-2xl border border-neutral-200">
               <picture>
                 <source type="image/webp" srcSet={heroPhotoWebp} />
                 <img
                   src={heroPhotoJpg}
                   alt="DigiConnect engineers reviewing a software project"
-                  className="aspect-5/4 w-full object-cover"
+                  className="aspect-5/4 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   width="1000"
                   height="800"
                   decoding="async"
