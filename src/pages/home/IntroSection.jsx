@@ -6,9 +6,6 @@ import whoWeAreImage from "./assets/who-we-are.webp";
 import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
 
 
-// Concretizes the "one team, one standard" philosophy already stated in the
-// paragraphs below, rather than introducing new claims. A scannable
-// structural device for something the prose already says.
 const operatingPrinciples = [
   {
     icon: Users,
@@ -22,15 +19,6 @@ const operatingPrinciples = [
       "We hold business software, student mentorship, and study-abroad guidance to the same bar. Not a lighter one for any of them.",
   },
   {
-    // "One path" rather than the "Rooted in Bharath" this replaced, so all
-    // three read as one series. It is also the phrase the brand already uses
-    // for this idea, in the ecosystem copy in ./data.js and on SkillConnect's
-    // about page: "It is one path, not three."
-    //
-    // Dropping the geography costs the section nothing. The heading above
-    // already ends "across Bharath", and the footer carries the Andhra Pradesh
-    // address, so the location was the one line here that repeated something
-    // rather than adding to it.
     icon: Waypoints,
     title: "One path",
     detail:
@@ -41,10 +29,6 @@ const operatingPrinciples = [
 const IntroSection = () => {
   return (
     <section id="who-we-are" className="bg-white py-16 md:py-24 scroll-mt-36">
-      {/* Eyebrow then heading, on one shared trigger. They previously had
-          separate triggers with different amounts (0.6 and 0.5), so the 0.08
-          offset between them was never a real sequence: each started its own
-          delay from its own trigger moment. Compact enough to share one. */}
       <motion.div
         variants={groupContainer}
         {...centerTrigger}
@@ -85,17 +69,6 @@ const IntroSection = () => {
           />
         </motion.div>
 
-        {/* This column is ~600 to 880px tall, taller than the space it gets on
-            screen, so it deliberately does NOT share one in-view trigger. A
-            single trigger on the whole column fires when its top enters view,
-            which animates the rows and the button while they are still below the
-            fold; they finish unseen and are static by the time you reach them.
-
-            Instead there are three independently triggered groups: the paragraph
-            pair, the principle rows, and the button. Each group's members sit
-            adjacent to each other, so each group's stagger is actually visible
-            when that group comes into view. Delays restart at 0 per group,
-            because a group's delays are relative to its own trigger. */}
         <div className="flex h-full flex-col justify-between gap-8">
           <motion.div
             variants={groupContainer}
@@ -124,9 +97,6 @@ const IntroSection = () => {
             </motion.p>
           </motion.div>
 
-          {/* The three rows are one group on their own trigger, so they ripple
-              when the list comes into view rather than when the column's top
-              does. Delays start at 0 because they are relative to this group. */}
           <motion.dl
             variants={groupContainer}
             {...centerTrigger}
@@ -156,19 +126,11 @@ const IntroSection = () => {
             })}
           </motion.dl>
 
-          {/* Its own trigger, since it sits below the rows and would otherwise
-              animate off-screen while they were still being read. */}
           <motion.div
             variants={riseIn(0)}
             {...centerTrigger}
-            // The wrapper has to widen too. It was w-fit at every width, so
-            // widening only the Link inside it would have left the button
-            // capped at the wrapper's shrink-to-fit width on a phone.
             className="w-full sm:w-fit"
           >
-            {/* Solid red fill matching GlobalNav's CTA: same rounded-lg,
-                px-5 py-2.5, text-sm font-medium, and red-600 to red-700 on
-                hover. Was an outlined neutral button. */}
             <Link
               to="/#stats"
               className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 sm:w-fit"

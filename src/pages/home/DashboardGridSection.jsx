@@ -21,21 +21,6 @@ const DashboardGridSection = () => {
   return (
     <section className="max-w-7xl mx-auto grid grid-cols-1 gap-4 px-6 md:gap-6 md:px-8 lg:grid-cols-3">
       {platforms.map((platform, index) => (
-        // One card at a time instead of the whole grid as a single block.
-        //
-        // The two layouts need genuinely different behaviour:
-        //
-        // Desktop. The cards are the tail of the hero's staged entrance, so they
-        // are mount-timed like the rest of it and start after the CTA at
-        // HERO_TAIL_DELAY. All three sit in one row, so the index step is what
-        // separates them. A scroll trigger is wrong here: their tops sit ~607px
-        // down in an 800px viewport, below the centre line, so the page would
-        // load showing three blank slots.
-        //
-        // Mobile. The grid stacks past 1200px, well below the fold, so it is
-        // scroll-triggered per card. No hero delay, because that would stall each
-        // card over a second after it appeared, and no index step either: the
-        // cards are ~490px apart and already arrive one at a time.
         <motion.div
           key={platform.id}
           variants={riseIn(

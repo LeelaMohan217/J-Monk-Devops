@@ -17,10 +17,6 @@ const HowWeWorkSection = () => {
           <motion.div
             variants={riseIn()}
             {...centerTrigger}
-            // order-2 stacked, order-1 from lg. In source order the photo comes
-            // first so it can sit on the left at desktop, but stacked that put
-            // 295px of image above the heading and the reader met the section
-            // with no idea what it was about. Same fix as about/StorySection.
             className="order-2 rounded-2xl border border-neutral-200 bg-surface p-2 shadow-sm lg:order-1"
           >
             <div className="aspect-[3/2] w-full overflow-hidden rounded-xl bg-surface ring-1 ring-inset ring-black/10">

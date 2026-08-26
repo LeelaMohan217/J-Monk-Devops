@@ -9,25 +9,6 @@ import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { story } from "./data";
 import storyImg from "../../assets/educonnect-about.jpg";
 
-// Centred eyebrow and heading over a row of three: a tinted copy card, the
-// photo, then a second tinted copy card. The photo is the portrait that used to
-// sit in this page's header, which now runs text only like the services and blog
-// headers; putting it here keeps it on the page without making one header the
-// odd one out.
-//
-// bg-red-50 for the two copy cards, the same tint the landing page's stat tiles
-// use, so the accent stays inside the palette the site already has rather than
-// introducing a new one. They carry no border: the tint is the edge.
-//
-// The photo cell is aspect-square while stacked, so it has a height of its own,
-// and drops that from lg where h-full lets it match whichever copy card is
-// tallest. Same arrangement as the who-we-are section on the home page.
-//
-// Desktop and stacked need different reveals, the same split ServicesSection
-// makes. In a row of three the cards share a y position, so only the index step
-// produces the ripple. Stacked they are ~900px of page and arrive one at a time,
-// where a shared trigger plus index delays would fire the third while it was
-// still well below the fold.
 const StorySection = () => {
   const isDesktop = useIsDesktop();
 
@@ -49,8 +30,6 @@ const StorySection = () => {
           {...centerTrigger}
           className="mx-auto max-w-2xl text-center"
         >
-          {/* inline-block because riseIn animates y, and a transform does
-              nothing to a plain inline element: this would only fade. */}
           <motion.span
             variants={riseIn(0)}
             className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"

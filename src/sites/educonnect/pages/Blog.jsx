@@ -7,12 +7,6 @@ import PageHeaderSection from "./blog/PageHeaderSection";
 import PostImage from "./blog/PostImage";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
-// Cards on a grid — the one place in EduConnect that uses them, since posts
-// lead with artwork and read as a set of objects rather than an index of rows.
-// Every other section on the site stays on hairlines and type.
-//
-// Excerpts are clamped to three lines so the meta footer sits on the same
-// baseline across a row regardless of copy length.
 const Blog = () => {
   useDocumentMeta(
     "Blog | EduConnect",
@@ -58,8 +52,6 @@ const Blog = () => {
                       {post.excerpt}
                     </p>
 
-                    {/* mt-auto pins the footer to the card's base, so read
-                        times line up across a row despite 2- and 3-line titles. */}
                     <div className="mt-auto flex items-center gap-2 pt-5 text-xs text-neutral-400">
                       {post.readTime}
                       <ArrowRight

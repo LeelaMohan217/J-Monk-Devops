@@ -3,15 +3,6 @@ import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 
-// Plain typographic header on the site rail, byte for byte the same shape as
-// services/ and blog/PageHeaderSection: full-width copy, no photo, no grid
-// backdrop. The two-column version with a portrait beside the copy is gone,
-// because it made this the one page header on the site that did not match the
-// others.
-//
-// All three of these components are now identical apart from where they read
-// their copy from. They are worth folding into one shared component the next
-// time any of them is touched.
 const PageHeaderSection = () => {
   return (
     <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">

@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 
-/**
- * Tracks the current native scroll position, rAF-throttled so it doesn't
- * fire a state update on every scroll event.
- */
 const useScrollPosition = () => {
   const [scrollY, setScrollY] = useState(0);
 

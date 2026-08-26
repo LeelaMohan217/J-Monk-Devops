@@ -6,11 +6,6 @@ import { centerTrigger } from "../../../../shared/motionConfig";
 import { tracks } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
-// Editorial numbered rows. This treatment came from DigiConnect's
-// AudiencePathsSection, which has since been deleted along with the rest of that
-// site's student-facing content, so this is now the only place it appears. It
-// does the same job: it is the way off the home page. The full breakdown of the
-// three tracks lives on the services page, which is where every row points.
 const TracksSection = () => {
   return (
     <section
@@ -38,9 +33,6 @@ const TracksSection = () => {
         </motion.div>
 
         <div className="mt-12 border-t border-neutral-200 md:mt-16">
-          {/* A trigger per row with no index delay, not one staggered group:
-              these are full-width editorial rows, so by the time a third-in-line
-              delay elapsed the last row would already be well past the fold. */}
           {tracks.items.map((track) => (
             <motion.div
               key={track.id}
@@ -52,8 +44,6 @@ const TracksSection = () => {
                 to={track.href}
                 className="group grid grid-cols-[2rem_1fr_auto] items-start gap-x-4 py-7 transition-colors duration-300 sm:gap-x-8 md:py-9 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
-                {/* Hidden from the accessibility tree: otherwise a screen
-                    reader announces "zero one" ahead of each track name. */}
                 <span
                   className="text-xs font-medium tabular-nums text-neutral-400 transition-colors duration-300 group-hover:text-red-600 md:text-sm"
                   aria-hidden="true"

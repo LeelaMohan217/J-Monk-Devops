@@ -13,8 +13,6 @@ const BlogPost = () => {
   const { slug } = useParams();
   const post = getBlogPostBySlug(slug);
 
-  // Called unconditionally (hooks can't follow the early return below),
-  // covering both the found and not-found cases with one call.
   useDocumentMeta(
     post ? `${post.title} | EduConnect Blog` : "Post not found | EduConnect Blog",
     post ? post.excerpt : "That article doesn't exist or may have been moved."
@@ -44,8 +42,6 @@ const BlogPost = () => {
 
   return (
     <article>
-      {/* No masked-grid backdrop here — that treatment is for section
-          intros/landing moments, not a page meant to be read. */}
       <section className="bg-surface pt-32 pb-12 md:pt-40 md:pb-16">
         <motion.div
           variants={fadeIn("up", 0.05)}
@@ -61,9 +57,6 @@ const BlogPost = () => {
             Back to Blog
           </Link>
 
-          {/* Same meta treatment as the blog index: muted tag, plain small
-              type for date and read time, no icons. Full tag list moves to
-              the foot of the article, after the body. */}
           <span className="mt-6 block w-fit text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-500">
             {post.tags[0]}
           </span>
@@ -81,8 +74,6 @@ const BlogPost = () => {
       <div className="border-t border-neutral-200" />
 
       <section className="bg-surface py-16 md:py-24">
-        {/* Same PostImage as the index cards, so an article isn't imageless
-            while its own card carries artwork. */}
         <motion.div
           variants={fadeIn("up", 0.05)}
           initial="hidden"

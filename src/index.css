@@ -1,19 +1,8 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-/* IBM Plex Mono: used only by EduConnect's own components (eyebrows,
-   numerals, stat values) via arbitrary font-[...] classes — not wired into
-   the shared --font-sans token, so DigiConnect/SkillConnect are unaffected. */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
-/* Geist (EduConnect's body/heading font, applied via a wrapper class in
-   EduConnectApp.jsx so it cascades without touching --font-sans) and
-   Playfair Display (EduConnect's red accent-text font, e.g. the hero
-   heading's coloured word) — same "load globally, scope by class" pattern
-   as IBM Plex Mono above. */
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-/*
-  ---break---
-*/
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -21,23 +10,11 @@
     Inter, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  /* Named section surfaces, so page pacing is a deliberate sequence rather
-     than an ad-hoc choice of white/stone-50 per section. Strictly white →
-     near-white → black; no hue. The red accent deliberately has no token here:
-     shadcn's `@theme inline` below already claims --color-accent, so a token by
-     that name silently loses to it. Red comes from red-600 utilities directly. */
   --color-surface: #ffffff;
   --color-surface-muted: #fafafa;
   --color-surface-sunken: #f5f5f5;
   --color-surface-invert: #0a0a0a;
 
-  /* Editorial display scale. Tailwind's text-* sizes stop tightening above
-     4xl, which is why every heading previously read at the same weight.
-     Four steps, one per device band, consumed through the two class strings in
-     src/shared/headingSizes.js rather than picked per component: xs = phones,
-     sm = large phones, md = tablets, lg = desktop. Tracking loosens as the size
-     drops because the tight desktop values close the letters up too far to read
-     at phone sizes. */
   --text-display-xs: 2rem;
   --text-display-xs--line-height: 1.12;
   --text-display-xs--letter-spacing: -0.015em;
@@ -52,14 +29,6 @@
   --text-display-lg--letter-spacing: -0.03em;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -78,17 +47,9 @@
     @apply font-sans;
     overscroll-behavior-y: none;
     overflow-x: hidden;
-    /* Otherwise, when a lazy route's fallback briefly collapses the page's
-       height during a client-side navigation, Chromium's scroll anchoring
-       tries to preserve the old visual anchor and re-adjusts scroll on its
-       own — after ScrollToTop's layout effect already reset it to 0,
-       overriding it and causing the footer to flash into view. */
     overflow-anchor: none;
   }
 }
-/*
-  ---break---
-*/
 @theme inline {
   --font-heading:
     var(--font-sans);
@@ -195,20 +156,6 @@
       background-position: 0% 50%;
     }
   }
-  /* Magic UI's animated-shiny-text. Added by the shadcn CLI and reflowed to
-     match the two blocks above; its own output ran the value onto a second line
-     before the semicolon and closed this @theme on the keyframes' brace.
-
-     The sweep is a gradient clipped to the glyphs, so the travel is expressed in
-     background-position and has to overshoot by the gradient's own width in both
-     directions for the highlight to start and finish fully off the text.
-
-     Note this ping-pongs rather than looping one way, which the duplicated stops
-     make easy to misread. Over the 8s cycle: 0 to 30% crosses left to right, 30
-     to 60% is parked off the right edge, 60 to 90% crosses back right to left,
-     and 90 to 100% is parked off the left. So there are two glints per cycle in
-     opposite directions, each with a rest after it, and the rests are what keep
-     this reading as an occasional catch of light rather than a running loop. */
   --animate-shiny-text: shiny-text 8s infinite;
   @keyframes shiny-text {
     0%,
@@ -222,9 +169,6 @@
     }
   }
 }
-/*
-  ---break---
-*/
 :root {
   --background:
     oklch(1 0 0);
@@ -291,9 +235,6 @@
   --sidebar-ring:
     oklch(0.708 0 0);
 }
-/*
-  ---break---
-*/
 .dark {
   --background:
     oklch(0.145 0 0);

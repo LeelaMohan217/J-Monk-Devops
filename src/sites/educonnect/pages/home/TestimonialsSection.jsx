@@ -8,26 +8,14 @@ import {
 import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { testimonials } from "./data";
 
-// CSS multi-column layout instead of a grid — since the quotes are
-// deliberately varied lengths (see data.js), columns naturally produce the
-// staggered "masonry" heights from the mockup without manual row-span math.
-// Avatar is a flat-colour monogram circle, not a photo: no real reviewer
-// headshots exist yet, and a stock photo standing in for one would
-// misrepresent it as a real person rather than read as a placeholder.
 const TestimonialsSection = () => {
   const isDesktop = useIsDesktop();
 
-  // Same row-versus-stack split as ServicesSection. In three columns the first
-  // quotes share a y position and need the index step to ripple; in one column
-  // the five quotes are ~1100px of page and reach the centre line one at a time.
   const ColumnsTag = isDesktop ? motion.div : "div";
   const columnsProps = isDesktop
     ? { variants: groupContainer, ...centerTrigger }
     : {};
 
-  // py-16 md:py-24, the same rhythm the who-we-are and services sections use.
-  // This was the last section still on py-24 md:py-32, so it was the one place
-  // the page stepped from 96px of vertical padding to 128px.
   return (
     <section className="bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
@@ -76,16 +64,6 @@ const TestimonialsSection = () => {
                 {item.quote}
               </blockquote>
               <figcaption className="mt-5 flex items-center gap-3">
-                {/* object-top rather than the default centre: every portrait
-                    here is a half-body shot with the face in the top third, and
-                    a centred cover-crop lands on the torso. Anchoring to the top
-                    also guarantees no crown of a head is cut off, which
-                    object-position values below ~10% start doing on the tallest
-                    of them.
-
-                    Falls back to the flat monogram circle when an item has no
-                    image, so a sixth testimonial can be added before its
-                    portrait exists. */}
                 {item.image ? (
                   <img
                     src={item.image}

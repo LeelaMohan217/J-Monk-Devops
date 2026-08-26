@@ -3,8 +3,6 @@ import ContactSection from "./contact/ContactSection";
 import MapSection from "./contact/MapSection";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
-// DigiConnectApp does not render ContactCmp on this route, so this page
-// carries its own conversion path end to end.
 const Contact = () => {
   useDocumentMeta(
     "Contact | DigiConnect",
@@ -15,7 +13,6 @@ const Contact = () => {
     <>
       <PageHeaderSection />
       <ContactSection />
-      {/* <MapSection /> */}
     </>
   );
 };

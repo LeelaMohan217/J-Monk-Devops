@@ -92,9 +92,6 @@ const SkillConnectContact = () => {
 
   return (
     <main className="bg-surface">
-      {/* Same header block as this site's about and services pages: the surface
-          token rather than a raw stone tint, and pt-32/md:pt-40 to clear the two
-          stacked nav bars, which pt-16 left the eyebrow tucked under. */}
       <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
         <motion.div
           variants={riseIn()}
@@ -102,9 +99,6 @@ const SkillConnectContact = () => {
           animate="show"
           className="mx-auto max-w-7xl px-6 md:px-8"
         >
-          {/* "Contact", not "SkillConnect": the sub-navbar directly above
-              already carries the brand, and every other page header on the site
-              names the page here. */}
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             Contact
           </span>

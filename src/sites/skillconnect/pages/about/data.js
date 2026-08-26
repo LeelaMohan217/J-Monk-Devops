@@ -1,16 +1,3 @@
-// Copy for the SkillConnect about page. Every claim here already exists
-// somewhere in the repo: the "judged on work, not a certificate" framing and the
-// one-path-not-three positioning come from the umbrella landing's
-// src/pages/home/data.js, and the "run by the engineers doing client work" fact
-// comes from ../services/data.js. Nothing about headcount, cohort sizes,
-// placement rates, or partner companies is asserted, because nothing in the
-// project establishes those yet.
-//
-// Deliberately does not restate the services page's three tracks or the home
-// page's "what we offer" grid. This page covers why SkillConnect exists and how
-// it operates; those cover what you actually get.
-//
-// No sentence uses a dash as punctuation.
 
 export const pageHeader = {
   eyebrow: "About",
@@ -52,9 +39,6 @@ export const values = {
   ],
 };
 
-// Already published on the home page's "Who Can Join?" section. Kept in sync
-// deliberately, because this page restates the audience as the natural question
-// after the story section, not because the two lists drifted apart.
 export const audience = {
   eyebrow: "Who it's for",
   headingLead: "If you are one of these, ",

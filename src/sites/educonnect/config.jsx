@@ -10,10 +10,7 @@ export const eduConnectConfig = {
   ],
   navCtaLabel: "Get in Touch",
   navCtaHref: "/educonnect/contact",
-  // Match DigiConnect's wider nav rail instead of the default max-w-6xl.
   navMaxWidthClass: "max-w-7xl",
-  // Opts into Navbar's pill-button treatment — DigiConnect/SkillConnect
-  // configs don't set this, so they keep the default rounded-lg button.
   navVariant: "premium",
   contactCta: {
     headingLead: "Ready to talk with us?",
@@ -21,12 +18,6 @@ export const eduConnectConfig = {
       "Tell us where you're headed and what stage you're at. We'll get back to you with next steps.",
     ctaLabel: "Connect today",
     ctaHref: "/educonnect/contact",
-    // Line the closing banner up with this site's own 7xl section rail.
     maxWidthClass: "max-w-7xl",
-    // ContactCmp takes no `variant` from anyone now: the centred band this site
-    // was already using is the only one, and DigiConnect and SkillConnect were
-    // moved onto it. A "dark" value used to sit here asking for a gray panel
-    // with a black pill button, but no such variant was ever built, so it fell
-    // through to the default anyway and only made the config look busy.
   },
 };

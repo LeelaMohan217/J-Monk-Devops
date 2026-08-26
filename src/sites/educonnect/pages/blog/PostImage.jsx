@@ -1,12 +1,5 @@
 import { Image as ImageIcon } from "lucide-react";
 
-// Renders a post's image, or a placeholder while there isn't one. Shared by the
-// blog index cards and the article page so both stay in step.
-//
-// To drop real artwork in later, add `image` (an imported asset) and `imageAlt`
-// to the post in src/sites/educonnect/blogPosts.js — no component changes
-// needed. The diagonal hatch is deliberately obvious: a placeholder should not
-// be mistakable for a finished design decision.
 const PostImage = ({ post, className = "" }) => {
   if (post.image) {
     return (

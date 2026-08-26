@@ -32,10 +32,6 @@ const EduConnectApp = lazy(() =>
 function ScrollToTop() {
   const location = useLocation();
 
-  // useLayoutEffect (not useEffect) so this runs synchronously right after
-  // the new route's DOM commits but before the browser paints — otherwise
-  // the new page briefly paints at the old scroll offset first (landing on
-  // the persistent footer if you'd scrolled down) before jumping to top.
   useLayoutEffect(() => {
     if (location.hash) {
       const el = document.getElementById(location.hash.slice(1));
@@ -46,24 +42,12 @@ function ScrollToTop() {
       }
     }
 
-    // index.html sets scroll-behavior: smooth on <html> for in-page anchor
-    // links, but scrollTo's default "auto" behavior defers to that CSS
-    // property — so without an explicit "instant" override here, this
-    // reset would itself animate smoothly up from wherever the page was
-    // scrolled, visibly scrolling past the footer instead of snapping to
-    // the top instantly.
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location]);
 
   return null;
 }
 
-// All page chrome is rendered here, at the top level, so it persists across
-// route changes instead of remounting with whichever page is active.
-//
-// GlobalNav is landing-only by design: brand pages get their own bar instead.
-// It's also the fallback for a path matching no brand prefix at all (the
-// top-level 404) — the alternative was no navbar whatsoever on that page.
 function SiteNav() {
   const location = useLocation();
 
@@ -112,11 +96,6 @@ function App() {
       <ScrollToTop />
       <SiteNav />
       <MobileNavMenu />
-      {/* fallback is not null: while a brand's lazy chunk is loading, an empty
-          fallback collapses the routed content to nothing, so the footer
-          (always mounted, below this boundary) rides up next to the navbar
-          until the real page pops in and pushes it back down. A min-h-screen
-          spacer keeps the footer off-screen for that gap instead. */}
       <Suspense fallback={<div className="min-h-screen" />}>
         <Routes>
           <Route path="/" element={<Landing />} />

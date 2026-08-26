@@ -1,28 +1,3 @@
-// Copy for the EduConnect about page, kept separate from ../home/data.js so the
-// two pages can evolve independently.
-//
-// Rewritten by hand to stop reading like generated marketing text. The tells
-// that got removed, in case they creep back in:
-//
-//   - Three item lists everywhere. "applications, visas, and pre-departure
-//     preparation", "your goals, budget, and academic profile", "admissions,
-//     visas, and the move itself". Once you notice the rhythm you cannot stop
-//     noticing it.
-//   - "actually" and "genuinely" propping up claims that were vague without
-//     them: "what students actually need", "courses that genuinely fit".
-//   - The X-not-Y construction on repeat: "student-first, not university-first",
-//     "not a preferred-partner list".
-//   - Abstract nouns doing the work a verb should. "guidance practice",
-//     "one counsellor assigned to each student", "no relay between departments".
-//   - Every sentence the same length, so the whole page reads at one pitch.
-//
-// What replaced them: contractions, fragments where a fragment is how a person
-// would say it, one concrete detail per claim, and sentence lengths that vary.
-// No new facts were invented. Every claim here already existed somewhere in this
-// file or in ../services/data.js.
-//
-// Still no dash punctuation anywhere, and no `image` key on the header, which is
-// text only like the services and blog ones.
 
 export const pageHeader = {
   eyebrow: "About",

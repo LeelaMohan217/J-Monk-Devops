@@ -4,22 +4,6 @@ import { fadeIn } from "../variants";
 import { PAGE_HEADING_SIZE } from "../headingSizes";
 import useDocumentMeta from "../hooks/useDocumentMeta";
 
-// Generic full-page message, shared by every 404 (one per brand, so the
-// right nav/footer chrome still surrounds it) and the error boundary's
-// fallback, rather than each inventing its own layout. mount-timed fadeIn
-// (not the scroll-triggered centerTrigger the rest of the site uses lower
-// on a page), matching every other page header's above-the-fold treatment
-// — see e.g. DigiConnect's contact PageHeaderSection.
-//
-// The oversized numeral reuses the same faint-ghost-numeral motif built for
-// DigiConnect's Offerings cards, so this reads as this site's own error
-// page rather than a generic one bolted on. It's optional: the error
-// boundary's fallback has no natural code to show, so it omits `code`.
-//
-// ctaIsExternalReload renders the CTA as a plain <a> instead of a router
-// <Link> — the error boundary needs an actual page reload to recover
-// (a client-side navigation re-enters the same crashed component tree),
-// while the 404 pages navigate normally.
 const StatusPage = ({
   code,
   headingLead,
@@ -32,8 +16,6 @@ const StatusPage = ({
   const CtaTag = ctaIsExternalReload ? "a" : Link;
   const ctaProps = ctaIsExternalReload ? { href: ctaHref } : { to: ctaHref };
 
-  // Client-side routing means the previous page's title would otherwise
-  // just linger here unchanged.
   useDocumentMeta(`${headingLead} | JMonkDevops`, subtext);
 
   return (

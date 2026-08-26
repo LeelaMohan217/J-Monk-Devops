@@ -9,24 +9,6 @@ import { ACCENT_CLASS } from "../../headingStyles";
 
 const ANY_MODE = "Any mode";
 
-// Openings list with a filter bar above it, driven entirely by whether data.js
-// has any roles in `openRoles.items`.
-//
-// The bar is one bordered object holding three controls rather than three
-// separate stacked form fields, which is what keeps it looking like a designed
-// component instead of a form. The text input flexes, the mode select sizes to
-// its content, and the submit button is the only filled element in the group so
-// the eye lands on it last.
-//
-// Filtering applies on submit, not on every keystroke. Given there is an
-// explicit Search button, live-filtering as you type would make that button
-// decorative, and a control that does nothing is worse than no control. Enter
-// submits too, since the bar is a real form.
-//
-// With no roles posted the bar still renders, because a careers page with no
-// visible way to search reads as unfinished. It renders disabled: the controls
-// are plainly inert rather than accepting input that cannot do anything, and the
-// message below says why.
 const OpenRolesSection = () => {
   const [draft, setDraft] = useState({ query: "", mode: ANY_MODE });
   const [applied, setApplied] = useState({ query: "", mode: ANY_MODE });
@@ -65,9 +47,6 @@ const OpenRolesSection = () => {
     setApplied(cleared);
   };
 
-  // Shared so the input, the select and the button end up exactly the same
-  // height. Three controls that disagree by two pixels is the detail that makes
-  // a bar like this look assembled rather than designed.
   const CONTROL = "h-11 text-sm text-neutral-900";
 
   return (
@@ -95,9 +74,6 @@ const OpenRolesSection = () => {
         >
           <div className="flex flex-col gap-2 rounded-xl border border-neutral-200 bg-surface p-2 shadow-sm sm:flex-row sm:items-center">
             <div className="relative flex-1">
-              {/* sr-only labels: the icon and placeholder carry these visually,
-                  but an input with no accessible name is unusable by screen
-                  reader. */}
               <label htmlFor="role-search" className="sr-only">
                 Search open roles
               </label>
@@ -128,8 +104,6 @@ const OpenRolesSection = () => {
               <label htmlFor="role-mode" className="sr-only">
                 Work mode
               </label>
-              {/* appearance-none plus our own chevron, so the control matches
-                  the input instead of inheriting the OS select styling. */}
               <select
                 id="role-mode"
                 value={draft.mode}
@@ -163,8 +137,6 @@ const OpenRolesSection = () => {
           </div>
 
           {hasRoles && (
-            // aria-live so the count is announced when the filter is applied,
-            // rather than the list silently changing under a screen reader.
             <div
               aria-live="polite"
               className="mt-3 flex items-center gap-3 text-xs text-neutral-500"
@@ -193,9 +165,6 @@ const OpenRolesSection = () => {
               {visibleRoles.map((role) => (
                 <motion.div
                   key={role.id}
-                  // No index step: a variable-length list of full-width rows, so
-                  // each gets its own centre-line trigger and fires when it
-                  // arrives. A step would stall rows already on screen.
                   variants={riseIn()}
                   {...centerTrigger}
                   className="border-b border-neutral-200"
@@ -226,8 +195,6 @@ const OpenRolesSection = () => {
               ))}
             </div>
 
-            {/* Filtered to nothing is a different situation from none posted, so
-                it gets its own wording and a way back. */}
             {visibleRoles.length === 0 && (
               <div className="py-12 text-center md:py-16">
                 <p className="text-sm leading-relaxed text-neutral-600">

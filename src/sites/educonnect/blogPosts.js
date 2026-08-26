@@ -5,16 +5,6 @@ import day1Cpt from "./assets/blog/day1-cpt.jpg";
 import supplyChain from "./assets/blog/supply-chain.jpg";
 import day1CptUniversities from "./assets/blog/day1-cpt-universities.jpg";
 
-// Static placeholder posts, no CMS/backend behind EduConnect yet, so blog
-// content lives here and Blog.jsx / BlogPost.jsx both read from it.
-//
-// `body` is a list of typed content blocks rather than plain paragraph
-// strings, since these posts carry subheadings, lists, program/university
-// spec-lists, salary tables, and resource links. See BlogBody.jsx for how
-// each `type` renders. Supported types: "p", "h2", "ul", "ol" (items can
-// carry an optional `term` for a bold lead-in), "spec-list" (items:
-// {name, meta, note?}), "salary-list" (items: {role, amount}), and "links"
-// (items: {label, href}).
 export const blogPosts = [
   {
     slug: "study-gap-acceptable-australia",

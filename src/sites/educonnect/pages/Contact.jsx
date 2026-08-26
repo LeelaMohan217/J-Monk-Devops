@@ -101,8 +101,6 @@ const EduConnectContact = () => {
 
   return (
     <main className="bg-surface">
-      {/* Same header treatment as the about/services/blog pages — no grid
-          backdrop, eyebrow at neutral-500, lead at body size. */}
       <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="flex flex-col items-start gap-5 text-left">
@@ -153,8 +151,6 @@ const EduConnectContact = () => {
               What we help with
             </h2>
 
-            {/* Same hairline rows and numeral treatment as the services page's
-                ProcessSection, which carries this identical three-stage copy. */}
             <ol className="mt-8 border-t border-neutral-200">
               {stages.map((stage) => (
                 <li

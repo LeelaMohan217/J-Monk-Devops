@@ -75,10 +75,6 @@ export function HeroBackdrop() {
     const lineColor = theme === "light" ? "185, 28, 28" : "239, 68, 68";
     const opacityScale = theme === "light" ? 0.6 : 1;
 
-    // No ctx.shadowBlur here on purpose — it's a real blur convolution
-    // recomputed on every stroke, every frame, and was a real source of
-    // main-thread jank. The transparent-to-opaque-to-transparent gradient
-    // below already gives each line a soft look without that cost.
     function draw(t) {
       ctx.clearRect(0, 0, width, height);
       threads.forEach((th) => {
@@ -120,8 +116,6 @@ export function HeroBackdrop() {
     resize();
     draw(0);
 
-    // Stop the rAF loop once the hero scrolls out of view instead of
-    // burning main-thread time for a canvas nobody can see.
     let observer;
     if (!reducedMotion) {
       observer = new IntersectionObserver(

@@ -9,7 +9,6 @@ const StorySection = () => {
     <section className="bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          {/* Image */}
           <motion.div
             variants={riseIn()}
             {...centerTrigger}
@@ -28,7 +27,6 @@ const StorySection = () => {
             </div>
           </motion.div>
 
-          {/* Content */}
           <motion.div
             variants={riseIn(STEP)}
             {...centerTrigger}

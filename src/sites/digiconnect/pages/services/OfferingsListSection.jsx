@@ -17,9 +17,6 @@ const OfferingsListSection = () => {
             <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-4">
                 <div className="flex items-center gap-4">
-                  {/* Hidden from the accessibility tree, same reasoning as
-                      home's OfferingsSection: avoids "zero one" announcements
-                      before six consecutive headings. */}
                   <span
                     className="text-xs font-medium tabular-nums text-neutral-400 md:text-sm"
                     aria-hidden="true"

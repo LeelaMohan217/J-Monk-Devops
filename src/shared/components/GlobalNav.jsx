@@ -11,8 +11,6 @@ const brandGroups = [
   { name: "EduConnect", homeHref: eduConnectConfig.homeHref, available: true },
 ];
 
-// Desktop-only bar. Mobile menu duty for the whole app (regardless of route)
-// belongs to the single shared MobileNavMenu, rendered once in App.jsx.
 const GlobalNav = () => {
   const scrollY = useScrollPosition();
   const scrolled = scrollY > 1;

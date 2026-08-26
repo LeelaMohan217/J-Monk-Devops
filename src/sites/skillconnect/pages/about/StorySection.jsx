@@ -4,9 +4,6 @@ import { centerTrigger } from "../../../../shared/motionConfig";
 import { story } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
-// Text only, unlike DigiConnect's equivalent StorySection: SkillConnect has no
-// assets folder, and a stock photo of people at laptops would be filler rather
-// than evidence. An editorial two-column split carries the section instead.
 const StorySection = () => {
   return (
     <section className="bg-surface-muted py-16 md:py-24">

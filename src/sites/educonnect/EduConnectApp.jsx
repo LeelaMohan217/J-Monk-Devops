@@ -13,10 +13,6 @@ function EduConnectApp() {
   const location = useLocation();
 
   return (
-    // Geist scoped to EduConnect's own route tree via font-family
-    // inheritance, rather than touching the shared --font-sans token (which
-    // would silently reskin DigiConnect/SkillConnect too). Same pattern
-    // already used for IBM Plex Mono, just cascading instead of per-element.
     <div className="font-['Geist',ui-sans-serif,system-ui,sans-serif]">
       <Routes>
         <Route path="/" element={<Home />} />

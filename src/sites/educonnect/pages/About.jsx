@@ -3,10 +3,6 @@ import StorySection from "./about/StorySection";
 import ValuesSection from "./about/ValuesSection";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
-// Narrative order: introduce EduConnect, tell the origin story, then the
-// concrete promises that explain how the guidance actually works. No
-// closing CTA — EduConnectApp already renders ContactCmp below every
-// non-contact route.
 const About = () => {
   useDocumentMeta(
     "About | EduConnect",

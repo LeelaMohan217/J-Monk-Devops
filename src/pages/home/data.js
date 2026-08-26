@@ -89,8 +89,6 @@ export const platforms = [
   },
 ];
 
-// The umbrella argument: what actually connects the three verticals.
-// Written to stand on its own — the section's visual treatment is additive.
 export const ecosystem = {
   heading: "Why one company runs all three.",
   lead: "Most people arrive needing one of these. The reason they sit under one roof is that the three keep running into each other — the same work, seen from a different point in someone's life.",
@@ -154,9 +152,6 @@ export const faqs = [
   },
 ];
 
-// Real figures, provided directly by the user — a curated subset, not the
-// full list they gave us, to keep the section to a handful of numbers worth
-// reading rather than every metric available.
 export const stats = [
   { value: "100+", label: "Clients served", platform: "DigiConnect" },
   {
@@ -168,10 +163,6 @@ export const stats = [
   { value: "3+", label: "Years operating", platform: "Company-wide" },
 ];
 
-// Placeholder content only — no real client/student feedback exists yet.
-// TestimonialsSection is built and ready but deliberately not rendered on
-// the live Landing page (see Landing.jsx) until each slot below is replaced
-// with a real quote and real attribution. Do not ship the bracketed text.
 export const testimonials = [
   {
     platform: "DigiConnect",

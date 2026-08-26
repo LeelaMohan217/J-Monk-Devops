@@ -26,7 +26,6 @@ const ContactSection = () => {
   return (
     <section className="border-t bg-surface py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        {/* Heading */}
         <motion.div
           variants={riseIn()}
           {...centerTrigger}
@@ -42,7 +41,6 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        {/* Full-width Form */}
         <motion.div
           variants={riseIn(STEP)}
           {...centerTrigger}

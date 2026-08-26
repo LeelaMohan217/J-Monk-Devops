@@ -4,10 +4,6 @@ import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { audience } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
-// Typographic pill row rather than six illustrated cards. This is an index of
-// who qualifies, and per-item imagery would be decoration standing in for
-// content. One wrapper reveal, for the same reason ../home/AudienceStrip uses
-// one: staggering a set of pills reads as noise rather than sequence.
 const AudienceSection = () => {
   return (
     <section className="bg-surface-sunken py-16 md:py-24">

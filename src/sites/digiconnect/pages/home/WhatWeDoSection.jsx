@@ -24,7 +24,6 @@ const WhatWeDoSection = () => {
       className="scroll-mt-24 bg-surface-muted py-16 md:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        {/* Section Header */}
         <motion.div
           variants={riseIn()}
           {...centerTrigger}
@@ -42,13 +41,11 @@ const WhatWeDoSection = () => {
           </div>
         </motion.div>
 
-        {/* Image + Cards */}
         <motion.div
           variants={groupContainer}
           {...centerTrigger}
           className="mt-12 grid gap-4 md:mt-16 md:gap-6 lg:grid-cols-3 lg:grid-rows-[minmax(220px,1fr)_minmax(220px,1fr)]"
         >
-          {/* Image */}
           <motion.div
             variants={riseIn(0)}
             {...(isDesktop ? {} : centerTrigger)}
@@ -63,7 +60,6 @@ const WhatWeDoSection = () => {
             />
           </motion.div>
 
-          {/* Cards */}
           {whatWeDo.cards.map((card, index) => (
             <motion.div
               key={card.id}

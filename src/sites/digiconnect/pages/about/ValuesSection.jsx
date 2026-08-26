@@ -14,7 +14,6 @@ const ValuesSection = () => {
   return (
     <section className="bg-olive-100 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        {/* Eyebrow + Heading */}
         <motion.div
           variants={riseIn()}
           {...centerTrigger}
@@ -30,9 +29,7 @@ const ValuesSection = () => {
           </h2>
         </motion.div>
 
-        {/* Intro + Value Cards */}
         <div className="mt-12 grid gap-8 md:mt-16 lg:grid-cols-12 lg:items-stretch lg:gap-4">
-          {/* Intro Text */}
           <motion.div
             variants={riseIn(STEP)}
             {...centerTrigger}
@@ -43,7 +40,6 @@ const ValuesSection = () => {
             </p>
           </motion.div>
 
-          {/* Three Value Cards */}
           <div className="grid gap-6 sm:grid-cols-3 lg:col-span-9">
             {values.items.slice(0, 3).map((item, index) => {
               const Icon = valueIcons[index] || Target;
@@ -55,7 +51,6 @@ const ValuesSection = () => {
                   {...centerTrigger}
                   className="flex min-h-[340px] flex-col justify-between border border-neutral-200 bg-surface p-6 md:p-8"
                 >
-                  {/* Card Heading */}
                   <div>
                     <div className="flex h-10 w-10 items-center justify-center text-red-600">
                       <Icon size={22} strokeWidth={1.7} aria-hidden="true" />
@@ -66,7 +61,6 @@ const ValuesSection = () => {
                     </h3>
                   </div>
 
-                  {/* Card Description */}
                   <p className="mt-10 text-sm leading-relaxed text-neutral-600 ">
                     {item.detail}
                   </p>

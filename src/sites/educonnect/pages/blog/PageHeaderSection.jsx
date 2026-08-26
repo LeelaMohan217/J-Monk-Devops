@@ -9,8 +9,6 @@ const pageHeader = {
   lead: "Practical guidance on exams, applications, visas, and life abroad, drawn from the questions students ask us most.",
 };
 
-// Matches about/ and services/ PageHeaderSection: plain typographic header on
-// the site rail, no grid backdrop.
 const PageHeaderSection = () => {
   return (
     <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">

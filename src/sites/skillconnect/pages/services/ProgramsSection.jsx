@@ -5,8 +5,6 @@ import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { programs } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
-// Same icons DigiConnect's old constants/index.jsx studentData array used
-// for these three tracks, kept for continuity even though the copy is new.
 const icons = {
   internship: Laptop,
   freelancing: BadgeIndianRupee,

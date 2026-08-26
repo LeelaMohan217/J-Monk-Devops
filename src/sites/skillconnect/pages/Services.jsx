@@ -3,10 +3,6 @@ import ProgramsSection from "./services/ProgramsSection";
 import HowItWorksSection from "./services/HowItWorksSection";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
-// Narrative order: introduce the three tracks, break each one down, then
-// explain that they are run by the same team as client work (not a separate
-// program). No closing CTA — SkillConnectApp already renders ContactCmp below
-// every non-contact route.
 const Services = () => {
   useDocumentMeta(
     "Services | SkillConnect",

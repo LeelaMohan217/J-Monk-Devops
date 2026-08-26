@@ -1,4 +1,3 @@
-// animations.js
 export const fadeIn = (direction, delay) => {
   return {
     hidden: {
@@ -14,7 +13,7 @@ export const fadeIn = (direction, delay) => {
         type: "tween",
         duration: 0.7,
         delay: delay,
-        ease: [0.16, 1, 0.3, 1], // sharp deceleration, confident rather than floaty
+        ease: [0.16, 1, 0.3, 1], 
       },
     },
   };
@@ -32,8 +31,6 @@ export const stagger = {
 
 export default fadeIn;
 
-// Restrained in-view reveal for editorial rows — fadeIn's 100px travel is
-// right for hero entrances but too heavy repeated down the page.
 export const riseIn = (delay = 0) => ({
   hidden: { y: 16, opacity: 0 },
   show: {

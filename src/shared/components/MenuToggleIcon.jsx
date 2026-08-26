@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 
-// Animated hamburger/close mark. Shared by GlobalNav and the per-brand Navbar so
-// both bars open their drawers with the same gesture.
 const MenuToggleIcon = ({ open }) => (
   <div className="relative w-5 h-5">
     <motion.span

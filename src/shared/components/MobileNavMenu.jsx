@@ -29,30 +29,16 @@ const brandGroups = [
   },
 ];
 
-// Which platform (if any) the given path belongs to, so the menu can open
-// straight into that platform's own page list instead of always starting
-// at the top-level "pick a platform" screen. Landing-page routes match no
-// brand's homeHref prefix, so they fall through to the top-level list.
 const getCurrentBrandName = (pathname) =>
   brandGroups.find(
     (brand) => brand.available && pathname.startsWith(brand.homeHref),
   )?.name ?? null;
 
-// The single mobile menu for the whole app — rendered once in App.jsx,
-// outside the routed page content, so it's the same drill-down panel
-// (all three platforms + that platform's own pages) whether you're on the
-// landing page or already inside a specific platform's site. GlobalNav and
-// the per-brand Navbar each still render their own desktop-only bar, but
-// neither owns a mobile hamburger/drawer of its own anymore — this is it.
 const MobileNavMenu = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openBrand, setOpenBrand] = useState(null);
   const location = useLocation();
 
-  // Only closes the panel on navigation — which screen it opens to next is
-  // decided fresh in openMenu below, not here, so a manual "back to all
-  // platforms" tap (via the arrow) doesn't linger after the menu is closed
-  // and reopened from the same page.
   useEffect(() => {
     setMobileOpen(false);
   }, [location]);
@@ -66,13 +52,8 @@ const MobileNavMenu = () => {
 
   return (
     <>
-      {/* Fixed at a height matching both GlobalNav's and Navbar's ~64px bar,
-          so the toggle lines up with whichever one is underneath it. */}
       {!mobileOpen && (
         <div className="pointer-events-none fixed inset-x-0 top-0 z-70 flex h-16 items-center justify-end px-6 lg:hidden">
-          {/* -m-3 p-3 grows the hit area to 44x44 without moving the 20px icon:
-              this is the only navigation below lg, and a bare icon button was a
-              20x20 target — under the 24x24 minimum, let alone comfortable. */}
           <button
             type="button"
             aria-label="Open menu"
@@ -100,9 +81,6 @@ const MobileNavMenu = () => {
               className="fixed inset-0 z-70 lg:hidden bg-black/40"
             />
 
-            {/* Reveals from the hamburger's corner (top-right) rather than a
-                flat fade, so the panel visibly originates from the button
-                that opened it instead of just appearing. */}
             <motion.div
               key="panel"
               id="mobile-nav-panel"
@@ -112,8 +90,6 @@ const MobileNavMenu = () => {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="fixed top-0 left-0 z-70 flex h-dvh w-full flex-col bg-white lg:hidden"
             >
-              {/* Top: logo + close, centered on the same row; a divider; then
-                  the description below it. */}
               <div className="flex shrink-0 flex-col">
                 <div className="flex items-center justify-between px-6 py-2">
                   <Link
@@ -151,9 +127,6 @@ const MobileNavMenu = () => {
                 )}
               </div>
 
-              {/* Middle: the platform list, or a platform's own pages once
-                  tapped — a drill-down transition between the two "screens",
-                  not an inline accordion. */}
               <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-2">
                 <AnimatePresence mode="wait" initial={false}>
                   {openBrand ? (
@@ -228,12 +201,6 @@ const MobileNavMenu = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Bottom: the CTA — pinned to the panel's bottom edge
-                  regardless of which "screen" is showing. Social links used
-                  to sit here too, but a nav drawer exists to move users
-                  through the site, not out of it, and they only duplicated
-                  GlobalFooter — dropped in favor of giving this CTA the
-                  drawer's last, most-seen spot to itself. */}
               <div className="shrink-0 p-6">
                 <Link
                   to="/#who-we-are"

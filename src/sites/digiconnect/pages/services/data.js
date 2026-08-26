@@ -1,15 +1,3 @@
-// Copy for the DigiConnect services page, the destination of Home's "See the
-// full services page" link. Deliberately built as the full version of
-// home/data.js's `offerings.services` (same six names, in the same order)
-// rather than the old, unrelated three-item list this page used to show, so
-// the CTA's promise actually holds.
-//
-// The `summary` lines used to be keyword strings ("scalable enterprise
-// platforms tailored to your operational needs"). They now say what the work is
-// in plain terms, and no sentence uses a dash as punctuation.
-//
-// The `offerings` export keeps its name: it is the content concept, independent
-// of what the nav calls the page.
 export const pageHeader = {
   eyebrow: "Services",
   headingLead: "Everything DigiConnect builds and runs, ",

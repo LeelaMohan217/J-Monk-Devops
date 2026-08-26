@@ -1,5 +1,3 @@
-// Shared by the blog index cards (limited count) and the article page (full
-// list), so both stay in step on pill styling.
 const TagList = ({ tags, limit }) => {
   const shown = limit ? tags.slice(0, limit) : tags;
   const hidden = limit ? tags.length - shown.length : 0;

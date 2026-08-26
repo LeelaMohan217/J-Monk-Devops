@@ -5,10 +5,6 @@ import { digiConnectConfig } from "../../sites/digiconnect/config";
 import { skillConnectConfig } from "../../sites/skillconnect/config";
 import { eduConnectConfig } from "../../sites/educonnect/config";
 
-// Rendered once at the App level, after every route's content, the same way
-// GlobalNav is rendered once above every route. One footer, company-wide,
-// for the landing page and all three brand sites — no per-site copy to keep
-// in sync.
 const socialIcons = {
   Facebook,
   Instagram,
@@ -16,9 +12,6 @@ const socialIcons = {
   LinkedIn: Linkedin,
 };
 
-// Each platform's own navItems, straight from its config, so the footer's
-// per-platform link list never drifts out of sync with that platform's own
-// navbar.
 const platformNavGroups = [
   { name: digiConnectConfig.siteName, items: digiConnectConfig.navItems },
   { name: skillConnectConfig.siteName, items: skillConnectConfig.navItems },
@@ -60,17 +53,12 @@ const GlobalFooter = () => {
           </ul>
         </div>
 
-        {/* Tighter x-gap below sm widens each of the two columns: a heading
-            like "SkillConnect" needs ~114px with its tracking. */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-10 sm:gap-10 lg:gap-12">
           {platformNavGroups.map((group) => (
             <div key={group.name} className="flex flex-col gap-4">
               <h3 className="text-xs font-medium uppercase tracking-[0.12em] text-white sm:tracking-[0.15em]">
                 {group.name}
               </h3>
-              {/* py-1 with a tighter gap keeps the visual rhythm while lifting
-                  each link's hit area to 28px — a bare 20px line of text is
-                  under the 24x24 minimum for standalone links. */}
               <ul className="flex flex-col gap-2">
                 {group.items.map((item) => (
                   <li key={item.href}>
@@ -97,12 +85,6 @@ const GlobalFooter = () => {
               <li>
                 <a
                   href={`tel:${companyConfig.phone.replace(/\s/g, "")}`}
-                  // max-w-full is what makes the sibling break-words actually
-                  // work: an inline-block shrink-wraps to its content, so the
-                  // email grew to its full 172px and spilled out of the grid
-                  // cell (off-screen entirely at 320px) instead of wrapping.
-                  // Capping it at the cell width gives break-words something to
-                  // break the unbreakable address against.
                   className="inline-block max-w-full py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
                 >
                   {companyConfig.phone}
@@ -111,12 +93,6 @@ const GlobalFooter = () => {
               <li>
                 <a
                   href={`mailto:${companyConfig.email}`}
-                  // max-w-full is what makes the sibling break-words actually
-                  // work: an inline-block shrink-wraps to its content, so the
-                  // email grew to its full 172px and spilled out of the grid
-                  // cell (off-screen entirely at 320px) instead of wrapping.
-                  // Capping it at the cell width gives break-words something to
-                  // break the unbreakable address against.
                   className="inline-block max-w-full py-1 text-neutral-400 text-sm font-medium break-words hover:text-white transition-colors duration-300"
                 >
                   {companyConfig.email}

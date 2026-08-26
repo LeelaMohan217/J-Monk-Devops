@@ -1,6 +1,3 @@
-// Copy for the EduConnect services page, kept separate from ../home/data.js
-// so this page can evolve independently — same pattern as DigiConnect's
-// per-page data.js files.
 export const pageHeader = {
   eyebrow: "Services",
   headingLead: "End-to-end support for your ",
@@ -8,11 +5,6 @@ export const pageHeader = {
   lead: "From your first shortlist to your first week abroad, here's where EduConnect helps.",
 };
 
-// Mirrors the `services` list in ../home/data.js, which shows the first four of
-// these as photo cards. This page carries all six.
-//
-// `id` is what ServicesListSection looks each card's icon up by, so this file
-// stays pure data rather than instantiating lucide components at module scope.
 export const services = [
   {
     id: "counselling",

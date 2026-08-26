@@ -3,9 +3,6 @@ import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 
-// Matches about/PageHeaderSection: plain typographic header on the site rail,
-// no grid backdrop. (The blog header is the last one still carrying it — worth
-// folding all three into one shared component when that page gets updated.)
 const PageHeaderSection = () => {
   return (
     <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">

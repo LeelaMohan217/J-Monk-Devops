@@ -1,10 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 
-// Renders a post's rich body: paragraphs, subheadings, bullet/numbered lists,
-// spec-lists for program/university entries, salary tables, and external
-// resource links. Every block sits in the same flex-col gap-6 flow as
-// BlogPost.jsx's wrapper, so spacing stays consistent regardless of which
-// block types a given post uses.
 const BlogBody = ({ body }) => {
   return (
     <>
@@ -52,9 +47,6 @@ const BlogBody = ({ body }) => {
               </ul>
             );
 
-          // Program/university entries: numeral, bold name, muted location,
-          // optional note. Kept as separate fields rather than one joined
-          // string so nothing needs a dash character to read cleanly.
           case "spec-list":
             return (
               <ol key={index} className="border-t border-neutral-200">

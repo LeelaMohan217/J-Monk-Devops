@@ -2,24 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import useScrollPosition from "../hooks/useScrollPosition";
 import Logo from "../assets/Logo.webp";
 
-// Per-brand sub-bar. Styled to match GlobalNav — transparent until scrolled, then
-// white with a hairline border and a soft shadow — but on the brand shell's own
-// rail (max-w-6xl by default) so it lines up with ContactCmp and Footer. Pass
-// maxWidthClass to widen it for a brand whose own pages run wider.
-//
-// Desktop-only, same as GlobalNav — mobile menu duty for the whole app
-// (regardless of route) belongs to the single shared MobileNavMenu, rendered
-// once in App.jsx.
-//
-// Rendered at the top level in App.jsx (outside the routed page content) so
-// it persists across route changes instead of remounting per page.
-//
-// logo defaults to the shared JMonkDevops mark (same one GlobalNav uses) so
-// every platform shows it without needing its own config entry.
-//
-// variant is opt-in and defaults to this component's original look, so
-// DigiConnect/SkillConnect render byte-identical unless a brand's config
-// explicitly sets navVariant: "premium" (currently only EduConnect does).
 const Navbar = ({
   siteName,
   logo = Logo,
@@ -27,9 +9,6 @@ const Navbar = ({
   navItems,
   ctaLabel,
   ctaHref,
-  // Optional node rendered after the CTA label (DigiConnect's ArrowRight).
-  // Unset for SkillConnect/EduConnect, so their buttons are unchanged.
-  // lg:inline-flex replaces lg:inline-block so label and icon share a baseline.
   ctaAdornment = null,
   maxWidthClass = "max-w-6xl",
   variant = "default",
@@ -80,7 +59,6 @@ const Navbar = ({
                   >
                     {item.label}
                   </Link>
-                  {/* Red stays an accent mark, not a text colour. */}
                   <span
                     aria-hidden="true"
                     className={`absolute left-0 -bottom-0.5 h-px w-full origin-left bg-red-600 transition-transform duration-300 ${
@@ -94,10 +72,6 @@ const Navbar = ({
 
           <Link
             to={ctaHref}
-            // The radius used to be the thing this ternary switched: pill for
-            // the premium variant, rounded-lg otherwise. Every button on the
-            // site is a pill now, so radius moved out to the base string and
-            // the press-scale is all the variant still changes.
             className={`group hidden items-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-[background-color,transform] duration-200 hover:bg-red-700 lg:inline-flex ${
               variant === "premium" ? "active:scale-[0.97]" : ""
             }`}

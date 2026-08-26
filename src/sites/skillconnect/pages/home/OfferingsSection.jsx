@@ -12,9 +12,6 @@ import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
-// Looked up by id, the same way the services page's ProgramsSection does it, so
-// ./data.js can stay pure data rather than instantiating lucide components at
-// module scope.
 const icons = {
   projects: Rocket,
   stack: TrendingUp,
@@ -57,8 +54,6 @@ const OfferingsSection = () => {
             return (
               <motion.div
                 key={item.id}
-                // Delay is clamped the way the sibling grids clamp theirs, so
-                // the sixth card does not sit visibly idle after entering view.
                 variants={riseIn(Math.min(index, 3) * STEP)}
                 {...centerTrigger}
                 className="rounded-2xl border border-neutral-200 bg-surface p-6"

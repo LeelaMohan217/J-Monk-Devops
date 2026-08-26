@@ -5,10 +5,6 @@ import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { whyUs } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
-// The two-column shape of DigiConnect's HowWeWorkSection, with the points list
-// where that one puts its photo, since this site has no imagery. Hairline rows
-// rather than a second card grid: the offerings above already used cards, and
-// repeating them here would flatten the page into one texture.
 const WhyUsSection = () => {
   return (
     <section className="bg-surface py-20 md:py-28">

@@ -1,11 +1,3 @@
-// Copy for the DigiConnect about page, kept separate from ../home/data.js so
-// the two pages can evolve independently even though they share a narrative
-// universe. Deliberately does not restate the home page's hero pitch or its
-// "how we work" delivery principles. This page covers identity and origin, home
-// covers what gets delivered and how.
-//
-// Headings split into headingLead / headingAccent for the red Playfair accent,
-// and no sentence uses a dash as punctuation.
 import storyImage from "../../assets/why.webp";
 
 export const pageHeader = {
@@ -45,11 +37,5 @@ export const values = {
       detail:
         "We focus on improving how businesses run—identifying inefficiencies, strengthening operations, and supporting growth.",
     },
-    // A third item used to sit here, "Client work and student programs, one
-    // team", explaining that the internships and training run under SkillConnect
-    // with the same engineers. It was the last place this site described the
-    // student side, which belongs to SkillConnect now, so it is gone and the
-    // grid below drops to two columns to suit. Nothing was invented to replace
-    // it: two true things beat three with one padded out.
   ],
 };

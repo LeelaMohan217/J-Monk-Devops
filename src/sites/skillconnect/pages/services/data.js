@@ -1,10 +1,3 @@
-// Copy for the SkillConnect services page. Moved here from DigiConnect, whose
-// engineers still run the tracks, so the "one team" framing in howItWorks is
-// deliberate rather than a leftover of the move. The three tracks below are
-// SkillConnect's service offering, which is why this is the services page and
-// not a separate "student" one.
-//
-// No sentence uses a dash as punctuation.
 export const pageHeader = {
   eyebrow: "Services",
   headingLead: "Get on real project work, ",

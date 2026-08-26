@@ -1,22 +1,11 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-// UI-only contact form. There is deliberately no submission provider wired up
-// yet — `onSubmit` is the seam a real one plugs into later without the markup
-// or validation changing.
-//
-// Labels are sentence-case small type rather than uppercase-tracked: that
-// treatment belongs to section eyebrows, and applying it to eight form labels
-// made the form shout. Required markers are neutral — amber appeared nowhere
-// else in the palette — and red is kept for actual errors.
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const baseField =
   "w-full rounded-lg border bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 transition-colors duration-200 focus:outline-none";
 
-// submitAdornment is an optional node rendered after the submit label, used by
-// SkillConnect for its ArrowRight. Left undefined by EduConnect, so its button
-// renders exactly as before.
 const ContactForm = ({
   idPrefix,
   fields,
@@ -120,8 +109,6 @@ const ContactForm = ({
                   className={`${control} resize-y`}
                 />
               ) : field.type === "select" ? (
-                // Native arrow swapped for the icon set the rest of the site
-                // uses, so selects match the inputs beside them.
                 <div className="relative">
                   <select
                     id={id}
