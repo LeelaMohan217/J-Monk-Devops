@@ -35,7 +35,7 @@ const ValuesSection = () => {
             {...centerTrigger}
             className="flex items-end lg:col-span-3"
           >
-            <p className="max-w-sm text-xs leading-relaxed text-neutral-600">
+            <p className="max-w-sm text-sm leading-relaxed text-neutral-600">
               {introText}
             </p>
           </motion.div>
