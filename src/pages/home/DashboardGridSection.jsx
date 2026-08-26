@@ -23,10 +23,7 @@ const DashboardGridSection = () => {
       {platforms.map((platform, index) => (
         <motion.div
           key={platform.id}
-          variants={fadeIn(
-            "up",
-            isDesktop ? HERO_TAIL_DELAY + index * STEP : 0,
-          )}
+          variants={fadeIn("up", HERO_TAIL_DELAY + index * STEP)}
           initial="hidden"
           {...(isDesktop
             ? { animate: "show" }
