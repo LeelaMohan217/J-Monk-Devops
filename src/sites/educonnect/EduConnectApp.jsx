@@ -1,5 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import ContactCmp from "../../shared/components/ContactCmp";
+import { Routes, Route } from "react-router-dom";
 import StatusPage from "../../shared/components/StatusPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -10,8 +9,6 @@ import Contact from "./pages/Contact";
 import { eduConnectConfig } from "./config";
 
 function EduConnectApp() {
-  const location = useLocation();
-
   return (
     <div className="font-['Geist',ui-sans-serif,system-ui,sans-serif]">
       <Routes>
@@ -34,9 +31,6 @@ function EduConnectApp() {
           }
         />
       </Routes>
-      {location.pathname !== "/educonnect/contact" && (
-        <ContactCmp {...eduConnectConfig.contactCta} />
-      )}
     </div>
   );
 }

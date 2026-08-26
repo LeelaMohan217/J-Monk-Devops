@@ -1,5 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import ContactCmp from "../../shared/components/ContactCmp";
+import { Routes, Route } from "react-router-dom";
 import StatusPage from "../../shared/components/StatusPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -8,8 +7,6 @@ import Contact from "./pages/Contact";
 import { skillConnectConfig } from "./config";
 
 function SkillConnectApp() {
-  const location = useLocation();
-
   return (
     <>
       <Routes>
@@ -30,9 +27,6 @@ function SkillConnectApp() {
           }
         />
       </Routes>
-      {location.pathname !== "/skillconnect/contact" && (
-        <ContactCmp {...skillConnectConfig.contactCta} />
-      )}
     </>
   );
 }
