@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, Users, Waypoints } from "lucide-react";
-import { riseIn } from "../../shared/variants";
+import { fadeIn } from "../../shared/variants";
+import GlazeSweep from "../../shared/components/GlazeSweep";
 import whoWeAreImage from "./assets/who-we-are.webp";
 import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
 
@@ -35,7 +36,7 @@ const IntroSection = () => {
         className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-center md:px-8"
       >
         <motion.div
-          variants={riseIn(0)}
+          variants={fadeIn("up", 0)}
           className="inline-flex items-center gap-2 text-neutral-600"
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em]">
@@ -44,7 +45,7 @@ const IntroSection = () => {
         </motion.div>
 
         <motion.h2
-          variants={riseIn(STEP)}
+          variants={fadeIn("up", STEP)}
           className="max-w-4xl text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-800"
         >
           <span className="font-['Playfair_Display',serif] text-red-600 italic">
@@ -58,7 +59,7 @@ const IntroSection = () => {
 
       <div className="mx-auto mt-10 grid max-w-7xl items-stretch gap-10 px-6 md:mt-14 md:px-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <motion.div
-          variants={riseIn()}
+          variants={fadeIn("up", 0)}
           {...centerTrigger}
           className="h-full rounded-2xl border border-neutral-200 bg-surface p-2 shadow-sm"
         >
@@ -69,14 +70,14 @@ const IntroSection = () => {
           />
         </motion.div>
 
-        <div className="flex h-full flex-col justify-between gap-8">
-          <motion.div
-            variants={groupContainer}
-            {...centerTrigger}
-            className="flex flex-col gap-4"
-          >
+        <motion.div
+          variants={groupContainer}
+          {...centerTrigger}
+          className="flex h-full flex-col justify-between gap-8"
+        >
+          <div className="flex flex-col gap-4">
             <motion.p
-              variants={riseIn(0)}
+              variants={fadeIn("up", 0 * STEP)}
               className="text-left text-sm leading-relaxed text-neutral-600 sm:text-base"
             >
               Our mission is to create impactful and accessible platforms that
@@ -86,7 +87,7 @@ const IntroSection = () => {
             </motion.p>
 
             <motion.p
-              variants={riseIn(STEP)}
+              variants={fadeIn("up", 1 * STEP)}
               className="text-left text-sm leading-relaxed text-neutral-600 sm:text-base"
             >
               We work across all three because they&apos;re really the same
@@ -95,19 +96,15 @@ const IntroSection = () => {
               Splitting them into three companies would have meant three
               different standards, and we&apos;d rather hold one.
             </motion.p>
-          </motion.div>
+          </div>
 
-          <motion.dl
-            variants={groupContainer}
-            {...centerTrigger}
-            className="flex flex-col border-t border-neutral-200"
-          >
+          <dl className="flex flex-col border-t border-neutral-200">
             {operatingPrinciples.map((item, index) => {
               const Icon = item.icon;
               return (
                 <motion.div
                   key={item.title}
-                  variants={riseIn(index * STEP)}
+                  variants={fadeIn("up", (2 + index) * STEP)}
                   className="flex items-start gap-4 border-b border-neutral-200 py-5 text-left"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-neutral-200 bg-white text-red-600">
@@ -124,17 +121,17 @@ const IntroSection = () => {
                 </motion.div>
               );
             })}
-          </motion.dl>
+          </dl>
 
           <motion.div
-            variants={riseIn(0)}
-            {...centerTrigger}
+            variants={fadeIn("up", 5 * STEP)}
             className="w-full sm:w-fit"
           >
             <Link
               to="/#stats"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 sm:w-fit"
+              className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-red-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 sm:w-fit"
             >
+              <GlazeSweep className="bg-white/30" />
               See our numbers
               <ArrowRight
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -142,7 +139,7 @@ const IntroSection = () => {
               />
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

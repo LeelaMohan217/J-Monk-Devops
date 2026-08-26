@@ -9,8 +9,8 @@ import {
   Plug2,
   Compass,
 } from "lucide-react";
-import { riseIn } from "../../../../shared/variants";
-import { centerTrigger } from "../../../../shared/motionConfig";
+import { fadeIn } from "../../../../shared/variants";
+import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
@@ -23,6 +23,8 @@ const icons = {
   "technical-consulting": Compass,
 };
 
+const CASCADE_STEP = 0.1;
+
 const OfferingsSection = () => {
   return (
     <section
@@ -31,47 +33,58 @@ const OfferingsSection = () => {
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
-          variants={riseIn()}
+          variants={groupContainer}
           {...centerTrigger}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+          <motion.span
+            variants={fadeIn("up", 0 * CASCADE_STEP)}
+            className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+          >
             {offerings.eyebrow}
-          </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
+          </motion.span>
+          <motion.h2
+            variants={fadeIn("up", 1 * CASCADE_STEP)}
+            className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
+          >
             {offerings.headingLead}
             <span className={ACCENT_CLASS}>{offerings.headingAccent}</span>
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-neutral-600">
+          </motion.h2>
+          <motion.p
+            variants={fadeIn("up", 2 * CASCADE_STEP)}
+            className="mt-4 text-base leading-relaxed text-neutral-600"
+          >
             {offerings.lead}
-          </p>
+          </motion.p>
+
+          <motion.div
+            variants={fadeIn("up", 3 * CASCADE_STEP)}
+            className="mt-8 flex justify-center md:mt-10"
+          >
+            <Link
+              to={offerings.cta.href}
+              className="group inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            >
+              {offerings.cta.label}
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </motion.div>
         </motion.div>
 
         <motion.div
-          variants={riseIn()}
+          variants={groupContainer}
           {...centerTrigger}
-          className="mt-8 flex justify-center md:mt-10"
+          className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-6 lg:grid-cols-3"
         >
-          <Link
-            to={offerings.cta.href}
-            className="group inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-          >
-            {offerings.cta.label}
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </Link>
-        </motion.div>
-
-        <div className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {offerings.services.map((service) => {
+          {offerings.services.map((service, index) => {
             const Icon = icons[service.id];
             return (
               <motion.article
                 key={service.id}
-                variants={riseIn()}
-                {...centerTrigger}
+                variants={fadeIn("up", index * CASCADE_STEP)}
                 className="flex flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-8 md:p-10"
               >
                 <div>
@@ -90,7 +103,7 @@ const OfferingsSection = () => {
               </motion.article>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

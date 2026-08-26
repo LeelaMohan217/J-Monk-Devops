@@ -1,5 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import ContactCmp from "../../shared/components/ContactCmp";
+import { Routes, Route } from "react-router-dom";
 import StatusPage from "../../shared/components/StatusPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -8,14 +7,7 @@ import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import { digiConnectConfig } from "./config";
 
-const ROUTES_WITHOUT_CONTACT_CTA = [
-  "/digiconnect/contact",
-  "/digiconnect/careers",
-];
-
 function DigiConnectApp() {
-  const location = useLocation();
-
   return (
     <>
       <Routes>
@@ -37,9 +29,6 @@ function DigiConnectApp() {
           }
         />
       </Routes>
-      {!ROUTES_WITHOUT_CONTACT_CTA.includes(location.pathname) && (
-        <ContactCmp {...digiConnectConfig.contactCta} />
-      )}
     </>
   );
 }

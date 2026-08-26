@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { platforms } from "./data";
-import { riseIn } from "../../shared/variants";
+import { fadeIn } from "../../shared/variants";
 import { HERO_TAIL_DELAY, STEP } from "../../shared/motionConfig";
 import useIsDesktop from "../../shared/hooks/useIsDesktop";
 import digiConnectCard from "./assets/digiconnect-card.webp";
@@ -23,7 +23,8 @@ const DashboardGridSection = () => {
       {platforms.map((platform, index) => (
         <motion.div
           key={platform.id}
-          variants={riseIn(
+          variants={fadeIn(
+            "up",
             isDesktop ? HERO_TAIL_DELAY + index * STEP : 0,
           )}
           initial="hidden"

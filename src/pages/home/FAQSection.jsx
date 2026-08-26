@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { riseIn } from "../../shared/variants";
+import { fadeIn } from "../../shared/variants";
 import { STEP, centerTrigger, groupContainer } from "../../shared/motionConfig";
 import { faqs } from "./data";
 
@@ -9,7 +9,7 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="bg-stone-50 py-16 md:py-24 scroll-mt-36">
+    <section id="faq" className="py-16 md:py-24 scroll-mt-36">
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid gap-12 lg:grid-cols-2 lg:items-start">
         <motion.div
           variants={groupContainer}
@@ -17,7 +17,7 @@ const FAQSection = () => {
           className="flex flex-col items-start gap-4 text-left"
         >
           <motion.div
-            variants={riseIn(0)}
+            variants={fadeIn("up", 0 * STEP)}
             className="inline-flex items-center gap-2 text-neutral-600"
           >
             <span className="text-xs font-medium uppercase tracking-[0.2em]">
@@ -26,7 +26,7 @@ const FAQSection = () => {
           </motion.div>
 
           <motion.h2
-            variants={riseIn(STEP)}
+            variants={fadeIn("up", 1 * STEP)}
             className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-800"
           >
             Got questions? We have{" "}
@@ -36,7 +36,7 @@ const FAQSection = () => {
           </motion.h2>
 
           <motion.p
-            variants={riseIn(STEP * 2)}
+            variants={fadeIn("up", 2 * STEP)}
             className="text-sm sm:text-base leading-relaxed text-neutral-600"
           >
             Answers to the questions we hear most about JMonkDevops and its
@@ -50,7 +50,7 @@ const FAQSection = () => {
             return (
               <motion.div
                 key={faq.question}
-                variants={riseIn(0)}
+                variants={fadeIn("up", 0)}
                 {...centerTrigger}
               >
                 <button

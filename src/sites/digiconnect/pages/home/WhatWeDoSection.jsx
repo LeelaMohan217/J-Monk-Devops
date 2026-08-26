@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, Award, TrendingUp } from "lucide-react";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import {
-  STEP,
   centerTrigger,
   groupContainer,
 } from "../../../../shared/motionConfig";
@@ -22,6 +21,8 @@ const ICONS = {
   results: TrendingUp,
 };
 
+const CASCADE_STEP = 0.1;
+
 const WhatWeDoSection = () => {
   const isDesktop = useIsDesktop();
 
@@ -32,19 +33,25 @@ const WhatWeDoSection = () => {
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
-          variants={riseIn()}
+          variants={groupContainer}
           {...centerTrigger}
           className="grid gap-6 lg:grid-cols-12 lg:items-end"
         >
           <div className="lg:col-span-8">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+            <motion.span
+              variants={fadeIn("up", 0 * CASCADE_STEP)}
+              className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+            >
               {whatWeDo.eyebrow}
-            </span>
+            </motion.span>
 
-            <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
+            <motion.h2
+              variants={fadeIn("up", 1 * CASCADE_STEP)}
+              className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
+            >
               {whatWeDo.headingLines}
               <span className={ACCENT_CLASS}>{whatWeDo.headingAccent}</span>
-            </h2>
+            </motion.h2>
           </div>
         </motion.div>
 
@@ -54,7 +61,7 @@ const WhatWeDoSection = () => {
           className="mt-12 grid gap-4 md:mt-16 md:gap-5 lg:grid-cols-[1.3fr_1fr_1fr] lg:grid-rows-[minmax(220px,1fr)_minmax(220px,1fr)]"
         >
           <motion.div
-            variants={riseIn(0)}
+            variants={fadeIn("up", 0 * CASCADE_STEP)}
             {...(isDesktop ? {} : centerTrigger)}
             className="group overflow-hidden rounded-sm lg:col-start-1 lg:row-span-2 lg:row-start-1"
           >
@@ -72,7 +79,7 @@ const WhatWeDoSection = () => {
             return (
               <motion.div
                 key={card.id}
-                variants={riseIn(isDesktop ? (index + 1) * STEP : 0)}
+                variants={fadeIn("up", (index + 1) * CASCADE_STEP)}
                 {...(isDesktop ? {} : centerTrigger)}
                 className={`flex flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-6 md:p-8 ${PLACEMENT[index]}`}
               >

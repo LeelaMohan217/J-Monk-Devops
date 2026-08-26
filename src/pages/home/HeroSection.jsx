@@ -6,6 +6,7 @@ import { HeroBackdrop } from "@/components/ui/hero-backdrop";
 import { fadeIn } from "../../shared/variants";
 import { HERO_HEADING_SIZE } from "../../shared/headingSizes";
 import WordReveal from "../../shared/components/WordReveal";
+import GlazeSweep from "../../shared/components/GlazeSweep";
 import DashboardGridSection from "./DashboardGridSection";
 import useIsDesktop from "../../shared/hooks/useIsDesktop";
 import { HERO_CTA_DELAY, HERO_LEAD_DELAY } from "../../shared/motionConfig";
@@ -77,8 +78,9 @@ const HeroSection = () => {
             >
               <Link
                 to="/#who-we-are"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 sm:w-fit"
+                className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-red-600 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 sm:w-fit"
               >
+                <GlazeSweep className="bg-white/30" />
                 Know More
                 <ArrowRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"

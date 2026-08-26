@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
-import { riseIn } from "../../../../shared/variants";
-import { centerTrigger } from "../../../../shared/motionConfig";
+import { fadeIn } from "../../../../shared/variants";
+import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
 import { howWeWork } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
-import processPhoto from "../../assets/digiconnect-process.jpg";
+import processPhoto from "../../assets/digiconnect-process.webp";
+
+const CASCADE_STEP = 0.1;
+const ACCORDION_STEP = 0.05;
 
 const HowWeWorkSection = () => {
   const imageRef = useRef(null);
@@ -29,41 +32,53 @@ const HowWeWorkSection = () => {
       className="bg-olive-100 py-20 md:py-28 scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr_1.1fr] lg:gap-12">
-          <motion.div
-            variants={riseIn()}
-            {...centerTrigger}
+        <motion.div
+          variants={groupContainer}
+          {...centerTrigger}
+          className="grid gap-10 lg:grid-cols-[1fr_1fr_1.1fr] lg:gap-12"
+        >
+          <div
             style={imageHeight ? { height: imageHeight } : undefined}
             className="lg:sticky lg:top-32 lg:flex lg:flex-col"
           >
             <div>
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+              <motion.span
+                variants={fadeIn("up", 0 * CASCADE_STEP)}
+                className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+              >
                 {howWeWork.eyebrow}
-              </span>
-              <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
+              </motion.span>
+              <motion.h2
+                variants={fadeIn("up", 1 * CASCADE_STEP)}
+                className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
+              >
                 {howWeWork.headingLead}
                 <span className={ACCENT_CLASS}>{howWeWork.headingAccent}</span>
-              </h2>
-              <p className="mt-6 text-sm leading-relaxed text-neutral-600 md:text-base">
+              </motion.h2>
+              <motion.p
+                variants={fadeIn("up", 2 * CASCADE_STEP)}
+                className="mt-6 text-sm leading-relaxed text-neutral-600 md:text-base"
+              >
                 {howWeWork.lead}
-              </p>
+              </motion.p>
             </div>
 
-            <Link
-              to={howWeWork.cta.href}
-              className="group mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 lg:mt-auto"
-            >
-              {howWeWork.cta.label}
-              <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </Link>
-          </motion.div>
+            <motion.div variants={fadeIn("up", 3 * CASCADE_STEP)} className="lg:mt-auto">
+              <Link
+                to={howWeWork.cta.href}
+                className="group mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 lg:mt-0"
+              >
+                {howWeWork.cta.label}
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </motion.div>
+          </div>
 
           <motion.div
-            variants={riseIn(0.1)}
-            {...centerTrigger}
+            variants={fadeIn("up", 4 * CASCADE_STEP)}
             className="lg:sticky lg:top-32 lg:h-fit"
           >
             <div ref={imageRef} className="overflow-hidden rounded-sm">
@@ -79,15 +94,14 @@ const HowWeWorkSection = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            variants={riseIn(0.2)}
-            {...centerTrigger}
-            className="flex flex-col divide-y divide-neutral-200 border-t border-neutral-200 lg:sticky lg:top-32 lg:h-fit"
-          >
+          <div className="flex flex-col divide-y divide-neutral-200 border-t border-neutral-200 lg:sticky lg:top-32 lg:h-fit">
             {howWeWork.steps.map((step, index) => {
               const isOpen = openIndex === index;
               return (
-                <div key={step.title}>
+                <motion.div
+                  key={step.title}
+                  variants={fadeIn("up", 5 * CASCADE_STEP + index * ACCORDION_STEP)}
+                >
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
@@ -143,11 +157,11 @@ const HowWeWorkSection = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               );
             })}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
