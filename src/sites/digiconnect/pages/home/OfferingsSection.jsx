@@ -14,6 +14,7 @@ import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 import GlazeSweep from "../../../../shared/components/GlazeSweep";
+import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 
 const icons = {
   "custom-software": Code2,
@@ -27,6 +28,8 @@ const icons = {
 const CASCADE_STEP = 0.1;
 
 const OfferingsSection = () => {
+  const isDesktop = useIsDesktop();
+
   return (
     <section
       id="offerings"
@@ -70,6 +73,7 @@ const OfferingsSection = () => {
               <motion.article
                 key={service.id}
                 variants={fadeIn("up", index * CASCADE_STEP)}
+                {...(isDesktop ? {} : centerTrigger)}
                 className="group flex flex-col rounded-sm border border-neutral-200 bg-surface p-8 md:p-10"
               >
                 <div>
