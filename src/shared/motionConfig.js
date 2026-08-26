@@ -6,7 +6,16 @@ export const groupContainer = {
 
 export const STEP = 0.2;
 
-export const CENTER_MARGIN = "0px 0px -15% 0px";
+const isDesktopViewport =
+  typeof window !== "undefined" &&
+  window.matchMedia("(min-width: 1024px)").matches;
+
+// Desktop grids lay out compactly, so a near-center trigger reads fine.
+// Mobile stacks the same content into much taller single columns, so a
+// near-center trigger leaves a large blank gap before it reveals.
+export const CENTER_MARGIN = isDesktopViewport
+  ? "0px 0px -45% 0px"
+  : "0px 0px -15% 0px";
 
 export const centerTrigger = {
   initial: "hidden",
