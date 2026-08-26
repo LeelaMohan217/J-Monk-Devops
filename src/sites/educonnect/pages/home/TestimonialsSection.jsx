@@ -43,7 +43,7 @@ const TestimonialsSection = () => {
 
           <motion.p
             variants={riseIn(STEP * 2)}
-            className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-neutral-600"
+            className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-neutral-600"
           >
             {testimonials.lead}
           </motion.p>

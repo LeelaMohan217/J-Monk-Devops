@@ -94,7 +94,7 @@ const ServicesSection = () => {
 
           <motion.p
             variants={riseIn(STEP * 2)}
-            className="mt-5 max-w-xl text-sm leading-relaxed text-neutral-600"
+            className="mt-5 max-w-xl text-base leading-relaxed text-neutral-600"
           >
             {services.lead}
           </motion.p>
