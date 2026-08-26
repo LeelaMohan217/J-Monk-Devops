@@ -177,9 +177,9 @@ const MobileNavMenu = () => {
                             className="border-b border-neutral-100 last:border-b-0"
                           >
                             {brand.available ? (
-                              <button
-                                type="button"
-                                onClick={() => setOpenBrand(brand.name)}
+                              <Link
+                                to={brand.homeHref}
+                                onClick={closeMenu}
                                 className="flex w-full items-center justify-between py-4 text-xl font-normal text-neutral-900 transition-colors hover:text-red-600"
                               >
                                 {brand.name}
@@ -187,7 +187,7 @@ const MobileNavMenu = () => {
                                   className="h-4 w-4 text-neutral-400"
                                   aria-hidden="true"
                                 />
-                              </button>
+                              </Link>
                             ) : (
                               <span className="flex items-center justify-between py-4 text-xl font-normal text-neutral-400">
                                 {brand.name}
