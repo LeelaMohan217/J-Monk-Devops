@@ -39,7 +39,7 @@ const HeroSection = () => {
               variants={fadeIn("up", 0.3)}
               initial="hidden"
               animate="show"
-              className="max-w-2xl text-base leading-relaxed text-neutral-600"
+              className="max-w-lg text-base leading-relaxed text-neutral-600"
             >
               {hero.lead}
             </motion.p>
@@ -67,10 +67,6 @@ const HeroSection = () => {
               >
                 <GlazeSweep className="bg-red-600/15" />
                 {hero.secondaryCta.label}
-                <ArrowRight
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
               </Link>
             </motion.div>
           </div>
