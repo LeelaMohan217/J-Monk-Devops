@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { useContactForm } from "../../../../shared/hooks/useContactForm";
 import { formFields } from "./data";
@@ -27,7 +27,7 @@ const ContactSection = () => {
     <section className="border-t bg-surface py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
-          variants={riseIn()}
+          variants={fadeIn("up", 0)}
           {...centerTrigger}
           className="flex max-w-3xl flex-col items-start gap-4 text-left"
         >
@@ -42,7 +42,7 @@ const ContactSection = () => {
         </motion.div>
 
         <motion.div
-          variants={riseIn(STEP)}
+          variants={fadeIn("up", STEP)}
           {...centerTrigger}
           className="mt-12 w-full md:mt-14"
         >

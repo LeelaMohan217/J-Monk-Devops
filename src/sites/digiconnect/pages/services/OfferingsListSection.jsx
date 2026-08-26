@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import { centerTrigger } from "../../../../shared/motionConfig";
 import { offerings } from "./data";
 
@@ -10,7 +10,7 @@ const OfferingsListSection = () => {
         {offerings.map((offering, index) => (
           <motion.article
             key={offering.name}
-            variants={riseIn()}
+            variants={fadeIn("up", 0)}
             {...centerTrigger}
             className="border-t border-neutral-200 py-10 last:border-b md:py-14"
           >

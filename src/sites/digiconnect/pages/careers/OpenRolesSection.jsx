@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight, ChevronDown, Search } from "lucide-react";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import { STEP, centerTrigger } from "../../../../shared/motionConfig";
 import { openRoles } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
@@ -52,10 +52,10 @@ const OpenRolesSection = () => {
   return (
     <section
       id="open-roles"
-      className="bg-olive-100 py-16 md:py-24 scroll-mt-24"
+      className="bg-stone-50 py-16 md:py-24 scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <motion.div variants={riseIn()} {...centerTrigger} className="max-w-2xl">
+        <motion.div variants={fadeIn("up", 0)} {...centerTrigger} className="max-w-2xl">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             {openRoles.eyebrow}
           </span>
@@ -66,7 +66,7 @@ const OpenRolesSection = () => {
         </motion.div>
 
         <motion.form
-          variants={riseIn(STEP)}
+          variants={fadeIn("up", STEP)}
           {...centerTrigger}
           onSubmit={handleSubmit}
           className="mt-10 md:mt-12"
@@ -165,7 +165,7 @@ const OpenRolesSection = () => {
               {visibleRoles.map((role) => (
                 <motion.div
                   key={role.id}
-                  variants={riseIn()}
+                  variants={fadeIn("up", 0)}
                   {...centerTrigger}
                   className="border-b border-neutral-200"
                 >
@@ -212,7 +212,7 @@ const OpenRolesSection = () => {
           </>
         ) : (
           <motion.div
-            variants={riseIn(STEP * 2)}
+            variants={fadeIn("up", STEP * 2)}
             {...centerTrigger}
             className="mt-8 rounded-xl border border-neutral-200 bg-surface px-8 py-14 text-center md:mt-10 md:py-20"
           >
