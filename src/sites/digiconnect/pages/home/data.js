@@ -46,7 +46,7 @@ export const hero = {
   headingAccent: "actually run on.",
   lead: "DigiConnect designs, builds, and maintains custom software, SaaS products, cloud infrastructure, and the integrations that hold them together. One team, from architecture through to production.",
   primaryCta: { label: "Start a project", href: "/digiconnect/contact" },
-  secondaryCta: { label: "See our services", href: "/digiconnect/services" },
+  secondaryCta: { label: "Explore More", href: "/digiconnect/services" },
 };
 
 export const whatWeDo = {
@@ -57,8 +57,8 @@ export const whatWeDo = {
   // max-w. headingAccent stays the last of the three, so the red Playfair italic
   // still lands once on the closing phrase the way it does in the other 22 section
   // headings.
-  headingLines: ["Software", "That works around"],
-  headingAccent: "Your business",
+  headingLines: "Delivering strategic clarity for modern business ",
+  headingAccent: "challenges",
   lead: "Tailored solutions to streamline operations and scale faster.",
   // One image for the section, sitting in the panel that runs down the left of the
   // tile grid. image2 rather than either of the other two: it shows code, layout
@@ -69,22 +69,22 @@ export const whatWeDo = {
   // a label and a description is the whole of each one.
   cards: [
     {
-      id: "product",
-      label: "Product engineering",
+      id: "strategy",
+      label: "Show the people behind your strategy",
       description:
-        "Web and mobile applications, internal tools, and business platforms built around your workflow.",
+        "We help organizations communicate value clearly, align teams around strategy, and deliver experiences that build credibility and lasting relationships.",
     },
     {
-      id: "platforms",
-      label: "Platforms and dashboards",
+      id: "expertise",
+      label: "Humanize your brand and highlight expertise",
       description:
-        "SaaS products with the reporting, roles, and billing layers already thought through.",
+        "We provide strategic guidance that helps businesses overcome challenges, improve performance, and achieve long-term sustainable growth.",
     },
     {
-      id: "consulting",
-      label: "Consulting and review",
+      id: "results",
+      label: "Transform knowledge into real results",
       description:
-        "An outside read on architecture, stack choices, and what breaks first as you scale.",
+        "We partner with businesses to apply deep expertise, solve complex problems, and implement solutions that drive performance and long-term success.",
     },
   ],
 };

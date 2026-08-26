@@ -9,7 +9,7 @@ const Contact = () => {
     <>
       <PageHeaderSection />
       <ContactSection />
-      <MapSection />
+      {/* <MapSection /> */}
     </>
   );
 };

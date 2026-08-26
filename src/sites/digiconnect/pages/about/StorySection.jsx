@@ -9,12 +9,13 @@ const StorySection = () => {
     <section className="bg-surface-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Image */}
           <motion.div
             variants={riseIn()}
             {...centerTrigger}
-            className="order-2 rounded-2xl border border-neutral-200 bg-surface p-2 shadow-sm lg:order-1"
+            className="order-2 lg:order-1"
           >
-            <div className="aspect-[3/2] w-full overflow-hidden rounded-xl bg-surface ring-1 ring-inset ring-black/10">
+            <div className="aspect-[3/2] w-full overflow-hidden">
               <img
                 src={story.image}
                 alt=""
@@ -27,6 +28,7 @@ const StorySection = () => {
             </div>
           </motion.div>
 
+          {/* Content */}
           <motion.div
             variants={riseIn(STEP)}
             {...centerTrigger}
@@ -35,6 +37,7 @@ const StorySection = () => {
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {story.eyebrow}
             </span>
+
             <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
               {story.headingLead}
               <span className={ACCENT_CLASS}>{story.headingAccent}</span>

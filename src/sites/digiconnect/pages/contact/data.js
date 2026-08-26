@@ -1,11 +1,8 @@
-// Copy and field config for the DigiConnect contact page. Contact info values
-// themselves are not duplicated here. ContactSection reads them straight from
-// the shared companyConfig so there is one source of truth.
 export const pageHeader = {
   eyebrow: "Contact",
-  headingLead: "Tell us about ",
-  headingAccent: "the project.",
-  lead: "Send a few lines about what you're building or trying to fix and we'll get back to you directly. No account manager in between.",
+  headingLead: "Get In Touch For Any Questions Or ",
+  headingAccent: "Ideas",
+  lead: "Where smart strategy, data, and execution come together to deliver measurable business success.",
 };
 
 export const formFields = [
@@ -30,6 +27,18 @@ export const formFields = [
     required: true,
     autoComplete: "email",
     placeholder: "you@example.com",
+  },
+  {
+    name: "subject",
+    label: "Subject",
+    required: true,
+    placeholder: "Type of Project",
+  },
+  {
+    name: "company",
+    label: "Company",
+    required: true,
+    placeholder: "Company Name",
     full: true,
   },
   {

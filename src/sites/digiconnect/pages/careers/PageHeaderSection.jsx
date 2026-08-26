@@ -6,7 +6,7 @@ import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 
 const PageHeaderSection = () => {
   return (
-    <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
+    <section className="w-full bg-surface pt-28 pb-16 md:pt-32 md:pb-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="flex flex-col items-start gap-6 text-left">
           <motion.span
@@ -32,7 +32,7 @@ const PageHeaderSection = () => {
             variants={fadeIn("up", 0.3)}
             initial="hidden"
             animate="show"
-            className="max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
+            className="max-w-2xl text-base leading-relaxed text-neutral-600"
           >
             {pageHeader.lead}
           </motion.p>

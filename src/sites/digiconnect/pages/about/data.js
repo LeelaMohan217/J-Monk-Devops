@@ -9,37 +9,41 @@
 import storyImage from "../../assets/why.webp";
 
 export const pageHeader = {
-  eyebrow: "About",
-  headingLead: "The team behind ",
-  headingAccent: "DigiConnect.",
-  lead: "DigiConnect is JMonkDevops' software and cloud engineering practice, run out of Guntur, Andhra Pradesh. We keep the group small enough that the people who scope your project are the same people who ship it.",
+  eyebrow: "Strategic growth insights",
+  headingLead: "Discover new pathways to business ",
+  headingAccent: "excellence.",
+  lead: "Our team combines industry expertise with strategic insight to deliver solutions tailored to each client’s unique goals.",
 };
 
 export const story = {
-  eyebrow: "Our story",
-  headingLead: "Started small, stayed small ",
-  headingAccent: "on purpose.",
+  eyebrow: "About Us",
+  headingLead: "Accelerate business performance through tailored ",
+  headingAccent: "consulting solutions",
   image: storyImage,
   paragraphs: [
-    "DigiConnect began as a handful of developers taking on custom software work for businesses around Guntur. The projects got bigger, moving into SaaS products, cloud migrations, and DevOps pipelines. The way we run them did not change.",
-    "We still take on a limited number of engagements at a time. That is a constraint we chose rather than one we are working around. It is what lets the same engineers stay on a project from the first scoping call through whatever comes after launch.",
+    "We work closely with clients to analyze challenges, enhance processes, and build strategies that support long-term success. Our hands-on approach ensures meaningful transformation and measurable progress.",
   ],
 };
 
 export const values = {
-  eyebrow: "What that means in practice",
-  headingLead: "A few things worth knowing ",
-  headingAccent: "before you call.",
+  eyebrow: "Our Values",
+  headingLead: "We’re building better ways to run a ",
+  headingAccent: "business.",
   items: [
     {
-      term: "We turn down mismatched work",
+      term: "Values",
       detail:
-        "If what you are asking for is not what you need, we say so before anything is signed. Even when it costs us the project.",
+        "We help businesses bring structure to how they operate—clarifying direction and supporting consistent execution over time.",
     },
     {
-      term: "No layer between you and the engineers",
+      term: "Mission",
       detail:
-        "Whoever you talk to during scoping is who you talk to during the build. There is no account-management relay in between.",
+        "We help businesses bring structure to how they operate—clarifying direction and supporting consistent execution over time.",
+    },
+    {
+      term: "Direction",
+      detail:
+        "We focus on improving how businesses run—identifying inefficiencies, strengthening operations, and supporting growth.",
     },
     // A third item used to sit here, "Client work and student programs, one
     // team", explaining that the internships and training run under SkillConnect
