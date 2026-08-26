@@ -2,6 +2,7 @@ import { Suspense, lazy, useLayoutEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Landing from "./pages/Landing";
+import StatusPage from "./shared/components/StatusPage";
 import GlobalNav from "./shared/components/GlobalNav";
 import Navbar from "./shared/components/Navbar";
 import MobileNavMenu from "./shared/components/MobileNavMenu";
@@ -61,15 +62,15 @@ function ScrollToTop() {
 // route changes instead of remounting with whichever page is active.
 //
 // GlobalNav is landing-only by design: brand pages get their own bar instead.
+// It's also the fallback for a path matching no brand prefix at all (the
+// top-level 404) — the alternative was no navbar whatsoever on that page.
 function SiteNav() {
   const location = useLocation();
-
-  if (location.pathname === "/") return <GlobalNav />;
 
   const brand = brandNavs.find((entry) =>
     location.pathname.startsWith(entry.prefix)
   );
-  if (!brand) return null;
+  if (!brand) return <GlobalNav />;
 
   const {
     siteName,
@@ -122,6 +123,18 @@ function App() {
           <Route path="/digiconnect/*" element={<DigiConnectApp />} />
           <Route path="/skillconnect/*" element={<SkillConnectApp />} />
           <Route path="/educonnect/*" element={<EduConnectApp />} />
+          <Route
+            path="*"
+            element={
+              <StatusPage
+                code="404"
+                headingLead="This page doesn't exist."
+                subtext="The link might be broken, or the page may have moved. Let's get you back on track."
+                ctaLabel="Back to JMonkDevops"
+                ctaHref="/"
+              />
+            }
+          />
         </Routes>
       </Suspense>
       <GlobalFooter />

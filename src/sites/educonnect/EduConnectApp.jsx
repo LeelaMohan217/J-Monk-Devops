@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import ContactCmp from "../../shared/components/ContactCmp";
+import StatusPage from "../../shared/components/StatusPage";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -24,6 +25,18 @@ function EduConnectApp() {
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogPost />} />
         <Route path="contact" element={<Contact />} />
+        <Route
+          path="*"
+          element={
+            <StatusPage
+              code="404"
+              headingLead="This page doesn't exist."
+              subtext="The link might be broken, or the page may have moved."
+              ctaLabel="Back to EduConnect"
+              ctaHref={eduConnectConfig.homeHref}
+            />
+          }
+        />
       </Routes>
       {location.pathname !== "/educonnect/contact" && (
         <ContactCmp {...eduConnectConfig.contactCta} />

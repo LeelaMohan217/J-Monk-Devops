@@ -1,5 +1,6 @@
 import PageHeaderSection from "./careers/PageHeaderSection";
 import OpenRolesSection from "./careers/OpenRolesSection";
+import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
 // A header and the openings, nothing between them. This page used to run
 // PageHeader -> WhatItIsLike -> Tools -> OpenRoles, which put two prose sections
@@ -9,6 +10,11 @@ import OpenRolesSection from "./careers/OpenRolesSection";
 // No closing CTA, because DigiConnectApp already renders ContactCmp below every
 // non-contact route.
 const Careers = () => {
+  useDocumentMeta(
+    "Careers | DigiConnect",
+    "We take on a limited number of engagements at a time, which shapes how we hire more than anything else does."
+  );
+
   return (
     <>
       <PageHeaderSection />

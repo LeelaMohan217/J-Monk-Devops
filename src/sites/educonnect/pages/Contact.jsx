@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import ContactForm from "../../../shared/components/ContactForm";
 import { fadeIn, riseIn } from "../../../shared/variants";
 import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
+import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
 const fields = [
   {
@@ -93,6 +94,11 @@ const stages = [
 ];
 
 const EduConnectContact = () => {
+  useDocumentMeta(
+    "Contact | EduConnect",
+    "This reaches the EduConnect team directly, the people who handle university selection, applications, and visas."
+  );
+
   return (
     <main className="bg-surface">
       {/* Same header treatment as the about/services/blog pages — no grid

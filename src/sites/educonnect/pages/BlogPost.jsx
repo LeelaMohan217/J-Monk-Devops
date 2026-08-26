@@ -7,10 +7,18 @@ import { getBlogPostBySlug } from "../blogPosts";
 import PostImage from "./blog/PostImage";
 import TagList from "./blog/TagList";
 import BlogBody from "./blog/BlogBody";
+import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
 const BlogPost = () => {
   const { slug } = useParams();
   const post = getBlogPostBySlug(slug);
+
+  // Called unconditionally (hooks can't follow the early return below),
+  // covering both the found and not-found cases with one call.
+  useDocumentMeta(
+    post ? `${post.title} | EduConnect Blog` : "Post not found | EduConnect Blog",
+    post ? post.excerpt : "That article doesn't exist or may have been moved."
+  );
 
   if (!post) {
     return (
