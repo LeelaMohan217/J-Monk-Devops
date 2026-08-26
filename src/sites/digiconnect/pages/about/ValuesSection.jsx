@@ -6,6 +6,7 @@ import { STEP, centerTrigger, groupContainer } from "../../../../shared/motionCo
 import { values } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 import GlazeSweep from "../../../../shared/components/GlazeSweep";
+import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 
 const introText =
   "We begin every project with a clear vision, aligning design decisions with your brand purpose, product direction, and long-term business goals.";
@@ -13,6 +14,8 @@ const introText =
 const valueIcons = [Target, Lightbulb, TrendingUp];
 
 const ValuesSection = () => {
+  const isDesktop = useIsDesktop();
+
   return (
     <section className="bg-stone-50 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
@@ -75,6 +78,7 @@ const ValuesSection = () => {
                 <motion.div
                   key={item.term}
                   variants={fadeIn("up", (index + 2) * STEP)}
+                  {...(isDesktop ? {} : centerTrigger)}
                   className="group flex min-h-[340px] flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-6 md:p-8"
                 >
                   <div>
