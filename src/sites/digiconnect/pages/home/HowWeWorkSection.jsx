@@ -85,6 +85,7 @@ const HowWeWorkSection = () => {
 
           <motion.div
             variants={fadeIn("up", 4 * CASCADE_STEP)}
+            {...(isDesktop ? {} : centerTrigger)}
             className="lg:sticky lg:top-32 lg:h-fit"
           >
             <div ref={imageRef} className="overflow-hidden rounded-sm">
@@ -107,6 +108,7 @@ const HowWeWorkSection = () => {
                 <motion.div
                   key={step.title}
                   variants={fadeIn("up", 5 * CASCADE_STEP + index * ACCORDION_STEP)}
+                  {...(isDesktop ? {} : centerTrigger)}
                 >
                   <button
                     type="button"
