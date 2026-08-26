@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import { hero } from "./data";
@@ -62,10 +62,13 @@ const HeroSection = () => {
               </Link>
               <Link
                 to={hero.secondaryCta.href}
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors duration-300 hover:border-red-600 hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
               >
-                <GlazeSweep className="bg-red-600/15" />
+                <GlazeSweep className="bg-white/30" />
                 {hero.secondaryCta.label}
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
               </Link>
             </motion.div>
           </div>
