@@ -7,10 +7,40 @@ import {
   centerTrigger,
   groupContainer,
 } from "../../shared/motionConfig";
+import useIsDesktop from "../../shared/hooks/useIsDesktop";
 import CountUp from "../../shared/components/CountUp";
 import { stats } from "./data";
 
+const StatTile = ({ stat, index, isDesktop, groupInView }) => {
+  const tileRef = useRef(null);
+  const tileInView = useInView(tileRef, { once: true, margin: CENTER_MARGIN });
+
+  return (
+    <motion.div
+      ref={tileRef}
+      variants={fadeIn("up", index * STEP)}
+      {...(isDesktop ? {} : centerTrigger)}
+      className="rounded-2xl bg-red-50 p-6 md:p-8"
+    >
+      <span className="text-4xl font-bold tabular-nums text-red-600 md:text-5xl">
+        <CountUp
+          value={stat.value}
+          start={isDesktop ? groupInView : tileInView}
+          delay={index * STEP}
+        />
+      </span>
+      <p className="mt-2 text-sm font-medium text-neutral-800">
+        {stat.label}
+      </p>
+      <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-neutral-500">
+        {stat.platform}
+      </p>
+    </motion.div>
+  );
+};
+
 const StatsSection = () => {
+  const isDesktop = useIsDesktop();
   const tilesRef = useRef(null);
   const tilesInView = useInView(tilesRef, {
     once: true,
@@ -53,25 +83,13 @@ const StatsSection = () => {
           className="grid grid-cols-1 gap-4 sm:grid-cols-2"
         >
           {stats.map((stat, index) => (
-            <motion.div
+            <StatTile
               key={stat.label}
-              variants={fadeIn("up", index * STEP)}
-              className="rounded-2xl bg-red-50 p-6 md:p-8"
-            >
-              <span className="text-4xl font-bold tabular-nums text-red-600 md:text-5xl">
-                <CountUp
-                  value={stat.value}
-                  start={tilesInView}
-                  delay={index * STEP}
-                />
-              </span>
-              <p className="mt-2 text-sm font-medium text-neutral-800">
-                {stat.label}
-              </p>
-              <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-neutral-500">
-                {stat.platform}
-              </p>
-            </motion.div>
+              stat={stat}
+              index={index}
+              isDesktop={isDesktop}
+              groupInView={tilesInView}
+            />
           ))}
         </motion.div>
       </div>
