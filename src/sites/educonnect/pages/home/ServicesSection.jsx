@@ -55,7 +55,7 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="scroll-mt-24 border-b border-neutral-200 bg-olive-100 py-16 md:py-24"
+      className="scroll-mt-24 border-b border-neutral-200 bg-stone-50 py-16 md:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div

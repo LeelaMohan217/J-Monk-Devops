@@ -25,7 +25,7 @@ const OfferingsSection = () => {
   return (
     <section
       id="offerings"
-      className="bg-olive-100 py-16 md:py-24 scroll-mt-24"
+      className="bg-stone-50 py-16 md:py-24 scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div

@@ -23,7 +23,7 @@ const StorySection = () => {
   });
 
   return (
-    <section className="bg-olive-100 py-16 md:py-24">
+    <section className="bg-stone-50 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           variants={groupContainer}

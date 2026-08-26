@@ -32,7 +32,7 @@ const HowWeWorkSection = () => {
   return (
     <section
       id="how-we-work"
-      className="bg-olive-100 py-20 md:py-28 scroll-mt-24"
+      className="bg-stone-50 py-20 md:py-28 scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
