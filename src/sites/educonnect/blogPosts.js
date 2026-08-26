@@ -1,9 +1,9 @@
-import howMuchGap from "./assets/blog/how-much-gap.jpg";
-import canITravel from "./assets/blog/can-i-travel.jpg";
-import bestManagementUsa from "./assets/blog/best-management-usa.jpg";
-import day1Cpt from "./assets/blog/day1-cpt.jpg";
-import supplyChain from "./assets/blog/supply-chain.jpg";
-import day1CptUniversities from "./assets/blog/day1-cpt-universities.jpg";
+import howMuchGap from "./assets/blog/how-much-gap.webp";
+import canITravel from "./assets/blog/can-i-travel.webp";
+import bestManagementUsa from "./assets/blog/best-management-usa.webp";
+import day1Cpt from "./assets/blog/day1-cpt.webp";
+import supplyChain from "./assets/blog/supply-chain.webp";
+import day1CptUniversities from "./assets/blog/day1-cpt-universities.webp";
 
 export const blogPosts = [
   {

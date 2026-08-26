@@ -7,7 +7,7 @@ import {
 } from "../../../../shared/motionConfig";
 import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { story } from "./data";
-import storyImg from "../../assets/educonnect-about.jpg";
+import storyImg from "../../assets/educonnect-about.webp";
 
 const StorySection = () => {
   const isDesktop = useIsDesktop();

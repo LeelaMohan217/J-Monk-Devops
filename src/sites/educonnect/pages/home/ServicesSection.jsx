@@ -9,20 +9,11 @@ import {
 import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { services } from "./data";
 import counsellingWebp from "../../assets/services/career-counselling.webp";
-import counsellingJpg from "../../assets/services/career-counselling.jpg";
 import selectionWebp from "../../assets/services/course-selection.webp";
-import selectionJpg from "../../assets/services/course-selection.jpg";
 import applicationWebp from "../../assets/services/admission-support.webp";
-import applicationJpg from "../../assets/services/admission-support.jpg";
 import visaWebp from "../../assets/services/visa-assistance.webp";
-import visaJpg from "../../assets/services/visa-assistance.jpg";
 
-const IMAGES = [
-  { webp: counsellingWebp, jpg: counsellingJpg },
-  { webp: selectionWebp, jpg: selectionJpg },
-  { webp: applicationWebp, jpg: applicationJpg },
-  { webp: visaWebp, jpg: visaJpg },
-];
+const IMAGES = [counsellingWebp, selectionWebp, applicationWebp, visaWebp];
 
 const ServiceCard = ({ service, image, index, isDesktop }) => (
   <motion.li
@@ -31,18 +22,15 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
     className="flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface"
   >
     <div className="aspect-square overflow-hidden border-b border-neutral-200">
-      <picture>
-        <source type="image/webp" srcSet={image.webp} />
-        <img
-          src={image.jpg}
-          alt=""
-          width="800"
-          height="1067"
-          className="h-full w-full object-cover object-top"
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
+      <img
+        src={image}
+        alt=""
+        width="800"
+        height="1067"
+        className="h-full w-full object-cover object-top"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
     <div className="p-5">
       <h3 className="text-base font-medium tracking-tight text-neutral-800 md:text-lg">

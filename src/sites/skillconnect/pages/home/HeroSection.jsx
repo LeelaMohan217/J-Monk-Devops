@@ -6,7 +6,6 @@ import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import { hero } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
-import heroPhotoJpg from "../../assets/skillconnect-hero.jpg";
 import heroPhotoWebp from "../../assets/skillconnect-hero.webp";
 
 const HeroSection = () => {
@@ -78,17 +77,14 @@ const HeroSection = () => {
             className="lg:col-span-6"
           >
             <div className="overflow-hidden rounded-2xl border border-neutral-200">
-              <picture>
-                <source type="image/webp" srcSet={heroPhotoWebp} />
-                <img
-                  src={heroPhotoJpg}
-                  alt="SkillConnect learner working on a live project"
-                  className="aspect-5/4 w-full object-cover"
-                  width="1000"
-                  height="600"
-                  decoding="async"
-                />
-              </picture>
+              <img
+                src={heroPhotoWebp}
+                alt="SkillConnect learner working on a live project"
+                className="aspect-5/4 w-full object-cover"
+                width="1000"
+                height="600"
+                decoding="async"
+              />
             </div>
           </motion.div>
         </div>

@@ -6,7 +6,6 @@ import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import { hero } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
-import heroPhotoJpg from "../../assets/digiconnect-hero.jpg";
 import heroPhotoWebp from "../../assets/digiconnect-hero.webp";
 
 const HeroSection = () => {
@@ -78,17 +77,14 @@ const HeroSection = () => {
             className="lg:col-span-6"
           >
             <div className="group overflow-hidden rounded-2xl border border-neutral-200">
-              <picture>
-                <source type="image/webp" srcSet={heroPhotoWebp} />
-                <img
-                  src={heroPhotoJpg}
-                  alt="DigiConnect engineers reviewing a software project"
-                  className="aspect-5/4 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  width="1000"
-                  height="800"
-                  decoding="async"
-                />
-              </picture>
+              <img
+                src={heroPhotoWebp}
+                alt="DigiConnect engineers reviewing a software project"
+                className="aspect-5/4 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                width="1000"
+                height="800"
+                decoding="async"
+              />
             </div>
           </motion.div>
         </div>

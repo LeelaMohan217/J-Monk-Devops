@@ -1,8 +1,8 @@
-import ananyaPortrait from "../../assets/testimonials/ananya-r.jpg";
-import rahulPortrait from "../../assets/testimonials/rahul-m.jpg";
-import priyaPortrait from "../../assets/testimonials/priya-s.jpg";
-import karthikPortrait from "../../assets/testimonials/karthik-v.jpg";
-import meeraPortrait from "../../assets/testimonials/meera-k.jpg";
+import ananyaPortrait from "../../assets/testimonials/ananya-r.webp";
+import rahulPortrait from "../../assets/testimonials/rahul-m.webp";
+import priyaPortrait from "../../assets/testimonials/priya-s.webp";
+import karthikPortrait from "../../assets/testimonials/karthik-v.webp";
+import meeraPortrait from "../../assets/testimonials/meera-k.webp";
 
 const reviewers = [
   { image: ananyaPortrait, name: "Ananya R." },

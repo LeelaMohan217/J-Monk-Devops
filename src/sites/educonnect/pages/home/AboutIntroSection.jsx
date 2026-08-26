@@ -8,7 +8,7 @@ import {
   groupContainer,
 } from "../../../../shared/motionConfig";
 import { aboutIntro } from "./data";
-import introImg from "../../assets/educonnect-intro.png";
+import introImg from "../../assets/educonnect-intro.webp";
 
 const AboutIntroSection = () => {
   return (

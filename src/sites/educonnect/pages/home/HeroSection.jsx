@@ -15,7 +15,6 @@ import {
   STEP,
   groupContainer,
 } from "../../../../shared/motionConfig";
-import heroPhotoJpg from "../../assets/educonnect-hero.jpg";
 import heroPhotoWebp from "../../assets/educonnect-hero.webp";
 
 const ACCENT_CLASS = "font-['Playfair_Display',serif] text-red-600 italic";
@@ -111,17 +110,14 @@ const HeroSection = () => {
           >
             <div className="relative mb-8">
               <div className="overflow-hidden rounded-2xl border border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-40px),calc(100%-40px)_100%,0_100%)]">
-                <picture>
-                  <source type="image/webp" srcSet={heroPhotoWebp} />
-                  <img
-                    src={heroPhotoJpg}
-                    alt="Student holding university admission documents at the airport"
-                    className="aspect-4/3 w-full object-cover"
-                    width="1536"
-                    height="1024"
-                    decoding="async"
-                  />
-                </picture>
+                <img
+                  src={heroPhotoWebp}
+                  alt="Student holding university admission documents at the airport"
+                  className="aspect-4/3 w-full object-cover"
+                  width="1536"
+                  height="1024"
+                  decoding="async"
+                />
               </div>
 
               <motion.div
