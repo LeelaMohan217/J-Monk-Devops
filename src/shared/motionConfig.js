@@ -6,7 +6,7 @@ export const groupContainer = {
 
 export const STEP = 0.2;
 
-export const CENTER_MARGIN = "0px 0px -45% 0px";
+export const CENTER_MARGIN = "0px 0px -15% 0px";
 
 export const centerTrigger = {
   initial: "hidden",
