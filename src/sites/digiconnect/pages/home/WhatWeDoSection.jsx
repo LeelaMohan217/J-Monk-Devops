@@ -70,7 +70,7 @@ const WhatWeDoSection = () => {
               alt=""
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover object-[35%_50%] transition-transform duration-500 group-hover:scale-105"
             />
           </motion.div>
 
@@ -81,14 +81,18 @@ const WhatWeDoSection = () => {
                 key={card.id}
                 variants={fadeIn("up", (index + 1) * CASCADE_STEP)}
                 {...(isDesktop ? {} : centerTrigger)}
-                className={`flex flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-6 md:p-8 ${PLACEMENT[index]}`}
+                className={`group flex flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-6 md:p-8 ${PLACEMENT[index]}`}
               >
                 <div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50">
-                    <Icon className="h-5 w-5 text-red-600" strokeWidth={1.75} aria-hidden="true" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 transition-colors duration-500 group-hover:bg-neutral-900">
+                    <Icon
+                      className="h-5 w-5 text-red-600 transition-colors duration-500 group-hover:text-white"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
                   </div>
 
-                  <h3 className="mt-4 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
+                  <h3 className="mt-2 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
                     {card.label}
                   </h3>
                 </div>

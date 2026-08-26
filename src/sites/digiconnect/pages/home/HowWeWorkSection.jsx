@@ -8,6 +8,7 @@ import { howWeWork } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 import processPhoto from "../../assets/digiconnect-process.webp";
 import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
+import GlazeSweep from "../../../../shared/components/GlazeSweep";
 
 const CASCADE_STEP = 0.1;
 const ACCORDION_STEP = 0.05;
@@ -71,8 +72,9 @@ const HowWeWorkSection = () => {
             >
               <Link
                 to={howWeWork.cta.href}
-                className="group mt-10 inline-flex w-fit items-center gap-2 whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 lg:mt-0"
+                className="group relative mt-10 inline-flex w-fit items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 lg:mt-0"
               >
+                <GlazeSweep className="bg-white/30" />
                 {howWeWork.cta.label}
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -110,7 +112,7 @@ const HowWeWorkSection = () => {
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left"
                   >
                     <span className="flex items-center gap-3">
                       <span
@@ -173,8 +175,9 @@ const HowWeWorkSection = () => {
           >
             <Link
               to={howWeWork.cta.href}
-              className="group inline-flex w-fit items-center gap-2 whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+              className="group relative inline-flex w-fit items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
             >
+              <GlazeSweep className="bg-white/30" />
               {howWeWork.cta.label}
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
                 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
