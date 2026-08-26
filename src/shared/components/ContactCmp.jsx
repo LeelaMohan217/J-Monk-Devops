@@ -23,7 +23,7 @@ const ContactCmp = ({
           className="flex flex-col items-center gap-8 text-center"
         >
           <div>
-            <h2 className="mx-auto max-w-2xl text-display-sm font-semibold text-neutral-900">
+            <h2 className="mx-auto max-w-2xl text-display-sm font-semibold text-neutral-800">
               {headingLead}
               {headingAccent && (
                 <span className={accentClass}>{headingAccent}</span>

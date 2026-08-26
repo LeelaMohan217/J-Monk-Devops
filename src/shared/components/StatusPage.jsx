@@ -37,7 +37,7 @@ const StatusPage = ({
           variants={fadeIn("up", 0.15)}
           initial="hidden"
           animate="show"
-          className={`mx-auto max-w-2xl font-semibold text-neutral-900 ${
+          className={`mx-auto max-w-2xl font-semibold text-neutral-800 ${
             code ? "-mt-6 md:-mt-10" : ""
           } ${PAGE_HEADING_SIZE}`}
         >

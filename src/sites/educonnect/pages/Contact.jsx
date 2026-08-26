@@ -117,7 +117,7 @@ const EduConnectContact = () => {
               variants={fadeIn("up", 0.15)}
               initial="hidden"
               animate="show"
-              className={`max-w-3xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
+              className={`max-w-3xl font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
             >
               Let&apos;s map the{" "}
               <span className="font-['Playfair_Display',serif] text-red-600 italic">
@@ -163,7 +163,7 @@ const EduConnectContact = () => {
                   >
                     {stage.step}
                   </span>
-                  <h3 className="mt-3 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
+                  <h3 className="mt-3 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
                     {stage.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">

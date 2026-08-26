@@ -17,7 +17,7 @@ const ProcessSection = () => {
             {process.eyebrow}
           </span>
 
-          <h2 className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
             {process.headingLead}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">
               {process.headingAccent}
@@ -42,7 +42,7 @@ const ProcessSection = () => {
                 {String(index + 1).padStart(2, "0")}
               </span>
 
-              <h3 className="mt-5 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
+              <h3 className="mt-5 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
                 {step.title}
               </h3>
 

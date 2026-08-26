@@ -16,7 +16,7 @@ const ValuesSection = () => {
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             {values.eyebrow}
           </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
             {values.headingLead}
             <span className={ACCENT_CLASS}>{values.headingAccent}</span>
           </h2>
@@ -31,7 +31,7 @@ const ValuesSection = () => {
               className="rounded-2xl border border-neutral-200 bg-surface-muted p-6"
             >
               <span className="h-px w-10 bg-red-600" aria-hidden="true" />
-              <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
+              <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
                 {item.term}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-600">

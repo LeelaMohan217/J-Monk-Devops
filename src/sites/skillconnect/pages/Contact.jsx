@@ -103,7 +103,7 @@ const SkillConnectContact = () => {
             Contact
           </span>
           <h1
-            className={`mt-4 max-w-3xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
+            className={`mt-4 max-w-3xl font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
           >
             Tell us what you&apos;re{" "}
             <span className={ACCENT_CLASS}>trying to learn.</span>
@@ -132,7 +132,7 @@ const SkillConnectContact = () => {
                   key={reason.title}
                   className="border-b border-neutral-200 py-6"
                 >
-                  <h3 className="text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
+                  <h3 className="text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
                     {reason.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">

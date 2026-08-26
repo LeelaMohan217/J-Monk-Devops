@@ -22,7 +22,7 @@ const BlogPost = () => {
     return (
       <section className="bg-surface pt-32 pb-20 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-3xl px-6 md:px-8 text-center">
-          <h1 className="text-3xl font-semibold text-neutral-900">
+          <h1 className="text-3xl font-semibold text-neutral-800">
             Post not found
           </h1>
           <p className="mt-4 text-neutral-600">
@@ -61,7 +61,7 @@ const BlogPost = () => {
             {post.tags[0]}
           </span>
           <h1
-            className={`mt-4 font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
+            className={`mt-4 font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
           >
             {post.title}
           </h1>

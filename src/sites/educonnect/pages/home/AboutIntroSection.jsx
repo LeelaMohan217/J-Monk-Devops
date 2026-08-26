@@ -29,7 +29,7 @@ const AboutIntroSection = () => {
 
             <motion.h2
               variants={riseIn(STEP)}
-              className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-900"
+              className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-800"
             >
               {aboutIntro.headingLead}
               <span className="font-['Playfair_Display',serif] text-red-600 italic">

@@ -22,7 +22,7 @@ const PageHeaderSection = () => {
             variants={fadeIn("up", 0.15)}
             initial="hidden"
             animate="show"
-            className={`max-w-3xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
+            className={`max-w-3xl font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
           >
             {pageHeader.headingLead}
             <span className={ACCENT_CLASS}>{pageHeader.headingAccent}</span>

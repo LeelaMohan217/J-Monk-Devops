@@ -36,7 +36,7 @@ const StorySection = () => {
               {story.eyebrow}
             </span>
 
-            <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
               {story.headingLead}
               <span className={ACCENT_CLASS}>{story.headingAccent}</span>
             </h2>

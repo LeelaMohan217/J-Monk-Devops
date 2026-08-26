@@ -59,7 +59,7 @@ const OpenRolesSection = () => {
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
             {openRoles.eyebrow}
           </span>
-          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
             {openRoles.headingLead}
             <span className={ACCENT_CLASS}>{openRoles.headingAccent}</span>
           </h2>
@@ -177,7 +177,7 @@ const OpenRolesSection = () => {
                       <span className="block text-[0.7rem] font-medium uppercase tracking-[0.25em] text-neutral-500">
                         {role.type}
                       </span>
-                      <h3 className="mt-2 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">
+                      <h3 className="mt-2 text-2xl font-medium tracking-tight text-neutral-800 md:text-3xl">
                         {role.title}
                       </h3>
                       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-600">
@@ -220,7 +220,7 @@ const OpenRolesSection = () => {
               className="mx-auto block h-px w-10 bg-red-600"
               aria-hidden="true"
             />
-            <h3 className="mt-6 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">
+            <h3 className="mt-6 text-2xl font-medium tracking-tight text-neutral-800 md:text-3xl">
               {emptyState.heading}
             </h3>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-neutral-600">

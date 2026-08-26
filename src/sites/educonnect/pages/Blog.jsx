@@ -44,7 +44,7 @@ const Blog = () => {
                       {post.date}
                     </span>
 
-                    <h2 className="mt-3 text-base font-medium leading-snug tracking-tight text-neutral-900 decoration-neutral-300 underline-offset-4 group-hover:underline md:text-lg">
+                    <h2 className="mt-3 text-base font-medium leading-snug tracking-tight text-neutral-800 decoration-neutral-300 underline-offset-4 group-hover:underline md:text-lg">
                       {post.title}
                     </h2>
 

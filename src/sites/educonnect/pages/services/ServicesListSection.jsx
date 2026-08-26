@@ -48,7 +48,7 @@ const ServicesListSection = () => {
                   aria-hidden="true"
                 />
 
-                <h2 className="mt-5 text-base font-medium tracking-tight text-neutral-900 md:text-lg">
+                <h2 className="mt-5 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
                   {service.name}
                 </h2>
 

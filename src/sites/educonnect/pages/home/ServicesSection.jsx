@@ -45,7 +45,7 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
       </picture>
     </div>
     <div className="p-5">
-      <h3 className="text-base font-medium tracking-tight text-neutral-900 md:text-lg">
+      <h3 className="text-base font-medium tracking-tight text-neutral-800 md:text-lg">
         {service.name}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-neutral-600">
@@ -84,7 +84,7 @@ const ServicesSection = () => {
 
           <motion.h2
             variants={riseIn(STEP)}
-            className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-900"
+            className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-800"
           >
             {services.headingLead}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">

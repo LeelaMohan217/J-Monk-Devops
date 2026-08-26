@@ -27,7 +27,7 @@ const ProgramsSection = () => {
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
               {programs.eyebrow}
             </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
               {programs.headingLead}
               <span className={ACCENT_CLASS}>{programs.headingAccent}</span>
             </h2>
@@ -49,7 +49,7 @@ const ProgramsSection = () => {
                 className="rounded-2xl border border-neutral-200 bg-surface p-6"
               >
                 <Icon className="h-6 w-6 text-red-600" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
+                <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
                   {item.term}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-600">

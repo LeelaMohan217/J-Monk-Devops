@@ -67,7 +67,7 @@ const WhatWeDoSection = () => {
               {...(isDesktop ? {} : centerTrigger)}
               className={`flex flex-col justify-between border border-neutral-200 bg-surface p-6 md:p-8 ${PLACEMENT[index]}`}
             >
-              <h3 className="text-base font-medium tracking-tight text-neutral-900 md:text-lg">
+              <h3 className="text-base font-medium tracking-tight text-neutral-800 md:text-lg">
                 {card.label}
               </h3>
 

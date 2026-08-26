@@ -23,7 +23,7 @@ const ValuesSection = () => {
             {values.eyebrow}
           </span>
 
-          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
             {values.headingLead}
             <span className={ACCENT_CLASS}>{values.headingAccent}</span>
           </h2>
@@ -56,7 +56,7 @@ const ValuesSection = () => {
                       <Icon size={22} strokeWidth={1.7} aria-hidden="true" />
                     </div>
 
-                    <h3 className="text-lg font-medium tracking-tight text-neutral-900 md:text-xl">
+                    <h3 className="text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
                       {item.term}
                     </h3>
                   </div>

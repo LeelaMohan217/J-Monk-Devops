@@ -27,7 +27,7 @@ const OfferingsListSection = () => {
                 </div>
 
                 <h2
-                  className="mt-5 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl"
+                  className="mt-5 text-2xl font-medium tracking-tight text-neutral-800 md:text-3xl"
                 >
                   {offering.name}
                 </h2>

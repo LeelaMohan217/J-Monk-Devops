@@ -31,7 +31,7 @@ const ContactSection = () => {
           {...centerTrigger}
           className="flex max-w-3xl flex-col items-start gap-4 text-left"
         >
-          <h2 className="text-4xl font-medium tracking-tight text-neutral-900 md:text-5xl">
+          <h2 className="text-4xl font-medium tracking-tight text-neutral-800 md:text-5xl">
             Send your Inquiry
           </h2>
 

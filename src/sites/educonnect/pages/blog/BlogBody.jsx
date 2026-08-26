@@ -9,7 +9,7 @@ const BlogBody = ({ body }) => {
             return (
               <h2
                 key={index}
-                className="text-xl font-semibold tracking-tight text-neutral-900 md:text-2xl"
+                className="text-xl font-semibold tracking-tight text-neutral-800 md:text-2xl"
               >
                 {block.text}
               </h2>
