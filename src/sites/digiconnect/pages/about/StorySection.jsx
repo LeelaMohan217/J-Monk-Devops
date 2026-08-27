@@ -20,7 +20,7 @@ const StorySection = () => {
             variants={fadeIn("up", 0)}
             className="order-2 lg:order-1"
           >
-            <div className="aspect-[3/2] w-full overflow-hidden rounded-sm">
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-sm">
               <img
                 src={story.image}
                 alt=""
