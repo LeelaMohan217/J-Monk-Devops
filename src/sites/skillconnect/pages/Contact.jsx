@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ContactForm from "../../../shared/components/ContactForm";
-import { riseIn } from "../../../shared/variants";
-import { STEP, centerTrigger } from "../../../shared/motionConfig";
+import { fadeIn } from "../../../shared/variants";
+import { centerTrigger, groupContainer } from "../../../shared/motionConfig";
 import { ACCENT_CLASS } from "../headingStyles";
 import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
+
+const CASCADE_STEP = 0.1;
 
 const fields = [
   {
@@ -94,42 +96,53 @@ const SkillConnectContact = () => {
     <main className="bg-surface">
       <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
         <motion.div
-          variants={riseIn()}
+          variants={groupContainer}
           initial="hidden"
           animate="show"
           className="mx-auto max-w-7xl px-6 md:px-8"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+          <motion.span
+            variants={fadeIn("up", 0.05)}
+            className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+          >
             Contact
-          </span>
-          <h1
+          </motion.span>
+          <motion.h1
+            variants={fadeIn("up", 0.15)}
             className={`mt-4 max-w-3xl font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
           >
             Tell us what you&apos;re{" "}
             <span className={ACCENT_CLASS}>trying to learn.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg">
+          </motion.h1>
+          <motion.p
+            variants={fadeIn("up", 0.3)}
+            className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
+          >
             This reaches the SkillConnect team directly. The people running the
             projects and the mentorship, not a general enquiries desk.
-          </p>
+          </motion.p>
         </motion.div>
       </section>
 
       <section className="bg-surface pb-24 md:pb-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
           <motion.div
-            variants={riseIn(0.05)}
+            variants={groupContainer}
             {...centerTrigger}
             className="lg:col-span-4"
           >
-            <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+            <motion.h2
+              variants={fadeIn("up", 0 * CASCADE_STEP)}
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
+            >
               Reach out if
-            </h2>
+            </motion.h2>
 
             <div className="mt-8 border-t border-neutral-200">
-              {reasons.map((reason) => (
-                <div
+              {reasons.map((reason, index) => (
+                <motion.div
                   key={reason.title}
+                  variants={fadeIn("up", (1 + index) * CASCADE_STEP)}
                   className="border-b border-neutral-200 py-6"
                 >
                   <h3 className="text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
@@ -138,13 +151,13 @@ const SkillConnectContact = () => {
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">
                     {reason.body}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           <motion.div
-            variants={riseIn(STEP)}
+            variants={fadeIn("up", 0.1)}
             {...centerTrigger}
             className="lg:col-span-7 lg:col-start-6"
           >
