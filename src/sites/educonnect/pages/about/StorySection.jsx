@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Compass, UserCheck } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import {
   STEP,
@@ -8,6 +9,29 @@ import {
 import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { story } from "./data";
 import storyImg from "../../assets/educonnect-about.webp";
+
+const storyIcons = [Compass, UserCheck];
+
+const StoryCard = ({ card, Icon, ...motionProps }) => (
+  <motion.div
+    {...motionProps}
+    className="group flex flex-col justify-between rounded-2xl bg-red-50 p-8 md:p-9"
+  >
+    <div>
+      <div className="flex h-10 w-10 items-center justify-start text-red-600 transition-colors duration-500 group-hover:text-black">
+        <Icon size={22} strokeWidth={1.7} aria-hidden="true" />
+      </div>
+
+      <h3 className="text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
+        {card.term}
+      </h3>
+    </div>
+
+    <p className="mt-10 text-sm leading-relaxed text-neutral-700 md:text-base">
+      {card.detail}
+    </p>
+  </motion.div>
+);
 
 const StorySection = () => {
   const isDesktop = useIsDesktop();
@@ -52,14 +76,7 @@ const StorySection = () => {
           {...rowProps}
           className="mt-12 grid gap-6 md:mt-16 lg:grid-cols-3"
         >
-          <motion.div
-            {...cardMotion(0)}
-            className="flex flex-col justify-center rounded-2xl bg-red-50 p-8 md:p-9"
-          >
-            <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
-              {story.paragraphs[0]}
-            </p>
-          </motion.div>
+          <StoryCard card={story.cards[0]} Icon={storyIcons[0]} {...cardMotion(0)} />
 
           <motion.div
             {...cardMotion(1)}
@@ -76,14 +93,7 @@ const StorySection = () => {
             />
           </motion.div>
 
-          <motion.div
-            {...cardMotion(2)}
-            className="flex flex-col justify-center rounded-2xl bg-red-50 p-8 md:p-9"
-          >
-            <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
-              {story.paragraphs[1]}
-            </p>
-          </motion.div>
+          <StoryCard card={story.cards[1]} Icon={storyIcons[1]} {...cardMotion(2)} />
         </RowTag>
       </div>
     </section>

@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowUpRight, Zap } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
+import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import {
   STEP,
   centerTrigger,
@@ -7,10 +10,6 @@ import {
 } from "../../../../shared/motionConfig";
 import { values } from "./data";
 
-const GLOW_FROM_TOP_LEFT =
-  "bg-radial-[at_0%_0%] from-red-100 via-red-50 to-surface to-60%";
-const GLOW_FROM_TOP_RIGHT =
-  "bg-radial-[at_100%_0%] from-red-100 via-red-50 to-surface to-60%";
 const ValuesSection = () => {
   return (
     <section className="bg-surface py-16 md:py-24">
@@ -38,7 +37,7 @@ const ValuesSection = () => {
           </motion.h2>
         </motion.div>
 
-        <dl className="mt-12 grid gap-6 md:mt-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 md:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           {values.items.map((item, index) => (
             <motion.div
               key={item.term}
@@ -46,19 +45,46 @@ const ValuesSection = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}
-              className={`flex flex-col rounded-2xl border border-red-100 p-6 md:p-7 ${
-                index % 2 === 0 ? GLOW_FROM_TOP_LEFT : GLOW_FROM_TOP_RIGHT
-              }`}
+              className="group flex min-h-[340px] flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-6 md:p-8"
             >
-              <dt className="text-base font-medium tracking-tight text-neutral-800 md:text-lg">
-                {item.term}
-              </dt>
-              <dd className="mt-3 text-sm leading-relaxed text-neutral-600">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-start text-red-600 transition-colors duration-500 group-hover:text-black">
+                  <Zap
+                    size={22}
+                    strokeWidth={1.7}
+                    className="fill-transparent transition-colors duration-500 group-hover:fill-current"
+                    aria-hidden="true"
+                  />
+                </div>
+
+                <h3 className="text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
+                  {item.term}
+                </h3>
+              </div>
+
+              <p className="mt-10 text-sm leading-relaxed text-neutral-600">
                 {item.detail}
-              </dd>
+              </p>
             </motion.div>
           ))}
-        </dl>
+        </div>
+
+        <motion.div
+          variants={fadeIn("up", 0)}
+          {...centerTrigger}
+          className="mt-12 flex justify-center"
+        >
+          <Link
+            to="/educonnect/services"
+            className="group relative inline-flex w-fit items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+          >
+            <GlazeSweep className="bg-white/30" />
+            Explore Services
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

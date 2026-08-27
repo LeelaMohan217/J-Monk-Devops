@@ -3,16 +3,24 @@ export const pageHeader = {
   eyebrow: "About",
   headingLead: "One counsellor, ",
   headingAccent: "the whole way through.",
-  lead: "We're a small study abroad team in Guntur, Andhra Pradesh, part of JMonkDevops. When you come to us, one of us takes your case and stays on it until you've landed.",
+  lead: "We're a small study abroad team. One counsellor takes your case and stays with it until you've landed.",
 };
 
 export const story = {
   eyebrow: "Why we started",
   headingLead: "Most students were guessing. ",
   headingAccent: "We wanted to fix that.",
-  paragraphs: [
-    "People were picking universities off ranking lists and WhatsApp forwards, then committing lakhs to the choice. Nobody sat down with them first to explain what they were giving up by choosing one place over another.",
-    "So the setup here is plain. One counsellor per student. They read your marks, tell you which countries are realistic, help you get the application together, and pick up the phone when the visa interview goes badly.",
+  cards: [
+    {
+      term: "Guesswork, not guidance",
+      detail:
+        "People were picking universities off ranking lists and WhatsApp forwards, then committing lakhs to the choice. Nobody sat down with them first to explain what they were giving up by choosing one place over another.",
+    },
+    {
+      term: "One counsellor per student",
+      detail:
+        "So the setup here is plain. One counsellor per student. They read your marks, tell you which countries are realistic, help you get the application together, and pick up the phone when the visa interview goes badly.",
+    },
   ],
 };
 
