@@ -19,6 +19,16 @@ const Blog = () => {
 
       <section className="bg-surface pb-16 md:pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <motion.h2
+            variants={fadeIn("up", 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.6 }}
+            className="mb-8 text-2xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-3xl md:mb-10"
+          >
+            Read more blogs
+          </motion.h2>
+
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {blogPosts.map((post, index) => (
               <motion.li
