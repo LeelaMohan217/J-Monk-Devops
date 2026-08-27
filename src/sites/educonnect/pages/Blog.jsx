@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { riseIn } from "../../../shared/variants";
+import { fadeIn } from "../../../shared/variants";
 import { blogPosts } from "../blogPosts";
 import PageHeaderSection from "./blog/PageHeaderSection";
 import PostImage from "./blog/PostImage";
@@ -23,7 +23,7 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <motion.li
                 key={post.slug}
-                variants={riseIn(index * 0.06)}
+                variants={fadeIn("up", index * 0.06)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}

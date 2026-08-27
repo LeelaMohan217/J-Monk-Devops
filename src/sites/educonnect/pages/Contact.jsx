@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import ContactForm from "../../../shared/components/ContactForm";
-import { fadeIn, riseIn } from "../../../shared/variants";
+import { fadeIn } from "../../../shared/variants";
+import { groupContainer } from "../../../shared/motionConfig";
 import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
+
+const CASCADE_STEP = 0.1;
 
 const fields = [
   {
@@ -141,20 +144,24 @@ const EduConnectContact = () => {
       <section className="bg-surface pb-16 md:pb-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
           <motion.div
-            variants={riseIn(0.05)}
+            variants={groupContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
             className="lg:col-span-4"
           >
-            <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+            <motion.h2
+              variants={fadeIn("up", 0 * CASCADE_STEP)}
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
+            >
               What we help with
-            </h2>
+            </motion.h2>
 
             <ol className="mt-8 border-t border-neutral-200">
-              {stages.map((stage) => (
-                <li
+              {stages.map((stage, index) => (
+                <motion.li
                   key={stage.step}
+                  variants={fadeIn("up", (1 + index) * CASCADE_STEP)}
                   className="border-b border-neutral-200 py-6"
                 >
                   <span
@@ -169,18 +176,21 @@ const EduConnectContact = () => {
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">
                     {stage.body}
                   </p>
-                </li>
+                </motion.li>
               ))}
             </ol>
 
-            <p className="mt-8 text-sm leading-relaxed text-neutral-500">
+            <motion.p
+              variants={fadeIn("up", (1 + stages.length) * CASCADE_STEP)}
+              className="mt-8 text-sm leading-relaxed text-neutral-500"
+            >
               Wherever you are in that list, start there. You don&apos;t need
               anything prepared to get in touch.
-            </p>
+            </motion.p>
           </motion.div>
 
           <motion.div
-            variants={riseIn(0.1)}
+            variants={fadeIn("up", 0.1)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}

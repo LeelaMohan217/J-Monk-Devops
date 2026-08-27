@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import {
   STEP,
   centerTrigger,
@@ -21,14 +21,14 @@ const ValuesSection = () => {
           className="mx-auto max-w-2xl text-center"
         >
           <motion.span
-            variants={riseIn(0)}
+            variants={fadeIn("up", 0)}
             className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
           >
             {values.eyebrow}
           </motion.span>
 
           <motion.h2
-            variants={riseIn(STEP)}
+            variants={fadeIn("up", STEP)}
             className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
           >
             {values.headingLead}
@@ -42,7 +42,7 @@ const ValuesSection = () => {
           {values.items.map((item, index) => (
             <motion.div
               key={item.term}
-              variants={riseIn(Math.min(index, 3) * 0.06)}
+              variants={fadeIn("up", Math.min(index, 3) * 0.06)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}

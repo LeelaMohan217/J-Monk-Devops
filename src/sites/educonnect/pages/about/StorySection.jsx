@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import {
   STEP,
   centerTrigger,
@@ -18,7 +18,7 @@ const StorySection = () => {
     : {};
 
   const cardMotion = (index) => ({
-    variants: riseIn(isDesktop ? index * STEP : 0),
+    variants: fadeIn("up", isDesktop ? index * STEP : 0),
     ...(isDesktop ? {} : centerTrigger),
   });
 
@@ -31,14 +31,14 @@ const StorySection = () => {
           className="mx-auto max-w-2xl text-center"
         >
           <motion.span
-            variants={riseIn(0)}
+            variants={fadeIn("up", 0)}
             className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
           >
             {story.eyebrow}
           </motion.span>
 
           <motion.h2
-            variants={riseIn(STEP)}
+            variants={fadeIn("up", STEP)}
             className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
           >
             {story.headingLead}

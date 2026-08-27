@@ -7,7 +7,7 @@ import {
   Stamp,
   UserSearch,
 } from "lucide-react";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import { services } from "./data";
 
 const icons = {
@@ -32,7 +32,7 @@ const ServicesListSection = () => {
             return (
               <motion.li
                 key={service.id}
-                variants={riseIn(index * 0.06)}
+                variants={fadeIn("up", index * 0.06)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}

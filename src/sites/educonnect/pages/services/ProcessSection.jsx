@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
+import { groupContainer } from "../../../../shared/motionConfig";
 import { process } from "./data";
 
 const ProcessSection = () => {
@@ -7,29 +8,35 @@ const ProcessSection = () => {
     <section className="bg-stone-50 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
-          variants={riseIn()}
+          variants={groupContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
+          <motion.span
+            variants={fadeIn("up", 0)}
+            className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
+          >
             {process.eyebrow}
-          </span>
+          </motion.span>
 
-          <h2 className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
+          <motion.h2
+            variants={fadeIn("up", 0.1)}
+            className="mt-5 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
+          >
             {process.headingLead}
             <span className="font-['Playfair_Display',serif] text-red-600 italic">
               {process.headingAccent}
             </span>
-          </h2>
+          </motion.h2>
         </motion.div>
 
         <ol className="mt-14 grid gap-6 md:mt-20 md:grid-cols-3">
           {process.steps.map((step, index) => (
             <motion.li
               key={step.title}
-              variants={riseIn(index * 0.08)}
+              variants={fadeIn("up", index * 0.08)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}
