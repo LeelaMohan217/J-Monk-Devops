@@ -44,7 +44,7 @@ const PageHeaderSection = () => {
             </motion.h1>
           </div>
 
-          <div className="flex flex-col items-end gap-6 text-right">
+          <div className="flex flex-col items-start gap-6 text-left lg:items-end lg:text-right">
             <motion.p
               variants={fadeIn("up", 0.3)}
               initial="hidden"
