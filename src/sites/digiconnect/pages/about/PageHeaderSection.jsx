@@ -1,12 +1,15 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
+import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import heroBg from "../../assets/digiconnect-about-hero.webp";
 
 const PageHeaderSection = () => {
   return (
-    <section className="relative flex min-h-[60vh] w-full items-end overflow-hidden pt-28 pb-16 md:min-h-screen md:items-center md:pt-32 md:pb-24">
+    <section className="relative flex min-h-[60vh] w-full items-end overflow-hidden pt-28 pb-8 md:min-h-screen md:pt-32 md:pb-12">
       <img
         src={heroBg}
         alt=""
@@ -19,34 +22,55 @@ const PageHeaderSection = () => {
       />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 md:px-8">
-        <div className="flex flex-col items-start gap-6 text-left">
-          <motion.span
-            variants={fadeIn("up", 0.05)}
-            initial="hidden"
-            animate="show"
-            className="text-xs font-medium uppercase tracking-[0.2em] text-white/70"
-          >
-            {pageHeader.eyebrow}
-          </motion.span>
+        <div className="grid gap-10 text-left lg:grid-cols-2 lg:items-end lg:gap-16">
+          <div className="flex flex-col items-start gap-6">
+            <motion.span
+              variants={fadeIn("up", 0.05)}
+              initial="hidden"
+              animate="show"
+              className="text-xs font-medium uppercase tracking-[0.2em] text-white/70"
+            >
+              {pageHeader.eyebrow}
+            </motion.span>
 
-          <motion.h1
-            variants={fadeIn("up", 0.15)}
-            initial="hidden"
-            animate="show"
-            className={`max-w-3xl font-semibold text-white ${PAGE_HEADING_SIZE}`}
-          >
-            {pageHeader.headingLead}
-            {pageHeader.headingAccent}
-          </motion.h1>
+            <motion.h1
+              variants={fadeIn("up", 0.15)}
+              initial="hidden"
+              animate="show"
+              className={`max-w-3xl font-semibold text-white ${PAGE_HEADING_SIZE}`}
+            >
+              {pageHeader.headingLead}
+              {pageHeader.headingAccent}
+            </motion.h1>
+          </div>
 
-          <motion.p
-            variants={fadeIn("up", 0.3)}
-            initial="hidden"
-            animate="show"
-            className="max-w-2xl text-base leading-relaxed text-white/80"
-          >
-            {pageHeader.lead}
-          </motion.p>
+          <div className="flex flex-col items-end gap-6 text-right">
+            <motion.p
+              variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              animate="show"
+              className="max-w-md text-base leading-relaxed text-white/80"
+            >
+              {pageHeader.lead}
+            </motion.p>
+
+            <motion.div
+              variants={fadeIn("up", 0.45)}
+              initial="hidden"
+              animate="show"
+            >
+              <Link
+                to="/digiconnect/services"
+                className="group relative inline-flex w-fit items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <GlazeSweep className="bg-white/30" />
+                Explore Services
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
