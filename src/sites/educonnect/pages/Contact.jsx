@@ -1,11 +1,19 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import ContactForm from "../../../shared/components/ContactForm";
 import { fadeIn } from "../../../shared/variants";
-import { groupContainer } from "../../../shared/motionConfig";
+// The stage list is a tall stack, so each item reveals on its own trigger.
+// An element-relative `amount` is used rather than the shared `centerTrigger`,
+// whose shortened observer root can leave the lowest items unrevealed when the
+// page has little scroll left below them.
+const stageReveal = {
+  initial: "hidden",
+  whileInView: "show",
+  viewport: { once: true, amount: 0.2 },
+};
 import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
-
-const CASCADE_STEP = 0.1;
 
 const fields = [
   {
@@ -97,6 +105,8 @@ const stages = [
 ];
 
 const EduConnectContact = () => {
+  const [openStage, setOpenStage] = useState(0);
+
   useDocumentMeta(
     "Contact | EduConnect",
     "This reaches the EduConnect team directly, the people who handle university selection, applications, and visas."
@@ -104,9 +114,9 @@ const EduConnectContact = () => {
 
   return (
     <main className="bg-surface">
-      <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
+      <section className="w-full bg-surface pt-28 pb-16 md:pt-32 md:pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="flex flex-col items-start gap-5 text-left">
+          <div className="flex flex-col items-center gap-6 text-center">
             <motion.span
               variants={fadeIn("up", 0.05)}
               initial="hidden"
@@ -120,7 +130,7 @@ const EduConnectContact = () => {
               variants={fadeIn("up", 0.15)}
               initial="hidden"
               animate="show"
-              className={`max-w-3xl font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
+              className={`max-w-3xl text-center font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
             >
               Let&apos;s map the{" "}
               <span className="font-['Playfair_Display',serif] text-red-600 italic">
@@ -132,7 +142,7 @@ const EduConnectContact = () => {
               variants={fadeIn("up", 0.3)}
               initial="hidden"
               animate="show"
-              className="max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base"
+              className="max-w-2xl text-center text-base leading-relaxed text-neutral-600"
             >
               This reaches the EduConnect team directly, the people who
               handle university selection, applications, and visas.
@@ -143,65 +153,92 @@ const EduConnectContact = () => {
 
       <section className="bg-surface pb-16 md:pb-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
-          <motion.div
-            variants={groupContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            className="lg:col-span-4"
-          >
+          <div className="lg:col-span-4">
             <motion.h2
-              variants={fadeIn("up", 0 * CASCADE_STEP)}
+              variants={fadeIn("up", 0)}
+              {...stageReveal}
               className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
             >
               What we help with
             </motion.h2>
 
             <ol className="mt-8 border-t border-neutral-200">
-              {stages.map((stage, index) => (
-                <motion.li
-                  key={stage.step}
-                  variants={fadeIn("up", (1 + index) * CASCADE_STEP)}
-                  className="border-b border-neutral-200 py-6"
-                >
-                  <span
-                    className="text-xs font-medium tabular-nums text-neutral-400"
-                    aria-hidden="true"
+              {stages.map((stage, index) => {
+                const isOpen = openStage === index;
+
+                return (
+                  <motion.li
+                    key={stage.step}
+                    variants={fadeIn("up", 0)}
+                    {...stageReveal}
+                    className="border-b border-neutral-200"
                   >
-                    {stage.step}
-                  </span>
-                  <h3 className="mt-3 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
-                    {stage.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                    {stage.body}
-                  </p>
-                </motion.li>
-              ))}
+                    <button
+                      type="button"
+                      onClick={() => setOpenStage(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-start justify-between gap-4 py-6 text-left"
+                    >
+                      <span>
+                        <span
+                          className="text-xs font-medium tabular-nums text-neutral-400"
+                          aria-hidden="true"
+                        >
+                          {stage.step}
+                        </span>
+                        <span className="mt-3 block text-base font-medium tracking-tight text-neutral-800 md:text-lg">
+                          {stage.title}
+                        </span>
+                      </span>
+
+                      <ChevronDown
+                        className={`mt-1 h-5 w-5 shrink-0 transition-[color,transform] duration-300 ${
+                          isOpen ? "rotate-180 text-red-600" : "text-neutral-400"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.3,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pb-6 text-sm leading-relaxed text-neutral-600">
+                            {stage.body}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.li>
+                );
+              })}
             </ol>
 
             <motion.p
-              variants={fadeIn("up", (1 + stages.length) * CASCADE_STEP)}
+              variants={fadeIn("up", 0)}
+              {...stageReveal}
               className="mt-8 text-sm leading-relaxed text-neutral-500"
             >
               Wherever you are in that list, start there. You don&apos;t need
               anything prepared to get in touch.
             </motion.p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={fadeIn("up", 0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="lg:col-span-7 lg:col-start-6"
-          >
+          <div className="lg:col-span-7 lg:col-start-6">
             <ContactForm
               idPrefix="educonnect-contact"
               fields={fields}
               submitLabel="Send to EduConnect"
             />
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>

@@ -1,7 +1,14 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { fadeIn } from "../variants";
+import { centerTrigger, groupContainer } from "../motionConfig";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// The fields sit close together in a two-column grid, so they share one
+// trigger and cascade. Kept short so the form is usable almost immediately.
+const FIELD_STEP = 0.06;
 
 const baseField =
   "w-full rounded-lg border bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 transition-colors duration-200 focus:outline-none";
@@ -67,8 +74,12 @@ const ContactForm = ({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
-      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
-        {fields.map((field) => {
+      <motion.div
+        variants={groupContainer}
+        {...centerTrigger}
+        className="grid gap-5 sm:grid-cols-2 sm:gap-6"
+      >
+        {fields.map((field, index) => {
           const id = `${idPrefix}-${field.name}`;
           const errorId = `${id}-error`;
           const hasError = Boolean(errors[field.name]);
@@ -79,8 +90,9 @@ const ContactForm = ({
           }`;
 
           return (
-            <div
+            <motion.div
               key={field.name}
+              variants={fadeIn("up", index * FIELD_STEP)}
               className={`flex flex-col gap-2 ${field.full ? "sm:col-span-2" : ""}`}
             >
               <label
@@ -154,12 +166,16 @@ const ContactForm = ({
                   {errors[field.name]}
                 </p>
               )}
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col gap-4 border-t border-neutral-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <motion.div
+        variants={fadeIn("up", fields.length * FIELD_STEP)}
+        {...centerTrigger}
+        className="flex flex-col gap-4 border-t border-neutral-200 pt-6 sm:flex-row sm:items-center sm:justify-between"
+      >
         <button
           type="submit"
           className="group inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
@@ -171,7 +187,7 @@ const ContactForm = ({
         <p className="text-xs text-neutral-500">
           <span className="text-neutral-400">*</span> Required
         </p>
-      </div>
+      </motion.div>
 
       <p
         role="status"

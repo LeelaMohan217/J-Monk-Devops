@@ -156,11 +156,7 @@ const SkillConnectContact = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            variants={fadeIn("up", 0.1)}
-            {...centerTrigger}
-            className="lg:col-span-7 lg:col-start-6"
-          >
+          <div className="lg:col-span-7 lg:col-start-6">
             <ContactForm
               idPrefix="skillconnect-contact"
               fields={fields}
@@ -172,7 +168,7 @@ const SkillConnectContact = () => {
                 />
               }
             />
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
