@@ -12,6 +12,20 @@ export const pageHeader = {
 export const statement = {
   eyebrow: "The Platform",
   body: "DigiConnect is an integrated digital platform built to bring strategy, design, technology, and data together, helping businesses create connected digital experiences that drive smarter decisions, faster execution, and meaningful growth.",
+  card: {
+    text: "We transform ideas into purposeful digital experiences through a combination of creative thinking, technical expertise, and strategic execution.",
+  },
+};
+
+export const servicesCta = {
+  headingLead: "Talk to the people who will actually ",
+  headingAccent: "build it",
+  checks: [
+    "Schedule a free consultation",
+    "Get a straight answer on scope and cost",
+    "Start with a plan, not a proposal deck",
+  ],
+  cta: { label: "Get Started", href: "/digiconnect/contact" },
 };
 
 export const offerings = [
