@@ -23,7 +23,7 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <motion.li
                 key={post.slug}
-                variants={riseIn(Math.min(index, 3) * 0.06)}
+                variants={riseIn(index * 0.06)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}

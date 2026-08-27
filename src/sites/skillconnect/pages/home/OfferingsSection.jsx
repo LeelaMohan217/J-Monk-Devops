@@ -65,7 +65,7 @@ const OfferingsSection = () => {
             return (
               <motion.div
                 key={item.id}
-                variants={fadeIn("up", Math.min(index, 3) * CASCADE_STEP)}
+                variants={fadeIn("up", index * CASCADE_STEP)}
                 {...centerTrigger}
                 className="group rounded-2xl border border-neutral-200 bg-surface p-6"
               >
