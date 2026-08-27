@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Laptop, BadgeIndianRupee, Shapes } from "lucide-react";
-import { riseIn } from "../../../../shared/variants";
-import { STEP, centerTrigger } from "../../../../shared/motionConfig";
+import { fadeIn } from "../../../../shared/variants";
+import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
 import { programs } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
@@ -11,6 +11,8 @@ const icons = {
   training: Shapes,
 };
 
+const CASCADE_STEP = 0.1;
+
 const ProgramsSection = () => {
   return (
     <section
@@ -19,22 +21,31 @@ const ProgramsSection = () => {
     >
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
-          variants={riseIn()}
+          variants={groupContainer}
           {...centerTrigger}
           className="grid gap-6 lg:grid-cols-12 lg:items-end"
         >
           <div className="lg:col-span-7">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600">
+            <motion.span
+              variants={fadeIn("up", 0 * CASCADE_STEP)}
+              className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+            >
               {programs.eyebrow}
-            </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl">
+            </motion.span>
+            <motion.h2
+              variants={fadeIn("up", 1 * CASCADE_STEP)}
+              className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
+            >
               {programs.headingLead}
               <span className={ACCENT_CLASS}>{programs.headingAccent}</span>
-            </h2>
+            </motion.h2>
           </div>
-          <p className="text-base leading-relaxed text-neutral-600 lg:col-span-4 lg:col-start-9">
+          <motion.p
+            variants={fadeIn("up", 2 * CASCADE_STEP)}
+            className="text-base leading-relaxed text-neutral-600 lg:col-span-4 lg:col-start-9"
+          >
             {programs.lead}
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
@@ -44,7 +55,7 @@ const ProgramsSection = () => {
             return (
               <motion.div
                 key={item.id}
-                variants={riseIn(Math.min(index, 3) * STEP)}
+                variants={fadeIn("up", index * CASCADE_STEP)}
                 {...centerTrigger}
                 className="group rounded-2xl border border-neutral-200 bg-surface p-6"
               >
