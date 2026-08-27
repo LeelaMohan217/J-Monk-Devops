@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
+import { Lightbulb } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { STEP, centerTrigger, groupContainer } from "../../../../shared/motionConfig";
 import { statement } from "./data";
 import statementImage01 from "../../assets/digiconnect-services-01.avif";
 import statementImage02 from "../../assets/digiconnect-services-02.avif";
-import statementImage03 from "../../assets/digiconnect-services-03.avif";
 
 const statementImages = [
-  { src: statementImage01, width: 740, height: 680 },
+  { src: statementImage01, width: 1088, height: 1004 },
   { src: statementImage02, width: 1000, height: 1080 },
-  { src: statementImage03, width: 1088, height: 1004 },
 ];
 
 const StatementSection = () => {
@@ -38,7 +37,7 @@ const StatementSection = () => {
       <motion.div
         variants={groupContainer}
         {...centerTrigger}
-        className="mt-12 grid w-full grid-cols-1 sm:grid-cols-3 md:mt-16"
+        className="mt-12 grid w-full grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3 md:mt-16"
       >
         {statementImages.map((image, index) => (
           <motion.div
@@ -57,6 +56,19 @@ const StatementSection = () => {
             />
           </motion.div>
         ))}
+
+        <motion.div
+          variants={fadeIn("up", statementImages.length * STEP)}
+          className="flex aspect-square flex-col justify-between bg-neutral-900 p-6 md:p-8"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-red-500">
+            <Lightbulb className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
+          </span>
+
+          <p className="text-sm leading-relaxed text-white/80 md:text-base">
+            {statement.card.text}
+          </p>
+        </motion.div>
       </motion.div>
     </section>
   );
