@@ -1,14 +1,14 @@
 import storyImage from "../../assets/why.webp";
 
 export const pageHeader = {
-  eyebrow: "Strategic growth insights",
+  eyebrow: "About Us",
   headingLead: "Discover new pathways to business ",
   headingAccent: "excellence.",
   lead: "Our team combines industry expertise with strategic insight to deliver solutions tailored to each client’s unique goals.",
 };
 
 export const story = {
-  eyebrow: "About Us",
+  eyebrow: "Strategic growth insights",
   headingLead: "Accelerate business performance through tailored ",
   headingAccent: "consulting solutions",
   image: storyImage,
