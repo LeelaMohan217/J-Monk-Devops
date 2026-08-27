@@ -44,14 +44,17 @@ const FAQSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="flex flex-col divide-y divide-neutral-200 border-t border-neutral-200">
+        <motion.div
+          variants={groupContainer}
+          {...centerTrigger}
+          className="flex flex-col divide-y divide-neutral-200 border-t border-neutral-200"
+        >
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <motion.div
                 key={faq.question}
-                variants={fadeIn("up", 0)}
-                {...centerTrigger}
+                variants={fadeIn("up", index * 0.08)}
               >
                 <button
                   type="button"
@@ -87,7 +90,7 @@ const FAQSection = () => {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
