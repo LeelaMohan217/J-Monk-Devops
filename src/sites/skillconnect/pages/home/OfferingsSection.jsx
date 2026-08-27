@@ -56,13 +56,15 @@ const OfferingsSection = () => {
                 key={item.id}
                 variants={riseIn(Math.min(index, 3) * STEP)}
                 {...centerTrigger}
-                className="rounded-2xl border border-neutral-200 bg-surface p-6"
+                className="group rounded-2xl border border-neutral-200 bg-surface p-6"
               >
-                <Icon
-                  className="h-6 w-6 text-red-600"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 transition-colors duration-500 group-hover:bg-neutral-900">
+                  <Icon
+                    className="h-5 w-5 text-red-600 transition-colors duration-500 group-hover:text-white"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                </div>
                 <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
                   {item.title}
                 </h3>
