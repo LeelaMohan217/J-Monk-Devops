@@ -100,15 +100,3 @@ export const tracks = {
     },
   ],
 };
-
-export const audience = {
-  eyebrow: "Who can join",
-  items: [
-    "Students",
-    "Freshers",
-    "Career Switchers",
-    "Freelancers",
-    "Tech Enthusiasts",
-    "Creators",
-  ],
-};
