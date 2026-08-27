@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import {
   STEP,
   centerTrigger,
@@ -17,7 +17,7 @@ const IMAGES = [counsellingWebp, selectionWebp, applicationWebp, visaWebp];
 
 const ServiceCard = ({ service, image, index, isDesktop }) => (
   <motion.li
-    variants={riseIn(isDesktop ? index * STEP : 0)}
+    variants={fadeIn("up", isDesktop ? index * STEP : 0)}
     {...(isDesktop ? {} : centerTrigger)}
     className="group flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface"
   >
@@ -64,14 +64,14 @@ const ServicesSection = () => {
           className="mx-auto flex max-w-2xl flex-col items-center text-center"
         >
           <motion.span
-            variants={riseIn(0)}
+            variants={fadeIn("up", 0)}
             className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
           >
             {services.eyebrow}
           </motion.span>
 
           <motion.h2
-            variants={riseIn(STEP)}
+            variants={fadeIn("up", STEP)}
             className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-800"
           >
             {services.headingLead}
@@ -81,7 +81,7 @@ const ServicesSection = () => {
           </motion.h2>
 
           <motion.p
-            variants={riseIn(STEP * 2)}
+            variants={fadeIn("up", STEP * 2)}
             className="mt-5 max-w-xl text-base leading-relaxed text-neutral-600"
           >
             {services.lead}
@@ -104,7 +104,7 @@ const ServicesSection = () => {
         </ListTag>
 
         <motion.div
-          variants={riseIn(0)}
+          variants={fadeIn("up", 0)}
           {...centerTrigger}
           className="mt-14 flex justify-center md:mt-16"
         >

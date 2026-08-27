@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import {
   STEP,
   centerTrigger,
@@ -25,14 +25,14 @@ const TestimonialsSection = () => {
           className="mx-auto max-w-2xl text-center"
         >
           <motion.span
-            variants={riseIn(0)}
+            variants={fadeIn("up", 0)}
             className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
           >
             {testimonials.eyebrow}
           </motion.span>
 
           <motion.h2
-            variants={riseIn(STEP)}
+            variants={fadeIn("up", STEP)}
             className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-800"
           >
             {testimonials.headingLead}
@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
           </motion.h2>
 
           <motion.p
-            variants={riseIn(STEP * 2)}
+            variants={fadeIn("up", STEP * 2)}
             className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-neutral-600"
           >
             {testimonials.lead}
@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
           {testimonials.items.map((item, index) => (
             <motion.figure
               key={item.name}
-              variants={riseIn(isDesktop ? index * STEP : 0)}
+              variants={fadeIn("up", isDesktop ? index * STEP : 0)}
               {...(isDesktop ? {} : centerTrigger)}
               className="mb-4 break-inside-avoid rounded-xl border border-neutral-200 bg-surface p-6"
             >

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { riseIn } from "../../../../shared/variants";
+import { fadeIn } from "../../../../shared/variants";
 import {
   STEP,
   centerTrigger,
@@ -21,14 +21,14 @@ const AboutIntroSection = () => {
             className="flex flex-col items-start lg:col-start-2 lg:row-start-1"
           >
             <motion.span
-              variants={riseIn(0)}
+              variants={fadeIn("up", 0)}
               className="inline-block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
             >
               {aboutIntro.eyebrow}
             </motion.span>
 
             <motion.h2
-              variants={riseIn(STEP)}
+              variants={fadeIn("up", STEP)}
               className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-neutral-800"
             >
               {aboutIntro.headingLead}
@@ -39,7 +39,7 @@ const AboutIntroSection = () => {
           </motion.div>
 
           <motion.div
-            variants={riseIn()}
+            variants={fadeIn("up", 0)}
             {...centerTrigger}
             className="relative lg:col-start-1 lg:row-start-1 lg:row-span-2"
           >
@@ -62,13 +62,13 @@ const AboutIntroSection = () => {
             className="flex flex-col items-start lg:col-start-2 lg:row-start-2"
           >
             <motion.p
-              variants={riseIn(0)}
+              variants={fadeIn("up", 0)}
               className="max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base"
             >
               {aboutIntro.paragraph}
             </motion.p>
 
-            <motion.div variants={riseIn(STEP)} className="mt-8 w-fit">
+            <motion.div variants={fadeIn("up", STEP)} className="mt-8 w-fit">
               <Link
                 to={aboutIntro.cta.href}
                 className="group inline-flex items-center gap-2 py-1 text-sm font-medium text-black underline-offset-4 hover:underline hover:decoration-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
