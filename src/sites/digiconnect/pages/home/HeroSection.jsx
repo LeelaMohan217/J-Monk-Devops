@@ -31,7 +31,7 @@ const HeroSection = () => {
               className={`max-w-xl font-semibold text-neutral-900 ${PAGE_HEADING_SIZE}`}
             >
               {hero.headingLead}
-              <span className={`${ACCENT_CLASS} whitespace-nowrap`}>{hero.headingAccent}</span>
+              <span className={ACCENT_CLASS}>{hero.headingAccent}</span>
             </motion.h1>
 
             <motion.p
@@ -80,6 +80,7 @@ const HeroSection = () => {
                 </Link>
               </motion.div>
             </div>
+
           </div>
 
           <motion.div
@@ -88,15 +89,43 @@ const HeroSection = () => {
             animate="show"
             className="lg:col-span-6"
           >
-            <div className="group overflow-hidden rounded-2xl border border-neutral-200">
-              <img
-                src={heroPhotoWebp}
-                alt="DigiConnect engineers reviewing a software project"
-                className="aspect-5/4 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                width="1000"
-                height="800"
-                decoding="async"
-              />
+            <div className="relative">
+              <div className="group overflow-hidden rounded-2xl border border-neutral-200">
+                <img
+                  src={heroPhotoWebp}
+                  alt="DigiConnect engineers reviewing a software project"
+                  className="aspect-5/4 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width="1000"
+                  height="800"
+                  decoding="async"
+                />
+              </div>
+
+              <motion.div
+                variants={fadeIn("up", 0.75)}
+                initial="hidden"
+                animate="show"
+                className="absolute bottom-4 left-4 flex flex-col gap-2 rounded-2xl border border-neutral-200 bg-surface/95 px-4 py-3 shadow-lg backdrop-blur-sm sm:bottom-6 sm:left-6"
+              >
+                <div className="flex items-center -space-x-2" aria-hidden="true">
+                  {hero.trust.avatars.map((avatar) => (
+                    <img
+                      key={avatar}
+                      src={avatar}
+                      alt=""
+                      width="144"
+                      height="144"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-9 w-9 rounded-full border-2 border-surface object-cover object-top"
+                    />
+                  ))}
+                </div>
+
+                <span className="text-xs text-neutral-600 sm:text-sm">
+                  {hero.trust.label} ({hero.trust.rating})
+                </span>
+              </motion.div>
             </div>
           </motion.div>
         </div>

@@ -1,12 +1,24 @@
 import whatWeDoImage from "../../assets/image2.webp";
+import clientOne from "../../assets/clients/client-01.webp";
+import clientTwo from "../../assets/clients/client-02.webp";
+import clientThree from "../../assets/clients/client-03.webp";
+import clientFour from "../../assets/clients/client-04.webp";
 
 export const hero = {
   eyebrow: "Connect. Automate. Scale.",
-  headingLead: "Software your business can ",
-  headingAccent: "actually run on.",
+  headingLead: "Proven strategies that drive transformation ",
+  headingAccent: "and deliver results",
   lead: "DigiConnect designs, builds, and maintains custom software, SaaS products, cloud infrastructure, and the integrations that hold them together. One team, from architecture through to production.",
   primaryCta: { label: "Start a project", href: "/digiconnect/contact" },
   secondaryCta: { label: "Explore More", href: "/digiconnect/services" },
+  // PLACEHOLDER: the client count, the rating, and the four portraits are all
+  // stand-ins. Replace the numbers and the images together, and point the
+  // rating at a real review source before this goes live.
+  trust: {
+    label: "Trusted by 50+ clients",
+    rating: "4.9/5",
+    avatars: [clientOne, clientTwo, clientThree, clientFour],
+  },
 };
 
 export const whatWeDo = {
