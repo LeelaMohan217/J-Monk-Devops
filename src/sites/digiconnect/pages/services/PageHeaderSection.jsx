@@ -3,20 +3,33 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { pageHeader } from "./data";
-import { ACCENT_CLASS } from "../../headingStyles";
 import { PAGE_HEADING_SIZE } from "../../../../shared/headingSizes";
 import GlazeSweep from "../../../../shared/components/GlazeSweep";
+import heroBg from "../../assets/digiconnect-services-hero.avif";
 
 const PageHeaderSection = () => {
   return (
-    <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24 lg:flex lg:h-screen lg:items-center lg:pt-32 lg:pb-24">
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-8">
+    <section className="relative w-full overflow-hidden bg-surface pt-32 pb-16 md:pt-40 md:pb-24 lg:flex lg:h-screen lg:items-center lg:pt-32 lg:pb-24">
+      <img
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        width="1124"
+        height="648"
+        className="absolute inset-x-0 top-16 bottom-0 h-[calc(100%-4rem)] w-full object-cover"
+      />
+      <div
+        className="absolute inset-x-0 top-16 bottom-0 bg-gradient-to-t from-neutral-900/85 via-neutral-900/60 to-neutral-900/40"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto w-full max-w-7xl px-6 md:px-8">
         <div className="flex flex-col items-center gap-6 text-center">
           <motion.span
             variants={fadeIn("up", 0.05)}
             initial="hidden"
             animate="show"
-            className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-white/70"
           >
             {pageHeader.eyebrow}
           </motion.span>
@@ -25,17 +38,17 @@ const PageHeaderSection = () => {
             variants={fadeIn("up", 0.15)}
             initial="hidden"
             animate="show"
-            className={`max-w-3xl font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
+            className={`max-w-3xl font-semibold text-white ${PAGE_HEADING_SIZE}`}
           >
             {pageHeader.headingLead}
-            <span className={ACCENT_CLASS}>{pageHeader.headingAccent}</span>
+            {pageHeader.headingAccent}
           </motion.h1>
 
           <motion.p
             variants={fadeIn("up", 0.3)}
             initial="hidden"
             animate="show"
-            className="max-w-2xl text-base leading-relaxed text-neutral-600"
+            className="max-w-2xl text-base leading-relaxed text-white/80"
           >
             {pageHeader.lead}
           </motion.p>
