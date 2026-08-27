@@ -8,6 +8,7 @@ import {
   groupContainer,
 } from "../../../../shared/motionConfig";
 import { aboutIntro } from "./data";
+import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import introImg from "../../assets/educonnect-intro.webp";
 
 const AboutIntroSection = () => {
@@ -71,8 +72,9 @@ const AboutIntroSection = () => {
             <motion.div variants={fadeIn("up", STEP)} className="mt-8 w-fit">
               <Link
                 to={aboutIntro.cta.href}
-                className="group inline-flex items-center gap-2 py-1 text-sm font-medium text-black underline-offset-4 hover:underline hover:decoration-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
+                <GlazeSweep className="bg-white/30" />
                 {aboutIntro.cta.label}
                 <ArrowRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"

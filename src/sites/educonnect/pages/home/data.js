@@ -38,7 +38,7 @@ export const aboutIntro = {
   headingAccent: "paperwork.",
   paragraph:
     "EduConnect started because too many students were piecing together advice from forums, agents with hidden commissions, and outdated university brochures. We built a practice around one counsellor staying with you from your first shortlist to the day you land, so nothing falls through the cracks between departments.",
-  cta: { label: "Know more about us", href: "/educonnect/about" },
+  cta: { label: "Know More", href: "/educonnect/about" },
   stat: { value: "98%", label: "Client satisfaction rate" },
 };
 
