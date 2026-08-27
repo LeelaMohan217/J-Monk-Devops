@@ -19,7 +19,7 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
   <motion.li
     variants={riseIn(isDesktop ? index * STEP : 0)}
     {...(isDesktop ? {} : centerTrigger)}
-    className="flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface"
+    className="group flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-surface"
   >
     <div className="aspect-square overflow-hidden border-b border-neutral-200">
       <img
@@ -27,7 +27,7 @@ const ServiceCard = ({ service, image, index, isDesktop }) => (
         alt=""
         width="800"
         height="1067"
-        className="h-full w-full object-cover object-top"
+        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
         decoding="async"
       />

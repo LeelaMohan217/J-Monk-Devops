@@ -51,34 +51,43 @@ const HeroSection = () => {
               {hero.lead}
             </motion.p>
 
-            <motion.div
-              variants={fadeIn("up", HERO_CTA_DELAY)}
-              initial="hidden"
-              animate="show"
-              className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
-            >
-              <Link
-                to={hero.primaryCta.href}
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            <div className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
+              <motion.div
+                variants={fadeIn("up", HERO_CTA_DELAY)}
+                initial="hidden"
+                animate="show"
+                className="w-full sm:w-auto"
               >
-                <GlazeSweep className="bg-white/30" />
-                {hero.primaryCta.label}
-                <ArrowRight
-                  className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
-              <Link
-                to={hero.secondaryCta.href}
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+                <Link
+                  to={hero.primaryCta.href}
+                  className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                >
+                  <GlazeSweep className="bg-white/30" />
+                  {hero.primaryCta.label}
+                  <ArrowRight
+                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </motion.div>
+              <motion.div
+                variants={fadeIn("up", HERO_CTA_DELAY + 0.15)}
+                initial="hidden"
+                animate="show"
+                className="w-full sm:w-auto"
               >
-                <GlazeSweep className="bg-white/30" />
-                {hero.secondaryCta.label}
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
-                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                </span>
-              </Link>
-            </motion.div>
+                <Link
+                  to={hero.secondaryCta.href}
+                  className="group relative flex w-full items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+                >
+                  <GlazeSweep className="bg-white/30" />
+                  {hero.secondaryCta.label}
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </span>
+                </Link>
+              </motion.div>
+            </div>
 
             <motion.div
               variants={groupContainer}
@@ -112,11 +121,11 @@ const HeroSection = () => {
             className="lg:col-span-6"
           >
             <div className="relative mb-8">
-              <div className="overflow-hidden rounded-2xl border border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-40px),calc(100%-40px)_100%,0_100%)]">
+              <div className="group overflow-hidden rounded-2xl border border-neutral-200 [clip-path:polygon(0_0,100%_0,100%_calc(100%-40px),calc(100%-40px)_100%,0_100%)]">
                 <img
                   src={heroPhotoWebp}
                   alt="Student holding university admission documents at the airport"
-                  className="aspect-4/3 w-full object-cover"
+                  className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   width="1536"
                   height="1024"
                   decoding="async"
