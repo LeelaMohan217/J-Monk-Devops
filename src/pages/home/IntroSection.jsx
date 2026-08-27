@@ -105,7 +105,6 @@ const IntroSection = () => {
                 <motion.div
                   key={item.title}
                   variants={fadeIn("up", (2 + index) * STEP)}
-                  {...centerTrigger}
                   className="flex items-start gap-4 border-b border-neutral-200 py-5 text-left"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-neutral-200 bg-white text-red-600">
