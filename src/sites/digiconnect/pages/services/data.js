@@ -1,8 +1,17 @@
 export const pageHeader = {
   eyebrow: "Services",
-  headingLead: "Everything DigiConnect builds and runs, ",
-  headingAccent: "in detail.",
-  lead: "The homepage covers this in a few lines. Here are the same six services with what each one actually includes.",
+  headingLead: "Services That Turn Digital ",
+  headingAccent: "Ideas Into Real Growth",
+  lead: "From strategy and design to development and digital solutions, DigiConnect helps businesses build meaningful digital experiences that perform, scale, and move them forward.",
+  cta: {
+    label: "Contact Us",
+    href: "/digiconnect/contact",
+  },
+};
+
+export const statement = {
+  eyebrow: "The Platform",
+  body: "DigiConnect is an integrated digital platform built to bring strategy, design, technology, and data together, helping businesses create connected digital experiences that drive smarter decisions, faster execution, and meaningful growth.",
 };
 
 export const offerings = [

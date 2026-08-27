@@ -1,4 +1,5 @@
 import PageHeaderSection from "./services/PageHeaderSection";
+import StatementSection from "./services/StatementSection";
 import OfferingsListSection from "./services/OfferingsListSection";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
@@ -11,6 +12,7 @@ const Services = () => {
   return (
     <>
       <PageHeaderSection />
+      <StatementSection />
       <OfferingsListSection />
     </>
   );
