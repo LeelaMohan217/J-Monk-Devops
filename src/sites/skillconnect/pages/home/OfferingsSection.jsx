@@ -72,14 +72,14 @@ const OfferingsSection = () => {
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 transition-colors duration-500 group-hover:bg-neutral-900">
                   <Icon
                     className="h-5 w-5 text-red-600 transition-colors duration-500 group-hover:text-white"
-                    strokeWidth={1.5}
+                    strokeWidth={1.75}
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="mt-5 text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
+                <h3 className="mt-2 min-h-[3.25rem] text-base font-medium tracking-tight text-neutral-800 md:min-h-[3.5rem] md:text-lg">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                <p className="mt-6 text-sm leading-relaxed text-neutral-600">
                   {item.description}
                 </p>
               </motion.div>
