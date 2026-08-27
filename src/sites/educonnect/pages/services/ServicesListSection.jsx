@@ -8,7 +8,12 @@ import {
   UserSearch,
 } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
-import { services } from "./data";
+import {
+  STEP,
+  centerTrigger,
+  groupContainer,
+} from "../../../../shared/motionConfig";
+import { services, statement } from "./data";
 
 const icons = {
   counselling: UserSearch,
@@ -21,13 +26,27 @@ const icons = {
 
 const ServicesListSection = () => {
   return (
-    <section className="bg-surface pb-16 md:pb-24">
+    <section className="bg-surface py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div variants={groupContainer} {...centerTrigger}>
+          <motion.span
+            variants={fadeIn("up", 0)}
+            className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
+          >
+            {statement.eyebrow}
+          </motion.span>
+
+          <motion.p
+            variants={fadeIn("up", STEP)}
+            className="mt-6 max-w-5xl text-2xl leading-[1.3] tracking-tight text-neutral-800 sm:text-3xl md:text-4xl"
+          >
+            {statement.body}
+          </motion.p>
+        </motion.div>
+
+        <ul className="mt-12 grid gap-6 md:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = icons[service.id];
-
-            const tinted = index % 2 === 1;
 
             return (
               <motion.li
@@ -36,23 +55,19 @@ const ServicesListSection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
-                className={`flex flex-col rounded-2xl border p-6 md:p-7 ${
-                  tinted
-                    ? "border-red-100 bg-red-50"
-                    : "border-neutral-200 bg-surface"
-                }`}
+                className="group flex min-h-[340px] flex-col justify-between rounded-sm border border-neutral-200 bg-surface p-6 transition-colors duration-500 hover:bg-stone-50 md:p-8"
               >
-                <Icon
-                  className="h-6 w-6 text-red-600"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
+                <div>
+                  <div className="flex h-10 w-10 items-center justify-start text-red-600 transition-colors duration-500 group-hover:text-black">
+                    <Icon size={22} strokeWidth={1.7} aria-hidden="true" />
+                  </div>
 
-                <h2 className="mt-5 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
-                  {service.name}
-                </h2>
+                  <h2 className="text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
+                    {service.name}
+                  </h2>
+                </div>
 
-                <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                <p className="mt-10 text-sm leading-relaxed text-neutral-600">
                   {service.description}
                 </p>
               </motion.li>

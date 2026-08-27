@@ -3,6 +3,12 @@ export const pageHeader = {
   headingLead: "End-to-end support for your ",
   headingAccent: "study abroad journey.",
   lead: "From your first shortlist to your first week abroad, here's where EduConnect helps.",
+  cta: { label: "Book a free consultation", href: "/educonnect/contact" },
+};
+
+export const statement = {
+  eyebrow: "How we help",
+  body: "EduConnect works one student at a time, from the first honest look at your marks to the week you land, so the shortlist, the application, and the visa are all handled by someone who knows your whole case.",
 };
 
 export const services = [
@@ -48,6 +54,8 @@ export const process = {
   eyebrow: "How It Works",
   headingLead: "Three stages, ",
   headingAccent: "one team throughout.",
+  imageOverlay:
+    "We guide you at every stage, offering personalised support and expert guidance from career planning to university selection and application.",
   steps: [
     {
       title: "Choosing where to apply",

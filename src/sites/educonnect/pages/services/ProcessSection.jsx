@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "../../../../shared/variants";
-import { groupContainer } from "../../../../shared/motionConfig";
+import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
 import { process } from "./data";
+import processImg from "../../assets/services/educonnect-how-we-work.avif";
 
 const ProcessSection = () => {
   return (
@@ -32,7 +33,32 @@ const ProcessSection = () => {
           </motion.h2>
         </motion.div>
 
-        <ol className="mt-14 grid gap-6 md:mt-20 md:grid-cols-3">
+        <motion.div
+          variants={fadeIn("up", 0)}
+          {...centerTrigger}
+          className="relative mt-12 overflow-hidden rounded-2xl md:mt-16"
+        >
+          <img
+            src={processImg}
+            alt=""
+            width="2400"
+            height="1484"
+            loading="lazy"
+            decoding="async"
+            className="aspect-[16/10] w-full object-cover object-center"
+          />
+
+          <div
+            className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-neutral-900/85 via-neutral-900/45 to-transparent"
+            aria-hidden="true"
+          />
+
+          <p className="absolute inset-x-0 bottom-0 max-w-3xl p-6 text-lg leading-snug tracking-tight text-white sm:text-xl md:p-10 md:text-2xl">
+            {process.imageOverlay}
+          </p>
+        </motion.div>
+
+        <ol className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
           {process.steps.map((step, index) => (
             <motion.li
               key={step.title}
@@ -40,16 +66,16 @@ const ProcessSection = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.4 }}
-              className="flex flex-col rounded-2xl border border-red-100 bg-radial-[at_0%_0%] from-red-100 via-red-50 to-surface to-60% p-6 md:p-7"
+              className="flex flex-col border-t border-neutral-200 pt-6 first:border-t-0 first:pt-0 md:border-t-0 md:border-l md:pt-0 md:pl-6 md:first:border-l-0 md:first:pl-0"
             >
               <span
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-red-100 bg-surface font-['IBM_Plex_Mono',monospace] text-sm font-semibold tabular-nums text-red-600"
+                className="font-['IBM_Plex_Mono',monospace] text-sm font-semibold tabular-nums text-red-600"
                 aria-hidden="true"
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
 
-              <h3 className="mt-5 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
+              <h3 className="mt-4 text-base font-medium tracking-tight text-neutral-800 md:text-lg">
                 {step.title}
               </h3>
 
