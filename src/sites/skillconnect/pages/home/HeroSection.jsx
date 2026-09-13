@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, User } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import { hero } from "./data";
@@ -88,15 +88,39 @@ const HeroSection = () => {
             animate="show"
             className="lg:col-span-6"
           >
-            <div className="group overflow-hidden rounded-2xl border border-neutral-200">
-              <img
-                src={heroPhotoWebp}
-                alt="SkillConnect learner working on a live project"
-                className="aspect-5/4 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                width="1000"
-                height="600"
-                decoding="async"
-              />
+            <div className="relative">
+              <div className="group overflow-hidden rounded-2xl border border-neutral-200">
+                <img
+                  src={heroPhotoWebp}
+                  alt="SkillConnect learner working on a live project"
+                  className="aspect-5/4 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width="1000"
+                  height="600"
+                  decoding="async"
+                />
+              </div>
+
+              <motion.div
+                variants={fadeIn("up", 0.75)}
+                initial="hidden"
+                animate="show"
+                className="absolute bottom-4 left-4 flex items-center gap-2 rounded-2xl border border-neutral-200 bg-surface/95 px-4 py-3 shadow-lg backdrop-blur-sm sm:bottom-6 sm:left-6"
+              >
+                <div className="flex items-center -space-x-2" aria-hidden="true">
+                  {[0, 1, 2].map((i) => (
+                    <span
+                      key={i}
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-surface bg-neutral-100"
+                    >
+                      <User className="h-4 w-4 text-neutral-400" strokeWidth={1.75} />
+                    </span>
+                  ))}
+                </div>
+
+                <span className="text-xs text-neutral-600 sm:text-sm">
+                  {hero.trust.label} ({hero.trust.rating})
+                </span>
+              </motion.div>
             </div>
           </motion.div>
         </div>

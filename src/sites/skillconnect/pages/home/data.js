@@ -6,6 +6,11 @@ export const hero = {
   lead: "A hands-on learning ecosystem where students, freshers, and career-switchers gain industry exposure, real-world experience, and career-building opportunities beyond traditional education.",
   primaryCta: { label: "Get in touch", href: "/skillconnect/contact" },
   secondaryCta: { label: "See the tracks", href: "/skillconnect/services" },
+  // PLACEHOLDER: the learner count and rating are stand-ins pending real numbers.
+  trust: {
+    label: "Trusted by 500+ learners",
+    rating: "4.8/5",
+  },
 };
 
 export const offerings = {
