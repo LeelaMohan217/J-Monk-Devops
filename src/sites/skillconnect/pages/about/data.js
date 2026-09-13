@@ -1,18 +1,18 @@
 
 export const pageHeader = {
   eyebrow: "About",
-  headingLead: "Built for people who want to be judged on ",
-  headingAccent: "what they have built.",
-  lead: "SkillConnect is the learning side of JMonkDevops, run out of Guntur, Andhra Pradesh. It exists so students and career-switchers can get onto real project work instead of collecting another certificate that says they might be able to do it.",
+  headingLead: "Skip the theory. ",
+  headingAccent: "Ship real work.",
+  lead: "SkillConnect gets students and career-switchers onto live client work, guided by the engineers who actually ship it, not another certificate to explain away in interviews.",
 };
 
 export const story = {
   eyebrow: "Why this exists",
   headingLead: "A certificate is a claim. ",
   headingAccent: "A shipped project is evidence.",
+  imageAlt: "A SkillConnect learner reviewing code with a mentor",
   paragraphs: [
-    "Most training ends with something you can put on a resume and nothing you can point at. That gap is the entire reason SkillConnect is a separate brand rather than a page on DigiConnect's site. The goal is not to teach a syllabus, it is to get you onto work that somebody is actually depending on.",
-    "SkillConnect sits alongside DigiConnect, which builds software for clients, and EduConnect, which guides students studying abroad. They are not three unrelated businesses. Somebody who has built something real is a stronger applicant abroad, and the same person often comes back looking for the engineering work. It is one path, not three.",
+    "Most training ends with something you can put on a resume and nothing you can point at. SkillConnect closes that gap by putting you on real client work, taught by the same engineers who build it, so what you finish with is something you can actually show.",
   ],
 };
 
@@ -22,16 +22,19 @@ export const values = {
   headingAccent: "before you apply.",
   items: [
     {
+      icon: "Users",
       term: "Taught by the people doing the work",
       detail:
         "The engineers who deliver DigiConnect's client projects run the internship, review the freelance work, and teach the training. There is no separate training department staffed by people who left the industry.",
     },
     {
+      icon: "Rocket",
       term: "Live projects, not sandbox exercises",
       detail:
         "Work put in front of you has a real deadline and a real person waiting on it. It is not a throwaway build designed to be graded and discarded.",
     },
     {
+      icon: "BadgeIndianRupee",
       term: "You can earn while you learn",
       detail:
         "The freelancing track pays for project work matched to what you already know. Getting experience and getting paid for it are not sequenced one after the other here.",
@@ -44,11 +47,29 @@ export const audience = {
   headingLead: "If you are one of these, ",
   headingAccent: "you are in scope.",
   items: [
-    "Students",
-    "Freshers",
-    "Career Switchers",
-    "Freelancers",
-    "Tech Enthusiasts",
-    "Creators",
+    {
+      title: "Students",
+      description: "Still in college, ready to build.",
+    },
+    {
+      title: "Freshers",
+      description: "Graduated, no experience yet.",
+    },
+    {
+      title: "Career Switchers",
+      description: "Changing fields, need proof of skill.",
+    },
+    {
+      title: "Freelancers",
+      description: "Already earning, want bigger work.",
+    },
+    {
+      title: "Tech Enthusiasts",
+      description: "Curious minds who love to build.",
+    },
+    {
+      title: "Creators",
+      description: "Makers looking for real projects.",
+    },
   ],
 };

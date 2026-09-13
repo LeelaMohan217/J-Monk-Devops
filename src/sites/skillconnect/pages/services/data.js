@@ -3,6 +3,7 @@ export const pageHeader = {
   headingLead: "Get on real project work, ",
   headingAccent: "not a simulation of it.",
   lead: "SkillConnect runs three tracks for people moving into software development: an internship placed on live client work, freelancing project work you take on directly, and training that gets you ready for either.",
+  cta: { label: "Get in touch", href: "/skillconnect/contact" },
 };
 
 export const programs = {
@@ -36,6 +37,9 @@ export const howItWorks = {
   eyebrow: "How it works",
   headingLead: "Run by the same team ",
   headingAccent: "that ships client work.",
+  imageOverlay:
+    "The engineers shipping client projects are the ones running the internship, reviewing the freelance work, and teaching the training.",
+  imageAlt: "SkillConnect engineers reviewing a project together",
   paragraphs: [
     "This is not a separate training department bolted onto the business. The same engineers who deliver DigiConnect's client projects run the internship, review the freelance work, and teach the training sessions.",
     "If you are not sure which track fits, say so when you reach out. We will point you to the right one.",

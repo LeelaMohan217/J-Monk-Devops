@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
+import GlazeSweep from "../../../../shared/components/GlazeSweep";
 import { tracks } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
@@ -87,6 +88,23 @@ const TracksSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          variants={fadeIn("up", 0)}
+          {...centerTrigger}
+          className="mt-12 flex md:mt-16"
+        >
+          <Link
+            to={tracks.cta.href}
+            className="group relative inline-flex w-fit items-center gap-2 overflow-hidden whitespace-nowrap rounded-full bg-neutral-900 py-3 pl-6 pr-1.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+          >
+            <GlazeSweep className="bg-white/30" />
+            {tracks.cta.label}
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

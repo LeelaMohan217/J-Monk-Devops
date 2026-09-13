@@ -1,3 +1,7 @@
+import memberOne from "../../assets/team/member-01.webp";
+import memberTwo from "../../assets/team/member-02.webp";
+import memberThree from "../../assets/team/member-03.webp";
+import memberFour from "../../assets/team/member-04.webp";
 
 export const hero = {
   eyebrow: "Learn. Build. Grow.",
@@ -6,6 +10,13 @@ export const hero = {
   lead: "A hands-on learning ecosystem where students, freshers, and career-switchers gain industry exposure, real-world experience, and career-building opportunities beyond traditional education.",
   primaryCta: { label: "Get in touch", href: "/skillconnect/contact" },
   secondaryCta: { label: "See the tracks", href: "/skillconnect/services" },
+  // PLACEHOLDER: the learner count, the rating, and the four portraits are all
+  // stand-ins. Replace the numbers and the images together before this goes live.
+  trust: {
+    label: "Learners on live projects",
+    rating: "4.9/5",
+    avatars: [memberOne, memberTwo, memberThree, memberFour],
+  },
 };
 
 export const offerings = {
@@ -13,6 +24,7 @@ export const offerings = {
   headingLead: "A practical path from learning to ",
   headingAccent: "career-ready.",
   lead: "Six things you get here that a course does not give you. The first one is the reason for the other five.",
+  cta: { label: "See the tracks", href: "/skillconnect/services" },
   items: [
     {
       id: "projects",
@@ -76,6 +88,7 @@ export const tracks = {
   headingLead: "Three ways in, depending on ",
   headingAccent: "what you can already do.",
   lead: "Most people start with training or the internship, then move to freelancing once they are ready to work independently.",
+  cta: { label: "Get in touch", href: "/skillconnect/contact" },
   items: [
     {
       id: "01",

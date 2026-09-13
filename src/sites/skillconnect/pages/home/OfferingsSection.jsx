@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
   Compass,
   FileText,
   Handshake,
@@ -9,6 +11,8 @@ import {
 } from "lucide-react";
 import { fadeIn } from "../../../../shared/variants";
 import { centerTrigger, groupContainer } from "../../../../shared/motionConfig";
+import GlazeSweep from "../../../../shared/components/GlazeSweep";
+import useIsDesktop from "../../../../shared/hooks/useIsDesktop";
 import { offerings } from "./data";
 import { ACCENT_CLASS } from "../../headingStyles";
 
@@ -24,6 +28,8 @@ const icons = {
 const CASCADE_STEP = 0.1;
 
 const OfferingsSection = () => {
+  const isDesktop = useIsDesktop();
+
   return (
     <section
       id="offerings"
@@ -33,59 +39,83 @@ const OfferingsSection = () => {
         <motion.div
           variants={groupContainer}
           {...centerTrigger}
-          className="grid gap-6 lg:grid-cols-12 lg:items-end"
+          className="mx-auto max-w-2xl text-center"
         >
-          <div className="lg:col-span-7">
-            <motion.span
-              variants={fadeIn("up", 0 * CASCADE_STEP)}
-              className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
-            >
-              {offerings.eyebrow}
-            </motion.span>
-            <motion.h2
-              variants={fadeIn("up", 1 * CASCADE_STEP)}
-              className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
-            >
-              {offerings.headingLead}
-              <span className={ACCENT_CLASS}>{offerings.headingAccent}</span>
-            </motion.h2>
-          </div>
+          <motion.span
+            variants={fadeIn("up", 0 * CASCADE_STEP)}
+            className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+          >
+            {offerings.eyebrow}
+          </motion.span>
+          <motion.h2
+            variants={fadeIn("up", 1 * CASCADE_STEP)}
+            className="mt-4 text-3xl font-semibold leading-[1.1] tracking-tight text-neutral-800 sm:text-4xl md:text-5xl"
+          >
+            {offerings.headingLead}
+            <span className={ACCENT_CLASS}>{offerings.headingAccent}</span>
+          </motion.h2>
           <motion.p
             variants={fadeIn("up", 2 * CASCADE_STEP)}
-            className="text-base leading-relaxed text-neutral-600 lg:col-span-4 lg:col-start-9"
+            className="mt-4 text-base leading-relaxed text-neutral-600"
           >
             {offerings.lead}
           </motion.p>
         </motion.div>
 
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          variants={groupContainer}
+          {...centerTrigger}
+          className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2 md:gap-6 lg:grid-cols-3"
+        >
           {offerings.items.map((item, index) => {
             const Icon = icons[item.id];
 
             return (
-              <motion.div
+              <motion.article
                 key={item.id}
                 variants={fadeIn("up", index * CASCADE_STEP)}
-                {...centerTrigger}
-                className="group rounded-2xl border border-neutral-200 bg-surface p-6"
+                {...(isDesktop ? {} : centerTrigger)}
+                className="group flex flex-col rounded-sm border border-neutral-200 bg-surface p-8 md:p-10"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 transition-colors duration-500 group-hover:bg-neutral-900">
-                  <Icon
-                    className="h-5 w-5 text-red-600 transition-colors duration-500 group-hover:text-white"
-                    strokeWidth={1.75}
-                    aria-hidden="true"
-                  />
+                <div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 transition-colors duration-500 group-hover:bg-neutral-900">
+                    <Icon
+                      className="h-5 w-5 text-red-600 transition-colors duration-500 group-hover:text-white"
+                      strokeWidth={1.75}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <h3 className="mt-2 min-h-[3.25rem] text-base font-medium tracking-tight text-neutral-800 md:min-h-[3.5rem] md:text-lg">
+                    {item.title}
+                  </h3>
                 </div>
-                <h3 className="mt-2 min-h-[3.25rem] text-base font-medium tracking-tight text-neutral-800 md:min-h-[3.5rem] md:text-lg">
-                  {item.title}
-                </h3>
+
                 <p className="mt-6 text-sm leading-relaxed text-neutral-600">
                   {item.description}
                 </p>
-              </motion.div>
+              </motion.article>
             );
           })}
-        </div>
+        </motion.div>
+
+        <motion.div
+          variants={fadeIn("up", 0)}
+          {...centerTrigger}
+          className="mt-10 flex justify-center md:mt-14"
+        >
+          <Link
+            to={offerings.cta.href}
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+          >
+            <GlazeSweep className="bg-white/30" />
+            {offerings.cta.label}
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

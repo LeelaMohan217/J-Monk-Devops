@@ -1,13 +1,19 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import ContactForm from "../../../shared/components/ContactForm";
 import { fadeIn } from "../../../shared/variants";
-import { centerTrigger, groupContainer } from "../../../shared/motionConfig";
 import { ACCENT_CLASS } from "../headingStyles";
 import { PAGE_HEADING_SIZE } from "../../../shared/headingSizes";
 import useDocumentMeta from "../../../shared/hooks/useDocumentMeta";
 
-const CASCADE_STEP = 0.1;
+// The reason list is a tall stack, so each item reveals on its own trigger with
+// an element-relative `amount` rather than the shared `centerTrigger`.
+const reasonReveal = {
+  initial: "hidden",
+  whileInView: "show",
+  viewport: { once: true, amount: 0.2 },
+};
 
 const fields = [
   {
@@ -73,20 +79,25 @@ const fields = [
 
 const reasons = [
   {
+    step: "01",
     title: "You want project experience",
     body: "You can follow a tutorial but have never shipped anything someone else depends on.",
   },
   {
+    step: "02",
     title: "You're changing direction",
     body: "You're moving into tech from somewhere else and need a route that respects the time you have.",
   },
   {
+    step: "03",
     title: "You want a mentor, not a playlist",
     body: "You'd rather have your work reviewed by someone doing the job than watch another course.",
   },
 ];
 
 const SkillConnectContact = () => {
+  const [openReason, setOpenReason] = useState(0);
+
   useDocumentMeta(
     "Contact | SkillConnect",
     "This reaches the SkillConnect team directly. The people running the projects and the mentorship, not a general enquiries desk."
@@ -94,67 +105,121 @@ const SkillConnectContact = () => {
 
   return (
     <main className="bg-surface">
-      <section className="w-full bg-surface pt-32 pb-16 md:pt-40 md:pb-24">
-        <motion.div
-          variants={groupContainer}
-          initial="hidden"
-          animate="show"
-          className="mx-auto max-w-7xl px-6 md:px-8"
-        >
-          <motion.span
-            variants={fadeIn("up", 0.05)}
-            className="block text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
-          >
-            Contact
-          </motion.span>
-          <motion.h1
-            variants={fadeIn("up", 0.15)}
-            className={`mt-4 max-w-3xl font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
-          >
-            Tell us what you&apos;re{" "}
-            <span className={ACCENT_CLASS}>trying to learn.</span>
-          </motion.h1>
-          <motion.p
-            variants={fadeIn("up", 0.3)}
-            className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg"
-          >
-            This reaches the SkillConnect team directly. The people running the
-            projects and the mentorship, not a general enquiries desk.
-          </motion.p>
-        </motion.div>
+      <section className="w-full bg-surface pt-28 pb-16 md:pt-32 md:pb-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <motion.span
+              variants={fadeIn("up", 0.05)}
+              initial="hidden"
+              animate="show"
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-600"
+            >
+              Contact
+            </motion.span>
+
+            <motion.h1
+              variants={fadeIn("up", 0.15)}
+              initial="hidden"
+              animate="show"
+              className={`max-w-3xl text-center font-semibold text-neutral-800 ${PAGE_HEADING_SIZE}`}
+            >
+              Tell us what you&apos;re{" "}
+              <span className={ACCENT_CLASS}>trying to learn.</span>
+            </motion.h1>
+
+            <motion.p
+              variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              animate="show"
+              className="max-w-2xl text-center text-base leading-relaxed text-neutral-600 md:text-lg"
+            >
+              This reaches the SkillConnect team directly. The people running the
+              projects and the mentorship, not a general enquiries desk.
+            </motion.p>
+          </div>
+        </div>
       </section>
 
       <section className="bg-surface pb-24 md:pb-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 md:px-8 lg:grid-cols-12 lg:gap-16">
-          <motion.div
-            variants={groupContainer}
-            {...centerTrigger}
-            className="lg:col-span-4"
-          >
+          <div className="lg:col-span-4">
             <motion.h2
-              variants={fadeIn("up", 0 * CASCADE_STEP)}
+              variants={fadeIn("up", 0)}
+              {...reasonReveal}
               className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
             >
               Reach out if
             </motion.h2>
 
-            <div className="mt-8 border-t border-neutral-200">
-              {reasons.map((reason, index) => (
-                <motion.div
-                  key={reason.title}
-                  variants={fadeIn("up", (1 + index) * CASCADE_STEP)}
-                  className="border-b border-neutral-200 py-6"
-                >
-                  <h3 className="text-lg font-medium tracking-tight text-neutral-800 md:text-xl">
-                    {reason.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                    {reason.body}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+            <ol className="mt-8 border-t border-neutral-200">
+              {reasons.map((reason, index) => {
+                const isOpen = openReason === index;
+
+                return (
+                  <motion.li
+                    key={reason.step}
+                    variants={fadeIn("up", 0)}
+                    {...reasonReveal}
+                    className="border-b border-neutral-200"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenReason(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-start justify-between gap-4 py-6 text-left"
+                    >
+                      <span>
+                        <span
+                          className="text-xs font-medium tabular-nums text-neutral-400"
+                          aria-hidden="true"
+                        >
+                          {reason.step}
+                        </span>
+                        <span className="mt-3 block text-base font-medium tracking-tight text-neutral-800 md:text-lg">
+                          {reason.title}
+                        </span>
+                      </span>
+
+                      <ChevronDown
+                        className={`mt-1 h-5 w-5 shrink-0 transition-[color,transform] duration-300 ${
+                          isOpen ? "rotate-180 text-red-600" : "text-neutral-400"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.3,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pb-6 text-sm leading-relaxed text-neutral-600">
+                            {reason.body}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.li>
+                );
+              })}
+            </ol>
+
+            <motion.p
+              variants={fadeIn("up", 0)}
+              {...reasonReveal}
+              className="mt-8 text-sm leading-relaxed text-neutral-500"
+            >
+              Wherever you are in that list, start there. You don&apos;t need a
+              portfolio or a finished course to get in touch.
+            </motion.p>
+          </div>
 
           <div className="lg:col-span-7 lg:col-start-6">
             <ContactForm
